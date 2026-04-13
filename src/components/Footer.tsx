@@ -2,6 +2,7 @@
 
 import Link from "next/link";
 import { ArrowUp, ArrowRight } from "lucide-react";
+import { LinkedInIcon, XIcon, GitHubIcon, YouTubeIcon } from "./ui/SocialIcons";
 import { siteConfig, footerLinks } from "@/lib/constants";
 
 export default function Footer() {
@@ -60,20 +61,25 @@ export default function Footer() {
             </p>
             <div className="flex items-center gap-3">
               {[
-                { label: "Li", name: "LinkedIn" },
-                { label: "X", name: "Twitter" },
-                { label: "Gh", name: "GitHub" },
-                { label: "Yt", name: "YouTube" },
-              ].map((social) => (
-                <a
-                  key={social.name}
-                  href="#"
-                  className="w-9 h-9 rounded-lg border border-card-dark-border flex items-center justify-center text-text-light-muted hover:text-accent hover:border-accent/40 transition-all duration-300 text-xs font-bold tracking-wide"
-                  aria-label={social.name}
-                >
-                  {social.label}
-                </a>
-              ))}
+                { icon: LinkedInIcon, href: "https://linkedin.com/company/prosysltd", name: "LinkedIn" },
+                { icon: XIcon, href: "https://x.com/prosysltd", name: "X (Twitter)" },
+                { icon: GitHubIcon, href: "https://github.com/prosysltd", name: "GitHub" },
+                { icon: YouTubeIcon, href: "https://youtube.com/@prosysltd", name: "YouTube" },
+              ].map((social) => {
+                const Icon = social.icon;
+                return (
+                  <a
+                    key={social.name}
+                    href={social.href}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="w-9 h-9 rounded-lg border border-card-dark-border flex items-center justify-center text-text-light-muted hover:text-accent hover:border-accent/40 transition-all duration-300"
+                    aria-label={`Follow on ${social.name}`}
+                  >
+                    <Icon size={16} />
+                  </a>
+                );
+              })}
             </div>
           </div>
 

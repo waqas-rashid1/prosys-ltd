@@ -1,6 +1,8 @@
 import type { Metadata } from "next";
 import { inter } from "@/lib/fonts";
 import StructuredData from "@/components/StructuredData";
+import StickyCTA from "@/components/StickyCTA";
+import CookieConsent from "@/components/CookieConsent";
 import "./globals.css";
 
 export const metadata: Metadata = {
@@ -89,7 +91,17 @@ export default function RootLayout({
         <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
         <meta name="theme-color" content="#0b1120" />
       </head>
-      <body className="min-h-full antialiased">{children}</body>
+      <body className="min-h-full antialiased">
+        <a
+          href="#main-content"
+          className="sr-only focus:not-sr-only focus:fixed focus:top-4 focus:left-4 focus:z-[100] focus:px-4 focus:py-2 focus:rounded-lg focus:bg-accent focus:text-dark-primary focus:text-sm focus:font-medium"
+        >
+          Skip to main content
+        </a>
+        {children}
+        <StickyCTA />
+        <CookieConsent />
+      </body>
     </html>
   );
 }

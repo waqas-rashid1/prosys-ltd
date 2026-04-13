@@ -23,7 +23,7 @@ const contactMethods = [
   {
     icon: Phone,
     label: "Phone",
-    value: "+92 316 000 0000",
+    value: "+92 300 123 4567",
     description: "Mon-Fri 9am to 6pm PKT",
   },
   {

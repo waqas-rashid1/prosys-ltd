@@ -90,7 +90,7 @@ export default function Services() {
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ delay: i * 0.06 }}
                 >
-                  <Link href="/services" className="block group">
+                  <Link href={`/services/${service.slug}`} className="block group">
                     <div className="flex gap-5 p-6 rounded-2xl border border-card-dark-border bg-card-dark/50 hover:border-accent/40 hover:bg-card-dark transition-all duration-500 h-full">
                       <div className="flex-shrink-0 w-14 h-14 rounded-xl bg-accent/10 text-accent flex items-center justify-center group-hover:bg-accent group-hover:text-dark-primary transition-all duration-300">
                         {Icon && <Icon size={26} />}

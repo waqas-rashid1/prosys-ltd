@@ -5,7 +5,7 @@ export const siteConfig = {
     "PROSYS LTD is a full-spectrum software development company specializing in AI development, SaaS platforms, MVP engineering, web and mobile applications, and growth-driven digital marketing.",
   url: "https://prosysltd.com",
   email: "hello@prosysltd.com",
-  phone: "+923160000000",
+  phone: "+923001234567",
   address: "Lahore, Pakistan",
   founded: "2024",
 };
@@ -23,60 +23,70 @@ export const navLinks = [
 export const services = [
   {
     icon: "Code2",
+    slug: "web-development",
     title: "Web Development",
     description:
       "High-performance websites and web applications built with Next.js, React, and modern frameworks — engineered for speed, scalability, and conversion.",
   },
   {
     icon: "Cpu",
+    slug: "software-development",
     title: "Software Development",
     description:
       "Enterprise-grade custom software solutions from architecture to deployment. We build systems that handle complexity and scale with your business.",
   },
   {
     icon: "BrainCircuit",
+    slug: "ai-development",
     title: "AI Development",
     description:
       "Custom AI/ML models, LLM integrations, intelligent chatbots, and AI-powered automation systems that give your business a competitive edge.",
   },
   {
     icon: "Rocket",
+    slug: "mvp-development",
     title: "MVP Development",
     description:
       "Validate your startup idea fast. We design, build, and ship investor-ready MVPs in weeks — not months — with lean, scalable architecture.",
   },
   {
     icon: "Cloud",
+    slug: "saas-development",
     title: "SaaS Development",
     description:
       "End-to-end SaaS platform engineering — multi-tenant architecture, billing systems, dashboards, APIs, and infrastructure built for recurring revenue.",
   },
   {
     icon: "Bot",
+    slug: "ai-automations",
     title: "AI Automations",
     description:
       "Automate repetitive workflows with AI agents, custom GPTs, n8n/Make integrations, and intelligent process automation that saves hours daily.",
   },
   {
     icon: "Search",
+    slug: "seo",
     title: "SEO",
     description:
       "Data-driven on-page and technical SEO that ranks. Site architecture, Core Web Vitals optimization, content strategy, and measurable organic growth.",
   },
   {
     icon: "Sparkles",
+    slug: "aieo",
     title: "AIEO",
     description:
       "AI Engine Optimization — we structure your digital presence to rank on ChatGPT, Gemini, Perplexity, and AI-powered search engines. The next frontier of visibility.",
   },
   {
     icon: "Megaphone",
+    slug: "digital-marketing",
     title: "Digital Marketing",
     description:
       "Full-funnel digital marketing: paid ads, social media strategy, email marketing, content marketing, and analytics-driven campaign optimization.",
   },
   {
     icon: "Palette",
+    slug: "graphics-branding",
     title: "Graphics & Branding",
     description:
       "Brand identity design, UI/UX design systems, pitch decks, social media assets, and visual storytelling that makes your brand unforgettable.",
@@ -292,7 +302,7 @@ export const footerLinks = {
   company: [
     { label: "About Us", href: "/about" },
     { label: "Our Work", href: "/work" },
-    { label: "Careers", href: "/about" },
+    { label: "Careers", href: "/careers" },
     { label: "Contact", href: "/contact" },
   ],
   services: [
@@ -307,5 +317,8 @@ export const footerLinks = {
     { label: "FAQ", href: "/faq" },
     { label: "Case Studies", href: "/work" },
     { label: "Privacy Policy", href: "/privacy" },
+    { label: "Terms & Conditions", href: "/terms" },
+    { label: "Cookie Policy", href: "/cookie-policy" },
+    { label: "Sitemap", href: "/sitemap.xml" },
   ],
 };
