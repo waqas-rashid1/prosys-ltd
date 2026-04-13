@@ -3,7 +3,7 @@
 import { useState, useEffect, useCallback } from "react";
 import Link from "next/link";
 import { motion, AnimatePresence } from "framer-motion";
-import { ChevronDown, ArrowRight } from "lucide-react";
+import { ChevronDown, ChevronLeft, ChevronRight, ArrowRight } from "lucide-react";
 
 const slides = [
   {
@@ -21,7 +21,7 @@ const slides = [
     highlight: "To Disrupt",
     description:
       "Custom AI models, intelligent automation, and LLM integrations that give your business an unfair advantage.",
-    cta: { label: "AI Services", href: "/services" },
+    cta: { label: "AI Services", href: "/services/ai-development" },
     ctaSecondary: { label: "See Our Work", href: "/work" },
   },
   {
@@ -30,7 +30,7 @@ const slides = [
     highlight: "Even on AI",
     description:
       "We optimize your digital presence for Google, ChatGPT, Gemini, Perplexity — the next frontier of visibility.",
-    cta: { label: "Learn About AIEO", href: "/services" },
+    cta: { label: "Learn About AIEO", href: "/services/aieo" },
     ctaSecondary: { label: "Get in Touch", href: "/contact" },
   },
 ];
@@ -39,8 +39,18 @@ export default function Hero() {
   const [current, setCurrent] = useState(0);
   const [isAutoPlaying, setIsAutoPlaying] = useState(true);
 
+  const goTo = useCallback((index: number) => {
+    setCurrent(index);
+    setIsAutoPlaying(false);
+  }, []);
+
+  const prev = useCallback(() => {
+    setCurrent((c) => (c - 1 + slides.length) % slides.length);
+    setIsAutoPlaying(false);
+  }, []);
+
   const next = useCallback(() => {
-    setCurrent((prev) => (prev + 1) % slides.length);
+    setCurrent((c) => (c + 1) % slides.length);
   }, []);
 
   useEffect(() => {
@@ -52,29 +62,50 @@ export default function Hero() {
   const slide = slides[current];
 
   return (
-    <section className="relative min-h-screen flex items-center justify-center overflow-hidden bg-dark-primary">
-      {/* Animated bg */}
-      <div className="absolute inset-0">
-        <div className="absolute top-1/4 left-1/6 w-[600px] h-[600px] rounded-full bg-accent/[0.04] blur-[150px] animate-pulse-glow" />
-        <div className="absolute bottom-1/3 right-1/6 w-[500px] h-[500px] rounded-full bg-cyan-500/[0.04] blur-[130px] animate-pulse-glow [animation-delay:2s]" />
-        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[900px] h-[900px] rounded-full bg-accent/[0.02] blur-[200px]" />
-        <div
-          className="absolute inset-0 opacity-[0.02]"
-          style={{
-            backgroundImage: `linear-gradient(var(--accent) 1px, transparent 1px), linear-gradient(90deg, var(--accent) 1px, transparent 1px)`,
-            backgroundSize: "80px 80px",
-          }}
-        />
-        <svg className="absolute inset-0 w-full h-full opacity-[0.012]" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-          <defs>
-            <pattern id="diag" width="40" height="40" patternUnits="userSpaceOnUse" patternTransform="rotate(45)">
-              <line x1="0" y1="0" x2="0" y2="40" stroke="var(--accent)" strokeWidth="0.5" />
-            </pattern>
-          </defs>
-          <rect width="100%" height="100%" fill="url(#diag)" />
-        </svg>
-        <div className="absolute inset-0" style={{ background: "radial-gradient(ellipse 70% 60% at 50% 50%, transparent 0%, var(--dark-primary) 100%)" }} />
+    <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
+      {/* Video Background */}
+      <div className="absolute inset-0 z-0">
+        <video
+          autoPlay
+          muted
+          loop
+          playsInline
+          preload="metadata"
+          className="absolute inset-0 w-full h-full object-cover"
+          poster="/videos/hero-poster.jpg"
+        >
+          <source src="/videos/hero.mp4" type="video/mp4" />
+        </video>
+
+        {/* Dark overlay for readability */}
+        <div className="absolute inset-0 bg-dark-primary/75" />
+
+        {/* Gradient overlays for depth */}
+        <div className="absolute inset-0 bg-gradient-to-b from-dark-primary/60 via-transparent to-dark-primary/90" />
+        <div className="absolute inset-0 bg-gradient-to-r from-dark-primary/40 to-transparent" />
       </div>
+
+      {/* Subtle animated elements on top of video */}
+      <div className="absolute inset-0 z-[1]">
+        <div className="absolute top-1/4 left-1/6 w-[500px] h-[500px] rounded-full bg-accent/[0.03] blur-[150px] animate-pulse-glow" />
+        <div className="absolute bottom-1/3 right-1/6 w-[400px] h-[400px] rounded-full bg-cyan-500/[0.03] blur-[130px] animate-pulse-glow [animation-delay:2s]" />
+      </div>
+
+      {/* Slide navigation arrows */}
+      <button
+        onClick={prev}
+        className="absolute left-4 md:left-8 top-1/2 -translate-y-1/2 z-20 w-12 h-12 rounded-full border border-white/10 bg-dark-primary/30 glass-effect flex items-center justify-center text-white/60 hover:text-white hover:border-white/30 transition-all duration-300 cursor-pointer"
+        aria-label="Previous slide"
+      >
+        <ChevronLeft size={22} />
+      </button>
+      <button
+        onClick={() => { next(); setIsAutoPlaying(false); }}
+        className="absolute right-4 md:right-8 top-1/2 -translate-y-1/2 z-20 w-12 h-12 rounded-full border border-white/10 bg-dark-primary/30 glass-effect flex items-center justify-center text-white/60 hover:text-white hover:border-white/30 transition-all duration-300 cursor-pointer"
+        aria-label="Next slide"
+      >
+        <ChevronRight size={22} />
+      </button>
 
       {/* Content */}
       <div className="relative z-10 max-w-6xl mx-auto px-6 text-center">
@@ -86,27 +117,23 @@ export default function Hero() {
             exit={{ opacity: 0, y: -20 }}
             transition={{ duration: 0.7, ease: [0.25, 0.1, 0.25, 1] }}
           >
-            {/* Badge */}
-            <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full border border-accent/20 bg-accent/5 mb-8">
+            <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full border border-white/15 bg-white/5 glass-effect mb-8">
               <span className="h-2 w-2 rounded-full bg-accent animate-pulse" />
               <span className="text-sm text-accent tracking-wide font-medium">
                 {slide.badge}
               </span>
             </div>
 
-            {/* Heading */}
-            <h1 className="font-heading text-[2.75rem] leading-[1.08] sm:text-5xl md:text-6xl lg:text-7xl xl:text-[5.5rem] font-bold tracking-wide mb-6">
+            <h1 className="font-heading text-[2.75rem] leading-[1.08] sm:text-5xl md:text-6xl lg:text-7xl xl:text-[5.5rem] font-bold tracking-wide mb-6 text-white">
               {slide.title}
               <br />
               <span className="gradient-text">{slide.highlight}</span>
             </h1>
 
-            {/* Description */}
-            <p className="max-w-2xl mx-auto text-base sm:text-lg md:text-xl text-text-light-muted mb-10 leading-relaxed">
+            <p className="max-w-2xl mx-auto text-base sm:text-lg md:text-xl text-white/70 mb-10 leading-relaxed">
               {slide.description}
             </p>
 
-            {/* CTAs */}
             <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
               <Link
                 href={slide.cta.href}
@@ -117,7 +144,7 @@ export default function Hero() {
               </Link>
               <Link
                 href={slide.ctaSecondary.href}
-                className="inline-flex items-center justify-center font-medium rounded-full transition-all duration-300 cursor-pointer border border-accent/40 text-accent hover:bg-accent/10 hover:border-accent px-9 py-4 text-base tracking-wide"
+                className="inline-flex items-center justify-center font-medium rounded-full transition-all duration-300 cursor-pointer border border-white/25 text-white hover:bg-white/10 hover:border-white/40 px-9 py-4 text-base tracking-wide"
               >
                 {slide.ctaSecondary.label}
               </Link>
@@ -130,14 +157,11 @@ export default function Hero() {
           {slides.map((_, i) => (
             <button
               key={i}
-              onClick={() => {
-                setCurrent(i);
-                setIsAutoPlaying(false);
-              }}
+              onClick={() => goTo(i)}
               className={`h-1.5 rounded-full transition-all duration-500 cursor-pointer ${
                 i === current
                   ? "w-10 bg-accent"
-                  : "w-4 bg-text-light-muted/20 hover:bg-text-light-muted/40"
+                  : "w-4 bg-white/20 hover:bg-white/40"
               }`}
               aria-label={`Go to slide ${i + 1}`}
             />
@@ -150,7 +174,7 @@ export default function Hero() {
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ delay: 1.5 }}
-        className="absolute bottom-8 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 text-text-light-muted"
+        className="absolute bottom-8 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 text-white/50 z-10"
       >
         <span className="text-[10px] tracking-[0.25em] uppercase">Scroll to Explore</span>
         <motion.div animate={{ y: [0, 6, 0] }} transition={{ duration: 1.5, repeat: Infinity }}>
