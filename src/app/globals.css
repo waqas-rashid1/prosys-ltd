@@ -19,8 +19,8 @@
 }
 
 :root {
-  --dark-primary: #0b1120;
-  --dark-secondary: #111827;
+  --dark-primary: #000000;
+  --dark-secondary: #0a0a0a;
   --light-primary: #f8fafc;
   --light-secondary: #ffffff;
 
@@ -33,8 +33,8 @@
   --text-dark: #0f172a;
   --text-dark-muted: #4b5563;
 
-  --card-dark: #1e293b;
-  --card-dark-border: #334155;
+  --card-dark: #141414;
+  --card-dark-border: #222222;
   --card-light: #ffffff;
   --card-light-border: #e2e8f0;
 }
@@ -118,6 +118,19 @@ body {
 
 .animate-marquee {
   animation: marquee 30s linear infinite;
+}
+
+@keyframes marquee-reverse {
+  0% {
+    transform: translateX(-50%);
+  }
+  100% {
+    transform: translateX(0);
+  }
+}
+
+.animate-marquee-reverse {
+  animation: marquee-reverse 35s linear infinite;
 }
 
 .font-heading {

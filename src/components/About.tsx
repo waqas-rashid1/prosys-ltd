@@ -1,7 +1,5 @@
 "use client";
 
-import { stats } from "@/lib/constants";
-import StatsCounter from "./ui/StatsCounter";
 import ScrollReveal from "./ui/ScrollReveal";
 import Button from "./ui/Button";
 
@@ -9,8 +7,7 @@ export default function About() {
   return (
     <section id="about" className="py-28 lg:py-36 bg-dark-secondary">
       <div className="max-w-[1400px] mx-auto px-6 lg:px-8">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center mb-20">
-          {/* Text */}
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
           <ScrollReveal>
             <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full border border-accent/20 bg-accent/5 mb-6">
               <span className="text-xs text-accent tracking-widest uppercase font-medium">
@@ -32,24 +29,19 @@ export default function About() {
               We don&apos;t just write code — we architect solutions. From
               AI-powered platforms to SaaS products to full-stack web
               applications, we handle the entire lifecycle: strategy, design,
-              development, deployment, and growth. SEO, AIEO, and digital
-              marketing included.
+              development, deployment, and growth.
             </p>
             <Button href="/contact" variant="outline">
               Work With Us
             </Button>
           </ScrollReveal>
 
-          {/* Visual element */}
           <ScrollReveal delay={0.2} direction="right">
             <div className="relative">
               <div className="aspect-square max-w-md mx-auto relative">
-                {/* Decorative rings */}
                 <div className="absolute inset-0 rounded-full border border-accent/10 animate-[spin_30s_linear_infinite]" />
                 <div className="absolute inset-8 rounded-full border border-accent/15 animate-[spin_25s_linear_infinite_reverse]" />
                 <div className="absolute inset-16 rounded-full border border-accent/20 animate-[spin_20s_linear_infinite]" />
-
-                {/* Center element */}
                 <div className="absolute inset-0 flex items-center justify-center">
                   <div className="w-32 h-32 rounded-2xl gradient-bg rotate-45 opacity-20 blur-sm" />
                   <div className="absolute w-24 h-24 rounded-2xl gradient-bg rotate-45 flex items-center justify-center">
@@ -58,13 +50,9 @@ export default function About() {
                     </span>
                   </div>
                 </div>
-
-                {/* Floating dots */}
                 <div className="absolute top-12 right-12 w-3 h-3 rounded-full bg-accent animate-float" />
                 <div className="absolute bottom-20 left-8 w-2 h-2 rounded-full bg-cyan-400 animate-float [animation-delay:1s]" />
                 <div className="absolute top-1/2 right-4 w-2.5 h-2.5 rounded-full bg-accent/60 animate-float [animation-delay:2s]" />
-
-                {/* Corner labels */}
                 <div className="absolute top-4 left-4 px-2 py-1 rounded bg-card-dark/80 border border-card-dark-border">
                   <span className="text-[10px] text-accent tracking-wider font-medium">AI</span>
                 </div>
@@ -81,20 +69,6 @@ export default function About() {
             </div>
           </ScrollReveal>
         </div>
-
-        {/* Stats */}
-        <ScrollReveal>
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-8 pt-12 border-t border-card-dark-border">
-            {stats.map((stat) => (
-              <StatsCounter
-                key={stat.label}
-                value={stat.value}
-                suffix={stat.suffix}
-                label={stat.label}
-              />
-            ))}
-          </div>
-        </ScrollReveal>
       </div>
     </section>
   );

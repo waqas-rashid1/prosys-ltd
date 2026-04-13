@@ -135,7 +135,7 @@ export default function Navbar() {
               })}
               <Link
                 href="/contact"
-                className="ml-4 inline-flex items-center justify-center font-medium rounded-full transition-all duration-300 cursor-pointer gradient-bg text-dark-primary hover:shadow-lg hover:shadow-accent/25 hover:scale-105 px-6 py-2.5 text-sm"
+                className="ml-4 inline-flex items-center justify-center font-medium rounded-xl transition-all duration-300 cursor-pointer gradient-bg text-dark-primary hover:shadow-lg hover:shadow-accent/25 hover:scale-105 px-6 py-2.5 text-sm"
               >
                 Get in Touch
               </Link>
@@ -246,7 +246,7 @@ export default function Navbar() {
               ))}
               <Link
                 href="/contact"
-                className="mt-4 inline-flex items-center justify-center font-medium rounded-full transition-all duration-300 cursor-pointer gradient-bg text-dark-primary hover:shadow-lg hover:shadow-accent/25 px-9 py-4 text-base tracking-wide"
+                className="mt-4 inline-flex items-center justify-center font-medium rounded-xl transition-all duration-300 cursor-pointer gradient-bg text-dark-primary hover:shadow-lg hover:shadow-accent/25 px-9 py-4 text-base tracking-wide"
               >
                 Get in Touch
               </Link>

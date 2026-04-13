@@ -117,7 +117,7 @@ export default function Hero() {
             exit={{ opacity: 0, y: -20 }}
             transition={{ duration: 0.7, ease: [0.25, 0.1, 0.25, 1] }}
           >
-            <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full border border-white/15 bg-white/5 glass-effect mb-8">
+            <div className="inline-flex items-center gap-2 px-4 py-2 rounded-xl border border-white/15 bg-white/5 glass-effect mb-8">
               <span className="h-2 w-2 rounded-full bg-accent animate-pulse" />
               <span className="text-sm text-accent tracking-wide font-medium">
                 {slide.badge}
@@ -137,14 +137,14 @@ export default function Hero() {
             <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
               <Link
                 href={slide.cta.href}
-                className="inline-flex items-center justify-center gap-2 font-medium rounded-full transition-all duration-300 cursor-pointer gradient-bg text-dark-primary hover:shadow-lg hover:shadow-accent/25 hover:scale-105 px-9 py-4 text-base tracking-wide"
+                className="inline-flex items-center justify-center gap-2 font-medium rounded-xl transition-all duration-300 cursor-pointer gradient-bg text-dark-primary hover:shadow-lg hover:shadow-accent/25 hover:scale-105 px-9 py-4 text-base tracking-wide"
               >
                 {slide.cta.label}
                 <ArrowRight size={16} />
               </Link>
               <Link
                 href={slide.ctaSecondary.href}
-                className="inline-flex items-center justify-center font-medium rounded-full transition-all duration-300 cursor-pointer border border-white/25 text-white hover:bg-white/10 hover:border-white/40 px-9 py-4 text-base tracking-wide"
+                className="inline-flex items-center justify-center font-medium rounded-xl transition-all duration-300 cursor-pointer border border-white/25 text-white hover:bg-white/10 hover:border-white/40 px-9 py-4 text-base tracking-wide"
               >
                 {slide.ctaSecondary.label}
               </Link>

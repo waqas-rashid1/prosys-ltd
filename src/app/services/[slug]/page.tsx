@@ -93,13 +93,13 @@ export default async function ServicePage({
                 <div className="flex flex-col sm:flex-row gap-4">
                   <Link
                     href="/contact"
-                    className="inline-flex items-center justify-center gap-2 font-medium rounded-full gradient-bg text-dark-primary hover:shadow-lg hover:shadow-accent/25 hover:scale-105 px-8 py-4 text-base tracking-wide transition-all duration-300"
+                    className="inline-flex items-center justify-center gap-2 font-medium rounded-xl gradient-bg text-dark-primary hover:shadow-lg hover:shadow-accent/25 hover:scale-105 px-8 py-4 text-base tracking-wide transition-all duration-300"
                   >
                     Get a Quote <ArrowRight size={16} />
                   </Link>
                   <Link
                     href="/work"
-                    className="inline-flex items-center justify-center font-medium rounded-full border border-accent/40 text-accent hover:bg-accent/10 hover:border-accent px-8 py-4 text-base tracking-wide transition-all duration-300"
+                    className="inline-flex items-center justify-center font-medium rounded-xl border border-accent/40 text-accent hover:bg-accent/10 hover:border-accent px-8 py-4 text-base tracking-wide transition-all duration-300"
                   >
                     See Our Work
                   </Link>

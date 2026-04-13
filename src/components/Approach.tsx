@@ -1,44 +1,39 @@
 "use client";
 
 import { approach } from "@/lib/constants";
-import SectionHeading from "./ui/SectionHeading";
 import ScrollReveal from "./ui/ScrollReveal";
 
 export default function Approach() {
   return (
-    <section id="approach" className="py-28 lg:py-36 bg-light-primary">
+    <section id="approach" className="py-28 lg:py-36 bg-dark-primary">
       <div className="max-w-[1400px] mx-auto px-6 lg:px-8">
-        <SectionHeading
-          title="Our Approach"
-          subtitle="A proven, agile methodology that ensures transparency, quality, and results at every stage."
-          light
-        />
+        <ScrollReveal>
+          <div className="text-center mb-16">
+            <h2 className="font-heading text-4xl md:text-5xl lg:text-6xl font-bold text-text-light tracking-wide mb-4">
+              How We Deliver
+            </h2>
+            <p className="text-text-light-muted text-lg max-w-2xl mx-auto">
+              A proven, agile methodology that ensures transparency, quality, and results at every stage.
+            </p>
+          </div>
+        </ScrollReveal>
 
-        <div className="max-w-3xl mx-auto">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5">
           {approach.map((item, i) => (
-            <ScrollReveal key={item.step} delay={i * 0.15}>
-              <div className="relative flex gap-6 md:gap-10 pb-12 last:pb-0 group">
-                {/* Timeline line */}
-                {i < approach.length - 1 && (
-                  <div className="absolute left-[27px] md:left-[35px] top-16 bottom-0 w-px bg-gradient-to-b from-accent/30 to-transparent" />
-                )}
+            <ScrollReveal key={item.step} delay={i * 0.1}>
+              <div className="group relative rounded-2xl border border-card-dark-border bg-card-dark p-7 hover:border-accent/50 hover:-translate-y-1 transition-all duration-500 h-full overflow-hidden">
+                {/* Accent top border */}
+                <div className="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-accent to-cyan-400 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
 
-                {/* Step number */}
-                <div className="flex-shrink-0 w-14 h-14 md:w-[70px] md:h-[70px] rounded-2xl border-2 border-accent/30 flex items-center justify-center group-hover:border-accent group-hover:bg-accent/10 transition-all duration-300">
-                  <span className="font-heading text-lg md:text-xl font-bold text-accent tracking-wider">
-                    {item.step}
-                  </span>
-                </div>
-
-                {/* Content */}
-                <div className="pt-1">
-                  <h3 className="font-heading text-xl md:text-2xl font-bold text-text-dark mb-3 tracking-wide">
-                    {item.title}
-                  </h3>
-                  <p className="text-text-dark-muted leading-relaxed">
-                    {item.description}
-                  </p>
-                </div>
+                <span className="font-heading text-5xl font-bold text-accent/10 group-hover:text-accent/20 transition-colors duration-500 block mb-4">
+                  //{item.step}
+                </span>
+                <h3 className="font-heading text-lg font-bold text-text-light tracking-wide mb-3 group-hover:text-accent transition-colors duration-300">
+                  {item.title}
+                </h3>
+                <p className="text-text-light-muted text-sm leading-relaxed">
+                  {item.description}
+                </p>
               </div>
             </ScrollReveal>
           ))}

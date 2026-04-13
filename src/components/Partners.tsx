@@ -2,58 +2,56 @@
 
 import { techPartners } from "@/lib/constants";
 import ScrollReveal from "./ui/ScrollReveal";
-import Button from "./ui/Button";
 
 export default function Partners() {
+  const row1 = [...techPartners, ...techPartners, ...techPartners];
+  const row2 = [...techPartners.slice().reverse(), ...techPartners.slice().reverse(), ...techPartners.slice().reverse()];
+
   return (
-    <section id="partners" className="py-28 lg:py-36 bg-dark-secondary">
-      <div className="max-w-[1400px] mx-auto px-6 lg:px-8 text-center">
+    <section id="partners" className="py-20 lg:py-28 bg-dark-secondary overflow-hidden">
+      <div className="max-w-[1400px] mx-auto px-6 lg:px-8 mb-10">
         <ScrollReveal>
-          <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full border border-accent/20 bg-accent/5 mb-6">
-            <span className="text-xs text-accent tracking-widest uppercase font-medium">
-              Ecosystem
-            </span>
-          </div>
-          <h2 className="font-heading text-3xl md:text-4xl lg:text-5xl font-bold text-text-light tracking-wide mb-4">
-            Our Strategic Partners
+          <h2 className="font-heading text-3xl md:text-4xl font-bold text-text-light tracking-wide text-center">
+            Our Strategic
+            <span className="gradient-text"> Partners</span>
           </h2>
-          <p className="max-w-2xl mx-auto text-lg text-text-light-muted mb-16">
-            We collaborate with industry leaders to deliver best-in-class
-            solutions powered by cutting-edge technology.
-          </p>
         </ScrollReveal>
+      </div>
 
-        {/* Partner logos grid */}
-        <ScrollReveal delay={0.2}>
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mb-16 max-w-4xl mx-auto">
-            {techPartners.map((partner) => (
-              <div
-                key={partner}
-                className="flex items-center justify-center h-20 rounded-xl border border-card-dark-border bg-card-dark/50 hover:border-accent/30 hover:bg-accent/5 transition-all duration-300 group"
-              >
-                <span className="font-heading text-sm md:text-base font-bold text-text-light-muted group-hover:text-accent transition-colors tracking-wider">
-                  {partner}
-                </span>
-              </div>
-            ))}
-          </div>
-        </ScrollReveal>
+      {/* Row 1: scrolls left */}
+      <div className="relative mb-4">
+        <div className="absolute left-0 top-0 bottom-0 w-24 bg-gradient-to-r from-dark-secondary to-transparent z-10" />
+        <div className="absolute right-0 top-0 bottom-0 w-24 bg-gradient-to-l from-dark-secondary to-transparent z-10" />
+        <div className="flex animate-marquee">
+          {row1.map((partner, i) => (
+            <div
+              key={`r1-${i}`}
+              className="flex-shrink-0 mx-3 flex items-center justify-center h-16 px-8 rounded-xl border border-card-dark-border bg-card-dark/40"
+            >
+              <span className="font-heading text-sm font-bold text-text-light-muted/50 tracking-wider whitespace-nowrap">
+                {partner}
+              </span>
+            </div>
+          ))}
+        </div>
+      </div>
 
-        <ScrollReveal delay={0.3}>
-          <div className="pt-12 border-t border-card-dark-border">
-            <h3 className="font-heading text-2xl md:text-3xl font-bold text-text-light mb-4 tracking-wide">
-              Let&apos;s Build Something
-              <span className="gradient-text"> Extraordinary</span>
-            </h3>
-            <p className="text-text-light-muted mb-8 max-w-lg mx-auto">
-              Ready to transform your business with technology? Let&apos;s start
-              the conversation.
-            </p>
-            <Button href="/contact" size="lg">
-              Start Your Project
-            </Button>
-          </div>
-        </ScrollReveal>
+      {/* Row 2: scrolls right */}
+      <div className="relative">
+        <div className="absolute left-0 top-0 bottom-0 w-24 bg-gradient-to-r from-dark-secondary to-transparent z-10" />
+        <div className="absolute right-0 top-0 bottom-0 w-24 bg-gradient-to-l from-dark-secondary to-transparent z-10" />
+        <div className="flex animate-marquee-reverse">
+          {row2.map((partner, i) => (
+            <div
+              key={`r2-${i}`}
+              className="flex-shrink-0 mx-3 flex items-center justify-center h-16 px-8 rounded-xl border border-card-dark-border bg-card-dark/40"
+            >
+              <span className="font-heading text-sm font-bold text-text-light-muted/50 tracking-wider whitespace-nowrap">
+                {partner}
+              </span>
+            </div>
+          ))}
+        </div>
       </div>
     </section>
   );

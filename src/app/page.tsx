@@ -3,6 +3,7 @@ import Hero from "@/components/Hero";
 import TechMarquee from "@/components/TechMarquee";
 import Services from "@/components/Services";
 import About from "@/components/About";
+import StatsSection from "@/components/StatsSection";
 import Testimonials from "@/components/Testimonials";
 import CaseStudies from "@/components/CaseStudies";
 import Industries from "@/components/Industries";
@@ -22,6 +23,7 @@ export default function Home() {
         <TechMarquee />
         <Services />
         <About />
+        <StatsSection />
         <Testimonials />
         <CaseStudies />
         <Industries />

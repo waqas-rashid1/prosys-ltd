@@ -52,13 +52,13 @@ export default function CookieConsent() {
                 <div className="flex flex-wrap gap-3 mt-4">
                   <button
                     onClick={accept}
-                    className="gradient-bg text-dark-primary px-5 py-2 rounded-full text-sm font-medium hover:shadow-lg hover:shadow-accent/25 transition-all duration-300 cursor-pointer"
+                    className="gradient-bg text-dark-primary px-5 py-2 rounded-xl text-sm font-medium hover:shadow-lg hover:shadow-accent/25 transition-all duration-300 cursor-pointer"
                   >
                     Accept All
                   </button>
                   <button
                     onClick={decline}
-                    className="border border-card-dark-border text-text-light-muted px-5 py-2 rounded-full text-sm font-medium hover:border-accent/40 hover:text-accent transition-all duration-300 cursor-pointer"
+                    className="border border-card-dark-border text-text-light-muted px-5 py-2 rounded-xl text-sm font-medium hover:border-accent/40 hover:text-accent transition-all duration-300 cursor-pointer"
                   >
                     Necessary Only
                   </button>

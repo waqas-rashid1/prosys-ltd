@@ -31,11 +31,11 @@ export default function Footer() {
               <input
                 type="email"
                 placeholder="Your email address"
-                className="flex-grow lg:w-80 px-5 py-3 rounded-full border border-card-dark-border bg-card-dark text-text-light placeholder:text-text-light-muted/50 focus:outline-none focus:border-accent focus:ring-1 focus:ring-accent/20 transition-all text-sm"
+                className="flex-grow lg:w-80 px-5 py-3 rounded-xl border border-card-dark-border bg-card-dark text-text-light placeholder:text-text-light-muted/50 focus:outline-none focus:border-accent focus:ring-1 focus:ring-accent/20 transition-all text-sm"
               />
               <button
                 type="submit"
-                className="gradient-bg text-dark-primary px-6 py-3 rounded-full font-medium text-sm hover:shadow-lg hover:shadow-accent/25 transition-all duration-300 cursor-pointer flex items-center gap-2 flex-shrink-0"
+                className="gradient-bg text-dark-primary px-6 py-3 rounded-xl font-medium text-sm hover:shadow-lg hover:shadow-accent/25 transition-all duration-300 cursor-pointer flex items-center gap-2 flex-shrink-0"
               >
                 Subscribe
                 <ArrowRight size={14} />

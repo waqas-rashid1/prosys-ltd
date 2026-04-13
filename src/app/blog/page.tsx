@@ -89,10 +89,10 @@ export default function BlogPage() {
             <ScrollReveal>
               <div className="group rounded-2xl border border-card-light-border bg-white p-8 md:p-12 hover:shadow-xl hover:shadow-accent/5 hover:border-accent/30 transition-all duration-500 mb-16">
                 <div className="flex items-center gap-3 mb-4">
-                  <span className="inline-block px-3 py-1 text-xs font-medium rounded-full bg-accent/10 text-accent tracking-wide">
+                  <span className="inline-block px-3 py-1 text-xs font-medium rounded-xl bg-accent/10 text-accent tracking-wide">
                     Featured
                   </span>
-                  <span className="inline-block px-3 py-1 text-xs font-medium rounded-full bg-accent/5 text-accent tracking-wide">
+                  <span className="inline-block px-3 py-1 text-xs font-medium rounded-xl bg-accent/5 text-accent tracking-wide">
                     {featuredPost.category}
                   </span>
                 </div>
@@ -121,7 +121,7 @@ export default function BlogPage() {
                 <ScrollReveal key={post.title} delay={i * 0.08}>
                   <div className="group rounded-2xl border border-card-light-border bg-white p-6 hover:shadow-lg hover:shadow-accent/5 hover:border-accent/30 transition-all duration-500 h-full flex flex-col">
                     <div className="mb-4">
-                      <span className="inline-block px-3 py-1 text-xs font-medium rounded-full bg-accent/10 text-accent tracking-wide">
+                      <span className="inline-block px-3 py-1 text-xs font-medium rounded-xl bg-accent/10 text-accent tracking-wide">
                         {post.category}
                       </span>
                     </div>

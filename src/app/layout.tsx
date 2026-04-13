@@ -89,7 +89,7 @@ export default function RootLayout({
         <StructuredData />
         <link rel="icon" href="/favicon.ico" sizes="any" />
         <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
-        <meta name="theme-color" content="#0b1120" />
+        <meta name="theme-color" content="#000000" />
       </head>
       <body className="min-h-full antialiased">
         <a
