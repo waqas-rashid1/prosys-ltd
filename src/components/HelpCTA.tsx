@@ -6,10 +6,11 @@ import ScrollReveal from "./ui/ScrollReveal";
 
 export default function HelpCTA() {
   return (
-    <section className="relative py-28 lg:py-36 bg-dark-primary overflow-hidden">
-      {/* BG elements */}
+    <section className="relative py-32 lg:py-44 bg-dark-primary overflow-hidden">
+      {/* Teal radial gradient background - like reference image */}
       <div className="absolute inset-0">
-        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] rounded-full bg-accent/[0.03] blur-[150px]" />
+        <div className="absolute bottom-0 right-0 w-[80%] h-[80%] bg-accent/[0.12] blur-[200px] rounded-full translate-x-1/4 translate-y-1/4" />
+        <div className="absolute bottom-0 right-1/4 w-[50%] h-[50%] bg-accent/[0.06] blur-[150px] rounded-full translate-y-1/3" />
       </div>
 
       <div className="relative z-10 max-w-[1400px] mx-auto px-6 lg:px-8">
@@ -27,7 +28,7 @@ export default function HelpCTA() {
               href="/contact"
               className="inline-flex items-center gap-3 font-medium rounded-xl transition-all duration-300 cursor-pointer gradient-bg text-dark-primary hover:shadow-xl hover:shadow-accent/30 hover:scale-105 px-10 py-5 text-lg tracking-wide"
             >
-              Let&apos;s Work Together
+              Let&apos;s Connect
               <ArrowRight size={20} />
             </Link>
           </div>

@@ -138,14 +138,12 @@ body {
 }
 
 .gradient-text {
-  background: linear-gradient(135deg, var(--accent), #06b6d4);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
+  color: var(--accent);
+  -webkit-text-fill-color: var(--accent);
 }
 
 .gradient-bg {
-  background: linear-gradient(135deg, var(--accent), #06b6d4);
+  background: var(--accent);
 }
 
 .glass-effect {

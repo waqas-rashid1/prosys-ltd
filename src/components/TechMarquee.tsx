@@ -4,35 +4,37 @@ import { techStack } from "@/lib/constants";
 import ScrollReveal from "./ui/ScrollReveal";
 
 export default function TechMarquee() {
-  const doubled = [...techStack, ...techStack];
-
   return (
-    <section className="py-16 bg-dark-primary border-y border-card-dark-border overflow-hidden">
-      <div className="max-w-[1400px] mx-auto px-6 lg:px-8 mb-8">
+    <section className="py-28 lg:py-36 bg-dark-primary relative overflow-hidden">
+      {/* Teal radial glow in bottom-right */}
+      <div className="absolute bottom-0 right-0 w-[600px] h-[600px] bg-accent/[0.06] blur-[200px] rounded-full translate-x-1/3 translate-y-1/3" />
+
+      <div className="relative z-10 max-w-[1400px] mx-auto px-6 lg:px-8">
         <ScrollReveal>
-          <p className="text-center text-xs text-text-light-muted/60 tracking-[0.2em] uppercase font-medium">
-            Technologies We Work With
-          </p>
+          <div className="text-center mb-14">
+            <h2 className="font-heading text-4xl md:text-5xl lg:text-6xl font-bold text-text-light tracking-wide mb-4">
+              Our Tech Stack
+            </h2>
+            <p className="text-text-light-muted text-lg max-w-2xl mx-auto">
+              Equipped with the latest tools, our teams deliver impactful solutions designed to grow your business.
+            </p>
+          </div>
         </ScrollReveal>
-      </div>
 
-      <div className="relative">
-        <div className="absolute left-0 top-0 bottom-0 w-24 bg-gradient-to-r from-dark-primary to-transparent z-10" />
-        <div className="absolute right-0 top-0 bottom-0 w-24 bg-gradient-to-l from-dark-primary to-transparent z-10" />
-
-        <div className="flex animate-marquee">
-          {doubled.map((tech, i) => (
-            <div
-              key={`${tech}-${i}`}
-              className="flex-shrink-0 mx-8 flex items-center gap-2"
-            >
-              <span className="h-1.5 w-1.5 rounded-full bg-accent/40" />
-              <span className="font-heading text-sm md:text-base font-bold text-text-light-muted/40 tracking-wider whitespace-nowrap hover:text-accent transition-colors duration-300">
-                {tech}
-              </span>
-            </div>
-          ))}
-        </div>
+        <ScrollReveal delay={0.1}>
+          <div className="grid grid-cols-3 sm:grid-cols-4 md:grid-cols-6 lg:grid-cols-8 gap-3">
+            {techStack.map((tech) => (
+              <div
+                key={tech}
+                className="group flex items-center justify-center h-16 md:h-20 rounded-xl bg-white hover:shadow-lg hover:shadow-accent/10 hover:-translate-y-0.5 transition-all duration-300"
+              >
+                <span className="font-heading text-xs md:text-sm font-bold text-text-dark tracking-wide group-hover:text-accent transition-colors duration-300">
+                  {tech}
+                </span>
+              </div>
+            ))}
+          </div>
+        </ScrollReveal>
       </div>
     </section>
   );
