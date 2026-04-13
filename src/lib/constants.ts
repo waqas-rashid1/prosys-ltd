@@ -11,13 +11,13 @@ export const siteConfig = {
 };
 
 export const navLinks = [
-  { label: "Home", href: "#home" },
-  { label: "Services", href: "#services" },
-  { label: "About", href: "#about" },
-  { label: "Work", href: "#work" },
-  { label: "Industries", href: "#industries" },
-  { label: "FAQ", href: "#faq" },
-  { label: "Contact", href: "#contact" },
+  { label: "Home", href: "/" },
+  { label: "Services", href: "/services" },
+  { label: "About", href: "/about" },
+  { label: "Work", href: "/work" },
+  { label: "Industries", href: "/industries" },
+  { label: "FAQ", href: "/faq" },
+  { label: "Contact", href: "/contact" },
 ];
 
 export const services = [
@@ -290,22 +290,22 @@ export const techPartners = [
 
 export const footerLinks = {
   company: [
-    { label: "About Us", href: "#about" },
-    { label: "Our Work", href: "#work" },
-    { label: "Careers", href: "#" },
-    { label: "Contact", href: "#contact" },
+    { label: "About Us", href: "/about" },
+    { label: "Our Work", href: "/work" },
+    { label: "Careers", href: "/about" },
+    { label: "Contact", href: "/contact" },
   ],
   services: [
-    { label: "Web Development", href: "#services" },
-    { label: "AI Development", href: "#services" },
-    { label: "MVP Development", href: "#services" },
-    { label: "SaaS Development", href: "#services" },
-    { label: "SEO & AIEO", href: "#services" },
+    { label: "Web Development", href: "/services" },
+    { label: "AI Development", href: "/services" },
+    { label: "MVP Development", href: "/services" },
+    { label: "SaaS Development", href: "/services" },
+    { label: "SEO & AIEO", href: "/services" },
   ],
   resources: [
-    { label: "Blog", href: "#insights" },
-    { label: "FAQ", href: "#faq" },
-    { label: "Case Studies", href: "#work" },
-    { label: "Privacy Policy", href: "#" },
+    { label: "Blog", href: "/blog" },
+    { label: "FAQ", href: "/faq" },
+    { label: "Case Studies", href: "/work" },
+    { label: "Privacy Policy", href: "/privacy" },
   ],
 };

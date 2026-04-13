@@ -41,7 +41,7 @@ export default function Insights() {
                     {insight.date}
                   </div>
                   <a
-                    href="#contact"
+                    href="/blog"
                     className="inline-flex items-center gap-1.5 text-xs font-medium text-accent hover:gap-2.5 transition-all duration-300"
                   >
                     Read More <ArrowRight size={12} />

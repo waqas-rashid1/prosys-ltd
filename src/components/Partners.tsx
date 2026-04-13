@@ -49,7 +49,7 @@ export default function Partners() {
               Ready to transform your business with technology? Let&apos;s start
               the conversation.
             </p>
-            <Button href="#contact" size="lg">
+            <Button href="/contact" size="lg">
               Start Your Project
             </Button>
           </div>

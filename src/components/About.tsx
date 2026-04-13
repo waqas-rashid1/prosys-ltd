@@ -35,7 +35,7 @@ export default function About() {
               development, deployment, and growth. SEO, AIEO, and digital
               marketing included.
             </p>
-            <Button href="#contact" variant="outline">
+            <Button href="/contact" variant="outline">
               Work With Us
             </Button>
           </ScrollReveal>

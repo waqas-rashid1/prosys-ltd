@@ -1,5 +1,6 @@
 "use client";
 
+import Link from "next/link";
 import { ArrowUp } from "lucide-react";
 import { siteConfig, footerLinks } from "@/lib/constants";
 
@@ -12,15 +13,14 @@ export default function Footer() {
     <footer className="bg-dark-primary border-t border-card-dark-border">
       <div className="max-w-7xl mx-auto px-6 lg:px-8 py-16">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-12">
-          {/* Brand */}
           <div className="lg:col-span-2">
-            <a href="#home" className="inline-block mb-4">
+            <Link href="/" className="inline-block mb-4">
               <span className="font-heading text-2xl font-bold tracking-wider">
                 <span className="text-accent">PRO</span>
                 <span className="text-text-light">SYS</span>
                 <span className="text-text-light-muted text-xs ml-1">LTD</span>
               </span>
-            </a>
+            </Link>
             <p className="text-text-light-muted leading-relaxed mb-6 max-w-sm">
               {siteConfig.description}
             </p>
@@ -43,7 +43,6 @@ export default function Footer() {
             </div>
           </div>
 
-          {/* Links columns */}
           <div>
             <h4 className="font-heading text-sm font-bold text-text-light tracking-widest uppercase mb-4">
               Company
@@ -51,12 +50,12 @@ export default function Footer() {
             <ul className="space-y-3">
               {footerLinks.company.map((link) => (
                 <li key={link.label}>
-                  <a
+                  <Link
                     href={link.href}
                     className="text-sm text-text-light-muted hover:text-accent transition-colors duration-300"
                   >
                     {link.label}
-                  </a>
+                  </Link>
                 </li>
               ))}
             </ul>
@@ -69,12 +68,12 @@ export default function Footer() {
             <ul className="space-y-3">
               {footerLinks.services.map((link) => (
                 <li key={link.label}>
-                  <a
+                  <Link
                     href={link.href}
                     className="text-sm text-text-light-muted hover:text-accent transition-colors duration-300"
                   >
                     {link.label}
-                  </a>
+                  </Link>
                 </li>
               ))}
             </ul>
@@ -87,12 +86,12 @@ export default function Footer() {
             <ul className="space-y-3">
               {footerLinks.resources.map((link) => (
                 <li key={link.label}>
-                  <a
+                  <Link
                     href={link.href}
                     className="text-sm text-text-light-muted hover:text-accent transition-colors duration-300"
                   >
                     {link.label}
-                  </a>
+                  </Link>
                 </li>
               ))}
             </ul>
@@ -100,7 +99,6 @@ export default function Footer() {
         </div>
       </div>
 
-      {/* Bottom bar */}
       <div className="border-t border-card-dark-border">
         <div className="max-w-7xl mx-auto px-6 lg:px-8 py-6 flex flex-col sm:flex-row items-center justify-between gap-4">
           <p className="text-xs text-text-light-muted">
@@ -110,6 +108,7 @@ export default function Footer() {
           <button
             onClick={scrollToTop}
             className="group flex items-center gap-2 text-xs text-text-light-muted hover:text-accent transition-colors cursor-pointer"
+            aria-label="Scroll back to top"
           >
             Back to top
             <span className="w-8 h-8 rounded-lg border border-card-dark-border flex items-center justify-center group-hover:border-accent/40 group-hover:bg-accent/10 transition-all duration-300">

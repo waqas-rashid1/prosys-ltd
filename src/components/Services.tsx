@@ -57,7 +57,7 @@ export default function Services() {
                     {service.description}
                   </p>
                   <a
-                    href="#contact"
+                    href="/contact"
                     className="inline-flex items-center gap-1.5 text-xs font-medium text-accent hover:gap-2.5 transition-all duration-300"
                   >
                     Learn More <ArrowRight size={12} />

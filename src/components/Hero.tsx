@@ -146,10 +146,10 @@ export default function Hero() {
           }}
           className="flex flex-col sm:flex-row items-center justify-center gap-4"
         >
-          <Button href="#services" size="lg">
+          <Button href="/services" size="lg">
             Explore Services
           </Button>
-          <Button href="#contact" variant="outline" size="lg">
+          <Button href="/contact" variant="outline" size="lg">
             Start Your Project
           </Button>
         </motion.div>
@@ -179,7 +179,7 @@ export default function Hero() {
 
       {/* Scroll indicator */}
       <motion.a
-        href="#services"
+        href="/services"
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ delay: 1.2 }}
