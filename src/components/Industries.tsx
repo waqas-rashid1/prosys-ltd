@@ -4,9 +4,9 @@ import {
   Landmark,
   HeartPulse,
   ShoppingCart,
-  Factory,
   GraduationCap,
-  Plane,
+  Building2,
+  Briefcase,
 } from "lucide-react";
 import { industries } from "@/lib/constants";
 import SectionHeading from "./ui/SectionHeading";
@@ -16,9 +16,9 @@ const iconMap: Record<string, React.ElementType> = {
   Landmark,
   HeartPulse,
   ShoppingCart,
-  Factory,
   GraduationCap,
-  Plane,
+  Building2,
+  Briefcase,
 };
 
 export default function Industries() {
@@ -30,7 +30,7 @@ export default function Industries() {
           subtitle="Deep domain expertise across sectors that demand precision, compliance, and innovation."
         />
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
           {industries.map((industry, i) => {
             const Icon = iconMap[industry.icon];
             return (

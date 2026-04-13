@@ -1,6 +1,6 @@
 "use client";
 
-import { partners } from "@/lib/constants";
+import { techPartners } from "@/lib/constants";
 import ScrollReveal from "./ui/ScrollReveal";
 import Button from "./ui/Button";
 
@@ -26,7 +26,7 @@ export default function Partners() {
         {/* Partner logos grid */}
         <ScrollReveal delay={0.2}>
           <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mb-16 max-w-4xl mx-auto">
-            {partners.map((partner) => (
+            {techPartners.map((partner) => (
               <div
                 key={partner}
                 className="flex items-center justify-center h-20 rounded-xl border border-card-dark-border bg-card-dark/50 hover:border-accent/30 hover:bg-accent/5 transition-all duration-300 group"

@@ -128,7 +128,7 @@ export default function Contact() {
                         Phone
                       </div>
                       <div className="text-text-dark font-medium group-hover:text-accent transition-colors">
-                        {siteConfig.phone}
+                        +92 316 000 0000
                       </div>
                     </div>
                   </a>
