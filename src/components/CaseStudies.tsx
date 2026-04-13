@@ -7,8 +7,8 @@ import ScrollReveal from "./ui/ScrollReveal";
 
 export default function CaseStudies() {
   return (
-    <section id="work" className="py-24 lg:py-32 bg-light-secondary">
-      <div className="max-w-7xl mx-auto px-6 lg:px-8">
+    <section id="work" className="py-28 lg:py-36 bg-light-secondary">
+      <div className="max-w-[1400px] mx-auto px-6 lg:px-8">
         <SectionHeading
           title="Featured Work"
           subtitle="Real results from real projects. Here's how we've helped businesses build, launch, and grow."

@@ -7,8 +7,8 @@ import Button from "./ui/Button";
 
 export default function About() {
   return (
-    <section id="about" className="py-24 lg:py-32 bg-dark-secondary">
-      <div className="max-w-7xl mx-auto px-6 lg:px-8">
+    <section id="about" className="py-28 lg:py-36 bg-dark-secondary">
+      <div className="max-w-[1400px] mx-auto px-6 lg:px-8">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center mb-20">
           {/* Text */}
           <ScrollReveal>

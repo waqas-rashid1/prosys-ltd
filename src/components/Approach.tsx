@@ -6,8 +6,8 @@ import ScrollReveal from "./ui/ScrollReveal";
 
 export default function Approach() {
   return (
-    <section id="approach" className="py-24 lg:py-32 bg-light-primary">
-      <div className="max-w-7xl mx-auto px-6 lg:px-8">
+    <section id="approach" className="py-28 lg:py-36 bg-light-primary">
+      <div className="max-w-[1400px] mx-auto px-6 lg:px-8">
         <SectionHeading
           title="Our Approach"
           subtitle="A proven, agile methodology that ensures transparency, quality, and results at every stage."

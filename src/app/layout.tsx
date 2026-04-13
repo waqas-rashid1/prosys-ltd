@@ -82,7 +82,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className={`${inter.variable} h-full`}>
+    <html lang="en" data-scroll-behavior="smooth" className={`${inter.variable} h-full`}>
       <head>
         <StructuredData />
         <link rel="icon" href="/favicon.ico" sizes="any" />

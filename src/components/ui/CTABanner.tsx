@@ -24,7 +24,7 @@ export default function CTABanner({
     <section
       className={`py-24 lg:py-32 ${dark ? "bg-dark-secondary" : "bg-light-primary"}`}
     >
-      <div className="max-w-4xl mx-auto px-6 lg:px-8 text-center">
+      <div className="max-w-[1400px] mx-auto px-6 lg:px-8 text-center">
         <ScrollReveal>
           <h2
             className={`font-heading text-3xl md:text-4xl lg:text-5xl font-bold tracking-wide mb-4 ${dark ? "text-text-light" : "text-text-dark"}`}

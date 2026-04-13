@@ -71,8 +71,8 @@ export default function FAQ() {
   const [openIndex, setOpenIndex] = useState<number | null>(0);
 
   return (
-    <section id="faq" className="py-24 lg:py-32 bg-dark-secondary">
-      <div className="max-w-7xl mx-auto px-6 lg:px-8">
+    <section id="faq" className="py-28 lg:py-36 bg-dark-secondary">
+      <div className="max-w-[1400px] mx-auto px-6 lg:px-8">
         <SectionHeading
           title="Frequently Asked Questions"
           subtitle="Everything you need to know about working with PROSYS LTD."

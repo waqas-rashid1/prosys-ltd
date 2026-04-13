@@ -6,8 +6,8 @@ import Button from "./ui/Button";
 
 export default function Partners() {
   return (
-    <section id="partners" className="py-24 lg:py-32 bg-dark-secondary">
-      <div className="max-w-7xl mx-auto px-6 lg:px-8 text-center">
+    <section id="partners" className="py-28 lg:py-36 bg-dark-secondary">
+      <div className="max-w-[1400px] mx-auto px-6 lg:px-8 text-center">
         <ScrollReveal>
           <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full border border-accent/20 bg-accent/5 mb-6">
             <span className="text-xs text-accent tracking-widest uppercase font-medium">

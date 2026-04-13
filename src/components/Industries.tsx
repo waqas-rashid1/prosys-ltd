@@ -23,8 +23,8 @@ const iconMap: Record<string, React.ElementType> = {
 
 export default function Industries() {
   return (
-    <section id="industries" className="py-24 lg:py-32 bg-dark-primary">
-      <div className="max-w-7xl mx-auto px-6 lg:px-8">
+    <section id="industries" className="py-28 lg:py-36 bg-dark-primary">
+      <div className="max-w-[1400px] mx-auto px-6 lg:px-8">
         <SectionHeading
           title="Industries We Serve"
           subtitle="Deep domain expertise across sectors that demand precision, compliance, and innovation."

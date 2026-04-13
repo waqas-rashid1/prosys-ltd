@@ -8,7 +8,7 @@ export default function TechMarquee() {
 
   return (
     <section className="py-16 bg-dark-primary border-y border-card-dark-border overflow-hidden">
-      <div className="max-w-7xl mx-auto px-6 lg:px-8 mb-8">
+      <div className="max-w-[1400px] mx-auto px-6 lg:px-8 mb-8">
         <ScrollReveal>
           <p className="text-center text-xs text-text-light-muted/60 tracking-[0.2em] uppercase font-medium">
             Technologies We Work With

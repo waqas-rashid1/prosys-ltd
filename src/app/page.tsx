@@ -9,6 +9,7 @@ import Approach from "@/components/Approach";
 import FAQ from "@/components/FAQ";
 import Insights from "@/components/Insights";
 import Partners from "@/components/Partners";
+import HelpCTA from "@/components/HelpCTA";
 import Contact from "@/components/Contact";
 import Footer from "@/components/Footer";
 
@@ -27,6 +28,7 @@ export default function Home() {
         <FAQ />
         <Insights />
         <Partners />
+        <HelpCTA />
         <Contact />
       </main>
       <Footer />
