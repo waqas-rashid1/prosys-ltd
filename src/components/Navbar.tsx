@@ -12,26 +12,26 @@ const servicesMega = {
     {
       heading: "Development",
       items: [
-        { label: "Web Development", desc: "Next.js, React, full-stack" },
-        { label: "Software Development", desc: "Enterprise-grade systems" },
-        { label: "MVP Development", desc: "Idea to launch in weeks" },
-        { label: "SaaS Development", desc: "Multi-tenant platforms" },
+        { label: "Web Development", desc: "Next.js, React, full-stack", href: "/services/web-development" },
+        { label: "Software Development", desc: "Enterprise-grade systems", href: "/services/software-development" },
+        { label: "MVP Development", desc: "Idea to launch in weeks", href: "/services/mvp-development" },
+        { label: "SaaS Development", desc: "Multi-tenant platforms", href: "/services/saas-development" },
       ],
     },
     {
       heading: "AI & Automation",
       items: [
-        { label: "AI Development", desc: "Custom models & LLM integrations" },
-        { label: "AI Automations", desc: "Workflows & AI agents" },
+        { label: "AI Development", desc: "Custom models & LLM integrations", href: "/services/ai-development" },
+        { label: "AI Automations", desc: "Workflows & AI agents", href: "/services/ai-automations" },
       ],
     },
     {
       heading: "Growth",
       items: [
-        { label: "SEO", desc: "Technical & on-page optimization" },
-        { label: "AIEO", desc: "Rank on AI search engines" },
-        { label: "Digital Marketing", desc: "Full-funnel campaigns" },
-        { label: "Graphics & Branding", desc: "Visual identity & design" },
+        { label: "SEO", desc: "Technical & on-page optimization", href: "/services/seo" },
+        { label: "AIEO", desc: "Rank on AI search engines", href: "/services/aieo" },
+        { label: "Digital Marketing", desc: "Full-funnel campaigns", href: "/services/digital-marketing" },
+        { label: "Graphics & Branding", desc: "Visual identity & design", href: "/services/graphics-branding" },
       ],
     },
   ],
@@ -39,6 +39,7 @@ const servicesMega = {
     badge: "Popular",
     title: "MVP Development",
     desc: "Validate your idea with an investor-ready MVP in 4-8 weeks.",
+    href: "/services/mvp-development",
   },
 };
 
@@ -173,7 +174,7 @@ export default function Navbar() {
                         {col.items.map((item) => (
                           <Link
                             key={item.label}
-                            href="/services"
+                            href={item.href}
                             className="block p-3 rounded-xl hover:bg-white/5 transition-colors group"
                           >
                             <div className="text-sm font-medium text-text-light group-hover:text-accent transition-colors">
@@ -202,7 +203,7 @@ export default function Navbar() {
                       </p>
                     </div>
                     <Link
-                      href="/contact"
+                      href={servicesMega.featured.href}
                       className="mt-4 inline-flex items-center gap-2 text-sm font-medium text-accent hover:gap-3 transition-all duration-300"
                     >
                       Start Now <ArrowRight size={14} />
