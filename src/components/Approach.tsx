@@ -21,11 +21,10 @@ export default function Approach() {
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5">
           {approach.map((item, i) => (
             <ScrollReveal key={item.step} delay={i * 0.1}>
-              <div className="group relative rounded-2xl border border-card-dark-border bg-card-dark p-7 hover:border-accent/50 hover:-translate-y-1 transition-all duration-500 h-full overflow-hidden">
-                {/* Accent top border */}
-                <div className="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-accent to-cyan-400 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+              <div className="group relative rounded-2xl border border-card-dark-border bg-card-dark p-7 hover:border-accent/40 hover:-translate-y-1 hover:shadow-xl hover:shadow-accent/[0.06] transition-all duration-500 h-full overflow-hidden">
+                <div className="absolute top-0 left-0 right-0 h-[2px] bg-accent scale-x-0 group-hover:scale-x-100 transition-transform duration-500 origin-left" />
 
-                <span className="font-heading text-5xl font-bold text-accent/10 group-hover:text-accent/20 transition-colors duration-500 block mb-4">
+                <span className="font-heading text-4xl font-bold text-accent/[0.08] group-hover:text-accent/20 transition-colors duration-500 block mb-5">
                   //{item.step}
                 </span>
                 <h3 className="font-heading text-lg font-bold text-text-light tracking-wide mb-3 group-hover:text-accent transition-colors duration-300">

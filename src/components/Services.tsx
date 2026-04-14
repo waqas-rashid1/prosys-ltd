@@ -42,6 +42,94 @@ const serviceCategories = [
   },
 ];
 
+function AbstractShape({ index, hovered }: { index: number; hovered: boolean }) {
+  const base = "transition-all duration-700 ease-out";
+  const scale = hovered ? "scale-90" : "scale-100";
+  const blur = hovered ? "blur-[6px]" : "blur-[2px]";
+
+  if (index === 0) {
+    return (
+      <div className={`${base} ${scale}`}>
+        <div className={`w-28 h-28 bg-accent ${blur} transition-all duration-700`} style={{ borderRadius: "30% 70% 70% 30% / 30% 30% 70% 70%" }} />
+      </div>
+    );
+  }
+  if (index === 1) {
+    return (
+      <div className={`${base} ${scale}`}>
+        <div className={`w-28 h-28 rounded-full border-[14px] border-accent/80 ${blur} transition-all duration-700`} />
+      </div>
+    );
+  }
+  if (index === 2) {
+    return (
+      <div className={`grid grid-cols-2 gap-2.5 ${base} ${scale}`}>
+        {[0, 1, 2, 3].map((j) => (
+          <div key={j} className={`w-12 h-12 rounded-full bg-accent ${blur} transition-all duration-700`} />
+        ))}
+      </div>
+    );
+  }
+  return (
+    <div className={`${base} ${scale}`}>
+      <div
+        className={`w-28 h-28 bg-accent ${blur} transition-all duration-700`}
+        style={{ clipPath: "polygon(50% 0%, 100% 0%, 100% 100%, 50% 100%, 50% 55%, 0% 80%, 0% 20%)" }}
+      />
+    </div>
+  );
+}
+
+function ServiceCard({ cat, index }: { cat: typeof serviceCategories[0]; index: number }) {
+  const [hovered, setHovered] = useState(false);
+
+  return (
+    <div
+      className="group rounded-2xl border border-card-light-border bg-white overflow-hidden hover:shadow-xl hover:shadow-black/[0.04] transition-all duration-500 h-full flex flex-col cursor-pointer"
+      onMouseEnter={() => setHovered(true)}
+      onMouseLeave={() => setHovered(false)}
+    >
+      {/* Abstract shape area */}
+      <div className="relative h-52 bg-light-primary flex items-center justify-center overflow-hidden">
+        <AbstractShape index={index} hovered={hovered} />
+      </div>
+
+      {/* Content area */}
+      <div className="p-6 flex-grow flex flex-col">
+        <h3 className="font-heading text-xl font-bold text-text-dark tracking-wide">
+          {cat.title}
+        </h3>
+
+        {/* Sub-service tags: hidden by default, revealed on hover */}
+        <AnimatePresence>
+          {hovered && (
+            <motion.div
+              initial={{ opacity: 0, height: 0, marginTop: 0 }}
+              animate={{ opacity: 1, height: "auto", marginTop: 16 }}
+              exit={{ opacity: 0, height: 0, marginTop: 0 }}
+              transition={{ duration: 0.35, ease: [0.25, 0.1, 0.25, 1] }}
+              className="overflow-hidden"
+            >
+              <div className="flex flex-wrap gap-2">
+                {cat.items.map((item) => (
+                  <Link
+                    key={item.label}
+                    href={item.slug ? `/services/${item.slug}` : "/services"}
+                    className="px-3.5 py-1.5 rounded-lg border border-card-light-border text-text-dark-muted text-xs font-medium hover:border-accent hover:text-accent hover:bg-accent/5 transition-all duration-300"
+                    onClick={(e) => e.stopPropagation()}
+                  >
+                    {item.label}
+                  </Link>
+                ))}
+              </div>
+            </motion.div>
+          )}
+        </AnimatePresence>
+      </div>
+    </div>
+  );
+}
+
 export default function Services() {
   const [expandedIndex, setExpandedIndex] = useState<number | null>(null);
 
@@ -62,59 +150,16 @@ export default function Services() {
           </div>
         </ScrollReveal>
 
-        {/* Desktop: 4-column card grid (tkxel style) */}
+        {/* Desktop: 4-column cards - hover to reveal sub-services */}
         <div className="hidden lg:grid lg:grid-cols-4 gap-5">
           {serviceCategories.map((cat, i) => (
             <ScrollReveal key={cat.title} delay={i * 0.1}>
-              <div className="group rounded-2xl border border-card-light-border bg-white overflow-hidden hover:shadow-xl hover:shadow-black/[0.04] transition-all duration-500 h-full flex flex-col">
-                {/* Abstract shape area */}
-                <div className="relative h-52 bg-light-primary flex items-center justify-center overflow-hidden">
-                  {i === 0 && (
-                    <div className="w-24 h-24 bg-accent rounded-[30%_70%_70%_30%/30%_30%_70%_70%] blur-[2px] group-hover:scale-110 group-hover:blur-[4px] transition-all duration-700" />
-                  )}
-                  {i === 1 && (
-                    <div className="relative">
-                      <div className="w-24 h-24 rounded-full border-[12px] border-accent/80 blur-[1px] group-hover:scale-110 group-hover:blur-[3px] transition-all duration-700" />
-                    </div>
-                  )}
-                  {i === 2 && (
-                    <div className="grid grid-cols-2 gap-2 group-hover:scale-110 transition-transform duration-700">
-                      <div className="w-12 h-12 rounded-full bg-accent blur-[2px] group-hover:blur-[4px] transition-all duration-700" />
-                      <div className="w-12 h-12 rounded-full bg-accent blur-[2px] group-hover:blur-[4px] transition-all duration-700" />
-                      <div className="w-12 h-12 rounded-full bg-accent blur-[2px] group-hover:blur-[4px] transition-all duration-700" />
-                      <div className="w-12 h-12 rounded-full bg-accent blur-[2px] group-hover:blur-[4px] transition-all duration-700" />
-                    </div>
-                  )}
-                  {i === 3 && (
-                    <div className="relative w-24 h-24 group-hover:scale-110 transition-transform duration-700">
-                      <div className="absolute inset-0 bg-accent rounded-full blur-[2px] group-hover:blur-[4px] transition-all duration-700" style={{ clipPath: "polygon(50% 0%, 100% 0%, 100% 100%, 50% 100%, 50% 50%, 0% 75%, 0% 25%)" }} />
-                    </div>
-                  )}
-                </div>
-
-                {/* Title */}
-                <div className="p-6 flex-grow">
-                  <h3 className="font-heading text-xl font-bold text-text-dark tracking-wide mb-4">
-                    {cat.title}
-                  </h3>
-                  <div className="flex flex-wrap gap-2">
-                    {cat.items.map((item) => (
-                      <Link
-                        key={item.label}
-                        href={item.slug ? `/services/${item.slug}` : "/services"}
-                        className="px-3.5 py-1.5 rounded-lg border border-card-light-border text-text-dark-muted text-xs font-medium hover:border-accent hover:text-accent hover:bg-accent/5 transition-all duration-300"
-                      >
-                        {item.label}
-                      </Link>
-                    ))}
-                  </div>
-                </div>
-              </div>
+              <ServiceCard cat={cat} index={i} />
             </ScrollReveal>
           ))}
         </div>
 
-        {/* Mobile: accordion cards (tkxel mobile style) */}
+        {/* Mobile: accordion */}
         <div className="lg:hidden space-y-4">
           {serviceCategories.map((cat, i) => (
             <ScrollReveal key={cat.title} delay={i * 0.08}>
@@ -132,7 +177,6 @@ export default function Services() {
                     <Plus size={18} className="text-text-dark-muted" />
                   )}
                 </button>
-
                 <AnimatePresence initial={false}>
                   {expandedIndex === i && (
                     <motion.div

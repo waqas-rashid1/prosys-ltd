@@ -62,7 +62,7 @@ export default function ServicesPage() {
 
         {/* Services Grid */}
         <section className="py-24 lg:py-32 bg-light-primary">
-          <div className="max-w-7xl mx-auto px-6 lg:px-8">
+          <div className="max-w-[1400px] mx-auto px-6 lg:px-8">
             <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
               {services.map((service, i) => {
                 const Icon = iconMap[service.icon];
@@ -90,10 +90,10 @@ export default function ServicesPage() {
 
         {/* Process */}
         <section className="py-24 lg:py-32 bg-dark-secondary">
-          <div className="max-w-7xl mx-auto px-6 lg:px-8">
+          <div className="max-w-[1400px] mx-auto px-6 lg:px-8">
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
               <ScrollReveal>
-                <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full border border-accent/20 bg-accent/5 mb-6">
+                <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-xl border border-accent/20 bg-accent/5 mb-6">
                   <span className="text-xs text-accent tracking-widest uppercase font-medium">
                     How It Works
                   </span>

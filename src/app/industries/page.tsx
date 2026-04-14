@@ -74,7 +74,7 @@ export default function IndustriesPage() {
 
         {/* Industries Grid */}
         <section className="py-24 lg:py-32 bg-light-primary">
-          <div className="max-w-7xl mx-auto px-6 lg:px-8">
+          <div className="max-w-[1400px] mx-auto px-6 lg:px-8">
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
               {industries.map((industry, i) => {
                 const Icon = iconMap[industry.icon];
@@ -106,7 +106,7 @@ export default function IndustriesPage() {
 
         {/* Solutions Detail */}
         <section className="py-24 lg:py-32 bg-dark-primary">
-          <div className="max-w-7xl mx-auto px-6 lg:px-8">
+          <div className="max-w-[1400px] mx-auto px-6 lg:px-8">
             <ScrollReveal>
               <div className="text-center mb-16">
                 <h2 className="font-heading text-3xl md:text-4xl lg:text-5xl font-bold text-text-light tracking-wide mb-4">

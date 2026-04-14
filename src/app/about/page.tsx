@@ -94,7 +94,7 @@ export default function AboutPage() {
 
         {/* Story */}
         <section className="py-24 lg:py-32 bg-light-primary">
-          <div className="max-w-7xl mx-auto px-6 lg:px-8">
+          <div className="max-w-[1400px] mx-auto px-6 lg:px-8">
             <div className="max-w-3xl mx-auto text-center mb-20">
               <ScrollReveal>
                 <h2 className="font-heading text-3xl md:text-4xl font-bold text-text-dark tracking-wide mb-6">
@@ -132,7 +132,7 @@ export default function AboutPage() {
 
         {/* Values */}
         <section className="py-24 lg:py-32 bg-dark-primary">
-          <div className="max-w-7xl mx-auto px-6 lg:px-8">
+          <div className="max-w-[1400px] mx-auto px-6 lg:px-8">
             <ScrollReveal>
               <div className="text-center mb-16">
                 <h2 className="font-heading text-3xl md:text-4xl lg:text-5xl font-bold text-text-light tracking-wide mb-4">
@@ -169,7 +169,7 @@ export default function AboutPage() {
 
         {/* Timeline */}
         <section className="py-24 lg:py-32 bg-light-primary">
-          <div className="max-w-7xl mx-auto px-6 lg:px-8">
+          <div className="max-w-[1400px] mx-auto px-6 lg:px-8">
             <ScrollReveal>
               <div className="text-center mb-16">
                 <h2 className="font-heading text-3xl md:text-4xl lg:text-5xl font-bold text-text-dark tracking-wide mb-4">
@@ -213,6 +213,7 @@ export default function AboutPage() {
           highlight="Our Team?"
           description="We're always looking for talented engineers, designers, and marketers who want to build things that matter."
           buttonText="Get in Touch"
+          dark={false}
         />
       </main>
       <Footer />

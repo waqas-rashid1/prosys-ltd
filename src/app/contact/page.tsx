@@ -54,7 +54,7 @@ export default function ContactPage() {
 
         {/* Contact Methods */}
         <section className="py-16 bg-dark-secondary">
-          <div className="max-w-7xl mx-auto px-6 lg:px-8">
+          <div className="max-w-[1400px] mx-auto px-6 lg:px-8">
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
               {contactMethods.map((method, i) => {
                 const Icon = method.icon;
@@ -83,7 +83,7 @@ export default function ContactPage() {
 
         {/* Form Section */}
         <section className="py-24 lg:py-32 bg-light-primary">
-          <div className="max-w-7xl mx-auto px-6 lg:px-8">
+          <div className="max-w-[1400px] mx-auto px-6 lg:px-8">
             <div className="grid grid-cols-1 lg:grid-cols-5 gap-12 lg:gap-16">
               <ScrollReveal className="lg:col-span-3">
                 <div className="rounded-2xl border border-card-light-border bg-white p-8 md:p-10">

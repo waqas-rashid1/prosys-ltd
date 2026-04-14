@@ -1,9 +1,10 @@
 import type { Metadata } from "next";
-import { Calendar, ArrowRight, Clock } from "lucide-react";
+import { Calendar, Clock } from "lucide-react";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import PageHero from "@/components/ui/PageHero";
 import ScrollReveal from "@/components/ui/ScrollReveal";
+import CTABanner from "@/components/ui/CTABanner";
 
 export const metadata: Metadata = {
   title: "Blog",
@@ -85,7 +86,7 @@ export default function BlogPage() {
 
         {/* Featured Post */}
         <section className="py-24 lg:py-32 bg-light-primary">
-          <div className="max-w-7xl mx-auto px-6 lg:px-8">
+          <div className="max-w-[1400px] mx-auto px-6 lg:px-8">
             <ScrollReveal>
               <div className="group rounded-2xl border border-card-light-border bg-white p-8 md:p-12 hover:shadow-xl hover:shadow-accent/5 hover:border-accent/30 transition-all duration-500 mb-16">
                 <div className="flex items-center gap-3 mb-4">
@@ -149,6 +150,8 @@ export default function BlogPage() {
             </div>
           </div>
         </section>
+
+        <CTABanner dark={false} />
       </main>
       <Footer />
     </>

@@ -2,7 +2,7 @@
 
 import Link from "next/link";
 import {
-  Landmark, HeartPulse, ShoppingCart, GraduationCap, Building2, Briefcase,
+  Landmark, HeartPulse, ShoppingCart, GraduationCap, Building2, Briefcase, ArrowRight,
 } from "lucide-react";
 import { industries } from "@/lib/constants";
 import ScrollReveal from "./ui/ScrollReveal";
@@ -27,27 +27,35 @@ export default function Industries() {
           </div>
         </ScrollReveal>
 
-        <ScrollReveal delay={0.1}>
-          <div className="flex flex-wrap justify-center gap-4">
-            {industries.map((industry) => {
-              const Icon = iconMap[industry.icon];
-              return (
-                <Link
-                  key={industry.title}
-                  href="/industries"
-                  className="group flex items-center gap-3 px-6 py-4 rounded-2xl border border-card-light-border bg-white hover:border-accent hover:shadow-lg hover:shadow-accent/5 transition-all duration-300"
-                >
-                  <div className="w-10 h-10 rounded-xl bg-accent/10 text-accent flex items-center justify-center group-hover:bg-accent group-hover:text-dark-primary transition-all duration-300 flex-shrink-0">
-                    {Icon && <Icon size={20} />}
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
+          {industries.map((industry, i) => {
+            const Icon = iconMap[industry.icon];
+            return (
+              <ScrollReveal key={industry.title} delay={i * 0.08}>
+                <Link href="/industries" className="block group">
+                  <div className="rounded-2xl border border-card-light-border bg-white p-7 hover:shadow-xl hover:shadow-accent/[0.05] hover:border-accent/30 transition-all duration-500 h-full">
+                    <div className="flex items-start gap-5 mb-4">
+                      <div className="w-12 h-12 rounded-xl bg-accent/10 text-accent flex items-center justify-center flex-shrink-0 group-hover:bg-accent group-hover:text-dark-primary transition-all duration-300">
+                        {Icon && <Icon size={22} />}
+                      </div>
+                      <div className="flex-grow">
+                        <h3 className="font-heading text-lg font-bold text-text-dark tracking-wide mb-2 group-hover:text-accent transition-colors duration-300">
+                          {industry.title}
+                        </h3>
+                        <p className="text-text-dark-muted text-sm leading-relaxed">
+                          {industry.description}
+                        </p>
+                      </div>
+                    </div>
+                    <div className="flex items-center gap-1.5 text-xs font-medium text-accent opacity-0 group-hover:opacity-100 -translate-x-2 group-hover:translate-x-0 transition-all duration-300 pl-[68px]">
+                      Learn more <ArrowRight size={12} />
+                    </div>
                   </div>
-                  <span className="font-heading text-base font-bold text-text-dark tracking-wide group-hover:text-accent transition-colors duration-300">
-                    {industry.title}
-                  </span>
                 </Link>
-              );
-            })}
-          </div>
-        </ScrollReveal>
+              </ScrollReveal>
+            );
+          })}
+        </div>
       </div>
     </section>
   );
