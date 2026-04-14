@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useEffect, useCallback, useRef } from "react";
+import { useState, useEffect, useCallback } from "react";
 import Link from "next/link";
 import { motion, AnimatePresence } from "framer-motion";
 import { ChevronDown, ChevronLeft, ChevronRight, ArrowRight } from "lucide-react";
@@ -14,7 +14,6 @@ const slides = [
       "From AI-powered platforms to investor-ready MVPs — we engineer software that scales, converts, and dominates.",
     cta: { label: "Explore Services", href: "/services" },
     ctaSecondary: { label: "Start Your Project", href: "/contact" },
-    video: "/videos/hero-1.mp4",
   },
   {
     badge: "AI & Automation",
@@ -24,7 +23,6 @@ const slides = [
       "Custom AI models, intelligent automation, and LLM integrations that give your business an unfair advantage.",
     cta: { label: "AI Services", href: "/services/ai-development" },
     ctaSecondary: { label: "See Our Work", href: "/work" },
-    video: "/videos/hero-2.mp4",
   },
   {
     badge: "SEO & AIEO Specialists",
@@ -34,14 +32,12 @@ const slides = [
       "We optimize your digital presence for Google, ChatGPT, Gemini, Perplexity — the next frontier of visibility.",
     cta: { label: "Learn About AIEO", href: "/services/aieo" },
     ctaSecondary: { label: "Get in Touch", href: "/contact" },
-    video: "/videos/hero-3.mp4",
   },
 ];
 
 export default function Hero() {
   const [current, setCurrent] = useState(0);
   const [isAutoPlaying, setIsAutoPlaying] = useState(true);
-  const videoRef = useRef<HTMLVideoElement>(null);
 
   const goTo = useCallback((index: number) => {
     setCurrent(index);
@@ -67,25 +63,17 @@ export default function Hero() {
 
   return (
     <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
-      {/* Video Background - changes per slide */}
+      {/* Video Background */}
       <div className="absolute inset-0 z-0">
-        <AnimatePresence mode="wait">
-          <motion.video
-            key={slides[current].video}
-            ref={videoRef}
-            autoPlay
-            muted
-            loop
-            playsInline
-            preload="auto"
-            src={slides[current].video}
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            exit={{ opacity: 0 }}
-            transition={{ duration: 1.2 }}
-            className="absolute inset-0 w-full h-full object-cover"
-          />
-        </AnimatePresence>
+        <video
+          autoPlay
+          muted
+          loop
+          playsInline
+          preload="auto"
+          src="/videos/hero.mp4"
+          className="absolute inset-0 w-full h-full object-cover"
+        />
 
         {/* Dark overlay */}
         <div className="absolute inset-0 bg-dark-primary/70" />
