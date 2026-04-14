@@ -97,7 +97,7 @@ export default function AboutPage() {
           <div className="max-w-[1400px] mx-auto px-6 lg:px-8">
             <div className="max-w-3xl mx-auto text-center mb-20">
               <ScrollReveal>
-                <h2 className="font-heading text-3xl md:text-4xl font-bold text-text-dark tracking-wide mb-6">
+                <h2 className="font-heading text-3xl md:text-4xl font-bold text-text-dark mb-6">
                   Why We Exist
                 </h2>
                 <p className="text-text-dark-muted text-lg leading-relaxed mb-4">
@@ -135,7 +135,7 @@ export default function AboutPage() {
           <div className="max-w-[1400px] mx-auto px-6 lg:px-8">
             <ScrollReveal>
               <div className="text-center mb-16">
-                <h2 className="font-heading text-3xl md:text-4xl lg:text-5xl font-bold text-text-light tracking-wide mb-4">
+                <h2 className="font-heading text-3xl md:text-4xl lg:text-5xl font-bold text-text-light mb-4">
                   Our Values
                 </h2>
                 <p className="max-w-2xl mx-auto text-lg text-text-light-muted">
@@ -153,7 +153,7 @@ export default function AboutPage() {
                       <div className="mb-4 w-12 h-12 rounded-xl bg-accent/10 text-accent flex items-center justify-center group-hover:bg-accent group-hover:text-dark-primary transition-all duration-300">
                         <Icon size={24} />
                       </div>
-                      <h3 className="font-heading text-lg font-bold text-text-light mb-2 tracking-wide">
+                      <h3 className="font-heading text-lg font-bold text-text-light mb-2">
                         {value.title}
                       </h3>
                       <p className="text-text-light-muted text-sm leading-relaxed">
@@ -172,7 +172,7 @@ export default function AboutPage() {
           <div className="max-w-[1400px] mx-auto px-6 lg:px-8">
             <ScrollReveal>
               <div className="text-center mb-16">
-                <h2 className="font-heading text-3xl md:text-4xl lg:text-5xl font-bold text-text-dark tracking-wide mb-4">
+                <h2 className="font-heading text-3xl md:text-4xl lg:text-5xl font-bold text-text-dark mb-4">
                   Our Journey
                 </h2>
                 <p className="max-w-2xl mx-auto text-lg text-text-dark-muted">
@@ -189,12 +189,12 @@ export default function AboutPage() {
                       <div className="absolute left-[27px] md:left-[35px] top-16 bottom-0 w-px bg-gradient-to-b from-accent/30 to-transparent" />
                     )}
                     <div className="flex-shrink-0 w-14 h-14 md:w-[70px] md:h-[70px] rounded-2xl border-2 border-accent/30 flex items-center justify-center">
-                      <span className="font-heading text-sm md:text-base font-bold text-accent tracking-wider">
+                      <span className="font-heading text-sm md:text-base font-bold text-accent">
                         {item.year}
                       </span>
                     </div>
                     <div className="pt-1">
-                      <h3 className="font-heading text-xl md:text-2xl font-bold text-text-dark mb-2 tracking-wide">
+                      <h3 className="font-heading text-xl md:text-2xl font-bold text-text-dark mb-2">
                         {item.title}
                       </h3>
                       <p className="text-text-dark-muted leading-relaxed">

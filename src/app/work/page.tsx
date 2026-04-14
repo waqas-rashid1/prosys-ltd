@@ -79,7 +79,7 @@ export default function WorkPage() {
                       />
                     </div>
 
-                    <h3 className="font-heading text-xl md:text-2xl font-bold text-text-dark mb-3 tracking-wide group-hover:text-accent transition-colors duration-300">
+                    <h3 className="font-heading text-xl md:text-2xl font-bold text-text-dark mb-3 group-hover:text-accent transition-colors duration-300">
                       {project.title}
                     </h3>
                     <p className="text-text-dark-muted leading-relaxed mb-6 flex-grow">

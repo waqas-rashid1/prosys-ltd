@@ -83,7 +83,7 @@ export default async function ServicePage({
                   <span className="h-2 w-2 rounded-full bg-accent animate-pulse" />
                   <span className="text-sm text-accent tracking-wide font-medium">{service.title}</span>
                 </div>
-                <h1 className="font-heading text-4xl md:text-5xl lg:text-6xl font-bold tracking-wide leading-[1.1] mb-6">
+                <h1 className="font-heading text-4xl md:text-5xl lg:text-6xl font-bold leading-[1.1] mb-6">
                   {service.tagline.split(" ").slice(0, -1).join(" ")}
                   <span className="gradient-text"> {service.tagline.split(" ").slice(-1)[0]}</span>
                 </h1>
@@ -114,7 +114,7 @@ export default async function ServicePage({
                     {Icon && <Icon size={80} className="text-accent/60" strokeWidth={1} />}
                   </div>
                   <div className="absolute -top-3 -right-3 w-16 h-16 rounded-2xl bg-accent/10 border border-accent/20 flex items-center justify-center">
-                    <span className="font-heading text-xs font-bold text-accent tracking-wider">PRO</span>
+                    <span className="font-heading text-xs font-bold text-accent">PRO</span>
                   </div>
                 </div>
               </div>
@@ -144,7 +144,7 @@ export default async function ServicePage({
                 <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full border border-accent/20 bg-accent/5 mb-6">
                   <span className="text-xs text-accent tracking-widest uppercase font-medium">Overview</span>
                 </div>
-                <h2 className="font-heading text-3xl md:text-4xl font-bold text-text-dark tracking-wide mb-6 leading-tight">
+                <h2 className="font-heading text-3xl md:text-4xl font-bold text-text-dark mb-6 leading-tight">
                   What We Do
                 </h2>
                 <p className="text-text-dark-muted text-lg leading-relaxed">{service.what}</p>
@@ -154,7 +154,7 @@ export default async function ServicePage({
                 <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full border border-accent/20 bg-accent/5 mb-6">
                   <span className="text-xs text-accent tracking-widest uppercase font-medium">Why PROSYS</span>
                 </div>
-                <h2 className="font-heading text-3xl md:text-4xl font-bold text-text-dark tracking-wide mb-6 leading-tight">
+                <h2 className="font-heading text-3xl md:text-4xl font-bold text-text-dark mb-6 leading-tight">
                   Why Choose Us
                 </h2>
                 <div className="space-y-4">
@@ -175,7 +175,7 @@ export default async function ServicePage({
           <div className="max-w-[1400px] mx-auto px-6 lg:px-8">
             <ScrollReveal>
               <div className="text-center mb-16">
-                <h2 className="font-heading text-3xl md:text-4xl lg:text-5xl font-bold text-text-light tracking-wide mb-4">
+                <h2 className="font-heading text-3xl md:text-4xl lg:text-5xl font-bold text-text-light mb-4">
                   Our Process
                 </h2>
                 <p className="text-text-light-muted text-lg max-w-2xl mx-auto">
@@ -192,7 +192,7 @@ export default async function ServicePage({
                       <span className="flex-shrink-0 w-10 h-10 rounded-xl bg-accent/10 text-accent font-heading text-sm font-bold flex items-center justify-center group-hover:bg-accent group-hover:text-dark-primary transition-all duration-300">
                         {String(i + 1).padStart(2, "0")}
                       </span>
-                      <h3 className="font-heading text-base font-bold text-text-light tracking-wide">{step.title}</h3>
+                      <h3 className="font-heading text-base font-bold text-text-light">{step.title}</h3>
                     </div>
                     <p className="text-text-light-muted text-sm leading-relaxed">{step.desc}</p>
                   </div>
@@ -207,7 +207,7 @@ export default async function ServicePage({
           <div className="max-w-[1400px] mx-auto px-6 lg:px-8">
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-16">
               <ScrollReveal>
-                <h3 className="font-heading text-2xl md:text-3xl font-bold text-text-dark tracking-wide mb-8">
+                <h3 className="font-heading text-2xl md:text-3xl font-bold text-text-dark mb-8">
                   Technology Stack
                 </h3>
                 <div className="flex flex-wrap gap-3">
@@ -223,7 +223,7 @@ export default async function ServicePage({
               </ScrollReveal>
 
               <ScrollReveal delay={0.15}>
-                <h3 className="font-heading text-2xl md:text-3xl font-bold text-text-dark tracking-wide mb-8">
+                <h3 className="font-heading text-2xl md:text-3xl font-bold text-text-dark mb-8">
                   Key Benefits
                 </h3>
                 <div className="space-y-4">
@@ -249,7 +249,7 @@ export default async function ServicePage({
                 <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full border border-accent/20 bg-accent/5 mb-6">
                   <span className="text-xs text-accent tracking-widest uppercase font-medium">Case Study</span>
                 </div>
-                <h2 className="font-heading text-3xl md:text-4xl font-bold text-text-light tracking-wide mb-8">
+                <h2 className="font-heading text-3xl md:text-4xl font-bold text-text-light mb-8">
                   {service.caseStudy.title}
                 </h2>
 
@@ -286,7 +286,7 @@ export default async function ServicePage({
           <div className="max-w-3xl mx-auto px-6 lg:px-8">
             <ScrollReveal>
               <div className="text-center mb-12">
-                <h2 className="font-heading text-3xl md:text-4xl font-bold text-text-dark tracking-wide mb-4">
+                <h2 className="font-heading text-3xl md:text-4xl font-bold text-text-dark mb-4">
                   Frequently Asked Questions
                 </h2>
                 <p className="text-text-dark-muted text-lg">
@@ -298,7 +298,7 @@ export default async function ServicePage({
               {service.faq.map((item, i) => (
                 <ScrollReveal key={i} delay={i * 0.08}>
                   <div className="p-6 rounded-2xl border border-card-light-border bg-white hover:border-accent/30 transition-all duration-300">
-                    <h4 className="font-heading text-base font-bold text-text-dark mb-2 tracking-wide">{item.q}</h4>
+                    <h4 className="font-heading text-base font-bold text-text-dark mb-2">{item.q}</h4>
                     <p className="text-text-dark-muted text-sm leading-relaxed">{item.a}</p>
                   </div>
                 </ScrollReveal>
@@ -311,7 +311,7 @@ export default async function ServicePage({
         <section className="py-20 bg-dark-primary border-t border-card-dark-border">
           <div className="max-w-[1400px] mx-auto px-6 lg:px-8">
             <div className="flex items-center justify-between mb-8">
-              <h3 className="font-heading text-2xl font-bold text-text-light tracking-wide">
+              <h3 className="font-heading text-2xl font-bold text-text-light">
                 Explore Other Services
               </h3>
               <Link
@@ -333,7 +333,7 @@ export default async function ServicePage({
                     <div className="w-8 h-8 rounded-lg bg-accent/10 text-accent flex items-center justify-center flex-shrink-0 group-hover:bg-accent group-hover:text-dark-primary transition-all duration-300">
                       {SIcon && <SIcon size={16} />}
                     </div>
-                    <span className="font-heading text-sm font-bold text-text-light group-hover:text-accent transition-colors tracking-wide truncate">
+                    <span className="font-heading text-sm font-bold text-text-light group-hover:text-accent transition-colors truncate">
                       {s.title}
                     </span>
                   </Link>

@@ -18,7 +18,7 @@ export default function SectionHeading({
   return (
     <ScrollReveal className={`mb-16 ${center ? "text-center" : ""}`}>
       <h2
-        className={`font-heading text-3xl md:text-4xl lg:text-5xl font-bold tracking-wide mb-4 ${
+        className={`font-heading text-3xl md:text-4xl lg:text-5xl font-bold mb-4 ${
           light ? "text-text-dark" : "text-text-light"
         }`}
       >

@@ -41,7 +41,7 @@ export default function TechMarquee() {
       <div className="relative z-10 max-w-[1400px] mx-auto px-6 lg:px-8">
         <ScrollReveal>
           <div className="text-center mb-12">
-            <h2 className="font-heading text-4xl md:text-5xl lg:text-6xl font-bold text-text-light tracking-wide mb-4">
+            <h2 className="font-heading text-4xl md:text-5xl lg:text-6xl font-bold text-text-light mb-4">
               Our Tech Stack
             </h2>
             <p className="text-text-light-muted text-lg max-w-2xl mx-auto">
@@ -87,7 +87,7 @@ export default function TechMarquee() {
                 transition={{ delay: i * 0.03 }}
                 className="group flex items-center justify-center h-16 md:h-20 rounded-xl bg-white hover:shadow-lg hover:shadow-accent/10 hover:-translate-y-1 transition-all duration-300"
               >
-                <span className="font-heading text-[11px] md:text-xs font-bold text-text-dark tracking-wide group-hover:text-accent transition-colors duration-300 text-center px-2">
+                <span className="font-heading text-[11px] md:text-xs font-bold text-text-dark group-hover:text-accent transition-colors duration-300 text-center px-2">
                   {tech}
                 </span>
               </motion.div>

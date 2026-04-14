@@ -9,7 +9,7 @@ export default function Approach() {
       <div className="max-w-[1400px] mx-auto px-6 lg:px-8">
         <ScrollReveal>
           <div className="text-center mb-16">
-            <h2 className="font-heading text-4xl md:text-5xl lg:text-6xl font-bold text-text-light tracking-wide mb-4">
+            <h2 className="font-heading text-4xl md:text-5xl lg:text-6xl font-bold text-text-light mb-4">
               How We Deliver
             </h2>
             <p className="text-text-light-muted text-lg max-w-2xl mx-auto">
@@ -27,7 +27,7 @@ export default function Approach() {
                 <span className="font-heading text-4xl font-bold text-accent/[0.08] group-hover:text-accent/20 transition-colors duration-500 block mb-5">
                   //{item.step}
                 </span>
-                <h3 className="font-heading text-lg font-bold text-text-light tracking-wide mb-3 group-hover:text-accent transition-colors duration-300">
+                <h3 className="font-heading text-lg font-bold text-text-light mb-3 group-hover:text-accent transition-colors duration-300">
                   {item.title}
                 </h3>
                 <p className="text-text-light-muted text-sm leading-relaxed">

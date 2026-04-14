@@ -47,7 +47,7 @@ export default function TermsPage() {
                         {String(i + 1).padStart(2, "0")}
                       </span>
                       <div>
-                        <h2 className="font-heading text-lg font-bold text-text-dark mb-3 tracking-wide">
+                        <h2 className="font-heading text-lg font-bold text-text-dark mb-3">
                           {s.title}
                         </h2>
                         <p className="text-text-dark-muted leading-relaxed">

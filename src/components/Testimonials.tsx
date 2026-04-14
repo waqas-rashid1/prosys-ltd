@@ -64,7 +64,7 @@ export default function Testimonials() {
                   Testimonials
                 </span>
               </div>
-              <h2 className="font-heading text-3xl md:text-4xl lg:text-5xl font-bold text-text-light tracking-wide mb-12 leading-tight">
+              <h2 className="font-heading text-3xl md:text-4xl lg:text-5xl font-bold text-text-light mb-12 leading-tight">
                 What Our Clients
                 <span className="gradient-text"> Say</span>
               </h2>
@@ -89,7 +89,7 @@ export default function Testimonials() {
                       {t.initial}
                     </div>
                     <div>
-                      <div className="font-heading text-base font-bold text-accent tracking-wide">
+                      <div className="font-heading text-base font-bold text-accent">
                         {t.name}
                       </div>
                       <div className="text-text-light-muted text-sm">
@@ -136,7 +136,7 @@ export default function Testimonials() {
           <div className="lg:col-span-5">
             <ScrollReveal delay={0.2}>
               <div className="rounded-2xl border border-card-dark-border bg-card-dark p-8 lg:mt-16">
-                <h3 className="font-heading text-xl font-bold text-text-light tracking-wide mb-2">
+                <h3 className="font-heading text-xl font-bold text-text-light mb-2">
                   Start Your Project
                 </h3>
                 <p className="text-text-light-muted text-sm mb-6">

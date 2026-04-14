@@ -95,7 +95,7 @@ export default function Contact() {
           <ScrollReveal delay={0.2} className="lg:col-span-2">
             <div className="space-y-8">
               <div>
-                <h3 className="font-heading text-xl font-bold text-text-dark mb-6 tracking-wide">
+                <h3 className="font-heading text-xl font-bold text-text-dark mb-6">
                   Contact Information
                 </h3>
                 <div className="space-y-5">
@@ -151,7 +151,7 @@ export default function Contact() {
 
               {/* Decorative card */}
               <div className="rounded-2xl gradient-bg p-6 text-dark-primary">
-                <h4 className="font-heading text-lg font-bold mb-2 tracking-wide">
+                <h4 className="font-heading text-lg font-bold mb-2">
                   Ready to Start?
                 </h4>
                 <p className="text-dark-primary/80 text-sm leading-relaxed">

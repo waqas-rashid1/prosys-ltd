@@ -124,7 +124,7 @@ export default function Hero() {
               </span>
             </div>
 
-            <h1 className="font-heading text-[2.75rem] leading-[1.08] sm:text-5xl md:text-6xl lg:text-7xl xl:text-[5.5rem] font-bold tracking-wide mb-6 text-white">
+            <h1 className="font-heading text-[2.75rem] leading-[1.08] sm:text-5xl md:text-6xl lg:text-7xl xl:text-[5.5rem] font-bold mb-6 text-white">
               {slide.title}
               <br />
               <span className="gradient-text">{slide.highlight}</span>

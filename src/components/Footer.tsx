@@ -17,7 +17,7 @@ export default function Footer() {
         <div className="max-w-[1400px] mx-auto px-6 lg:px-8 py-12">
           <div className="flex flex-col lg:flex-row lg:items-center lg:justify-between gap-6">
             <div>
-              <h3 className="font-heading text-2xl md:text-3xl font-bold text-text-light tracking-wide mb-2">
+              <h3 className="font-heading text-2xl md:text-3xl font-bold text-text-light mb-2">
                 Subscribe
               </h3>
               <p className="text-text-light-muted">
@@ -50,7 +50,7 @@ export default function Footer() {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-12">
           <div className="lg:col-span-2">
             <Link href="/" className="inline-block mb-4">
-              <span className="font-heading text-2xl font-bold tracking-wider">
+              <span className="font-heading text-2xl font-bold">
                 <span className="text-accent">PRO</span>
                 <span className="text-text-light">SYS</span>
                 <span className="text-text-light-muted text-xs ml-1">LTD</span>

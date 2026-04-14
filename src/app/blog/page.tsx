@@ -97,7 +97,7 @@ export default function BlogPage() {
                     {featuredPost.category}
                   </span>
                 </div>
-                <h2 className="font-heading text-2xl md:text-3xl lg:text-4xl font-bold text-text-dark mb-4 tracking-wide group-hover:text-accent transition-colors duration-300 leading-tight">
+                <h2 className="font-heading text-2xl md:text-3xl lg:text-4xl font-bold text-text-dark mb-4 group-hover:text-accent transition-colors duration-300 leading-tight">
                   {featuredPost.title}
                 </h2>
                 <p className="text-text-dark-muted text-lg leading-relaxed mb-6 max-w-3xl">
@@ -126,7 +126,7 @@ export default function BlogPage() {
                         {post.category}
                       </span>
                     </div>
-                    <h3 className="font-heading text-lg font-bold text-text-dark mb-3 tracking-wide group-hover:text-accent transition-colors duration-300 leading-snug">
+                    <h3 className="font-heading text-lg font-bold text-text-dark mb-3 group-hover:text-accent transition-colors duration-300 leading-snug">
                       {post.title}
                     </h3>
                     <p className="text-text-dark-muted text-sm leading-relaxed mb-6 flex-grow">

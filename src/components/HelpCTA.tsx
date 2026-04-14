@@ -16,7 +16,7 @@ export default function HelpCTA() {
       <div className="relative z-10 max-w-[1400px] mx-auto px-6 lg:px-8">
         <ScrollReveal>
           <div className="max-w-3xl mx-auto text-center">
-            <h2 className="font-heading text-4xl md:text-5xl lg:text-6xl font-bold text-text-light tracking-wide mb-4 leading-tight">
+            <h2 className="font-heading text-4xl md:text-5xl lg:text-6xl font-bold text-text-light mb-4 leading-tight">
               How Can We
               <span className="gradient-text"> Help You?</span>
             </h2>

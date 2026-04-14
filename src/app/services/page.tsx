@@ -73,7 +73,7 @@ export default function ServicesPage() {
                         {Icon && <Icon size={26} />}
                       </div>
                       <div>
-                        <h3 className="font-heading text-xl font-bold text-text-dark mb-2 tracking-wide">
+                        <h3 className="font-heading text-xl font-bold text-text-dark mb-2">
                           {service.title}
                         </h3>
                         <p className="text-text-dark-muted leading-relaxed">
@@ -98,7 +98,7 @@ export default function ServicesPage() {
                     How It Works
                   </span>
                 </div>
-                <h2 className="font-heading text-3xl md:text-4xl lg:text-5xl font-bold text-text-light tracking-wide mb-4 leading-tight">
+                <h2 className="font-heading text-3xl md:text-4xl lg:text-5xl font-bold text-text-light mb-4 leading-tight">
                   Our Process Is
                   <br />
                   <span className="gradient-text">Transparent</span>

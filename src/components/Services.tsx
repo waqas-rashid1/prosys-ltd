@@ -96,7 +96,7 @@ function ServiceCard({ cat, index }: { cat: typeof serviceCategories[0]; index: 
 
       {/* Content area */}
       <div className="p-6 flex-grow flex flex-col">
-        <h3 className="font-heading text-xl font-bold text-text-dark tracking-wide">
+        <h3 className="font-heading text-xl font-bold text-text-dark">
           {cat.title}
         </h3>
 
@@ -138,7 +138,7 @@ export default function Services() {
       <div className="max-w-[1400px] mx-auto px-6 lg:px-8">
         <ScrollReveal>
           <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-6 mb-14">
-            <h2 className="font-heading text-4xl md:text-5xl lg:text-6xl font-bold text-text-dark tracking-wide leading-tight">
+            <h2 className="font-heading text-4xl md:text-5xl lg:text-6xl font-bold text-text-dark leading-tight">
               Our services
             </h2>
             <Link
@@ -168,7 +168,7 @@ export default function Services() {
                   onClick={() => setExpandedIndex(expandedIndex === i ? null : i)}
                   className="w-full flex items-center justify-between p-6 cursor-pointer"
                 >
-                  <h3 className="font-heading text-lg font-bold text-text-dark tracking-wide">
+                  <h3 className="font-heading text-lg font-bold text-text-dark">
                     {cat.title}
                   </h3>
                   {expandedIndex === i ? (

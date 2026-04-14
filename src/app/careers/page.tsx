@@ -42,7 +42,7 @@ export default function CareersPage() {
         <section className="py-28 lg:py-36 bg-light-primary">
           <div className="max-w-[1400px] mx-auto px-6 lg:px-8">
             <ScrollReveal>
-              <h2 className="font-heading text-3xl md:text-4xl font-bold text-text-dark tracking-wide mb-12 text-center">
+              <h2 className="font-heading text-3xl md:text-4xl font-bold text-text-dark mb-12 text-center">
                 Why PROSYS?
               </h2>
             </ScrollReveal>
@@ -55,7 +55,7 @@ export default function CareersPage() {
                       <div className="w-12 h-12 rounded-xl bg-accent/10 text-accent flex items-center justify-center mx-auto mb-4 group-hover:bg-accent group-hover:text-dark-primary transition-all duration-300">
                         <Icon size={24} />
                       </div>
-                      <h3 className="font-heading text-base font-bold text-text-dark mb-2 tracking-wide">{perk.title}</h3>
+                      <h3 className="font-heading text-base font-bold text-text-dark mb-2">{perk.title}</h3>
                       <p className="text-text-dark-muted text-sm">{perk.desc}</p>
                     </div>
                   </ScrollReveal>
@@ -68,7 +68,7 @@ export default function CareersPage() {
         <section className="py-28 lg:py-36 bg-dark-secondary">
           <div className="max-w-[1400px] mx-auto px-6 lg:px-8">
             <ScrollReveal>
-              <h2 className="font-heading text-3xl md:text-4xl font-bold text-text-light tracking-wide mb-4 text-center">
+              <h2 className="font-heading text-3xl md:text-4xl font-bold text-text-light mb-4 text-center">
                 Open Positions
               </h2>
               <p className="text-text-light-muted text-center mb-12 max-w-xl mx-auto">
@@ -84,7 +84,7 @@ export default function CareersPage() {
                     className="group flex items-center justify-between p-5 rounded-xl border border-card-dark-border bg-card-dark hover:border-accent/40 transition-all duration-300"
                   >
                     <div>
-                      <div className="font-heading text-base font-bold text-text-light group-hover:text-accent transition-colors tracking-wide">
+                      <div className="font-heading text-base font-bold text-text-light group-hover:text-accent transition-colors">
                         {role.title}
                       </div>
                       <div className="flex items-center gap-3 mt-1 text-xs text-text-light-muted">

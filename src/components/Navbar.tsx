@@ -90,7 +90,7 @@ export default function Navbar() {
         <div className="max-w-[1400px] mx-auto px-6 lg:px-8">
           <div className="flex items-center justify-between h-20">
             <Link href="/" className="flex items-center gap-1 group">
-              <span className="font-heading text-2xl font-bold tracking-wider">
+              <span className="font-heading text-2xl font-bold">
                 <span className="text-accent group-hover:text-accent-hover transition-colors duration-300">PRO</span>
                 <span className="text-text-light">SYS</span>
               </span>
@@ -195,7 +195,7 @@ export default function Navbar() {
                       <span className="inline-block px-2 py-0.5 text-[10px] font-bold rounded bg-accent/20 text-accent tracking-wider uppercase mb-3">
                         {servicesMega.featured.badge}
                       </span>
-                      <h3 className="font-heading text-xl font-bold text-text-light tracking-wide mb-2">
+                      <h3 className="font-heading text-xl font-bold text-text-light mb-2">
                         {servicesMega.featured.title}
                       </h3>
                       <p className="text-text-light-muted text-sm leading-relaxed">
@@ -236,7 +236,7 @@ export default function Navbar() {
                 >
                   <Link
                     href={link.href}
-                    className={`font-heading text-2xl tracking-wider transition-colors ${
+                    className={`font-heading text-2xl transition-colors ${
                       pathname === link.href ? "text-accent" : "text-text-light hover:text-accent"
                     }`}
                   >

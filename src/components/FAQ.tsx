@@ -32,7 +32,7 @@ function FAQItem({
         aria-expanded={isOpen}
         aria-controls={panelId}
       >
-        <span className="font-heading text-base md:text-lg font-bold text-text-light tracking-wide pr-4 group-hover:text-accent transition-colors">
+        <span className="font-heading text-base md:text-lg font-bold text-text-light pr-4 group-hover:text-accent transition-colors">
           {question}
         </span>
         <motion.div

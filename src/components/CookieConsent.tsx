@@ -38,7 +38,7 @@ export default function CookieConsent() {
           <div className="max-w-3xl mx-auto bg-dark-secondary border border-card-dark-border rounded-2xl p-5 sm:p-6 shadow-2xl shadow-black/40 glass-effect">
             <div className="flex items-start gap-4">
               <div className="flex-grow">
-                <h3 className="font-heading text-base font-bold text-text-light tracking-wide mb-1">
+                <h3 className="font-heading text-base font-bold text-text-light mb-1">
                   We use cookies
                 </h3>
                 <p className="text-text-light-muted text-sm leading-relaxed">

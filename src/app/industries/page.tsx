@@ -84,7 +84,7 @@ export default function IndustriesPage() {
                       <div className="mb-5 w-14 h-14 rounded-xl bg-accent/10 text-accent flex items-center justify-center group-hover:bg-accent group-hover:text-dark-primary transition-all duration-300">
                         {Icon && <Icon size={28} />}
                       </div>
-                      <h3 className="font-heading text-2xl font-bold text-text-dark mb-3 tracking-wide">
+                      <h3 className="font-heading text-2xl font-bold text-text-dark mb-3">
                         {industry.title}
                       </h3>
                       <p className="text-text-dark-muted leading-relaxed mb-4">
@@ -109,7 +109,7 @@ export default function IndustriesPage() {
           <div className="max-w-[1400px] mx-auto px-6 lg:px-8">
             <ScrollReveal>
               <div className="text-center mb-16">
-                <h2 className="font-heading text-3xl md:text-4xl lg:text-5xl font-bold text-text-light tracking-wide mb-4">
+                <h2 className="font-heading text-3xl md:text-4xl lg:text-5xl font-bold text-text-light mb-4">
                   Solutions We Deliver
                 </h2>
                 <p className="max-w-2xl mx-auto text-lg text-text-light-muted">
@@ -122,7 +122,7 @@ export default function IndustriesPage() {
               {industrySolutions.map((item, i) => (
                 <ScrollReveal key={item.industry} delay={i * 0.1}>
                   <div className="p-6 rounded-2xl border border-card-dark-border bg-card-dark h-full">
-                    <h3 className="font-heading text-xl font-bold text-accent mb-4 tracking-wide">
+                    <h3 className="font-heading text-xl font-bold text-accent mb-4">
                       {item.industry}
                     </h3>
                     <ul className="space-y-3">

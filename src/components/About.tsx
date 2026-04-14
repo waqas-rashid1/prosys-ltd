@@ -14,7 +14,7 @@ export default function About() {
                 Who We Are
               </span>
             </div>
-            <h2 className="font-heading text-3xl md:text-4xl lg:text-5xl font-bold text-text-light tracking-wide mb-6 leading-tight">
+            <h2 className="font-heading text-3xl md:text-4xl lg:text-5xl font-bold text-text-light mb-6 leading-tight">
               Small Team.
               <br />
               <span className="gradient-text">Heavy Output.</span>
@@ -45,7 +45,7 @@ export default function About() {
                 <div className="absolute inset-0 flex items-center justify-center">
                   <div className="w-32 h-32 rounded-2xl gradient-bg rotate-45 opacity-20 blur-sm" />
                   <div className="absolute w-24 h-24 rounded-2xl gradient-bg rotate-45 flex items-center justify-center">
-                    <span className="font-heading text-2xl font-bold text-dark-primary -rotate-45 tracking-wider">
+                    <span className="font-heading text-2xl font-bold text-dark-primary -rotate-45">
                       PRO
                     </span>
                   </div>

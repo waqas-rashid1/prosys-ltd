@@ -62,7 +62,7 @@ export default function CookiePolicyPage() {
         <section className="py-28 lg:py-36 bg-light-primary">
           <div className="max-w-[1400px] mx-auto px-6 lg:px-8">
             <ScrollReveal>
-              <h2 className="font-heading text-3xl md:text-4xl font-bold text-text-dark tracking-wide mb-10 text-center">
+              <h2 className="font-heading text-3xl md:text-4xl font-bold text-text-dark mb-10 text-center">
                 Types of Cookies We Use
               </h2>
             </ScrollReveal>
@@ -76,7 +76,7 @@ export default function CookiePolicyPage() {
                       <div className="w-11 h-11 rounded-xl bg-accent/10 text-accent flex items-center justify-center mb-4 group-hover:bg-accent group-hover:text-dark-primary transition-all duration-300">
                         <Icon size={20} />
                       </div>
-                      <h3 className="font-heading text-base font-bold text-text-dark tracking-wide mb-2">
+                      <h3 className="font-heading text-base font-bold text-text-dark mb-2">
                         {type.title}
                       </h3>
                       <p className="text-text-dark-muted text-sm leading-relaxed mb-3">
@@ -96,7 +96,7 @@ export default function CookiePolicyPage() {
               {generalSections.map((s, i) => (
                 <ScrollReveal key={s.title} delay={i * 0.05}>
                   <div className="p-6 md:p-8 rounded-2xl border border-card-light-border bg-white">
-                    <h2 className="font-heading text-lg font-bold text-text-dark mb-3 tracking-wide">
+                    <h2 className="font-heading text-lg font-bold text-text-dark mb-3">
                       {s.title}
                     </h2>
                     <p className="text-text-dark-muted leading-relaxed">

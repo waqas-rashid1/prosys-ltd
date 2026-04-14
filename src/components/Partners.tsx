@@ -11,7 +11,7 @@ export default function Partners() {
     <section id="partners" className="py-20 lg:py-28 bg-dark-secondary overflow-hidden">
       <div className="max-w-[1400px] mx-auto px-6 lg:px-8 mb-10">
         <ScrollReveal>
-          <h2 className="font-heading text-3xl md:text-4xl font-bold text-text-light tracking-wide text-center">
+          <h2 className="font-heading text-3xl md:text-4xl font-bold text-text-light text-center">
             Our Strategic
             <span className="gradient-text"> Partners</span>
           </h2>
@@ -28,7 +28,7 @@ export default function Partners() {
               key={`r1-${i}`}
               className="flex-shrink-0 mx-3 flex items-center justify-center h-16 px-8 rounded-xl border border-card-dark-border bg-card-dark/40"
             >
-              <span className="font-heading text-sm font-bold text-text-light-muted/50 tracking-wider whitespace-nowrap">
+              <span className="font-heading text-sm font-bold text-text-light-muted/50 whitespace-nowrap">
                 {partner}
               </span>
             </div>
@@ -46,7 +46,7 @@ export default function Partners() {
               key={`r2-${i}`}
               className="flex-shrink-0 mx-3 flex items-center justify-center h-16 px-8 rounded-xl border border-card-dark-border bg-card-dark/40"
             >
-              <span className="font-heading text-sm font-bold text-text-light-muted/50 tracking-wider whitespace-nowrap">
+              <span className="font-heading text-sm font-bold text-text-light-muted/50 whitespace-nowrap">
                 {partner}
               </span>
             </div>

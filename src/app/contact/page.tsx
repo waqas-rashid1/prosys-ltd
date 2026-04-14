@@ -87,7 +87,7 @@ export default function ContactPage() {
             <div className="grid grid-cols-1 lg:grid-cols-5 gap-12 lg:gap-16">
               <ScrollReveal className="lg:col-span-3">
                 <div className="rounded-2xl border border-card-light-border bg-white p-8 md:p-10">
-                  <h2 className="font-heading text-2xl md:text-3xl font-bold text-text-dark tracking-wide mb-2">
+                  <h2 className="font-heading text-2xl md:text-3xl font-bold text-text-dark mb-2">
                     Send Us a Message
                   </h2>
                   <p className="text-text-dark-muted mb-8">
@@ -100,7 +100,7 @@ export default function ContactPage() {
               <ScrollReveal delay={0.2} className="lg:col-span-2">
                 <div className="space-y-6">
                   <div className="rounded-2xl gradient-bg p-8 text-dark-primary">
-                    <h3 className="font-heading text-2xl font-bold mb-3 tracking-wide">
+                    <h3 className="font-heading text-2xl font-bold mb-3">
                       Free Consultation
                     </h3>
                     <p className="text-dark-primary/80 leading-relaxed mb-4">
@@ -116,7 +116,7 @@ export default function ContactPage() {
                   </div>
 
                   <div className="rounded-2xl border border-card-light-border bg-white p-8">
-                    <h3 className="font-heading text-xl font-bold text-text-dark mb-4 tracking-wide">
+                    <h3 className="font-heading text-xl font-bold text-text-dark mb-4">
                       What Happens Next?
                     </h3>
                     <div className="space-y-4">

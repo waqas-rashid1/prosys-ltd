@@ -27,7 +27,7 @@ export default function CTABanner({
       <div className="max-w-[1400px] mx-auto px-6 lg:px-8 text-center">
         <ScrollReveal>
           <h2
-            className={`font-heading text-3xl md:text-4xl lg:text-5xl font-bold tracking-wide mb-4 ${dark ? "text-text-light" : "text-text-dark"}`}
+            className={`font-heading text-3xl md:text-4xl lg:text-5xl font-bold mb-4 ${dark ? "text-text-light" : "text-text-dark"}`}
           >
             {title}{" "}
             <span className="gradient-text">{highlight}</span>

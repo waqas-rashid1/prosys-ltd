@@ -39,7 +39,7 @@ export default function PrivacyPage() {
               {sections.map((s, i) => (
                 <ScrollReveal key={s.title} delay={i * 0.05}>
                   <div className="p-6 md:p-8 rounded-2xl border border-card-light-border bg-white">
-                    <h2 className="font-heading text-lg font-bold text-text-dark mb-3 tracking-wide">
+                    <h2 className="font-heading text-lg font-bold text-text-dark mb-3">
                       {s.title}
                     </h2>
                     <p className="text-text-dark-muted leading-relaxed">

@@ -17,7 +17,7 @@ export default function Industries() {
       <div className="max-w-[1400px] mx-auto px-6 lg:px-8">
         <ScrollReveal>
           <div className="text-center mb-14">
-            <h2 className="font-heading text-4xl md:text-5xl lg:text-6xl font-bold text-text-dark tracking-wide mb-4">
+            <h2 className="font-heading text-4xl md:text-5xl lg:text-6xl font-bold text-text-dark mb-4">
               Discover Our Impact
               <span className="gradient-text"> Across Industries</span>
             </h2>
@@ -39,7 +39,7 @@ export default function Industries() {
                         {Icon && <Icon size={22} />}
                       </div>
                       <div className="flex-grow">
-                        <h3 className="font-heading text-lg font-bold text-text-dark tracking-wide mb-2 group-hover:text-accent transition-colors duration-300">
+                        <h3 className="font-heading text-lg font-bold text-text-dark mb-2 group-hover:text-accent transition-colors duration-300">
                           {industry.title}
                         </h3>
                         <p className="text-text-dark-muted text-sm leading-relaxed">

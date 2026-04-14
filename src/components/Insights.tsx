@@ -12,7 +12,7 @@ export default function Insights() {
         <ScrollReveal>
           <div className="flex flex-col lg:flex-row lg:items-end lg:justify-between gap-6 mb-12">
             <div>
-              <h2 className="font-heading text-4xl md:text-5xl lg:text-6xl font-bold text-text-dark tracking-wide leading-tight">
+              <h2 className="font-heading text-4xl md:text-5xl lg:text-6xl font-bold text-text-dark leading-tight">
                 Featured Insights
               </h2>
               <p className="text-text-dark-muted text-lg mt-3 max-w-xl">
@@ -49,7 +49,7 @@ export default function Insights() {
 
                 {/* Content */}
                 <div className="p-6 flex flex-col flex-grow">
-                  <h3 className="font-heading text-lg font-bold text-text-dark mb-3 tracking-wide group-hover:text-accent transition-colors duration-300 leading-snug">
+                  <h3 className="font-heading text-lg font-bold text-text-dark mb-3 group-hover:text-accent transition-colors duration-300 leading-snug">
                     {insight.title}
                   </h3>
                   <p className="text-text-dark-muted text-sm leading-relaxed mb-6 flex-grow">

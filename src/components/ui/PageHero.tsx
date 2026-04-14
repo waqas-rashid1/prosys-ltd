@@ -48,7 +48,7 @@ export default function PageHero({
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.7, delay: 0.1 }}
-          className="font-heading text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bold tracking-wide leading-[1.1] mb-6"
+          className="font-heading text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bold leading-[1.1] mb-6"
         >
           {title}
           {highlight && (
