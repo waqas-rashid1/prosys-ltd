@@ -8,17 +8,18 @@
   --light-primary: #f8fafc;
   --light-secondary: #ffffff;
 
-  --accent: #14b8a6;
-  --accent-hover: #0dd3c5;
-  --accent-deep: #0f766e;
+  --accent: #0C6C36;
+  --accent-hover: #0F8C46;
+  --accent-deep: #0F5132;
+  --accent-light: #34d399;
 
   --text-light: #f1f5f9;
   --text-light-muted: #a1afc4;
   --text-dark: #0f172a;
   --text-dark-muted: #4b5563;
 
-  --card-dark: #141414;
-  --card-dark-border: #222222;
+  --card-dark: #0d1a14;
+  --card-dark-border: #1a2e24;
   --card-light: #ffffff;
   --card-light-border: #e2e8f0;
 }
@@ -32,6 +33,7 @@
   --color-accent: var(--accent);
   --color-accent-hover: var(--accent-hover);
   --color-accent-deep: var(--accent-deep);
+  --color-accent-light: var(--accent-light);
 
   --color-text-light: var(--text-light);
   --color-text-light-muted: var(--text-light-muted);
@@ -123,8 +125,8 @@ body {
 }
 
 .gradient-text {
-  color: var(--accent);
-  -webkit-text-fill-color: var(--accent);
+  color: var(--accent-light);
+  -webkit-text-fill-color: var(--accent-light);
 }
 
 .gradient-bg {

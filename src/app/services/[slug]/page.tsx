@@ -93,7 +93,7 @@ export default async function ServicePage({
                 <div className="flex flex-col sm:flex-row gap-4">
                   <Link
                     href="/contact"
-                    className="inline-flex items-center justify-center gap-2 font-medium rounded-xl gradient-bg text-dark-primary hover:shadow-lg hover:shadow-accent/25 hover:scale-105 px-8 py-4 text-base tracking-wide transition-all duration-300"
+                    className="inline-flex items-center justify-center gap-2 font-medium rounded-xl gradient-bg text-white hover:shadow-lg hover:shadow-accent/25 hover:scale-105 px-8 py-4 text-base tracking-wide transition-all duration-300"
                   >
                     Get a Quote <ArrowRight size={16} />
                   </Link>
@@ -189,7 +189,7 @@ export default async function ServicePage({
                 <ScrollReveal key={i} delay={i * 0.08}>
                   <div className="group p-6 rounded-2xl border border-card-dark-border bg-card-dark hover:border-accent/40 transition-all duration-500 h-full">
                     <div className="flex items-center gap-4 mb-4">
-                      <span className="flex-shrink-0 w-10 h-10 rounded-xl bg-accent/10 text-accent font-heading text-sm font-bold flex items-center justify-center group-hover:bg-accent group-hover:text-dark-primary transition-all duration-300">
+                      <span className="flex-shrink-0 w-10 h-10 rounded-xl bg-accent/10 text-accent font-heading text-sm font-bold flex items-center justify-center group-hover:bg-accent group-hover:text-white transition-all duration-300">
                         {String(i + 1).padStart(2, "0")}
                       </span>
                       <h3 className="font-heading text-base font-bold text-text-light">{step.title}</h3>
@@ -330,7 +330,7 @@ export default async function ServicePage({
                     href={`/services/${s.slug}`}
                     className="group flex items-center gap-3 p-4 rounded-xl border border-card-dark-border bg-card-dark/50 hover:border-accent/40 hover:bg-card-dark transition-all duration-300"
                   >
-                    <div className="w-8 h-8 rounded-lg bg-accent/10 text-accent flex items-center justify-center flex-shrink-0 group-hover:bg-accent group-hover:text-dark-primary transition-all duration-300">
+                    <div className="w-8 h-8 rounded-lg bg-accent/10 text-accent flex items-center justify-center flex-shrink-0 group-hover:bg-accent group-hover:text-white transition-all duration-300">
                       {SIcon && <SIcon size={16} />}
                     </div>
                     <span className="font-heading text-sm font-bold text-text-light group-hover:text-accent transition-colors truncate">

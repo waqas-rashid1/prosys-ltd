@@ -24,10 +24,10 @@ export default function Approach() {
               <div className="group relative rounded-2xl border border-card-dark-border bg-card-dark p-7 hover:border-accent/40 hover:-translate-y-1 hover:shadow-xl hover:shadow-accent/[0.06] transition-all duration-500 h-full overflow-hidden">
                 <div className="absolute top-0 left-0 right-0 h-[2px] bg-accent scale-x-0 group-hover:scale-x-100 transition-transform duration-500 origin-left" />
 
-                <span className="font-heading text-4xl font-bold text-accent/[0.08] group-hover:text-accent/20 transition-colors duration-500 block mb-5">
+                <span className="font-heading text-4xl font-bold text-accent-light/[0.08] group-hover:text-accent-light/20 transition-colors duration-500 block mb-5">
                   //{item.step}
                 </span>
-                <h3 className="font-heading text-lg font-bold text-text-light mb-3 group-hover:text-accent transition-colors duration-300">
+                <h3 className="font-heading text-lg font-bold text-text-light mb-3 group-hover:text-accent-light transition-colors duration-300">
                   {item.title}
                 </h3>
                 <p className="text-text-light-muted text-sm leading-relaxed">

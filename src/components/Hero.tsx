@@ -119,7 +119,7 @@ export default function Hero() {
           >
             <div className="inline-flex items-center gap-2 px-4 py-2 rounded-xl border border-white/15 bg-white/5 glass-effect mb-8">
               <span className="h-2 w-2 rounded-full bg-accent animate-pulse" />
-              <span className="text-sm text-accent tracking-wide font-medium">
+              <span className="text-sm text-accent-light tracking-wide font-medium">
                 {slide.badge}
               </span>
             </div>
@@ -137,7 +137,7 @@ export default function Hero() {
             <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
               <Link
                 href={slide.cta.href}
-                className="inline-flex items-center justify-center gap-2 font-medium rounded-xl transition-all duration-300 cursor-pointer gradient-bg text-dark-primary hover:shadow-lg hover:shadow-accent/25 hover:scale-105 px-9 py-4 text-base tracking-wide"
+                className="inline-flex items-center justify-center gap-2 font-medium rounded-xl transition-all duration-300 cursor-pointer gradient-bg text-white hover:shadow-lg hover:shadow-accent/25 hover:scale-105 px-9 py-4 text-base tracking-wide"
               >
                 {slide.cta.label}
                 <ArrowRight size={16} />

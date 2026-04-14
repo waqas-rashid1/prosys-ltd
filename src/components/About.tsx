@@ -10,7 +10,7 @@ export default function About() {
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
           <ScrollReveal>
             <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full border border-accent/20 bg-accent/5 mb-6">
-              <span className="text-xs text-accent tracking-widest uppercase font-medium">
+              <span className="text-xs text-accent-light tracking-widest uppercase font-medium">
                 Who We Are
               </span>
             </div>
@@ -54,16 +54,16 @@ export default function About() {
                 <div className="absolute bottom-20 left-8 w-2 h-2 rounded-full bg-cyan-400 animate-float [animation-delay:1s]" />
                 <div className="absolute top-1/2 right-4 w-2.5 h-2.5 rounded-full bg-accent/60 animate-float [animation-delay:2s]" />
                 <div className="absolute top-4 left-4 px-2 py-1 rounded bg-card-dark/80 border border-card-dark-border">
-                  <span className="text-[10px] text-accent tracking-wider font-medium">AI</span>
+                  <span className="text-[10px] text-accent-light tracking-wider font-medium">AI</span>
                 </div>
                 <div className="absolute bottom-4 right-4 px-2 py-1 rounded bg-card-dark/80 border border-card-dark-border">
-                  <span className="text-[10px] text-accent tracking-wider font-medium">SaaS</span>
+                  <span className="text-[10px] text-accent-light tracking-wider font-medium">SaaS</span>
                 </div>
                 <div className="absolute top-4 right-4 px-2 py-1 rounded bg-card-dark/80 border border-card-dark-border">
-                  <span className="text-[10px] text-accent tracking-wider font-medium">MVP</span>
+                  <span className="text-[10px] text-accent-light tracking-wider font-medium">MVP</span>
                 </div>
                 <div className="absolute bottom-4 left-4 px-2 py-1 rounded bg-card-dark/80 border border-card-dark-border">
-                  <span className="text-[10px] text-accent tracking-wider font-medium">SEO</span>
+                  <span className="text-[10px] text-accent-light tracking-wider font-medium">SEO</span>
                 </div>
               </div>
             </div>

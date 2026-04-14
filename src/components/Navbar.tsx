@@ -91,7 +91,7 @@ export default function Navbar() {
           <div className="flex items-center justify-between h-20">
             <Link href="/" className="flex items-center gap-1 group">
               <span className="font-heading text-2xl font-bold">
-                <span className="text-accent group-hover:text-accent-hover transition-colors duration-300">PRO</span>
+                <span className="text-accent-light group-hover:text-accent-hover transition-colors duration-300">PRO</span>
                 <span className="text-text-light">SYS</span>
               </span>
               <span className="text-text-light-muted text-xs font-medium tracking-widest ml-1 hidden sm:inline">LTD</span>
@@ -112,7 +112,7 @@ export default function Navbar() {
                       <Link
                         href={link.href}
                         className={`flex items-center gap-1 px-4 py-2 text-sm tracking-wide transition-colors duration-300 rounded-lg hover:bg-white/5 ${
-                          pathname === link.href || megaOpen ? "text-accent" : "text-text-light-muted hover:text-accent"
+                          pathname === link.href || megaOpen ? "text-accent-light" : "text-text-light-muted hover:text-accent-light"
                         }`}
                       >
                         {link.label}
@@ -126,7 +126,7 @@ export default function Navbar() {
                     key={link.href}
                     href={link.href}
                     className={`px-4 py-2 text-sm tracking-wide transition-colors duration-300 rounded-lg hover:bg-white/5 ${
-                      pathname === link.href ? "text-accent" : "text-text-light-muted hover:text-accent"
+                      pathname === link.href ? "text-accent-light" : "text-text-light-muted hover:text-accent-light"
                     }`}
                   >
                     {link.label}
@@ -135,7 +135,7 @@ export default function Navbar() {
               })}
               <Link
                 href="/contact"
-                className="ml-4 inline-flex items-center justify-center font-medium rounded-xl transition-all duration-300 cursor-pointer gradient-bg text-dark-primary hover:shadow-lg hover:shadow-accent/25 hover:scale-105 px-6 py-2.5 text-sm"
+                className="ml-4 inline-flex items-center justify-center font-medium rounded-xl transition-all duration-300 cursor-pointer gradient-bg text-white hover:shadow-lg hover:shadow-accent/25 hover:scale-105 px-6 py-2.5 text-sm"
               >
                 Get in Touch
               </Link>
@@ -167,7 +167,7 @@ export default function Navbar() {
                 <div className="grid grid-cols-4 gap-8">
                   {servicesMega.columns.map((col) => (
                     <div key={col.heading}>
-                      <h4 className="text-xs text-accent tracking-[0.2em] uppercase font-bold mb-4">
+                      <h4 className="text-xs text-accent-light tracking-[0.2em] uppercase font-bold mb-4">
                         {col.heading}
                       </h4>
                       <div className="space-y-1">
@@ -177,7 +177,7 @@ export default function Navbar() {
                             href={item.href}
                             className="block p-3 rounded-xl hover:bg-white/5 transition-colors group"
                           >
-                            <div className="text-sm font-medium text-text-light group-hover:text-accent transition-colors">
+                            <div className="text-sm font-medium text-text-light group-hover:text-accent-light transition-colors">
                               {item.label}
                             </div>
                             <div className="text-xs text-text-light-muted mt-0.5">
@@ -192,7 +192,7 @@ export default function Navbar() {
                   {/* Featured card */}
                   <div className="rounded-2xl border border-accent/20 bg-accent/5 p-6 flex flex-col justify-between">
                     <div>
-                      <span className="inline-block px-2 py-0.5 text-[10px] font-bold rounded bg-accent/20 text-accent tracking-wider uppercase mb-3">
+                      <span className="inline-block px-2 py-0.5 text-[10px] font-bold rounded bg-accent/20 text-accent-light tracking-wider uppercase mb-3">
                         {servicesMega.featured.badge}
                       </span>
                       <h3 className="font-heading text-xl font-bold text-text-light mb-2">
@@ -204,7 +204,7 @@ export default function Navbar() {
                     </div>
                     <Link
                       href={servicesMega.featured.href}
-                      className="mt-4 inline-flex items-center gap-2 text-sm font-medium text-accent hover:gap-3 transition-all duration-300"
+                      className="mt-4 inline-flex items-center gap-2 text-sm font-medium text-accent-light hover:gap-3 transition-all duration-300"
                     >
                       Start Now <ArrowRight size={14} />
                     </Link>
@@ -237,7 +237,7 @@ export default function Navbar() {
                   <Link
                     href={link.href}
                     className={`font-heading text-2xl transition-colors ${
-                      pathname === link.href ? "text-accent" : "text-text-light hover:text-accent"
+                      pathname === link.href ? "text-accent-light" : "text-text-light hover:text-accent-light"
                     }`}
                   >
                     {link.label}
@@ -246,7 +246,7 @@ export default function Navbar() {
               ))}
               <Link
                 href="/contact"
-                className="mt-4 inline-flex items-center justify-center font-medium rounded-xl transition-all duration-300 cursor-pointer gradient-bg text-dark-primary hover:shadow-lg hover:shadow-accent/25 px-9 py-4 text-base tracking-wide"
+                className="mt-4 inline-flex items-center justify-center font-medium rounded-xl transition-all duration-300 cursor-pointer gradient-bg text-white hover:shadow-lg hover:shadow-accent/25 px-9 py-4 text-base tracking-wide"
               >
                 Get in Touch
               </Link>

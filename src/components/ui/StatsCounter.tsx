@@ -61,7 +61,7 @@ export default function StatsCounter({
 
   return (
     <div ref={ref} className="text-center">
-      <div className="font-heading text-4xl md:text-5xl lg:text-6xl font-bold text-accent mb-2">
+      <div className="font-heading text-4xl md:text-5xl lg:text-6xl font-bold text-accent-light mb-2">
         {count}
         {suffix}
       </div>

@@ -69,7 +69,7 @@ export default function ServicesPage() {
                 return (
                   <ScrollReveal key={service.title} delay={i * 0.06}>
                     <div className="group flex gap-5 p-6 rounded-2xl border border-card-light-border bg-white hover:shadow-xl hover:shadow-accent/5 hover:border-accent/30 transition-all duration-500 h-full">
-                      <div className="flex-shrink-0 w-14 h-14 rounded-xl bg-accent/10 text-accent flex items-center justify-center group-hover:bg-accent group-hover:text-dark-primary transition-all duration-300">
+                      <div className="flex-shrink-0 w-14 h-14 rounded-xl bg-accent/10 text-accent flex items-center justify-center group-hover:bg-accent group-hover:text-white transition-all duration-300">
                         {Icon && <Icon size={26} />}
                       </div>
                       <div>

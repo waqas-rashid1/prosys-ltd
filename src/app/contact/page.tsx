@@ -61,7 +61,7 @@ export default function ContactPage() {
                 return (
                   <ScrollReveal key={method.label} delay={i * 0.08}>
                     <div className="group p-5 rounded-xl border border-card-dark-border bg-card-dark hover:border-accent/30 transition-all duration-300 text-center">
-                      <div className="w-10 h-10 rounded-xl bg-accent/10 text-accent flex items-center justify-center mx-auto mb-3 group-hover:bg-accent group-hover:text-dark-primary transition-all duration-300">
+                      <div className="w-10 h-10 rounded-xl bg-accent/10 text-accent flex items-center justify-center mx-auto mb-3 group-hover:bg-accent group-hover:text-white transition-all duration-300">
                         <Icon size={18} />
                       </div>
                       <div className="text-xs text-text-light-muted uppercase tracking-widest mb-1">
@@ -99,17 +99,17 @@ export default function ContactPage() {
 
               <ScrollReveal delay={0.2} className="lg:col-span-2">
                 <div className="space-y-6">
-                  <div className="rounded-2xl gradient-bg p-8 text-dark-primary">
+                  <div className="rounded-2xl gradient-bg p-8 text-white">
                     <h3 className="font-heading text-2xl font-bold mb-3">
                       Free Consultation
                     </h3>
-                    <p className="text-dark-primary/80 leading-relaxed mb-4">
+                    <p className="text-white/80 leading-relaxed mb-4">
                       Not sure where to start? Book a free 30-minute consultation
                       with our team. We&apos;ll discuss your goals, recommend an
                       approach, and give you a rough timeline and budget — no
                       strings attached.
                     </p>
-                    <div className="flex items-center gap-2 text-dark-primary/70 text-sm">
+                    <div className="flex items-center gap-2 text-white/70 text-sm">
                       <Clock size={14} />
                       <span>30 min call &middot; No commitment</span>
                     </div>

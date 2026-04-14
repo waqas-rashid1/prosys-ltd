@@ -35,7 +35,7 @@ export default function Industries() {
                 <Link href="/industries" className="block group">
                   <div className="rounded-2xl border border-card-light-border bg-white p-7 hover:shadow-xl hover:shadow-accent/[0.05] hover:border-accent/30 transition-all duration-500 h-full">
                     <div className="flex items-start gap-5 mb-4">
-                      <div className="w-12 h-12 rounded-xl bg-accent/10 text-accent flex items-center justify-center flex-shrink-0 group-hover:bg-accent group-hover:text-dark-primary transition-all duration-300">
+                      <div className="w-12 h-12 rounded-xl bg-accent/10 text-accent flex items-center justify-center flex-shrink-0 group-hover:bg-accent group-hover:text-white transition-all duration-300">
                         {Icon && <Icon size={22} />}
                       </div>
                       <div className="flex-grow">

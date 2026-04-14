@@ -26,7 +26,7 @@ export default function HelpCTA() {
             </p>
             <Link
               href="/contact"
-              className="inline-flex items-center gap-3 font-medium rounded-xl transition-all duration-300 cursor-pointer gradient-bg text-dark-primary hover:shadow-xl hover:shadow-accent/30 hover:scale-105 px-10 py-5 text-lg tracking-wide"
+              className="inline-flex items-center gap-3 font-medium rounded-xl transition-all duration-300 cursor-pointer gradient-bg text-white hover:shadow-xl hover:shadow-accent/30 hover:scale-105 px-10 py-5 text-lg tracking-wide"
             >
               Let&apos;s Connect
               <ArrowRight size={20} />

@@ -25,7 +25,7 @@ export default function StickyCTA() {
         >
           <Link
             href="/contact"
-            className="group flex items-center gap-2 gradient-bg text-dark-primary px-5 py-3 rounded-xl font-medium text-sm shadow-lg shadow-accent/25 hover:shadow-xl hover:shadow-accent/30 hover:scale-105 transition-all duration-300"
+            className="group flex items-center gap-2 gradient-bg text-white px-5 py-3 rounded-xl font-medium text-sm shadow-lg shadow-accent/25 hover:shadow-xl hover:shadow-accent/30 hover:scale-105 transition-all duration-300"
           >
             <MessageSquare size={18} />
             <span className="hidden sm:inline">Start a Project</span>

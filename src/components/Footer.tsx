@@ -35,7 +35,7 @@ export default function Footer() {
               />
               <button
                 type="submit"
-                className="gradient-bg text-dark-primary px-6 py-3 rounded-xl font-medium text-sm hover:shadow-lg hover:shadow-accent/25 transition-all duration-300 cursor-pointer flex items-center gap-2 flex-shrink-0"
+                className="gradient-bg text-white px-6 py-3 rounded-xl font-medium text-sm hover:shadow-lg hover:shadow-accent/25 transition-all duration-300 cursor-pointer flex items-center gap-2 flex-shrink-0"
               >
                 Subscribe
                 <ArrowRight size={14} />
@@ -51,7 +51,7 @@ export default function Footer() {
           <div className="lg:col-span-2">
             <Link href="/" className="inline-block mb-4">
               <span className="font-heading text-2xl font-bold">
-                <span className="text-accent">PRO</span>
+                <span className="text-accent-light">PRO</span>
                 <span className="text-text-light">SYS</span>
                 <span className="text-text-light-muted text-xs ml-1">LTD</span>
               </span>
@@ -73,7 +73,7 @@ export default function Footer() {
                     href={social.href}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="w-9 h-9 rounded-lg border border-card-dark-border flex items-center justify-center text-text-light-muted hover:text-accent hover:border-accent/40 transition-all duration-300"
+                    className="w-9 h-9 rounded-lg border border-card-dark-border flex items-center justify-center text-text-light-muted hover:text-accent-light hover:border-accent/40 transition-all duration-300"
                     aria-label={`Follow on ${social.name}`}
                   >
                     <Icon size={16} />
@@ -90,7 +90,7 @@ export default function Footer() {
             <ul className="space-y-3">
               {footerLinks.services.map((link) => (
                 <li key={link.label}>
-                  <Link href={link.href} className="text-sm text-text-light-muted hover:text-accent transition-colors duration-300">
+                  <Link href={link.href} className="text-sm text-text-light-muted hover:text-accent-light transition-colors duration-300">
                     {link.label}
                   </Link>
                 </li>
@@ -105,7 +105,7 @@ export default function Footer() {
             <ul className="space-y-3">
               {footerLinks.company.map((link) => (
                 <li key={link.label}>
-                  <Link href={link.href} className="text-sm text-text-light-muted hover:text-accent transition-colors duration-300">
+                  <Link href={link.href} className="text-sm text-text-light-muted hover:text-accent-light transition-colors duration-300">
                     {link.label}
                   </Link>
                 </li>
@@ -120,7 +120,7 @@ export default function Footer() {
             <ul className="space-y-3">
               {footerLinks.resources.map((link) => (
                 <li key={link.label}>
-                  <Link href={link.href} className="text-sm text-text-light-muted hover:text-accent transition-colors duration-300">
+                  <Link href={link.href} className="text-sm text-text-light-muted hover:text-accent-light transition-colors duration-300">
                     {link.label}
                   </Link>
                 </li>
@@ -135,11 +135,11 @@ export default function Footer() {
         <div className="max-w-[1400px] mx-auto px-6 lg:px-8 py-6 flex flex-col sm:flex-row items-center justify-between gap-4">
           <div className="flex flex-wrap items-center gap-4 text-xs text-text-light-muted">
             <span>&copy; {new Date().getFullYear()} {siteConfig.name}. All Rights Reserved.</span>
-            <Link href="/privacy" className="hover:text-accent transition-colors">Privacy Policy</Link>
+            <Link href="/privacy" className="hover:text-accent-light transition-colors">Privacy Policy</Link>
           </div>
           <button
             onClick={scrollToTop}
-            className="group flex items-center gap-2 text-xs text-text-light-muted hover:text-accent transition-colors cursor-pointer"
+            className="group flex items-center gap-2 text-xs text-text-light-muted hover:text-accent-light transition-colors cursor-pointer"
             aria-label="Scroll back to top"
           >
             Back to top

@@ -59,8 +59,8 @@ export default function TechMarquee() {
                 onClick={() => setActiveTab(i)}
                 className={`px-5 py-2 rounded-xl text-sm font-medium tracking-wide transition-all duration-300 cursor-pointer ${
                   activeTab === i
-                    ? "gradient-bg text-dark-primary"
-                    : "text-text-light-muted hover:text-accent border border-card-dark-border hover:border-accent/40"
+                    ? "gradient-bg text-white"
+                    : "text-text-light-muted hover:text-accent-light border border-card-dark-border hover:border-accent/40"
                 }`}
               >
                 {cat.label}

@@ -32,13 +32,13 @@ function FAQItem({
         aria-expanded={isOpen}
         aria-controls={panelId}
       >
-        <span className="font-heading text-base md:text-lg font-bold text-text-light pr-4 group-hover:text-accent transition-colors">
+        <span className="font-heading text-base md:text-lg font-bold text-text-light pr-4 group-hover:text-accent-light transition-colors">
           {question}
         </span>
         <motion.div
           animate={{ rotate: isOpen ? 180 : 0 }}
           transition={{ duration: 0.3 }}
-          className="flex-shrink-0 text-accent"
+          className="flex-shrink-0 text-accent-light"
         >
           <ChevronDown size={20} />
         </motion.div>

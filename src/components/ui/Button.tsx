@@ -24,10 +24,10 @@ export default function Button({
 
   const variants = {
     primary:
-      "gradient-bg text-dark-primary hover:shadow-lg hover:shadow-accent/25 hover:scale-105",
+      "gradient-bg text-white hover:shadow-lg hover:shadow-accent/25 hover:scale-105",
     outline:
-      "border border-accent/40 text-accent hover:bg-accent/10 hover:border-accent",
-    ghost: "text-text-light-muted hover:text-accent hover:bg-white/5",
+      "border border-accent-light/40 text-accent-light hover:bg-accent/10 hover:border-accent-light",
+    ghost: "text-text-light-muted hover:text-accent-light hover:bg-white/5",
   };
 
   const sizes = {

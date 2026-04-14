@@ -38,7 +38,7 @@ export default function PageHero({
             className="inline-flex items-center gap-2 px-4 py-2 rounded-full border border-accent/20 bg-accent/5 mb-6"
           >
             <span className="h-2 w-2 rounded-full bg-accent animate-pulse" />
-            <span className="text-sm text-accent tracking-wide font-medium">
+            <span className="text-sm text-accent-light tracking-wide font-medium">
               {badge}
             </span>
           </motion.div>

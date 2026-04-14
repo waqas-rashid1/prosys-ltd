@@ -52,7 +52,7 @@ export default function CareersPage() {
                 return (
                   <ScrollReveal key={perk.title} delay={i * 0.08}>
                     <div className="group p-6 rounded-2xl border border-card-light-border bg-white hover:shadow-lg hover:border-accent/30 transition-all duration-300 text-center h-full">
-                      <div className="w-12 h-12 rounded-xl bg-accent/10 text-accent flex items-center justify-center mx-auto mb-4 group-hover:bg-accent group-hover:text-dark-primary transition-all duration-300">
+                      <div className="w-12 h-12 rounded-xl bg-accent/10 text-accent flex items-center justify-center mx-auto mb-4 group-hover:bg-accent group-hover:text-white transition-all duration-300">
                         <Icon size={24} />
                       </div>
                       <h3 className="font-heading text-base font-bold text-text-dark mb-2">{perk.title}</h3>

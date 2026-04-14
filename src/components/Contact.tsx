@@ -103,7 +103,7 @@ export default function Contact() {
                     href={`mailto:${siteConfig.email}`}
                     className="flex items-start gap-4 group"
                   >
-                    <div className="w-10 h-10 rounded-xl bg-accent/10 flex items-center justify-center flex-shrink-0 group-hover:bg-accent group-hover:text-dark-primary text-accent transition-all duration-300">
+                    <div className="w-10 h-10 rounded-xl bg-accent/10 flex items-center justify-center flex-shrink-0 group-hover:bg-accent group-hover:text-white text-accent transition-all duration-300">
                       <Mail size={18} />
                     </div>
                     <div>
@@ -120,7 +120,7 @@ export default function Contact() {
                     href={`tel:${siteConfig.phone}`}
                     className="flex items-start gap-4 group"
                   >
-                    <div className="w-10 h-10 rounded-xl bg-accent/10 flex items-center justify-center flex-shrink-0 group-hover:bg-accent group-hover:text-dark-primary text-accent transition-all duration-300">
+                    <div className="w-10 h-10 rounded-xl bg-accent/10 flex items-center justify-center flex-shrink-0 group-hover:bg-accent group-hover:text-white text-accent transition-all duration-300">
                       <Phone size={18} />
                     </div>
                     <div>
@@ -150,11 +150,11 @@ export default function Contact() {
               </div>
 
               {/* Decorative card */}
-              <div className="rounded-2xl gradient-bg p-6 text-dark-primary">
+              <div className="rounded-2xl gradient-bg p-6 text-white">
                 <h4 className="font-heading text-lg font-bold mb-2">
                   Ready to Start?
                 </h4>
-                <p className="text-dark-primary/80 text-sm leading-relaxed">
+                <p className="text-white/80 text-sm leading-relaxed">
                   Schedule a free consultation with our team to discuss your
                   project requirements and explore how we can help.
                 </p>

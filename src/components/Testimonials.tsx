@@ -60,7 +60,7 @@ export default function Testimonials() {
           <div className="lg:col-span-7">
             <ScrollReveal>
               <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-xl border border-accent/20 bg-accent/5 mb-6">
-                <span className="text-xs text-accent tracking-widest uppercase font-medium">
+                <span className="text-xs text-accent-light tracking-widest uppercase font-medium">
                   Testimonials
                 </span>
               </div>
@@ -71,7 +71,7 @@ export default function Testimonials() {
             </ScrollReveal>
 
             <div className="relative min-h-[300px]">
-              <Quote size={48} className="text-accent/[0.07] absolute -top-3 -left-2" />
+              <Quote size={48} className="text-accent-light/[0.07] absolute -top-3 -left-2" />
               <AnimatePresence mode="wait">
                 <motion.div
                   key={current}
@@ -85,11 +85,11 @@ export default function Testimonials() {
                   </p>
 
                   <div className="flex items-center gap-4 pl-2">
-                    <div className="w-12 h-12 rounded-xl gradient-bg flex items-center justify-center text-dark-primary font-heading font-bold text-lg">
+                    <div className="w-12 h-12 rounded-xl gradient-bg flex items-center justify-center text-white font-heading font-bold text-lg">
                       {t.initial}
                     </div>
                     <div>
-                      <div className="font-heading text-base font-bold text-accent">
+                      <div className="font-heading text-base font-bold text-accent-light">
                         {t.name}
                       </div>
                       <div className="text-text-light-muted text-sm">
@@ -105,7 +105,7 @@ export default function Testimonials() {
             <div className="flex items-center gap-4 mt-10">
               <button
                 onClick={() => setCurrent((c) => (c - 1 + testimonials.length) % testimonials.length)}
-                className="w-10 h-10 rounded-xl border border-card-dark-border flex items-center justify-center text-text-light-muted hover:text-accent hover:border-accent/40 transition-all cursor-pointer"
+                className="w-10 h-10 rounded-xl border border-card-dark-border flex items-center justify-center text-text-light-muted hover:text-accent-light hover:border-accent/40 transition-all cursor-pointer"
                 aria-label="Previous"
               >
                 <ChevronLeft size={18} />
@@ -124,7 +124,7 @@ export default function Testimonials() {
               </div>
               <button
                 onClick={() => setCurrent((c) => (c + 1) % testimonials.length)}
-                className="w-10 h-10 rounded-xl border border-card-dark-border flex items-center justify-center text-text-light-muted hover:text-accent hover:border-accent/40 transition-all cursor-pointer"
+                className="w-10 h-10 rounded-xl border border-card-dark-border flex items-center justify-center text-text-light-muted hover:text-accent-light hover:border-accent/40 transition-all cursor-pointer"
                 aria-label="Next"
               >
                 <ChevronRight size={18} />
@@ -173,7 +173,7 @@ export default function Testimonials() {
                   />
                   <button
                     type="submit"
-                    className="w-full gradient-bg text-dark-primary px-6 py-3.5 rounded-xl font-medium text-sm hover:shadow-lg hover:shadow-accent/25 transition-all duration-300 cursor-pointer flex items-center justify-center gap-2"
+                    className="w-full gradient-bg text-white px-6 py-3.5 rounded-xl font-medium text-sm hover:shadow-lg hover:shadow-accent/25 transition-all duration-300 cursor-pointer flex items-center justify-center gap-2"
                   >
                     <Send size={14} />
                     Send Inquiry
