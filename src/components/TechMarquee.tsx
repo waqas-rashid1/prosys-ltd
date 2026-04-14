@@ -138,8 +138,8 @@ export default function TechMarquee() {
                 transition={{ delay: i * 0.03 }}
                 className="group relative flex flex-col items-center justify-center gap-2.5 h-24 md:h-28 rounded-xl bg-white hover:-translate-y-1 transition-all duration-300 p-3 overflow-hidden"
               >
-                <div className="absolute inset-0 bg-accent/[0.08] opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
-                <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-20 h-20 rounded-full bg-accent/20 blur-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+                <div className="absolute inset-0 bg-accent/[0.15] opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+                <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-28 h-28 rounded-full bg-accent/50 blur-3xl opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
                 <Image
                   src={tech.logo}
                   alt={tech.name}
