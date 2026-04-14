@@ -1,33 +1,86 @@
 "use client";
 
 import { useState } from "react";
+import Image from "next/image";
 import { motion, AnimatePresence } from "framer-motion";
 import ScrollReveal from "./ui/ScrollReveal";
 
 const techCategories = [
   {
     label: "All",
-    techs: ["React", "Next.js", "TypeScript", "Node.js", "Python", "TailwindCSS", "PostgreSQL", "MongoDB", "AWS", "Vercel", "OpenAI", "LangChain", "Docker", "Figma", "n8n", "Stripe"],
+    techs: [
+      { name: "React", logo: "/logos/react.svg" },
+      { name: "Next.js", logo: "/logos/nextjs.svg" },
+      { name: "TypeScript", logo: "/logos/typescript.svg" },
+      { name: "Node.js", logo: "/logos/nodejs.svg" },
+      { name: "Python", logo: "/logos/python.svg" },
+      { name: "TailwindCSS", logo: "/logos/tailwindcss.svg" },
+      { name: "PostgreSQL", logo: "/logos/postgresql.svg" },
+      { name: "MongoDB", logo: "/logos/mongodb.svg" },
+      { name: "AWS", logo: "/logos/aws.svg" },
+      { name: "Vercel", logo: "/logos/vercel.svg" },
+      { name: "OpenAI", logo: "/logos/openai.svg" },
+      { name: "LangChain", logo: "/logos/langchain.svg" },
+      { name: "Docker", logo: "/logos/docker.svg" },
+      { name: "Figma", logo: "/logos/figma.svg" },
+      { name: "n8n", logo: "/logos/n8n.svg" },
+      { name: "Stripe", logo: "/logos/stripe.svg" },
+    ],
   },
   {
     label: "Frontend",
-    techs: ["React", "Next.js", "TypeScript", "TailwindCSS", "Framer Motion", "Figma"],
+    techs: [
+      { name: "React", logo: "/logos/react.svg" },
+      { name: "Next.js", logo: "/logos/nextjs.svg" },
+      { name: "TypeScript", logo: "/logos/typescript.svg" },
+      { name: "TailwindCSS", logo: "/logos/tailwindcss.svg" },
+      { name: "Framer Motion", logo: "/logos/framer-motion.svg" },
+      { name: "Figma", logo: "/logos/figma.svg" },
+    ],
   },
   {
     label: "Backend",
-    techs: ["Node.js", "Python", "PostgreSQL", "MongoDB", "Redis", "GraphQL", "Prisma"],
+    techs: [
+      { name: "Node.js", logo: "/logos/nodejs.svg" },
+      { name: "Python", logo: "/logos/python.svg" },
+      { name: "PostgreSQL", logo: "/logos/postgresql.svg" },
+      { name: "MongoDB", logo: "/logos/mongodb.svg" },
+      { name: "Redis", logo: "/logos/redis.svg" },
+      { name: "GraphQL", logo: "/logos/graphql.svg" },
+      { name: "Prisma", logo: "/logos/prisma.svg" },
+    ],
   },
   {
     label: "AI & Data",
-    techs: ["OpenAI", "LangChain", "Pinecone", "Hugging Face", "FastAPI", "ChromaDB"],
+    techs: [
+      { name: "OpenAI", logo: "/logos/openai.svg" },
+      { name: "LangChain", logo: "/logos/langchain.svg" },
+      { name: "Pinecone", logo: "/logos/pinecone.svg" },
+      { name: "Hugging Face", logo: "/logos/huggingface.svg" },
+      { name: "FastAPI", logo: "/logos/fastapi.svg" },
+      { name: "ChromaDB", logo: "/logos/chromadb.svg" },
+    ],
   },
   {
     label: "DevOps & Cloud",
-    techs: ["AWS", "Vercel", "Docker", "GitHub Actions", "Terraform"],
+    techs: [
+      { name: "AWS", logo: "/logos/aws.svg" },
+      { name: "Vercel", logo: "/logos/vercel.svg" },
+      { name: "Docker", logo: "/logos/docker.svg" },
+      { name: "GitHub Actions", logo: "/logos/github-actions.svg" },
+      { name: "Terraform", logo: "/logos/terraform.svg" },
+    ],
   },
   {
     label: "Tools",
-    techs: ["Stripe", "n8n", "Figma", "Sanity CMS", "Supabase", "Airtable"],
+    techs: [
+      { name: "Stripe", logo: "/logos/stripe.svg" },
+      { name: "n8n", logo: "/logos/n8n.svg" },
+      { name: "Figma", logo: "/logos/figma.svg" },
+      { name: "Sanity CMS", logo: "/logos/sanity.svg" },
+      { name: "Supabase", logo: "/logos/supabase.svg" },
+      { name: "Airtable", logo: "/logos/airtable.svg" },
+    ],
   },
 ];
 
@@ -50,14 +103,13 @@ export default function TechMarquee() {
           </div>
         </ScrollReveal>
 
-        {/* Category tabs */}
         <ScrollReveal delay={0.1}>
           <div className="flex flex-wrap justify-center gap-2 mb-10">
             {techCategories.map((cat, i) => (
               <button
                 key={cat.label}
                 onClick={() => setActiveTab(i)}
-                className={`px-5 py-2 rounded-xl text-sm font-medium tracking-wide transition-all duration-300 cursor-pointer ${
+                className={`px-5 py-2 rounded-xl text-sm font-medium transition-all duration-300 cursor-pointer ${
                   activeTab === i
                     ? "gradient-bg text-white"
                     : "text-text-light-muted hover:text-accent-light border border-card-dark-border hover:border-accent/40"
@@ -69,7 +121,6 @@ export default function TechMarquee() {
           </div>
         </ScrollReveal>
 
-        {/* Tech grid */}
         <AnimatePresence mode="wait">
           <motion.div
             key={activeTab}
@@ -81,14 +132,21 @@ export default function TechMarquee() {
           >
             {techCategories[activeTab].techs.map((tech, i) => (
               <motion.div
-                key={tech}
+                key={tech.name}
                 initial={{ opacity: 0, scale: 0.9 }}
                 animate={{ opacity: 1, scale: 1 }}
                 transition={{ delay: i * 0.03 }}
-                className="group flex items-center justify-center h-16 md:h-20 rounded-xl bg-white hover:shadow-lg hover:shadow-accent/10 hover:-translate-y-1 transition-all duration-300"
+                className="group flex flex-col items-center justify-center gap-2.5 h-24 md:h-28 rounded-xl bg-white hover:shadow-lg hover:shadow-accent/10 hover:-translate-y-1 transition-all duration-300 p-3"
               >
-                <span className="font-heading text-[11px] md:text-xs font-bold text-text-dark group-hover:text-accent transition-colors duration-300 text-center px-2">
-                  {tech}
+                <Image
+                  src={tech.logo}
+                  alt={tech.name}
+                  width={32}
+                  height={32}
+                  className="w-7 h-7 md:w-8 md:h-8 object-contain opacity-70 group-hover:opacity-100 transition-opacity duration-300"
+                />
+                <span className="text-[10px] md:text-xs font-medium text-text-dark/70 group-hover:text-text-dark transition-colors duration-300 text-center leading-tight">
+                  {tech.name}
                 </span>
               </motion.div>
             ))}
