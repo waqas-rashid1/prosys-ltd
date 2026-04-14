@@ -136,16 +136,18 @@ export default function TechMarquee() {
                 initial={{ opacity: 0, scale: 0.9 }}
                 animate={{ opacity: 1, scale: 1 }}
                 transition={{ delay: i * 0.03 }}
-                className="group flex flex-col items-center justify-center gap-2.5 h-24 md:h-28 rounded-xl bg-white hover:shadow-lg hover:shadow-accent/10 hover:-translate-y-1 transition-all duration-300 p-3"
+                className="group relative flex flex-col items-center justify-center gap-2.5 h-24 md:h-28 rounded-xl bg-white hover:-translate-y-1 transition-all duration-300 p-3 overflow-hidden"
               >
+                <div className="absolute inset-0 bg-accent/[0.08] opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+                <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-20 h-20 rounded-full bg-accent/20 blur-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
                 <Image
                   src={tech.logo}
                   alt={tech.name}
                   width={32}
                   height={32}
-                  className="w-7 h-7 md:w-8 md:h-8 object-contain opacity-70 group-hover:opacity-100 transition-opacity duration-300"
+                  className="relative z-10 w-7 h-7 md:w-8 md:h-8 object-contain opacity-70 group-hover:opacity-100 transition-opacity duration-300"
                 />
-                <span className="text-[10px] md:text-xs font-medium text-text-dark/70 group-hover:text-text-dark transition-colors duration-300 text-center leading-tight">
+                <span className="relative z-10 text-[10px] md:text-xs font-medium text-text-dark/70 group-hover:text-text-dark transition-colors duration-300 text-center leading-tight">
                   {tech.name}
                 </span>
               </motion.div>
