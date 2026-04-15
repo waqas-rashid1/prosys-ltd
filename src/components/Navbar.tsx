@@ -175,27 +175,80 @@ export default function Navbar() {
               onMouseEnter={handleMegaEnter}
               onMouseLeave={handleMegaLeave}
             >
-              <div className="max-w-[1400px] mx-auto px-6 lg:px-8 py-10">
-                <div className="grid grid-cols-2 gap-x-16 gap-y-8">
-                  {servicesMega.map((col) => (
-                    <div key={col.heading}>
-                      <h4 className="font-heading text-sm font-bold text-text-light mb-3">
-                        {col.heading}
-                      </h4>
-                      <div className="space-y-0.5">
-                        {col.items.map((item) => (
-                          <Link
-                            key={item.label}
-                            href={item.href}
-                            className="flex items-center gap-2 py-2 text-sm text-text-light-muted hover:text-accent-light transition-colors group"
-                          >
-                            {item.label}
-                            <ArrowRight size={11} className="opacity-0 -translate-x-1 group-hover:opacity-100 group-hover:translate-x-0 transition-all duration-200" />
-                          </Link>
-                        ))}
+              <div className="max-w-[1400px] mx-auto px-6 lg:px-8 py-8">
+                <div className="grid grid-cols-12 gap-8">
+                  {/* Left column - first 3 groups */}
+                  <div className="col-span-4 space-y-6">
+                    {servicesMega.slice(0, 3).map((col) => (
+                      <div key={col.heading}>
+                        <h4 className="text-[11px] text-accent-light tracking-[0.15em] uppercase font-bold mb-2.5 pb-2 border-b border-card-dark-border">
+                          {col.heading}
+                        </h4>
+                        <div className="space-y-0.5">
+                          {col.items.map((item) => (
+                            <Link
+                              key={item.label}
+                              href={item.href}
+                              className="flex items-center gap-2 py-1.5 text-[13px] text-text-light-muted hover:text-white transition-colors group"
+                            >
+                              {item.label}
+                              <ArrowRight size={10} className="opacity-0 -translate-x-1 group-hover:opacity-100 group-hover:translate-x-0 transition-all duration-200 text-accent-light" />
+                            </Link>
+                          ))}
+                        </div>
                       </div>
+                    ))}
+                  </div>
+
+                  {/* Right column - last 2 groups */}
+                  <div className="col-span-4 space-y-6">
+                    {servicesMega.slice(3).map((col) => (
+                      <div key={col.heading}>
+                        <h4 className="text-[11px] text-accent-light tracking-[0.15em] uppercase font-bold mb-2.5 pb-2 border-b border-card-dark-border">
+                          {col.heading}
+                        </h4>
+                        <div className="space-y-0.5">
+                          {col.items.map((item) => (
+                            <Link
+                              key={item.label}
+                              href={item.href}
+                              className="flex items-center gap-2 py-1.5 text-[13px] text-text-light-muted hover:text-white transition-colors group"
+                            >
+                              {item.label}
+                              <ArrowRight size={10} className="opacity-0 -translate-x-1 group-hover:opacity-100 group-hover:translate-x-0 transition-all duration-200 text-accent-light" />
+                            </Link>
+                          ))}
+                        </div>
+                      </div>
+                    ))}
+                  </div>
+
+                  {/* Featured card */}
+                  <div className="col-span-4 flex flex-col gap-4">
+                    <div className="rounded-2xl border border-card-dark-border bg-card-dark p-6 flex-grow">
+                      <span className="inline-block px-2 py-0.5 text-[10px] font-bold rounded-lg bg-accent/20 text-accent-light tracking-wider uppercase mb-3">
+                        Featured
+                      </span>
+                      <h3 className="font-heading text-lg font-bold text-text-light mb-2">
+                        Generative AI Solutions
+                      </h3>
+                      <p className="text-text-light-muted text-sm leading-relaxed mb-4">
+                        Transform your business with custom AI models, LLM integrations, and intelligent automation.
+                      </p>
+                      <Link
+                        href="/services/generative-ai"
+                        className="inline-flex items-center gap-2 text-sm font-medium text-accent-light hover:gap-3 transition-all duration-300"
+                      >
+                        Learn More <ArrowRight size={14} />
+                      </Link>
                     </div>
-                  ))}
+                    <Link
+                      href="/services"
+                      className="flex items-center justify-center gap-2 py-3 rounded-xl border border-card-dark-border text-text-light-muted text-sm hover:text-accent-light hover:border-accent/40 transition-all duration-300"
+                    >
+                      View All Services <ArrowRight size={12} />
+                    </Link>
+                  </div>
                 </div>
               </div>
             </motion.div>
