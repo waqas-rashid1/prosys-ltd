@@ -105,8 +105,8 @@ export default function Hero() {
         <ChevronRight size={22} />
       </button>
 
-      {/* Content */}
-      <div className="relative z-10 max-w-6xl mx-auto px-6 text-center">
+      {/* Content - Left aligned like systemsltd.com */}
+      <div className="relative z-10 max-w-[1400px] mx-auto px-6 lg:px-8">
         <AnimatePresence mode="wait">
           <motion.div
             key={current}
@@ -114,6 +114,7 @@ export default function Hero() {
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -20 }}
             transition={{ duration: 0.7, ease: [0.25, 0.1, 0.25, 1] }}
+            className="max-w-3xl"
           >
             <div className="inline-flex items-center gap-2 px-4 py-2 rounded-xl border border-white/15 bg-white/5 glass-effect mb-8">
               <span className="h-2 w-2 rounded-full bg-accent animate-pulse" />
@@ -128,11 +129,11 @@ export default function Hero() {
               <span className="gradient-text">{slide.highlight}</span>
             </h1>
 
-            <p className="max-w-2xl mx-auto text-base sm:text-lg md:text-xl text-white/70 mb-10 leading-relaxed">
+            <p className="max-w-2xl text-base sm:text-lg md:text-xl text-white/70 mb-10 leading-relaxed">
               {slide.description}
             </p>
 
-            <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
+            <div className="flex flex-col sm:flex-row items-start gap-4">
               <Link
                 href={slide.cta.href}
                 className="inline-flex items-center justify-center gap-2 font-medium rounded-xl transition-all duration-300 cursor-pointer gradient-bg text-white hover:shadow-lg hover:shadow-accent/25 hover:scale-105 px-9 py-4 text-base tracking-wide"
@@ -151,7 +152,7 @@ export default function Hero() {
         </AnimatePresence>
 
         {/* Slide indicators */}
-        <div className="flex items-center justify-center gap-2 mt-14">
+        <div className="flex items-center gap-2 mt-14">
           {slides.map((_, i) => (
             <button
               key={i}

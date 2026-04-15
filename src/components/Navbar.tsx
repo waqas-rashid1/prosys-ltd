@@ -7,41 +7,53 @@ import { motion, AnimatePresence } from "framer-motion";
 import { Menu, X, ChevronDown, ArrowRight } from "lucide-react";
 import { navLinks } from "@/lib/constants";
 
-const servicesMega = {
-  columns: [
-    {
-      heading: "Development",
-      items: [
-        { label: "Web Development", desc: "Next.js, React, full-stack", href: "/services/web-development" },
-        { label: "Software Development", desc: "Enterprise-grade systems", href: "/services/software-development" },
-        { label: "MVP Development", desc: "Idea to launch in weeks", href: "/services/mvp-development" },
-        { label: "SaaS Development", desc: "Multi-tenant platforms", href: "/services/saas-development" },
-      ],
-    },
-    {
-      heading: "AI & Automation",
-      items: [
-        { label: "AI Development", desc: "Custom models & LLM integrations", href: "/services/ai-development" },
-        { label: "AI Automations", desc: "Workflows & AI agents", href: "/services/ai-automations" },
-      ],
-    },
-    {
-      heading: "Growth",
-      items: [
-        { label: "SEO", desc: "Technical & on-page optimization", href: "/services/seo" },
-        { label: "AIEO", desc: "Rank on AI search engines", href: "/services/aieo" },
-        { label: "Digital Marketing", desc: "Full-funnel campaigns", href: "/services/digital-marketing" },
-        { label: "Graphics & Branding", desc: "Visual identity & design", href: "/services/graphics-branding" },
-      ],
-    },
-  ],
-  featured: {
-    badge: "Popular",
-    title: "MVP Development",
-    desc: "Validate your idea with an investor-ready MVP in 4-8 weeks.",
-    href: "/services/mvp-development",
+const servicesMega = [
+  {
+    heading: "Digital",
+    items: [
+      { label: "Digital Consulting & Strategy", href: "/services/digital-consulting" },
+      { label: "Digital Commerce", href: "/services/digital-commerce" },
+      { label: "Business Applications", href: "/services/business-applications" },
+    ],
   },
-};
+  {
+    heading: "Data & Analytics",
+    items: [
+      { label: "Data Modernization", href: "/services/data-modernization" },
+      { label: "Advanced Analytics", href: "/services/advanced-analytics" },
+      { label: "Connected Intelligence", href: "/services/connected-intelligence" },
+      { label: "Data Management", href: "/services/data-management" },
+      { label: "Generative AI", href: "/services/generative-ai" },
+    ],
+  },
+  {
+    heading: "Cloud",
+    items: [
+      { label: "Cloud Operations & Migration", href: "/services/cloud-operations" },
+      { label: "Cloud App Development & Integration", href: "/services/cloud-app-development" },
+      { label: "Managed Services", href: "/services/managed-services" },
+    ],
+  },
+  {
+    heading: "Business Process Services",
+    items: [
+      { label: "Contact Center", href: "/services/contact-center" },
+      { label: "Digital Marketing", href: "/services/digital-marketing" },
+      { label: "Finance & Accounting", href: "/services/finance-accounting" },
+      { label: "Staff Augmentation", href: "/services/staff-augmentation" },
+      { label: "Legal Process Outsourcing", href: "/services/legal-process-outsourcing" },
+      { label: "Recruitment Process Outsourcing", href: "/services/recruitment-outsourcing" },
+    ],
+  },
+  {
+    heading: "Other Key Areas",
+    items: [
+      { label: "Digital Infrastructure Services", href: "/services/digital-infrastructure" },
+      { label: "Security", href: "/services/security" },
+      { label: "Emerging Technologies", href: "/services/emerging-technologies" },
+    ],
+  },
+];
 
 export default function Navbar() {
   const [scrolled, setScrolled] = useState(false);
@@ -164,51 +176,26 @@ export default function Navbar() {
               onMouseLeave={handleMegaLeave}
             >
               <div className="max-w-[1400px] mx-auto px-6 lg:px-8 py-10">
-                <div className="grid grid-cols-4 gap-8">
-                  {servicesMega.columns.map((col) => (
+                <div className="grid grid-cols-2 gap-x-16 gap-y-8">
+                  {servicesMega.map((col) => (
                     <div key={col.heading}>
-                      <h4 className="text-xs text-accent-light tracking-[0.2em] uppercase font-bold mb-4">
+                      <h4 className="font-heading text-sm font-bold text-text-light mb-3">
                         {col.heading}
                       </h4>
-                      <div className="space-y-1">
+                      <div className="space-y-0.5">
                         {col.items.map((item) => (
                           <Link
                             key={item.label}
                             href={item.href}
-                            className="block p-3 rounded-xl hover:bg-white/5 transition-colors group"
+                            className="flex items-center gap-2 py-2 text-sm text-text-light-muted hover:text-accent-light transition-colors group"
                           >
-                            <div className="text-sm font-medium text-text-light group-hover:text-accent-light transition-colors">
-                              {item.label}
-                            </div>
-                            <div className="text-xs text-text-light-muted mt-0.5">
-                              {item.desc}
-                            </div>
+                            {item.label}
+                            <ArrowRight size={11} className="opacity-0 -translate-x-1 group-hover:opacity-100 group-hover:translate-x-0 transition-all duration-200" />
                           </Link>
                         ))}
                       </div>
                     </div>
                   ))}
-
-                  {/* Featured card */}
-                  <div className="rounded-2xl border border-accent/20 bg-accent/5 p-6 flex flex-col justify-between">
-                    <div>
-                      <span className="inline-block px-2 py-0.5 text-[10px] font-bold rounded bg-accent/20 text-accent-light tracking-wider uppercase mb-3">
-                        {servicesMega.featured.badge}
-                      </span>
-                      <h3 className="font-heading text-xl font-bold text-text-light mb-2">
-                        {servicesMega.featured.title}
-                      </h3>
-                      <p className="text-text-light-muted text-sm leading-relaxed">
-                        {servicesMega.featured.desc}
-                      </p>
-                    </div>
-                    <Link
-                      href={servicesMega.featured.href}
-                      className="mt-4 inline-flex items-center gap-2 text-sm font-medium text-accent-light hover:gap-3 transition-all duration-300"
-                    >
-                      Start Now <ArrowRight size={14} />
-                    </Link>
-                  </div>
                 </div>
               </div>
             </motion.div>

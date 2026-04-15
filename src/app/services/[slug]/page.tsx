@@ -2,8 +2,10 @@ import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import Link from "next/link";
 import {
-  CheckCircle2, ArrowRight, Code2, Cpu, BrainCircuit, Rocket,
-  Cloud, Bot, Search, Sparkles, Megaphone, Palette, ChevronRight,
+  CheckCircle2, ArrowRight, ChevronRight,
+  Code2, Cpu, BrainCircuit, Rocket, Cloud, Bot, Search, Sparkles, Megaphone, Palette,
+  Lightbulb, ShoppingBag, LayoutDashboard, Database, BarChart3, Network, HardDrive,
+  CloudCog, Settings, Headphones, Calculator, Users, Scale, UserPlus, Server, ShieldCheck,
 } from "lucide-react";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
@@ -13,6 +15,8 @@ import { servicesData } from "@/lib/services-data";
 
 const iconMap: Record<string, React.ElementType> = {
   Code2, Cpu, BrainCircuit, Rocket, Cloud, Bot, Search, Sparkles, Megaphone, Palette,
+  Lightbulb, ShoppingBag, LayoutDashboard, Database, BarChart3, Network, HardDrive,
+  CloudCog, Settings, Headphones, Calculator, Users, Scale, UserPlus, Server, ShieldCheck,
 };
 
 export function generateStaticParams() {
