@@ -1,9 +1,17 @@
 "use client";
 
 import Link from "next/link";
+import Image from "next/image";
 import { ArrowUpRight, ArrowRight } from "lucide-react";
 import { caseStudies } from "@/lib/constants";
 import ScrollReveal from "./ui/ScrollReveal";
+
+const caseImages = [
+  "/images/case-saas.jpg",
+  "/images/case-health.jpg",
+  "/images/case-automation.jpg",
+  "/images/case-web.jpg",
+];
 
 export default function CaseStudies() {
   return (
@@ -31,24 +39,26 @@ export default function CaseStudies() {
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
           {caseStudies.map((study, i) => (
             <ScrollReveal key={study.title} delay={i * 0.1}>
-              <div className="group rounded-2xl border border-card-light-border bg-white overflow-hidden hover:shadow-2xl hover:shadow-accent/[0.06] hover:border-accent/20 transition-all duration-500 h-full flex flex-col">
-                {/* Dark header with teal glow */}
-                <div className="relative h-48 bg-dark-primary overflow-hidden">
-                  <div className="absolute bottom-0 right-0 w-[60%] h-[60%] bg-accent/[0.08] blur-[80px] rounded-full translate-x-1/4 translate-y-1/4 group-hover:bg-accent/[0.15] transition-all duration-700" />
-                  <div className="absolute inset-0 flex items-center justify-center">
-                    <div className="w-14 h-14 rounded-xl bg-white/[0.06] rotate-12 group-hover:rotate-45 transition-transform duration-700" />
-                    <div className="absolute w-8 h-8 rounded-lg bg-white/[0.08] -rotate-12 translate-x-6 translate-y-3 group-hover:rotate-12 transition-transform duration-700" />
-                  </div>
+              <div className="group rounded-2xl border border-card-light-border bg-white overflow-hidden hover:shadow-2xl hover:shadow-black/[0.06] hover:border-accent/20 transition-all duration-500 h-full flex flex-col">
+                {/* Real image */}
+                <div className="relative h-56 overflow-hidden">
+                  <Image
+                    src={caseImages[i % caseImages.length]}
+                    alt={study.title}
+                    fill
+                    className="object-cover group-hover:scale-105 transition-transform duration-700"
+                    sizes="(max-width: 768px) 100vw, 50vw"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/50 via-black/10 to-transparent" />
                   <div className="absolute top-4 left-4">
-                    <span className="inline-block px-3 py-1 text-xs font-medium rounded-lg bg-accent text-dark-primary tracking-wide">
+                    <span className="inline-block px-3 py-1 text-xs font-medium rounded-lg bg-accent text-white">
                       {study.category}
                     </span>
                   </div>
                   <div className="absolute top-4 right-4">
-                    <ArrowUpRight
-                      size={18}
-                      className="text-white/20 group-hover:text-accent transition-colors duration-300"
-                    />
+                    <div className="w-8 h-8 rounded-lg bg-white/10 glass-effect flex items-center justify-center">
+                      <ArrowUpRight size={14} className="text-white/70 group-hover:text-white transition-colors" />
+                    </div>
                   </div>
                 </div>
 
@@ -67,10 +77,7 @@ export default function CaseStudies() {
 
                   <div className="flex flex-wrap gap-2 pt-4 border-t border-card-light-border">
                     {study.tags.map((tag) => (
-                      <span
-                        key={tag}
-                        className="px-3 py-1 text-xs rounded-lg bg-light-primary text-text-dark-muted font-medium"
-                      >
+                      <span key={tag} className="px-3 py-1 text-xs rounded-lg bg-light-primary text-text-dark-muted font-medium">
                         {tag}
                       </span>
                     ))}

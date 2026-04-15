@@ -49,36 +49,36 @@ const serviceCategories = [
 ];
 
 function AbstractShape({ index, hovered }: { index: number; hovered: boolean }) {
-  const scale = hovered ? "scale-90" : "scale-100";
-  const blur = hovered ? "blur-[6px]" : "blur-[2px]";
+  const scale = hovered ? "scale-95" : "scale-100";
+  const blur = hovered ? "blur-[3px]" : "blur-0";
   const base = "transition-all duration-700 ease-out";
 
   if (index === 0) {
     return (
       <div className={`${base} ${scale}`}>
-        <div className={`w-28 h-28 bg-accent ${blur}`} style={{ borderRadius: "30% 70% 70% 30% / 30% 30% 70% 70%" }} />
+        <div className={`w-32 h-32 bg-accent ${blur}`} style={{ borderRadius: "30% 70% 70% 30% / 30% 30% 70% 70%" }} />
       </div>
     );
   }
   if (index === 1) {
     return (
       <div className={`${base} ${scale}`}>
-        <div className={`w-28 h-28 rounded-full border-[14px] border-accent/80 ${blur}`} />
+        <div className={`w-32 h-32 rounded-full border-[16px] border-accent ${blur}`} />
       </div>
     );
   }
   if (index === 2) {
     return (
-      <div className={`grid grid-cols-2 gap-2.5 ${base} ${scale}`}>
+      <div className={`grid grid-cols-2 gap-3 ${base} ${scale}`}>
         {[0, 1, 2, 3].map((j) => (
-          <div key={j} className={`w-12 h-12 rounded-full bg-accent ${blur}`} />
+          <div key={j} className={`w-14 h-14 rounded-full bg-accent ${blur}`} />
         ))}
       </div>
     );
   }
   return (
     <div className={`${base} ${scale}`}>
-      <div className={`w-28 h-28 bg-accent ${blur}`} style={{ clipPath: "polygon(50% 0%, 100% 0%, 100% 100%, 50% 100%, 50% 55%, 0% 80%, 0% 20%)" }} />
+      <div className={`w-32 h-32 bg-accent ${blur}`} style={{ clipPath: "polygon(50% 0%, 100% 0%, 100% 100%, 50% 100%, 50% 55%, 0% 80%, 0% 20%)" }} />
     </div>
   );
 }
