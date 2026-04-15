@@ -1,4 +1,4 @@
-import { Inter, Plus_Jakarta_Sans } from "next/font/google";
+import { Inter, Roboto } from "next/font/google";
 
 export const inter = Inter({
   subsets: ["latin"],
@@ -6,9 +6,9 @@ export const inter = Inter({
   display: "swap",
 });
 
-export const jakarta = Plus_Jakarta_Sans({
+export const roboto = Roboto({
   subsets: ["latin"],
-  variable: "--font-jakarta",
-  weight: ["400", "500", "600", "700", "800"],
+  variable: "--font-roboto",
+  weight: ["400", "500", "700", "900"],
   display: "swap",
 });

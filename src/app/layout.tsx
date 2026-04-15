@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { inter, jakarta } from "@/lib/fonts";
+import { inter, roboto } from "@/lib/fonts";
 import StructuredData from "@/components/StructuredData";
 import StickyCTA from "@/components/StickyCTA";
 import CookieConsent from "@/components/CookieConsent";
@@ -84,7 +84,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" data-scroll-behavior="smooth" className={`${inter.variable} ${jakarta.variable} h-full`}>
+    <html lang="en" data-scroll-behavior="smooth" className={`${inter.variable} ${roboto.variable} h-full`}>
       <head>
         <StructuredData />
         <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
