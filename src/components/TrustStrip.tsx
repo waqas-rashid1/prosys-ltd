@@ -1,40 +1,52 @@
 "use client";
 
+import Image from "next/image";
 import ScrollReveal from "./ui/ScrollReveal";
 
 const recognitions = [
-  { label: "ISO 9001", desc: "Quality Management" },
-  { label: "ISO 27001", desc: "Information Security" },
-  { label: "AWS", desc: "Select Partner" },
-  { label: "Google", desc: "Cloud Partner" },
-  { label: "Clutch", desc: "Top Developer 2026" },
-  { label: "GoodFirms", desc: "Top AI Company" },
+  { logo: "/logos/iso.svg", label: "ISO 9001", desc: "Quality Management" },
+  { logo: "/logos/iso.svg", label: "ISO 27001", desc: "Information Security" },
+  { logo: "/logos/aws-partner.svg", label: "AWS", desc: "Select Partner" },
+  { logo: "/logos/google-cloud.svg", label: "Google Cloud", desc: "Partner" },
+  { logo: "/logos/clutch.svg", label: "Clutch", desc: "Top Developer 2026" },
+  { logo: "/logos/goodfirms.svg", label: "GoodFirms", desc: "Top AI Company" },
 ];
 
 export default function TrustStrip() {
   return (
-    <section className="py-14 bg-light-secondary border-y border-card-light-border">
+    <section className="py-16 lg:py-20 bg-white border-b border-card-light-border">
       <div className="max-w-[1400px] mx-auto px-6 lg:px-8">
         <ScrollReveal>
-          <div className="flex flex-col items-center gap-8">
-            <p className="text-xs text-text-dark-muted tracking-[0.2em] uppercase font-medium">
-              Recognized & Certified
-            </p>
-            <div className="flex flex-wrap justify-center gap-x-10 gap-y-4">
-              {recognitions.map((r) => (
-                <div key={r.label} className="flex items-center gap-3 group">
-                  <div className="w-10 h-10 rounded-xl bg-accent/10 flex items-center justify-center group-hover:bg-accent/20 transition-colors duration-300">
-                    <span className="font-heading text-[10px] font-bold text-accent">
-                      {r.label.substring(0, 3).toUpperCase()}
-                    </span>
-                  </div>
-                  <div>
-                    <div className="text-sm font-bold text-text-dark leading-tight">{r.label}</div>
-                    <div className="text-[11px] text-text-dark-muted">{r.desc}</div>
-                  </div>
+          <p className="text-center text-[11px] text-text-dark-muted/60 tracking-[0.25em] uppercase font-medium mb-10">
+            Recognized & Certified
+          </p>
+
+          <div className="flex flex-wrap justify-center items-center gap-x-12 lg:gap-x-16 gap-y-8">
+            {recognitions.map((r, i) => (
+              <div
+                key={`${r.label}-${i}`}
+                className="group flex items-center gap-4 cursor-default"
+              >
+                {/* Logo container */}
+                <div className="relative w-14 h-14 rounded-2xl bg-light-primary border border-card-light-border flex items-center justify-center group-hover:border-accent/40 group-hover:bg-accent/[0.04] group-hover:shadow-lg group-hover:shadow-accent/[0.06] transition-all duration-400">
+                  <Image
+                    src={r.logo}
+                    alt={r.label}
+                    width={28}
+                    height={28}
+                    className="w-7 h-7 object-contain opacity-50 group-hover:opacity-90 transition-opacity duration-400"
+                  />
                 </div>
-              ))}
-            </div>
+
+                {/* Text */}
+                <div>
+                  <div className="text-[15px] font-bold text-text-dark leading-tight group-hover:text-accent transition-colors duration-300">
+                    {r.label}
+                  </div>
+                  <div className="text-[12px] text-text-dark-muted/70">{r.desc}</div>
+                </div>
+              </div>
+            ))}
           </div>
         </ScrollReveal>
       </div>
