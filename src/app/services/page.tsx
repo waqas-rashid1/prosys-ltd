@@ -52,7 +52,7 @@ export default function ServicesPage() {
   return (
     <>
       <Navbar />
-      <main>
+      <main id="main-content">
         <PageHero
           badge="Our Services"
           title="What We"

@@ -44,7 +44,7 @@ export default function ContactPage() {
   return (
     <>
       <Navbar />
-      <main>
+      <main id="main-content">
         <PageHero
           badge="Get in Touch"
           title="Let's Build"

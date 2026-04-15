@@ -143,21 +143,35 @@ export default function Testimonials() {
                   Tell us about your idea and we&apos;ll get back within 24 hours.
                 </p>
                 <form onSubmit={(e) => e.preventDefault()} className="space-y-4">
-                  <input
-                    type="text"
-                    placeholder="Full Name"
-                    className="w-full px-4 py-3.5 rounded-xl border border-card-dark-border bg-dark-primary text-text-light placeholder:text-text-light-muted/40 text-sm focus:outline-none focus:border-accent/50 transition-all"
-                  />
-                  <input
-                    type="email"
-                    placeholder="Work Email"
-                    className="w-full px-4 py-3.5 rounded-xl border border-card-dark-border bg-dark-primary text-text-light placeholder:text-text-light-muted/40 text-sm focus:outline-none focus:border-accent/50 transition-all"
-                  />
-                  <select
-                    defaultValue=""
-                    className="w-full px-4 py-3.5 rounded-xl border border-card-dark-border bg-dark-primary text-text-light text-sm focus:outline-none focus:border-accent/50 transition-all"
-                  >
-                    <option value="" disabled>Service needed</option>
+                  <div>
+                    <label htmlFor="testi-name" className="sr-only">Full Name</label>
+                    <input
+                      id="testi-name"
+                      name="name"
+                      type="text"
+                      placeholder="Full Name"
+                      className="w-full px-4 py-3.5 rounded-xl border border-card-dark-border bg-dark-primary text-text-light placeholder:text-text-light-muted/40 text-sm focus:outline-none focus:border-accent/50 transition-all"
+                    />
+                  </div>
+                  <div>
+                    <label htmlFor="testi-email" className="sr-only">Work Email</label>
+                    <input
+                      id="testi-email"
+                      name="email"
+                      type="email"
+                      placeholder="Work Email"
+                      className="w-full px-4 py-3.5 rounded-xl border border-card-dark-border bg-dark-primary text-text-light placeholder:text-text-light-muted/40 text-sm focus:outline-none focus:border-accent/50 transition-all"
+                    />
+                  </div>
+                  <div>
+                    <label htmlFor="testi-service" className="sr-only">Service needed</label>
+                    <select
+                      id="testi-service"
+                      name="service"
+                      defaultValue=""
+                      className="w-full px-4 py-3.5 rounded-xl border border-card-dark-border bg-dark-primary text-text-light text-sm focus:outline-none focus:border-accent/50 transition-all"
+                    >
+                      <option value="" disabled>Service needed</option>
                     <option>Web Development</option>
                     <option>AI Development</option>
                     <option>MVP Development</option>
@@ -166,11 +180,17 @@ export default function Testimonials() {
                     <option>Digital Marketing</option>
                     <option>Other</option>
                   </select>
-                  <textarea
-                    placeholder="Brief project description"
-                    rows={3}
-                    className="w-full px-4 py-3.5 rounded-xl border border-card-dark-border bg-dark-primary text-text-light placeholder:text-text-light-muted/40 text-sm focus:outline-none focus:border-accent/50 transition-all resize-none"
-                  />
+                  </div>
+                  <div>
+                    <label htmlFor="testi-message" className="sr-only">Project description</label>
+                    <textarea
+                      id="testi-message"
+                      name="message"
+                      placeholder="Brief project description"
+                      rows={3}
+                      className="w-full px-4 py-3.5 rounded-xl border border-card-dark-border bg-dark-primary text-text-light placeholder:text-text-light-muted/40 text-sm focus:outline-none focus:border-accent/50 transition-all resize-none"
+                    />
+                  </div>
                   <button
                     type="submit"
                     className="w-full gradient-bg text-white px-6 py-3.5 rounded-xl font-medium text-sm hover:shadow-lg hover:shadow-accent/25 transition-all duration-300 cursor-pointer flex items-center justify-center gap-2"

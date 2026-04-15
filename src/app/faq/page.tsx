@@ -15,7 +15,7 @@ export default function FAQPage() {
   return (
     <>
       <Navbar />
-      <main>
+      <main id="main-content">
         <PageHero
           badge="FAQ"
           title="Got"

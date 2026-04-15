@@ -1,4 +1,5 @@
-import { siteConfig, services, faq } from "@/lib/constants";
+import { siteConfig, faq } from "@/lib/constants";
+import { servicesData } from "@/lib/services-data";
 
 function OrganizationSchema() {
   const schema = {
@@ -6,7 +7,7 @@ function OrganizationSchema() {
     "@type": "Organization",
     name: siteConfig.name,
     url: siteConfig.url,
-    logo: `${siteConfig.url}/logo.png`,
+    logo: `${siteConfig.url}/logo.svg`,
     description: siteConfig.description,
     foundingDate: siteConfig.founded,
     address: {
@@ -51,7 +52,7 @@ function ServiceSchema() {
     "@context": "https://schema.org",
     "@type": "ItemList",
     name: "PROSYS LTD Services",
-    itemListElement: services.map((service, index) => ({
+    itemListElement: servicesData.map((service, index) => ({
       "@type": "ListItem",
       position: index + 1,
       item: {

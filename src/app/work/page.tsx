@@ -54,7 +54,7 @@ export default function WorkPage() {
   return (
     <>
       <Navbar />
-      <main>
+      <main id="main-content">
         <PageHero
           badge="Our Portfolio"
           title="Work That"

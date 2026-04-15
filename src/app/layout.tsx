@@ -87,8 +87,8 @@ export default function RootLayout({
     <html lang="en" data-scroll-behavior="smooth" className={`${inter.variable} ${jakarta.variable} h-full`}>
       <head>
         <StructuredData />
-        <link rel="icon" href="/favicon.ico" sizes="any" />
-        <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+        <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+        <link rel="apple-touch-icon" href="/favicon.svg" />
         <meta name="theme-color" content="#000000" />
       </head>
       <body className="min-h-full antialiased">

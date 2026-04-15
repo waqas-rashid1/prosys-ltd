@@ -64,7 +64,7 @@ export default function IndustriesPage() {
   return (
     <>
       <Navbar />
-      <main>
+      <main id="main-content">
         <PageHero
           badge="Industries"
           title="Domain Expertise"

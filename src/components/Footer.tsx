@@ -28,7 +28,10 @@ export default function Footer() {
               onSubmit={(e) => e.preventDefault()}
               className="flex w-full lg:w-auto gap-3"
             >
+              <label htmlFor="newsletter-email" className="sr-only">Email address</label>
               <input
+                id="newsletter-email"
+                name="email"
                 type="email"
                 placeholder="Your email address"
                 className="flex-grow lg:w-80 px-5 py-3 rounded-xl border border-card-dark-border bg-card-dark text-text-light placeholder:text-text-light-muted/50 focus:outline-none focus:border-accent focus:ring-1 focus:ring-accent/20 transition-all text-sm"

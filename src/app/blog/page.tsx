@@ -76,7 +76,7 @@ export default function BlogPage() {
   return (
     <>
       <Navbar />
-      <main>
+      <main id="main-content">
         <PageHero
           badge="Blog & Insights"
           title="Ideas That"
