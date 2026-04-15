@@ -80,8 +80,8 @@ export default function IndustriesPage() {
                 const Icon = iconMap[industry.icon];
                 return (
                   <ScrollReveal key={industry.title} delay={i * 0.1}>
-                    <div className="group rounded-2xl border border-card-light-border bg-white p-8 hover:shadow-xl hover:shadow-accent/5 hover:border-accent/30 transition-all duration-500 h-full">
-                      <div className="mb-5 w-14 h-14 rounded-xl bg-accent/10 text-accent flex items-center justify-center group-hover:bg-accent group-hover:text-white transition-all duration-300">
+                    <div className="group rounded-lg border border-card-light-border bg-white p-8 hover:shadow-xl hover:shadow-accent/5 hover:border-accent/30 transition-all duration-500 h-full">
+                      <div className="mb-5 w-14 h-14 rounded-md bg-accent/10 text-accent flex items-center justify-center group-hover:bg-accent group-hover:text-white transition-all duration-300">
                         {Icon && <Icon size={28} />}
                       </div>
                       <h3 className="font-heading text-2xl font-bold text-text-dark mb-3">
@@ -121,7 +121,7 @@ export default function IndustriesPage() {
             <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
               {industrySolutions.map((item, i) => (
                 <ScrollReveal key={item.industry} delay={i * 0.1}>
-                  <div className="p-6 rounded-2xl border border-card-dark-border bg-card-dark h-full">
+                  <div className="p-6 rounded-lg border border-card-dark-border bg-card-dark h-full">
                     <h3 className="font-heading text-xl font-bold text-accent mb-4">
                       {item.industry}
                     </h3>

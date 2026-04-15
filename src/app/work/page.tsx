@@ -68,9 +68,9 @@ export default function WorkPage() {
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
               {allProjects.map((project, i) => (
                 <ScrollReveal key={project.title} delay={i * 0.08}>
-                  <div className="group relative rounded-2xl border border-card-light-border bg-white p-8 transition-all duration-500 hover:shadow-xl hover:shadow-accent/5 hover:border-accent/30 h-full flex flex-col">
+                  <div className="group relative rounded-lg border border-card-light-border bg-white p-8 transition-all duration-500 hover:shadow-xl hover:shadow-accent/5 hover:border-accent/30 h-full flex flex-col">
                     <div className="flex items-start justify-between mb-6">
-                      <span className="inline-block px-3 py-1 text-xs font-medium rounded-xl bg-accent/10 text-accent tracking-wide">
+                      <span className="inline-block px-3 py-1 text-xs font-medium rounded-md bg-accent/10 text-accent tracking-wide">
                         {project.category}
                       </span>
                       <ArrowUpRight
@@ -97,7 +97,7 @@ export default function WorkPage() {
                       {project.tags.map((tag) => (
                         <span
                           key={tag}
-                          className="px-3 py-1 text-xs rounded-xl bg-light-primary text-text-dark-muted font-medium"
+                          className="px-3 py-1 text-xs rounded-md bg-light-primary text-text-dark-muted font-medium"
                         >
                           {tag}
                         </span>

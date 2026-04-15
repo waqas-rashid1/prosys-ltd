@@ -7,68 +7,55 @@ import ScrollReveal from "./ui/ScrollReveal";
 
 export default function Insights() {
   return (
-    <section id="insights" className="py-28 lg:py-36 bg-light-secondary">
+    <section id="insights" className="py-28 lg:py-36 bg-light-primary">
       <div className="max-w-[1400px] mx-auto px-6 lg:px-8">
         <ScrollReveal>
-          <div className="flex flex-col lg:flex-row lg:items-end lg:justify-between gap-6 mb-12">
+          <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-6 mb-14">
             <div>
               <h2 className="font-heading text-4xl md:text-5xl lg:text-6xl font-bold text-text-dark leading-tight">
-                Featured Insights
+                Latest Insights
               </h2>
               <p className="text-text-dark-muted text-lg mt-3 max-w-xl">
-                Stay ahead with our latest thinking on technology, innovation, and digital growth.
+                Perspectives on technology, strategy, and digital transformation.
               </p>
             </div>
-            <Link
-              href="/blog"
-              className="inline-flex items-center gap-2 text-accent font-medium hover:gap-3 transition-all duration-300 self-start lg:self-auto"
-            >
-              View All Posts <ArrowRight size={16} />
+            <Link href="/blog" className="inline-flex items-center gap-2 text-accent font-medium hover:gap-3 transition-all duration-300">
+              View All <ArrowRight size={16} />
             </Link>
           </div>
         </ScrollReveal>
 
-        {/* Horizontal scroll on mobile, grid on desktop */}
-        <div className="flex lg:grid lg:grid-cols-3 gap-6 overflow-x-auto lg:overflow-visible pb-4 lg:pb-0 -mx-6 px-6 lg:mx-0 lg:px-0 snap-x snap-mandatory">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-px bg-card-light-border border border-card-light-border">
           {insights.map((insight, i) => (
-            <ScrollReveal key={insight.title} delay={i * 0.1} className="min-w-[320px] lg:min-w-0 snap-start">
-              <div className="group rounded-2xl border border-card-light-border bg-white overflow-hidden hover:shadow-xl hover:shadow-accent/5 hover:border-accent/30 transition-all duration-500 h-full flex flex-col">
-                {/* Image placeholder */}
-                <div className="relative h-48 bg-gradient-to-br from-dark-secondary to-dark-primary overflow-hidden">
-                  <div className="absolute inset-0 flex items-center justify-center">
-                    <div className="w-16 h-16 rounded-2xl gradient-bg opacity-20 rotate-12" />
-                    <div className="absolute w-10 h-10 rounded-xl gradient-bg opacity-40 -rotate-12 translate-x-6 translate-y-4" />
-                  </div>
-                  <div className="absolute inset-0 bg-gradient-to-t from-dark-primary/30 to-transparent" />
-                  <div className="absolute top-4 left-4">
-                    <span className="inline-block px-3 py-1 text-xs font-medium rounded-full bg-accent/90 text-dark-primary tracking-wide">
+            <ScrollReveal key={insight.title} delay={i * 0.08}>
+              <Link href="/blog" className="block group">
+                <div className="bg-white p-8 hover:bg-light-primary transition-colors duration-400 h-full flex flex-col">
+                  <div className="flex items-center gap-3 mb-5">
+                    <span className="text-[11px] font-semibold text-accent uppercase tracking-wider">
                       {insight.category}
                     </span>
+                    <span className="h-px flex-grow bg-card-light-border" />
+                    <span className="flex items-center gap-1.5 text-text-dark-muted text-xs">
+                      <Calendar size={11} />
+                      {insight.date}
+                    </span>
                   </div>
-                </div>
 
-                {/* Content */}
-                <div className="p-6 flex flex-col flex-grow">
                   <h3 className="font-heading text-lg font-bold text-text-dark mb-3 group-hover:text-accent transition-colors duration-300 leading-snug">
                     {insight.title}
                   </h3>
-                  <p className="text-text-dark-muted text-sm leading-relaxed mb-6 flex-grow">
+
+                  <p className="text-text-dark-muted text-sm leading-relaxed flex-grow">
                     {insight.excerpt}
                   </p>
-                  <div className="flex items-center justify-between pt-4 border-t border-card-light-border">
-                    <div className="flex items-center gap-2 text-text-dark-muted text-xs">
-                      <Calendar size={12} />
-                      {insight.date}
-                    </div>
-                    <Link
-                      href="/blog"
-                      className="inline-flex items-center gap-1.5 text-xs font-medium text-accent hover:gap-2.5 transition-all duration-300"
-                    >
-                      Read More <ArrowRight size={12} />
-                    </Link>
+
+                  <div className="mt-6 pt-5 border-t border-card-light-border">
+                    <span className="inline-flex items-center gap-1.5 text-xs font-semibold text-accent group-hover:gap-2.5 transition-all duration-300">
+                      Read Article <ArrowRight size={12} />
+                    </span>
                   </div>
                 </div>
-              </div>
+              </Link>
             </ScrollReveal>
           ))}
         </div>

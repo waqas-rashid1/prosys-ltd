@@ -60,8 +60,8 @@ export default function ContactPage() {
                 const Icon = method.icon;
                 return (
                   <ScrollReveal key={method.label} delay={i * 0.08}>
-                    <div className="group p-5 rounded-xl border border-card-dark-border bg-card-dark hover:border-accent/30 transition-all duration-300 text-center">
-                      <div className="w-10 h-10 rounded-xl bg-accent/10 text-accent flex items-center justify-center mx-auto mb-3 group-hover:bg-accent group-hover:text-white transition-all duration-300">
+                    <div className="group p-5 rounded-md border border-card-dark-border bg-card-dark hover:border-accent/30 transition-all duration-300 text-center">
+                      <div className="w-10 h-10 rounded-md bg-accent/10 text-accent flex items-center justify-center mx-auto mb-3 group-hover:bg-accent group-hover:text-white transition-all duration-300">
                         <Icon size={18} />
                       </div>
                       <div className="text-xs text-text-light-muted uppercase tracking-widest mb-1">
@@ -86,7 +86,7 @@ export default function ContactPage() {
           <div className="max-w-[1400px] mx-auto px-6 lg:px-8">
             <div className="grid grid-cols-1 lg:grid-cols-5 gap-12 lg:gap-16">
               <ScrollReveal className="lg:col-span-3">
-                <div className="rounded-2xl border border-card-light-border bg-white p-8 md:p-10">
+                <div className="rounded-lg border border-card-light-border bg-white p-8 md:p-10">
                   <h2 className="font-heading text-2xl md:text-3xl font-bold text-text-dark mb-2">
                     Send Us a Message
                   </h2>
@@ -99,7 +99,7 @@ export default function ContactPage() {
 
               <ScrollReveal delay={0.2} className="lg:col-span-2">
                 <div className="space-y-6">
-                  <div className="rounded-2xl gradient-bg p-8 text-white">
+                  <div className="rounded-lg gradient-bg p-8 text-white">
                     <h3 className="font-heading text-2xl font-bold mb-3">
                       Free Consultation
                     </h3>
@@ -115,7 +115,7 @@ export default function ContactPage() {
                     </div>
                   </div>
 
-                  <div className="rounded-2xl border border-card-light-border bg-white p-8">
+                  <div className="rounded-lg border border-card-light-border bg-white p-8">
                     <h3 className="font-heading text-xl font-bold text-text-dark mb-4">
                       What Happens Next?
                     </h3>

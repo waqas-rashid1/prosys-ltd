@@ -41,7 +41,7 @@ export default function TermsPage() {
             <div className="space-y-6">
               {sections.map((s, i) => (
                 <ScrollReveal key={s.title} delay={i * 0.04}>
-                  <div className="p-6 md:p-8 rounded-2xl border border-card-light-border bg-white">
+                  <div className="p-6 md:p-8 rounded-lg border border-card-light-border bg-white">
                     <div className="flex items-start gap-4">
                       <span className="flex-shrink-0 w-8 h-8 rounded-lg bg-accent/10 text-accent text-xs font-bold flex items-center justify-center mt-0.5">
                         {String(i + 1).padStart(2, "0")}

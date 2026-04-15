@@ -68,8 +68,8 @@ export default function ServicesPage() {
                 const Icon = iconMap[service.icon];
                 return (
                   <ScrollReveal key={service.title} delay={i * 0.06}>
-                    <div className="group flex gap-5 p-6 rounded-2xl border border-card-light-border bg-white hover:shadow-xl hover:shadow-accent/5 hover:border-accent/30 transition-all duration-500 h-full">
-                      <div className="flex-shrink-0 w-14 h-14 rounded-xl bg-accent/10 text-accent flex items-center justify-center group-hover:bg-accent group-hover:text-white transition-all duration-300">
+                    <div className="group flex gap-5 p-6 rounded-lg border border-card-light-border bg-white hover:shadow-xl hover:shadow-accent/5 hover:border-accent/30 transition-all duration-500 h-full">
+                      <div className="flex-shrink-0 w-14 h-14 rounded-md bg-accent/10 text-accent flex items-center justify-center group-hover:bg-accent group-hover:text-white transition-all duration-300">
                         {Icon && <Icon size={26} />}
                       </div>
                       <div>
@@ -93,7 +93,7 @@ export default function ServicesPage() {
           <div className="max-w-[1400px] mx-auto px-6 lg:px-8">
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
               <ScrollReveal>
-                <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-xl border border-accent/20 bg-accent/5 mb-6">
+                <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-md border border-accent/20 bg-accent/5 mb-6">
                   <span className="text-xs text-accent tracking-widest uppercase font-medium">
                     How It Works
                   </span>
@@ -114,7 +114,7 @@ export default function ServicesPage() {
                   {processSteps.map((step, i) => (
                     <div
                       key={i}
-                      className="flex items-start gap-4 p-4 rounded-xl border border-card-dark-border bg-card-dark/50 hover:border-accent/30 transition-all duration-300"
+                      className="flex items-start gap-4 p-4 rounded-md border border-card-dark-border bg-card-dark/50 hover:border-accent/30 transition-all duration-300"
                     >
                       <CheckCircle2
                         size={20}

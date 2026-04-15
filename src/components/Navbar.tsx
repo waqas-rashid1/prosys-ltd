@@ -147,7 +147,7 @@ export default function Navbar() {
               })}
               <Link
                 href="/contact"
-                className="ml-4 inline-flex items-center justify-center font-medium rounded-xl transition-all duration-300 cursor-pointer gradient-bg text-white hover:shadow-lg hover:shadow-accent/25 hover:scale-105 px-6 py-2.5 text-sm"
+                className="ml-4 inline-flex items-center justify-center font-medium rounded-md transition-all duration-300 cursor-pointer gradient-bg text-white hover:shadow-lg hover:shadow-accent/25 hover:scale-105 px-6 py-2.5 text-sm"
               >
                 Get in Touch
               </Link>
@@ -225,7 +225,7 @@ export default function Navbar() {
 
                   {/* Featured card */}
                   <div className="col-span-4 flex flex-col gap-4">
-                    <div className="rounded-2xl border border-card-dark-border bg-card-dark p-6 flex-grow">
+                    <div className="rounded-lg border border-card-dark-border bg-card-dark p-6 flex-grow">
                       <span className="inline-block px-2 py-0.5 text-[10px] font-bold rounded-lg bg-accent/20 text-accent-light tracking-wider uppercase mb-3">
                         Featured
                       </span>
@@ -244,7 +244,7 @@ export default function Navbar() {
                     </div>
                     <Link
                       href="/services"
-                      className="flex items-center justify-center gap-2 py-3 rounded-xl border border-card-dark-border text-text-light-muted text-sm hover:text-accent-light hover:border-accent/40 transition-all duration-300"
+                      className="flex items-center justify-center gap-2 py-3 rounded-md border border-card-dark-border text-text-light-muted text-sm hover:text-accent-light hover:border-accent/40 transition-all duration-300"
                     >
                       View All Services <ArrowRight size={12} />
                     </Link>
@@ -286,7 +286,7 @@ export default function Navbar() {
               ))}
               <Link
                 href="/contact"
-                className="mt-4 inline-flex items-center justify-center font-medium rounded-xl transition-all duration-300 cursor-pointer gradient-bg text-white hover:shadow-lg hover:shadow-accent/25 px-9 py-4 text-base tracking-wide"
+                className="mt-4 inline-flex items-center justify-center font-medium rounded-md transition-all duration-300 cursor-pointer gradient-bg text-white hover:shadow-lg hover:shadow-accent/25 px-9 py-4 text-base tracking-wide"
               >
                 Get in Touch
               </Link>

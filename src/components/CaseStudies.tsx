@@ -24,24 +24,21 @@ export default function CaseStudies() {
                 Featured Work
               </h2>
               <p className="text-text-dark-muted text-lg mt-3 max-w-xl">
-                Real results from real projects. Here&apos;s how we&apos;ve helped businesses build, launch, and grow.
+                Real results from real projects.
               </p>
             </div>
-            <Link
-              href="/work"
-              className="inline-flex items-center gap-2 text-accent font-medium hover:gap-3 transition-all duration-300 self-start md:self-auto"
-            >
+            <Link href="/work" className="inline-flex items-center gap-2 text-accent font-medium hover:gap-3 transition-all duration-300">
               View All Work <ArrowRight size={16} />
             </Link>
           </div>
         </ScrollReveal>
 
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-px bg-card-light-border">
           {caseStudies.map((study, i) => (
-            <ScrollReveal key={study.title} delay={i * 0.1}>
-              <div className="group rounded-2xl border border-card-light-border bg-white overflow-hidden hover:shadow-2xl hover:shadow-black/[0.06] hover:border-accent/20 transition-all duration-500 h-full flex flex-col">
-                {/* Real image */}
-                <div className="relative h-56 overflow-hidden">
+            <ScrollReveal key={study.title} delay={i * 0.08}>
+              <div className="group bg-white hover:bg-light-primary transition-colors duration-500 h-full flex flex-col">
+                {/* Image - no rounded corners */}
+                <div className="relative h-60 overflow-hidden">
                   <Image
                     src={caseImages[i % caseImages.length]}
                     alt={study.title}
@@ -49,38 +46,34 @@ export default function CaseStudies() {
                     className="object-cover group-hover:scale-105 transition-transform duration-700"
                     sizes="(max-width: 768px) 100vw, 50vw"
                   />
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/50 via-black/10 to-transparent" />
-                  <div className="absolute top-4 left-4">
-                    <span className="inline-block px-3 py-1 text-xs font-medium rounded-lg bg-accent text-white">
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent" />
+                  <div className="absolute top-5 left-5">
+                    <span className="inline-block px-3 py-1 text-[11px] font-semibold bg-accent text-white tracking-wide uppercase">
                       {study.category}
                     </span>
                   </div>
-                  <div className="absolute top-4 right-4">
-                    <div className="w-8 h-8 rounded-lg bg-white/10 glass-effect flex items-center justify-center">
-                      <ArrowUpRight size={14} className="text-white/70 group-hover:text-white transition-colors" />
-                    </div>
+                  <div className="absolute top-5 right-5">
+                    <ArrowUpRight size={16} className="text-white/40 group-hover:text-white transition-colors" />
                   </div>
                 </div>
 
-                <div className="p-7 flex flex-col flex-grow">
+                <div className="p-8 flex flex-col flex-grow">
                   <h3 className="font-heading text-xl font-bold text-text-dark mb-3 group-hover:text-accent transition-colors duration-300">
                     {study.title}
                   </h3>
                   <p className="text-text-dark-muted text-sm leading-relaxed mb-6 flex-grow">
                     {study.description}
                   </p>
-
-                  <div className="mb-5 inline-flex items-center gap-2 self-start">
-                    <span className="h-2 w-2 rounded-full bg-accent" />
-                    <span className="text-sm font-medium text-accent">{study.metric}</span>
-                  </div>
-
-                  <div className="flex flex-wrap gap-2 pt-4 border-t border-card-light-border">
-                    {study.tags.map((tag) => (
-                      <span key={tag} className="px-3 py-1 text-xs rounded-lg bg-light-primary text-text-dark-muted font-medium">
-                        {tag}
-                      </span>
-                    ))}
+                  <div className="flex items-center justify-between pt-5 border-t border-card-light-border">
+                    <div className="flex items-center gap-2">
+                      <span className="h-1.5 w-1.5 rounded-full bg-accent" />
+                      <span className="text-sm font-semibold text-accent">{study.metric}</span>
+                    </div>
+                    <div className="flex gap-2">
+                      {study.tags.slice(0, 3).map((tag) => (
+                        <span key={tag} className="text-[11px] text-text-dark-muted font-medium">{tag}</span>
+                      ))}
+                    </div>
                   </div>
                 </div>
               </div>

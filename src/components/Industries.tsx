@@ -11,15 +11,6 @@ const iconMap: Record<string, React.ElementType> = {
   Landmark, HeartPulse, ShoppingCart, GraduationCap, Building2, Briefcase,
 };
 
-const accentColors = [
-  "bg-emerald-50 text-emerald-600 border-emerald-100",
-  "bg-rose-50 text-rose-600 border-rose-100",
-  "bg-amber-50 text-amber-600 border-amber-100",
-  "bg-violet-50 text-violet-600 border-violet-100",
-  "bg-sky-50 text-sky-600 border-sky-100",
-  "bg-teal-50 text-teal-600 border-teal-100",
-];
-
 export default function Industries() {
   return (
     <section id="industries" className="py-28 lg:py-36 bg-light-secondary">
@@ -36,28 +27,25 @@ export default function Industries() {
           </div>
         </ScrollReveal>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-px bg-card-light-border border border-card-light-border">
           {industries.map((industry, i) => {
             const Icon = iconMap[industry.icon];
             return (
-              <ScrollReveal key={industry.title} delay={i * 0.08}>
+              <ScrollReveal key={industry.title} delay={i * 0.06}>
                 <Link href="/industries" className="block group">
-                  <div className="rounded-2xl border border-card-light-border bg-white p-7 hover:shadow-xl hover:shadow-black/[0.04] hover:-translate-y-1 transition-all duration-500 h-full">
-                    {/* Icon with unique color per industry */}
-                    <div className={`w-14 h-14 rounded-2xl border flex items-center justify-center mb-5 ${accentColors[i]} group-hover:scale-110 transition-transform duration-300`}>
-                      {Icon && <Icon size={24} />}
+                  <div className="bg-white p-8 hover:bg-light-primary transition-all duration-400 h-full">
+                    <div className="w-12 h-12 rounded-md bg-accent/10 text-accent flex items-center justify-center mb-5 group-hover:bg-accent group-hover:text-white transition-all duration-300">
+                      {Icon && <Icon size={22} />}
                     </div>
-
-                    <h3 className="font-heading text-xl font-bold text-text-dark mb-2 group-hover:text-accent transition-colors duration-300">
+                    <h3 className="font-heading text-lg font-bold text-text-dark mb-2 group-hover:text-accent transition-colors duration-300">
                       {industry.title}
                     </h3>
                     <p className="text-text-dark-muted text-sm leading-relaxed mb-4">
                       {industry.description}
                     </p>
-
-                    <div className="flex items-center gap-1.5 text-sm font-medium text-accent opacity-0 group-hover:opacity-100 transition-all duration-300">
-                      Explore <ArrowRight size={14} />
-                    </div>
+                    <span className="inline-flex items-center gap-1.5 text-xs font-semibold text-accent opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                      Learn more <ArrowRight size={12} />
+                    </span>
                   </div>
                 </Link>
               </ScrollReveal>

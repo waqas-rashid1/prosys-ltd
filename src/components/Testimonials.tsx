@@ -59,7 +59,7 @@ export default function Testimonials() {
           {/* Left: Testimonials */}
           <div className="lg:col-span-7">
             <ScrollReveal>
-              <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-xl border border-accent/20 bg-accent/5 mb-6">
+              <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-md border border-accent/20 bg-accent/5 mb-6">
                 <span className="text-xs text-accent-light tracking-widest uppercase font-medium">
                   Testimonials
                 </span>
@@ -85,7 +85,7 @@ export default function Testimonials() {
                   </p>
 
                   <div className="flex items-center gap-4 pl-2">
-                    <div className="w-12 h-12 rounded-xl gradient-bg flex items-center justify-center text-white font-heading font-bold text-lg">
+                    <div className="w-12 h-12 rounded-md gradient-bg flex items-center justify-center text-white font-heading font-bold text-lg">
                       {t.initial}
                     </div>
                     <div>
@@ -105,7 +105,7 @@ export default function Testimonials() {
             <div className="flex items-center gap-4 mt-10">
               <button
                 onClick={() => setCurrent((c) => (c - 1 + testimonials.length) % testimonials.length)}
-                className="w-10 h-10 rounded-xl border border-card-dark-border flex items-center justify-center text-text-light-muted hover:text-accent-light hover:border-accent/40 transition-all cursor-pointer"
+                className="w-10 h-10 rounded-md border border-card-dark-border flex items-center justify-center text-text-light-muted hover:text-accent-light hover:border-accent/40 transition-all cursor-pointer"
                 aria-label="Previous"
               >
                 <ChevronLeft size={18} />
@@ -124,7 +124,7 @@ export default function Testimonials() {
               </div>
               <button
                 onClick={() => setCurrent((c) => (c + 1) % testimonials.length)}
-                className="w-10 h-10 rounded-xl border border-card-dark-border flex items-center justify-center text-text-light-muted hover:text-accent-light hover:border-accent/40 transition-all cursor-pointer"
+                className="w-10 h-10 rounded-md border border-card-dark-border flex items-center justify-center text-text-light-muted hover:text-accent-light hover:border-accent/40 transition-all cursor-pointer"
                 aria-label="Next"
               >
                 <ChevronRight size={18} />
@@ -135,7 +135,7 @@ export default function Testimonials() {
           {/* Right: Mini contact form */}
           <div className="lg:col-span-5">
             <ScrollReveal delay={0.2}>
-              <div className="rounded-2xl border border-card-dark-border bg-card-dark p-8 lg:mt-16">
+              <div className="rounded-lg border border-card-dark-border bg-card-dark p-8 lg:mt-16">
                 <h3 className="font-heading text-xl font-bold text-text-light mb-2">
                   Start Your Project
                 </h3>
@@ -150,7 +150,7 @@ export default function Testimonials() {
                       name="name"
                       type="text"
                       placeholder="Full Name"
-                      className="w-full px-4 py-3.5 rounded-xl border border-card-dark-border bg-dark-primary text-text-light placeholder:text-text-light-muted/40 text-sm focus:outline-none focus:border-accent/50 transition-all"
+                      className="w-full px-4 py-3.5 rounded-md border border-card-dark-border bg-dark-primary text-text-light placeholder:text-text-light-muted/40 text-sm focus:outline-none focus:border-accent/50 transition-all"
                     />
                   </div>
                   <div>
@@ -160,7 +160,7 @@ export default function Testimonials() {
                       name="email"
                       type="email"
                       placeholder="Work Email"
-                      className="w-full px-4 py-3.5 rounded-xl border border-card-dark-border bg-dark-primary text-text-light placeholder:text-text-light-muted/40 text-sm focus:outline-none focus:border-accent/50 transition-all"
+                      className="w-full px-4 py-3.5 rounded-md border border-card-dark-border bg-dark-primary text-text-light placeholder:text-text-light-muted/40 text-sm focus:outline-none focus:border-accent/50 transition-all"
                     />
                   </div>
                   <div>
@@ -169,7 +169,7 @@ export default function Testimonials() {
                       id="testi-service"
                       name="service"
                       defaultValue=""
-                      className="w-full px-4 py-3.5 rounded-xl border border-card-dark-border bg-dark-primary text-text-light text-sm focus:outline-none focus:border-accent/50 transition-all"
+                      className="w-full px-4 py-3.5 rounded-md border border-card-dark-border bg-dark-primary text-text-light text-sm focus:outline-none focus:border-accent/50 transition-all"
                     >
                       <option value="" disabled>Service needed</option>
                     <option>Web Development</option>
@@ -188,12 +188,12 @@ export default function Testimonials() {
                       name="message"
                       placeholder="Brief project description"
                       rows={3}
-                      className="w-full px-4 py-3.5 rounded-xl border border-card-dark-border bg-dark-primary text-text-light placeholder:text-text-light-muted/40 text-sm focus:outline-none focus:border-accent/50 transition-all resize-none"
+                      className="w-full px-4 py-3.5 rounded-md border border-card-dark-border bg-dark-primary text-text-light placeholder:text-text-light-muted/40 text-sm focus:outline-none focus:border-accent/50 transition-all resize-none"
                     />
                   </div>
                   <button
                     type="submit"
-                    className="w-full gradient-bg text-white px-6 py-3.5 rounded-xl font-medium text-sm hover:shadow-lg hover:shadow-accent/25 transition-all duration-300 cursor-pointer flex items-center justify-center gap-2"
+                    className="w-full gradient-bg text-white px-6 py-3.5 rounded-md font-medium text-sm hover:shadow-lg hover:shadow-accent/25 transition-all duration-300 cursor-pointer flex items-center justify-center gap-2"
                   >
                     <Send size={14} />
                     Send Inquiry

@@ -35,7 +35,7 @@ export default function Contact() {
                     type="text"
                     id="name"
                     placeholder="John Doe"
-                    className="w-full px-4 py-3 rounded-xl border border-card-light-border bg-white text-text-dark placeholder:text-text-dark-muted/50 focus:outline-none focus:border-accent focus:ring-1 focus:ring-accent/20 transition-all"
+                    className="w-full px-4 py-3 rounded-md border border-card-light-border bg-white text-text-dark placeholder:text-text-dark-muted/50 focus:outline-none focus:border-accent focus:ring-1 focus:ring-accent/20 transition-all"
                   />
                 </div>
                 <div>
@@ -49,7 +49,7 @@ export default function Contact() {
                     type="email"
                     id="email"
                     placeholder="john@company.com"
-                    className="w-full px-4 py-3 rounded-xl border border-card-light-border bg-white text-text-dark placeholder:text-text-dark-muted/50 focus:outline-none focus:border-accent focus:ring-1 focus:ring-accent/20 transition-all"
+                    className="w-full px-4 py-3 rounded-md border border-card-light-border bg-white text-text-dark placeholder:text-text-dark-muted/50 focus:outline-none focus:border-accent focus:ring-1 focus:ring-accent/20 transition-all"
                   />
                 </div>
               </div>
@@ -65,7 +65,7 @@ export default function Contact() {
                   type="text"
                   id="company"
                   placeholder="Your company name"
-                  className="w-full px-4 py-3 rounded-xl border border-card-light-border bg-white text-text-dark placeholder:text-text-dark-muted/50 focus:outline-none focus:border-accent focus:ring-1 focus:ring-accent/20 transition-all"
+                  className="w-full px-4 py-3 rounded-md border border-card-light-border bg-white text-text-dark placeholder:text-text-dark-muted/50 focus:outline-none focus:border-accent focus:ring-1 focus:ring-accent/20 transition-all"
                 />
               </div>
 
@@ -80,7 +80,7 @@ export default function Contact() {
                   id="message"
                   rows={5}
                   placeholder="Tell us about your project..."
-                  className="w-full px-4 py-3 rounded-xl border border-card-light-border bg-white text-text-dark placeholder:text-text-dark-muted/50 focus:outline-none focus:border-accent focus:ring-1 focus:ring-accent/20 transition-all resize-none"
+                  className="w-full px-4 py-3 rounded-md border border-card-light-border bg-white text-text-dark placeholder:text-text-dark-muted/50 focus:outline-none focus:border-accent focus:ring-1 focus:ring-accent/20 transition-all resize-none"
                 />
               </div>
 
@@ -103,7 +103,7 @@ export default function Contact() {
                     href={`mailto:${siteConfig.email}`}
                     className="flex items-start gap-4 group"
                   >
-                    <div className="w-10 h-10 rounded-xl bg-accent/10 flex items-center justify-center flex-shrink-0 group-hover:bg-accent group-hover:text-white text-accent transition-all duration-300">
+                    <div className="w-10 h-10 rounded-md bg-accent/10 flex items-center justify-center flex-shrink-0 group-hover:bg-accent group-hover:text-white text-accent transition-all duration-300">
                       <Mail size={18} />
                     </div>
                     <div>
@@ -120,7 +120,7 @@ export default function Contact() {
                     href={`tel:${siteConfig.phone}`}
                     className="flex items-start gap-4 group"
                   >
-                    <div className="w-10 h-10 rounded-xl bg-accent/10 flex items-center justify-center flex-shrink-0 group-hover:bg-accent group-hover:text-white text-accent transition-all duration-300">
+                    <div className="w-10 h-10 rounded-md bg-accent/10 flex items-center justify-center flex-shrink-0 group-hover:bg-accent group-hover:text-white text-accent transition-all duration-300">
                       <Phone size={18} />
                     </div>
                     <div>
@@ -134,7 +134,7 @@ export default function Contact() {
                   </a>
 
                   <div className="flex items-start gap-4">
-                    <div className="w-10 h-10 rounded-xl bg-accent/10 flex items-center justify-center flex-shrink-0 text-accent">
+                    <div className="w-10 h-10 rounded-md bg-accent/10 flex items-center justify-center flex-shrink-0 text-accent">
                       <MapPin size={18} />
                     </div>
                     <div>
@@ -150,7 +150,7 @@ export default function Contact() {
               </div>
 
               {/* Decorative card */}
-              <div className="rounded-2xl gradient-bg p-6 text-white">
+              <div className="rounded-lg gradient-bg p-6 text-white">
                 <h4 className="font-heading text-lg font-bold mb-2">
                   Ready to Start?
                 </h4>

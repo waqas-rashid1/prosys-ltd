@@ -24,7 +24,7 @@ function FAQItem({
   const triggerId = `faq-trigger-${index}`;
 
   return (
-    <div className="border border-card-dark-border rounded-xl overflow-hidden transition-colors duration-300 hover:border-accent/30">
+    <div className="border border-card-dark-border rounded-md overflow-hidden transition-colors duration-300 hover:border-accent/30">
       <button
         id={triggerId}
         onClick={onToggle}

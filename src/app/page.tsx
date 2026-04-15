@@ -1,15 +1,13 @@
 import Navbar from "@/components/Navbar";
 import Hero from "@/components/Hero";
-import TrustStrip from "@/components/TrustStrip";
-import TechMarquee from "@/components/TechMarquee";
 import Services from "@/components/Services";
 import About from "@/components/About";
 import StatsSection from "@/components/StatsSection";
-import Testimonials from "@/components/Testimonials";
 import CaseStudies from "@/components/CaseStudies";
+import Testimonials from "@/components/Testimonials";
 import Industries from "@/components/Industries";
 import Approach from "@/components/Approach";
-import FAQ from "@/components/FAQ";
+import TechMarquee from "@/components/TechMarquee";
 import Insights from "@/components/Insights";
 import Partners from "@/components/Partners";
 import HelpCTA from "@/components/HelpCTA";
@@ -21,18 +19,27 @@ export default function Home() {
       <Navbar />
       <main id="main-content">
         <Hero />
-        <TrustStrip />
-        <TechMarquee />
+        {/* light */}
         <Services />
+        {/* dark */}
         <About />
+        {/* light */}
         <StatsSection />
-        <Testimonials />
+        {/* light */}
         <CaseStudies />
+        {/* dark */}
+        <Testimonials />
+        {/* light */}
         <Industries />
+        {/* dark */}
         <Approach />
-        <FAQ />
+        {/* dark */}
+        <TechMarquee />
+        {/* light */}
         <Insights />
+        {/* dark */}
         <Partners />
+        {/* dark */}
         <HelpCTA />
       </main>
       <Footer />

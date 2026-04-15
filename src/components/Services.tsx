@@ -88,7 +88,7 @@ function ServiceCard({ cat, index }: { cat: typeof serviceCategories[0]; index: 
 
   return (
     <div
-      className="group rounded-2xl border border-card-light-border bg-white overflow-hidden hover:shadow-xl hover:shadow-black/[0.04] transition-all duration-500 h-full flex flex-col cursor-pointer"
+      className="group rounded-lg border border-card-light-border bg-white overflow-hidden hover:shadow-xl hover:shadow-black/[0.04] transition-all duration-500 h-full flex flex-col cursor-pointer"
       onMouseEnter={() => setHovered(true)}
       onMouseLeave={() => setHovered(false)}
     >
@@ -144,7 +144,7 @@ export default function Services() {
             </h2>
             <Link
               href="/services"
-              className="inline-flex items-center gap-2 px-6 py-3 rounded-xl border border-text-dark/10 text-text-dark text-sm font-medium hover:border-accent hover:text-accent transition-all duration-300 self-start md:self-auto"
+              className="inline-flex items-center gap-2 px-6 py-3 rounded-md border border-text-dark/10 text-text-dark text-sm font-medium hover:border-accent hover:text-accent transition-all duration-300 self-start md:self-auto"
             >
               View all services
             </Link>
@@ -164,7 +164,7 @@ export default function Services() {
         <div className="lg:hidden space-y-4">
           {serviceCategories.map((cat, i) => (
             <ScrollReveal key={cat.title} delay={i * 0.08}>
-              <div className="rounded-2xl border border-card-light-border bg-white overflow-hidden">
+              <div className="rounded-lg border border-card-light-border bg-white overflow-hidden">
                 <button
                   onClick={() => setExpandedIndex(expandedIndex === i ? null : i)}
                   className="w-full flex items-center justify-between p-6 cursor-pointer"

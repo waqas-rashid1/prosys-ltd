@@ -20,7 +20,7 @@ export default function Button({
   type = "button",
 }: ButtonProps) {
   const baseStyles =
-    "inline-flex items-center justify-center font-medium rounded-xl transition-all duration-300 cursor-pointer";
+    "inline-flex items-center justify-center font-medium rounded-md transition-all duration-300 cursor-pointer";
 
   const variants = {
     primary:

@@ -72,8 +72,8 @@ export default function CookiePolicyPage() {
                 const Icon = type.icon;
                 return (
                   <ScrollReveal key={type.title} delay={i * 0.08}>
-                    <div className="group p-6 rounded-2xl border border-card-light-border bg-white hover:shadow-lg hover:border-accent/20 transition-all duration-300 h-full">
-                      <div className="w-11 h-11 rounded-xl bg-accent/10 text-accent flex items-center justify-center mb-4 group-hover:bg-accent group-hover:text-white transition-all duration-300">
+                    <div className="group p-6 rounded-lg border border-card-light-border bg-white hover:shadow-lg hover:border-accent/20 transition-all duration-300 h-full">
+                      <div className="w-11 h-11 rounded-md bg-accent/10 text-accent flex items-center justify-center mb-4 group-hover:bg-accent group-hover:text-white transition-all duration-300">
                         <Icon size={20} />
                       </div>
                       <h3 className="font-heading text-base font-bold text-text-dark mb-2">
@@ -95,7 +95,7 @@ export default function CookiePolicyPage() {
             <div className="max-w-[1000px] mx-auto space-y-6">
               {generalSections.map((s, i) => (
                 <ScrollReveal key={s.title} delay={i * 0.05}>
-                  <div className="p-6 md:p-8 rounded-2xl border border-card-light-border bg-white">
+                  <div className="p-6 md:p-8 rounded-lg border border-card-light-border bg-white">
                     <h2 className="font-heading text-lg font-bold text-text-dark mb-3">
                       {s.title}
                     </h2>

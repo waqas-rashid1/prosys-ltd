@@ -34,11 +34,11 @@ export default function Footer() {
                 name="email"
                 type="email"
                 placeholder="Your email address"
-                className="flex-grow lg:w-80 px-5 py-3 rounded-xl border border-card-dark-border bg-card-dark text-text-light placeholder:text-text-light-muted/50 focus:outline-none focus:border-accent focus:ring-1 focus:ring-accent/20 transition-all text-sm"
+                className="flex-grow lg:w-80 px-5 py-3 rounded-md border border-card-dark-border bg-card-dark text-text-light placeholder:text-text-light-muted/50 focus:outline-none focus:border-accent focus:ring-1 focus:ring-accent/20 transition-all text-sm"
               />
               <button
                 type="submit"
-                className="gradient-bg text-white px-6 py-3 rounded-xl font-medium text-sm hover:shadow-lg hover:shadow-accent/25 transition-all duration-300 cursor-pointer flex items-center gap-2 flex-shrink-0"
+                className="gradient-bg text-white px-6 py-3 rounded-md font-medium text-sm hover:shadow-lg hover:shadow-accent/25 transition-all duration-300 cursor-pointer flex items-center gap-2 flex-shrink-0"
               >
                 Subscribe
                 <ArrowRight size={14} />
@@ -138,7 +138,10 @@ export default function Footer() {
         <div className="max-w-[1400px] mx-auto px-6 lg:px-8 py-6 flex flex-col sm:flex-row items-center justify-between gap-4">
           <div className="flex flex-wrap items-center gap-4 text-xs text-text-light-muted">
             <span>&copy; {new Date().getFullYear()} {siteConfig.name}. All Rights Reserved.</span>
-            <Link href="/privacy" className="hover:text-accent-light transition-colors">Privacy Policy</Link>
+            <Link href="/privacy" className="hover:text-accent-light transition-colors">Privacy</Link>
+            <Link href="/terms" className="hover:text-accent-light transition-colors">Terms</Link>
+            <Link href="/cookie-policy" className="hover:text-accent-light transition-colors">Cookies</Link>
+            <Link href="/sitemap.xml" className="hover:text-accent-light transition-colors">Sitemap</Link>
           </div>
           <button
             onClick={scrollToTop}

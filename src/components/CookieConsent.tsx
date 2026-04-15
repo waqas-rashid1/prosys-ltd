@@ -35,7 +35,7 @@ export default function CookieConsent() {
           exit={{ opacity: 0, y: 40 }}
           className="fixed bottom-0 left-0 right-0 z-50 p-4 sm:p-6"
         >
-          <div className="max-w-3xl mx-auto bg-dark-secondary border border-card-dark-border rounded-2xl p-5 sm:p-6 shadow-2xl shadow-black/40 glass-effect">
+          <div className="max-w-3xl mx-auto bg-dark-secondary border border-card-dark-border rounded-lg p-5 sm:p-6 shadow-2xl shadow-black/40 glass-effect">
             <div className="flex items-start gap-4">
               <div className="flex-grow">
                 <h3 className="font-heading text-base font-bold text-text-light mb-1">
@@ -52,13 +52,13 @@ export default function CookieConsent() {
                 <div className="flex flex-wrap gap-3 mt-4">
                   <button
                     onClick={accept}
-                    className="gradient-bg text-white px-5 py-2 rounded-xl text-sm font-medium hover:shadow-lg hover:shadow-accent/25 transition-all duration-300 cursor-pointer"
+                    className="gradient-bg text-white px-5 py-2 rounded-md text-sm font-medium hover:shadow-lg hover:shadow-accent/25 transition-all duration-300 cursor-pointer"
                   >
                     Accept All
                   </button>
                   <button
                     onClick={decline}
-                    className="border border-card-dark-border text-text-light-muted px-5 py-2 rounded-xl text-sm font-medium hover:border-accent/40 hover:text-accent-light transition-all duration-300 cursor-pointer"
+                    className="border border-card-dark-border text-text-light-muted px-5 py-2 rounded-md text-sm font-medium hover:border-accent/40 hover:text-accent-light transition-all duration-300 cursor-pointer"
                   >
                     Necessary Only
                   </button>

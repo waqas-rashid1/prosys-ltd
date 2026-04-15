@@ -24,7 +24,7 @@ export default function Card({
 
   return (
     <div
-      className={`rounded-2xl border p-6 transition-all duration-300 ${variants[variant]} ${hoverClass} ${className}`}
+      className={`rounded-lg border p-6 transition-all duration-300 ${variants[variant]} ${hoverClass} ${className}`}
     >
       {children}
     </div>

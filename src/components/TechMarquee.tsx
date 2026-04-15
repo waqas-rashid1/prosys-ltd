@@ -109,7 +109,7 @@ export default function TechMarquee() {
               <button
                 key={cat.label}
                 onClick={() => setActiveTab(i)}
-                className={`px-5 py-2 rounded-xl text-sm font-medium transition-all duration-300 cursor-pointer ${
+                className={`px-5 py-2 rounded-md text-sm font-medium transition-all duration-300 cursor-pointer ${
                   activeTab === i
                     ? "gradient-bg text-white"
                     : "text-text-light-muted hover:text-accent-light border border-card-dark-border hover:border-accent/40"
@@ -136,7 +136,7 @@ export default function TechMarquee() {
                 initial={{ opacity: 0, scale: 0.9 }}
                 animate={{ opacity: 1, scale: 1 }}
                 transition={{ delay: i * 0.03 }}
-                className="group relative flex flex-col items-center justify-center gap-2.5 h-24 md:h-28 rounded-xl bg-white hover:-translate-y-1 transition-all duration-300 p-3 overflow-hidden"
+                className="group relative flex flex-col items-center justify-center gap-2.5 h-24 md:h-28 rounded-md bg-white hover:-translate-y-1 transition-all duration-300 p-3 overflow-hidden"
               >
                 <div className="absolute inset-0 bg-accent/[0.15] opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
                 <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-28 h-28 rounded-full bg-accent/50 blur-3xl opacity-0 group-hover:opacity-100 transition-opacity duration-500" />

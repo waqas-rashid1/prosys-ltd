@@ -15,7 +15,7 @@ export default function ContactForm() {
             type="text"
             id="name"
             placeholder="John Doe"
-            className="w-full px-4 py-3 rounded-xl border border-card-light-border bg-light-primary text-text-dark placeholder:text-text-dark-muted/50 focus:outline-none focus:border-accent focus:ring-1 focus:ring-accent/20 transition-all"
+            className="w-full px-4 py-3 rounded-md border border-card-light-border bg-light-primary text-text-dark placeholder:text-text-dark-muted/50 focus:outline-none focus:border-accent focus:ring-1 focus:ring-accent/20 transition-all"
           />
         </div>
         <div>
@@ -26,7 +26,7 @@ export default function ContactForm() {
             type="email"
             id="email"
             placeholder="john@company.com"
-            className="w-full px-4 py-3 rounded-xl border border-card-light-border bg-light-primary text-text-dark placeholder:text-text-dark-muted/50 focus:outline-none focus:border-accent focus:ring-1 focus:ring-accent/20 transition-all"
+            className="w-full px-4 py-3 rounded-md border border-card-light-border bg-light-primary text-text-dark placeholder:text-text-dark-muted/50 focus:outline-none focus:border-accent focus:ring-1 focus:ring-accent/20 transition-all"
           />
         </div>
       </div>
@@ -40,7 +40,7 @@ export default function ContactForm() {
             type="text"
             id="company"
             placeholder="Your company name"
-            className="w-full px-4 py-3 rounded-xl border border-card-light-border bg-light-primary text-text-dark placeholder:text-text-dark-muted/50 focus:outline-none focus:border-accent focus:ring-1 focus:ring-accent/20 transition-all"
+            className="w-full px-4 py-3 rounded-md border border-card-light-border bg-light-primary text-text-dark placeholder:text-text-dark-muted/50 focus:outline-none focus:border-accent focus:ring-1 focus:ring-accent/20 transition-all"
           />
         </div>
         <div>
@@ -49,7 +49,7 @@ export default function ContactForm() {
           </label>
           <select
             id="budget"
-            className="w-full px-4 py-3 rounded-xl border border-card-light-border bg-light-primary text-text-dark focus:outline-none focus:border-accent focus:ring-1 focus:ring-accent/20 transition-all"
+            className="w-full px-4 py-3 rounded-md border border-card-light-border bg-light-primary text-text-dark focus:outline-none focus:border-accent focus:ring-1 focus:ring-accent/20 transition-all"
             defaultValue=""
           >
             <option value="" disabled>Select range</option>
@@ -68,7 +68,7 @@ export default function ContactForm() {
         </label>
         <select
           id="service"
-          className="w-full px-4 py-3 rounded-xl border border-card-light-border bg-light-primary text-text-dark focus:outline-none focus:border-accent focus:ring-1 focus:ring-accent/20 transition-all"
+          className="w-full px-4 py-3 rounded-md border border-card-light-border bg-light-primary text-text-dark focus:outline-none focus:border-accent focus:ring-1 focus:ring-accent/20 transition-all"
           defaultValue=""
         >
           <option value="" disabled>Select a service</option>
@@ -94,7 +94,7 @@ export default function ContactForm() {
           id="message"
           rows={5}
           placeholder="Tell us about your project, goals, and timeline..."
-          className="w-full px-4 py-3 rounded-xl border border-card-light-border bg-light-primary text-text-dark placeholder:text-text-dark-muted/50 focus:outline-none focus:border-accent focus:ring-1 focus:ring-accent/20 transition-all resize-none"
+          className="w-full px-4 py-3 rounded-md border border-card-light-border bg-light-primary text-text-dark placeholder:text-text-dark-muted/50 focus:outline-none focus:border-accent focus:ring-1 focus:ring-accent/20 transition-all resize-none"
         />
       </div>
 

@@ -116,7 +116,7 @@ export default function AboutPage() {
 
             {/* Stats */}
             <ScrollReveal>
-              <div className="grid grid-cols-2 md:grid-cols-4 gap-8 p-8 rounded-2xl bg-dark-secondary">
+              <div className="grid grid-cols-2 md:grid-cols-4 gap-8 p-8 rounded-lg bg-dark-secondary">
                 {stats.map((stat) => (
                   <StatsCounter
                     key={stat.label}
@@ -149,8 +149,8 @@ export default function AboutPage() {
                 const Icon = value.icon;
                 return (
                   <ScrollReveal key={value.title} delay={i * 0.08}>
-                    <div className="group p-6 rounded-2xl border border-card-dark-border bg-card-dark hover:border-accent/30 transition-all duration-300 h-full">
-                      <div className="mb-4 w-12 h-12 rounded-xl bg-accent/10 text-accent flex items-center justify-center group-hover:bg-accent group-hover:text-white transition-all duration-300">
+                    <div className="group p-6 rounded-lg border border-card-dark-border bg-card-dark hover:border-accent/30 transition-all duration-300 h-full">
+                      <div className="mb-4 w-12 h-12 rounded-md bg-accent/10 text-accent flex items-center justify-center group-hover:bg-accent group-hover:text-white transition-all duration-300">
                         <Icon size={24} />
                       </div>
                       <h3 className="font-heading text-lg font-bold text-text-light mb-2">
@@ -188,7 +188,7 @@ export default function AboutPage() {
                     {i < timeline.length - 1 && (
                       <div className="absolute left-[27px] md:left-[35px] top-16 bottom-0 w-px bg-gradient-to-b from-accent/30 to-transparent" />
                     )}
-                    <div className="flex-shrink-0 w-14 h-14 md:w-[70px] md:h-[70px] rounded-2xl border-2 border-accent/30 flex items-center justify-center">
+                    <div className="flex-shrink-0 w-14 h-14 md:w-[70px] md:h-[70px] rounded-lg border-2 border-accent/30 flex items-center justify-center">
                       <span className="font-heading text-sm md:text-base font-bold text-accent">
                         {item.year}
                       </span>

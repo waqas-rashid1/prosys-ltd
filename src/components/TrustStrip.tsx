@@ -28,7 +28,7 @@ export default function TrustStrip() {
                 className="group flex items-center gap-4 cursor-default"
               >
                 {/* Logo container */}
-                <div className="relative w-14 h-14 rounded-2xl bg-light-primary border border-card-light-border flex items-center justify-center group-hover:border-accent/40 group-hover:bg-accent/[0.04] group-hover:shadow-lg group-hover:shadow-accent/[0.06] transition-all duration-400">
+                <div className="relative w-14 h-14 rounded-lg bg-light-primary border border-card-light-border flex items-center justify-center group-hover:border-accent/40 group-hover:bg-accent/[0.04] group-hover:shadow-lg group-hover:shadow-accent/[0.06] transition-all duration-400">
                   <Image
                     src={r.logo}
                     alt={r.label}

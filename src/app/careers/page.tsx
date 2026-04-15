@@ -68,9 +68,9 @@ export default function CareersPage() {
                 const Icon = perk.icon;
                 return (
                   <ScrollReveal key={perk.title} delay={i * 0.06}>
-                    <div className="group p-6 rounded-2xl border border-card-light-border bg-white hover:shadow-lg hover:border-accent/30 transition-all duration-300 h-full">
+                    <div className="group p-6 rounded-lg border border-card-light-border bg-white hover:shadow-lg hover:border-accent/30 transition-all duration-300 h-full">
                       <div className="flex items-start gap-4">
-                        <div className="w-11 h-11 rounded-xl bg-accent/10 text-accent flex items-center justify-center flex-shrink-0 group-hover:bg-accent group-hover:text-white transition-all duration-300">
+                        <div className="w-11 h-11 rounded-md bg-accent/10 text-accent flex items-center justify-center flex-shrink-0 group-hover:bg-accent group-hover:text-white transition-all duration-300">
                           <Icon size={20} />
                         </div>
                         <div>
@@ -111,10 +111,10 @@ export default function CareersPage() {
                   <input
                     type="text"
                     placeholder="Search roles..."
-                    className="w-full pl-11 pr-4 py-3.5 rounded-xl border border-card-dark-border bg-card-dark text-text-light placeholder:text-text-light-muted/40 text-sm focus:outline-none focus:border-accent/50 transition-all"
+                    className="w-full pl-11 pr-4 py-3.5 rounded-md border border-card-dark-border bg-card-dark text-text-light placeholder:text-text-light-muted/40 text-sm focus:outline-none focus:border-accent/50 transition-all"
                   />
                 </div>
-                <select className="px-4 py-3.5 rounded-xl border border-card-dark-border bg-card-dark text-text-light text-sm focus:outline-none focus:border-accent/50 transition-all min-w-[160px]">
+                <select className="px-4 py-3.5 rounded-md border border-card-dark-border bg-card-dark text-text-light text-sm focus:outline-none focus:border-accent/50 transition-all min-w-[160px]">
                   {departments.map((d) => (
                     <option key={d}>{d}</option>
                   ))}
@@ -128,7 +128,7 @@ export default function CareersPage() {
                 <ScrollReveal key={role.title} delay={i * 0.04}>
                   <a
                     href="mailto:careers@prosysltd.com"
-                    className="group flex flex-col sm:flex-row sm:items-center justify-between gap-4 p-5 rounded-xl border border-card-dark-border bg-card-dark hover:border-accent/40 hover:bg-card-dark/80 transition-all duration-300"
+                    className="group flex flex-col sm:flex-row sm:items-center justify-between gap-4 p-5 rounded-md border border-card-dark-border bg-card-dark hover:border-accent/40 hover:bg-card-dark/80 transition-all duration-300"
                   >
                     <div className="flex-grow">
                       <div className="font-heading text-base font-bold text-text-light group-hover:text-accent-light transition-colors mb-2">
@@ -204,7 +204,7 @@ export default function CareersPage() {
                 },
               ].map((item, i) => (
                 <ScrollReveal key={item.title} delay={i * 0.1}>
-                  <div className="p-8 rounded-2xl border border-card-light-border bg-white h-full">
+                  <div className="p-8 rounded-lg border border-card-light-border bg-white h-full">
                     <h3 className="font-heading text-xl font-bold text-text-dark mb-3">
                       {item.title}
                     </h3>
