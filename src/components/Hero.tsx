@@ -106,7 +106,7 @@ export default function Hero() {
       </button>
 
       {/* Content - Left aligned like systemsltd.com */}
-      <div className="relative z-10 max-w-[1400px] mx-auto px-6 lg:px-8">
+      <div className="relative z-10 max-w-[1400px] mx-auto px-6 lg:px-12 xl:px-16">
         <AnimatePresence mode="wait">
           <motion.div
             key={current}
@@ -114,22 +114,15 @@ export default function Hero() {
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -20 }}
             transition={{ duration: 0.7, ease: [0.25, 0.1, 0.25, 1] }}
-            className="max-w-3xl"
+            className="max-w-2xl"
           >
-            <div className="inline-flex items-center gap-2 px-4 py-2 rounded-xl border border-white/15 bg-white/5 glass-effect mb-8">
-              <span className="h-2 w-2 rounded-full bg-accent animate-pulse" />
-              <span className="text-sm text-accent-light tracking-wide font-medium">
-                {slide.badge}
-              </span>
-            </div>
-
-            <h1 className="font-heading text-[2.75rem] leading-[1.08] sm:text-5xl md:text-6xl lg:text-7xl xl:text-[5.5rem] font-bold mb-6 text-white">
+            <h1 className="font-heading text-4xl leading-[1.1] sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-bold mb-6 text-white">
               {slide.title}
               <br />
               <span className="gradient-text">{slide.highlight}</span>
             </h1>
 
-            <p className="max-w-2xl text-base sm:text-lg md:text-xl text-white/70 mb-10 leading-relaxed">
+            <p className="max-w-lg text-base sm:text-lg text-white/60 mb-10 leading-relaxed">
               {slide.description}
             </p>
 

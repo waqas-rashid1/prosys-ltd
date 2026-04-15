@@ -8,56 +8,62 @@ import ScrollReveal from "./ui/ScrollReveal";
 
 const serviceCategories = [
   {
-    title: "Development",
+    title: "Digital",
     items: [
+      { label: "Digital Consulting & Strategy", slug: "digital-consulting" },
+      { label: "Digital Commerce", slug: "digital-commerce" },
+      { label: "Business Applications", slug: "business-applications" },
       { label: "Web Development", slug: "web-development" },
       { label: "Software Development", slug: "software-development" },
-      { label: "MVP Development", slug: "mvp-development" },
+    ],
+  },
+  {
+    title: "Data & Analytics",
+    items: [
+      { label: "Data Modernization", slug: "data-modernization" },
+      { label: "Advanced Analytics", slug: "advanced-analytics" },
+      { label: "Connected Intelligence", slug: "connected-intelligence" },
+      { label: "Generative AI", slug: "generative-ai" },
+      { label: "AI Development", slug: "ai-development" },
+    ],
+  },
+  {
+    title: "Cloud",
+    items: [
+      { label: "Cloud Operations & Migration", slug: "cloud-operations" },
+      { label: "Cloud App Development", slug: "cloud-app-development" },
+      { label: "Managed Services", slug: "managed-services" },
       { label: "SaaS Development", slug: "saas-development" },
     ],
   },
   {
-    title: "AI & Data",
+    title: "Business Process Services",
     items: [
-      { label: "AI Development", slug: "ai-development" },
-      { label: "AI Automations", slug: "ai-automations" },
-    ],
-  },
-  {
-    title: "Growth & Marketing",
-    items: [
+      { label: "Digital Marketing", slug: "digital-marketing" },
+      { label: "Staff Augmentation", slug: "staff-augmentation" },
       { label: "SEO", slug: "seo" },
       { label: "AIEO", slug: "aieo" },
-      { label: "Digital Marketing", slug: "digital-marketing" },
       { label: "Graphics & Branding", slug: "graphics-branding" },
-    ],
-  },
-  {
-    title: "Consulting",
-    items: [
-      { label: "Technical Strategy", slug: "" },
-      { label: "Architecture Review", slug: "" },
-      { label: "Digital Transformation", slug: "" },
     ],
   },
 ];
 
 function AbstractShape({ index, hovered }: { index: number; hovered: boolean }) {
-  const base = "transition-all duration-700 ease-out";
   const scale = hovered ? "scale-90" : "scale-100";
   const blur = hovered ? "blur-[6px]" : "blur-[2px]";
+  const base = "transition-all duration-700 ease-out";
 
   if (index === 0) {
     return (
       <div className={`${base} ${scale}`}>
-        <div className={`w-28 h-28 bg-accent ${blur} transition-all duration-700`} style={{ borderRadius: "30% 70% 70% 30% / 30% 30% 70% 70%" }} />
+        <div className={`w-28 h-28 bg-accent ${blur}`} style={{ borderRadius: "30% 70% 70% 30% / 30% 30% 70% 70%" }} />
       </div>
     );
   }
   if (index === 1) {
     return (
       <div className={`${base} ${scale}`}>
-        <div className={`w-28 h-28 rounded-full border-[14px] border-accent/80 ${blur} transition-all duration-700`} />
+        <div className={`w-28 h-28 rounded-full border-[14px] border-accent/80 ${blur}`} />
       </div>
     );
   }
@@ -65,17 +71,14 @@ function AbstractShape({ index, hovered }: { index: number; hovered: boolean }) 
     return (
       <div className={`grid grid-cols-2 gap-2.5 ${base} ${scale}`}>
         {[0, 1, 2, 3].map((j) => (
-          <div key={j} className={`w-12 h-12 rounded-full bg-accent ${blur} transition-all duration-700`} />
+          <div key={j} className={`w-12 h-12 rounded-full bg-accent ${blur}`} />
         ))}
       </div>
     );
   }
   return (
     <div className={`${base} ${scale}`}>
-      <div
-        className={`w-28 h-28 bg-accent ${blur} transition-all duration-700`}
-        style={{ clipPath: "polygon(50% 0%, 100% 0%, 100% 100%, 50% 100%, 50% 55%, 0% 80%, 0% 20%)" }}
-      />
+      <div className={`w-28 h-28 bg-accent ${blur}`} style={{ clipPath: "polygon(50% 0%, 100% 0%, 100% 100%, 50% 100%, 50% 55%, 0% 80%, 0% 20%)" }} />
     </div>
   );
 }
@@ -89,18 +92,15 @@ function ServiceCard({ cat, index }: { cat: typeof serviceCategories[0]; index: 
       onMouseEnter={() => setHovered(true)}
       onMouseLeave={() => setHovered(false)}
     >
-      {/* Abstract shape area */}
-      <div className="relative h-52 bg-light-primary flex items-center justify-center overflow-hidden">
+      <div className="relative h-48 bg-light-primary flex items-center justify-center overflow-hidden">
         <AbstractShape index={index} hovered={hovered} />
       </div>
 
-      {/* Content area */}
       <div className="p-6 flex-grow flex flex-col">
         <h3 className="font-heading text-xl font-bold text-text-dark">
           {cat.title}
         </h3>
 
-        {/* Sub-service tags: hidden by default, revealed on hover */}
         <AnimatePresence>
           {hovered && (
             <motion.div
@@ -114,11 +114,12 @@ function ServiceCard({ cat, index }: { cat: typeof serviceCategories[0]; index: 
                 {cat.items.map((item) => (
                   <Link
                     key={item.label}
-                    href={item.slug ? `/services/${item.slug}` : "/services"}
-                    className="px-3.5 py-1.5 rounded-lg border border-card-light-border text-text-dark-muted text-xs font-medium hover:border-accent hover:text-accent hover:bg-accent/5 transition-all duration-300"
+                    href={`/services/${item.slug}`}
                     onClick={(e) => e.stopPropagation()}
+                    className="flex items-center gap-1.5 py-1.5 text-sm text-text-dark-muted hover:text-accent transition-colors"
                   >
                     {item.label}
+                    <ArrowRight size={11} className="opacity-0 group-hover:opacity-50" />
                   </Link>
                 ))}
               </div>
@@ -150,7 +151,7 @@ export default function Services() {
           </div>
         </ScrollReveal>
 
-        {/* Desktop: 4-column cards - hover to reveal sub-services */}
+        {/* Desktop: 4-column cards */}
         <div className="hidden lg:grid lg:grid-cols-4 gap-5">
           {serviceCategories.map((cat, i) => (
             <ScrollReveal key={cat.title} delay={i * 0.1}>
@@ -168,14 +169,8 @@ export default function Services() {
                   onClick={() => setExpandedIndex(expandedIndex === i ? null : i)}
                   className="w-full flex items-center justify-between p-6 cursor-pointer"
                 >
-                  <h3 className="font-heading text-lg font-bold text-text-dark">
-                    {cat.title}
-                  </h3>
-                  {expandedIndex === i ? (
-                    <Minus size={18} className="text-accent" />
-                  ) : (
-                    <Plus size={18} className="text-text-dark-muted" />
-                  )}
+                  <h3 className="font-heading text-lg font-bold text-text-dark">{cat.title}</h3>
+                  {expandedIndex === i ? <Minus size={18} className="text-accent" /> : <Plus size={18} className="text-text-dark-muted" />}
                 </button>
                 <AnimatePresence initial={false}>
                   {expandedIndex === i && (
@@ -185,14 +180,15 @@ export default function Services() {
                       exit={{ height: 0, opacity: 0 }}
                       transition={{ duration: 0.3 }}
                     >
-                      <div className="px-6 pb-6 flex flex-wrap gap-2">
+                      <div className="px-6 pb-6 space-y-2">
                         {cat.items.map((item) => (
                           <Link
                             key={item.label}
-                            href={item.slug ? `/services/${item.slug}` : "/services"}
-                            className="px-3.5 py-1.5 rounded-lg border border-card-light-border text-text-dark-muted text-xs font-medium hover:border-accent hover:text-accent transition-all duration-300"
+                            href={`/services/${item.slug}`}
+                            className="flex items-center gap-2 py-2 text-sm text-text-dark-muted hover:text-accent transition-colors"
                           >
                             {item.label}
+                            <ArrowRight size={11} />
                           </Link>
                         ))}
                       </div>
