@@ -55,13 +55,24 @@ const servicesMega = [
   },
 ];
 
+const industriesMega = [
+  { label: "FinTech", desc: "Banking, payments, trading platforms", href: "/industries" },
+  { label: "HealthTech", desc: "Telehealth, patient portals, compliance", href: "/industries" },
+  { label: "E-Commerce & D2C", desc: "Headless commerce, inventory, CRO", href: "/industries" },
+  { label: "EdTech", desc: "LMS, AI tutors, assessments", href: "/industries" },
+  { label: "Real Estate", desc: "Listings, CRM, virtual tours", href: "/industries" },
+  { label: "Startups & SaaS", desc: "MVPs, multi-tenant, billing", href: "/industries" },
+];
+
 export default function Navbar() {
   const [scrolled, setScrolled] = useState(false);
   const [mobileOpen, setMobileOpen] = useState(false);
   const [megaOpen, setMegaOpen] = useState(false);
+  const [industriesOpen, setIndustriesOpen] = useState(false);
   const pathname = usePathname();
   const megaRef = useRef<HTMLDivElement>(null);
   const megaTimeout = useRef<NodeJS.Timeout | null>(null);
+  const indTimeout = useRef<NodeJS.Timeout | null>(null);
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 50);
@@ -76,15 +87,27 @@ export default function Navbar() {
   useEffect(() => {
     setMobileOpen(false);
     setMegaOpen(false);
+    setIndustriesOpen(false);
   }, [pathname]);
 
   const handleMegaEnter = () => {
     if (megaTimeout.current) clearTimeout(megaTimeout.current);
+    setIndustriesOpen(false);
     setMegaOpen(true);
   };
 
   const handleMegaLeave = () => {
     megaTimeout.current = setTimeout(() => setMegaOpen(false), 200);
+  };
+
+  const handleIndEnter = () => {
+    if (indTimeout.current) clearTimeout(indTimeout.current);
+    setMegaOpen(false);
+    setIndustriesOpen(true);
+  };
+
+  const handleIndLeave = () => {
+    indTimeout.current = setTimeout(() => setIndustriesOpen(false), 200);
   };
 
   return (
@@ -129,6 +152,26 @@ export default function Navbar() {
                       >
                         {link.label}
                         <ChevronDown size={14} className={`transition-transform duration-300 ${megaOpen ? "rotate-180" : ""}`} />
+                      </Link>
+                    </div>
+                  );
+                }
+                if (link.label === "Industries") {
+                  return (
+                    <div
+                      key={link.href}
+                      className="relative"
+                      onMouseEnter={handleIndEnter}
+                      onMouseLeave={handleIndLeave}
+                    >
+                      <Link
+                        href={link.href}
+                        className={`flex items-center gap-1 px-4 py-2 text-sm tracking-wide transition-colors duration-300 rounded-lg hover:bg-white/5 ${
+                          pathname === link.href || industriesOpen ? "text-accent-light" : "text-text-light-muted hover:text-accent-light"
+                        }`}
+                      >
+                        {link.label}
+                        <ChevronDown size={14} className={`transition-transform duration-300 ${industriesOpen ? "rotate-180" : ""}`} />
                       </Link>
                     </div>
                   );
@@ -248,6 +291,72 @@ export default function Navbar() {
                     >
                       View All Services <ArrowRight size={12} />
                     </Link>
+                  </div>
+                </div>
+              </div>
+            </motion.div>
+          )}
+        </AnimatePresence>
+
+        {/* Industries Dropdown */}
+        <AnimatePresence>
+          {industriesOpen && (
+            <motion.div
+              initial={{ opacity: 0, y: -10 }}
+              animate={{ opacity: 1, y: 0 }}
+              exit={{ opacity: 0, y: -10 }}
+              transition={{ duration: 0.25 }}
+              className="absolute left-0 right-0 top-full bg-dark-primary/98 glass-effect border-t border-card-dark-border shadow-2xl shadow-black/40 hidden lg:block"
+              onMouseEnter={handleIndEnter}
+              onMouseLeave={handleIndLeave}
+            >
+              <div className="max-w-[1400px] mx-auto px-6 lg:px-8 py-8">
+                <div className="grid grid-cols-12 gap-8">
+                  <div className="col-span-8">
+                    <h4 className="text-[11px] text-accent-light tracking-[0.15em] uppercase font-bold mb-4 pb-2 border-b border-card-dark-border">
+                      Industries We Serve
+                    </h4>
+                    <div className="grid grid-cols-2 gap-x-12">
+                      {industriesMega.map((ind) => (
+                        <Link
+                          key={ind.label}
+                          href={ind.href}
+                          className="group flex items-start gap-3 py-3 border-b border-card-dark-border/50 last:border-0"
+                        >
+                          <div className="flex-grow">
+                            <div className="text-sm font-medium text-text-light group-hover:text-accent-light transition-colors">
+                              {ind.label}
+                            </div>
+                            <div className="text-xs text-text-light-muted/60 mt-0.5">
+                              {ind.desc}
+                            </div>
+                          </div>
+                          <ArrowRight size={12} className="mt-1 opacity-0 group-hover:opacity-100 text-accent-light transition-opacity" />
+                        </Link>
+                      ))}
+                    </div>
+                  </div>
+
+                  <div className="col-span-4">
+                    <div className="rounded-md border border-card-dark-border bg-card-dark p-6 h-full flex flex-col justify-between">
+                      <div>
+                        <span className="inline-block px-2 py-0.5 text-[10px] font-bold rounded-md bg-accent/20 text-accent-light tracking-wider uppercase mb-3">
+                          Spotlight
+                        </span>
+                        <h3 className="font-heading text-lg font-bold text-text-light mb-2">
+                          FinTech Solutions
+                        </h3>
+                        <p className="text-text-light-muted text-sm leading-relaxed">
+                          Secure, compliant platforms for payments, lending, and financial analytics with bank-grade security.
+                        </p>
+                      </div>
+                      <Link
+                        href="/industries"
+                        className="mt-4 inline-flex items-center gap-2 text-sm font-medium text-accent-light hover:gap-3 transition-all duration-300"
+                      >
+                        Explore Industries <ArrowRight size={14} />
+                      </Link>
+                    </div>
                   </div>
                 </div>
               </div>
