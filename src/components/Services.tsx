@@ -2,7 +2,7 @@
 
 import { useState } from "react";
 import Link from "next/link";
-import { motion, AnimatePresence } from "framer-motion";
+import { motion, AnimatePresence, useMotionValue, useTransform, useSpring } from "framer-motion";
 import { ArrowRight, Plus, Minus } from "lucide-react";
 import ScrollReveal from "./ui/ScrollReveal";
 
@@ -49,37 +49,43 @@ const serviceCategories = [
 ];
 
 function AbstractShape({ index, hovered }: { index: number; hovered: boolean }) {
-  const scale = hovered ? "scale-95" : "scale-100";
-  const blur = hovered ? "blur-[3px]" : "blur-0";
-  const base = "transition-all duration-700 ease-out";
+  const shapeVariants = {
+    idle: { scale: 1, filter: "blur(0px)", rotate: 0 },
+    hover: { scale: 0.88, filter: "blur(4px)", rotate: 3 },
+  };
+  const springConfig = { type: "spring" as const, stiffness: 120, damping: 20 };
 
   if (index === 0) {
     return (
-      <div className={`${base} ${scale}`}>
-        <div className={`w-32 h-32 bg-accent ${blur}`} style={{ borderRadius: "30% 70% 70% 30% / 30% 30% 70% 70%" }} />
-      </div>
+      <motion.div animate={hovered ? "hover" : "idle"} variants={shapeVariants} transition={springConfig}>
+        <div className="w-32 h-32 bg-accent" style={{ borderRadius: "30% 70% 70% 30% / 30% 30% 70% 70%" }} />
+      </motion.div>
     );
   }
   if (index === 1) {
     return (
-      <div className={`${base} ${scale}`}>
-        <div className={`w-32 h-32 rounded-full border-[16px] border-accent ${blur}`} />
-      </div>
+      <motion.div animate={hovered ? "hover" : "idle"} variants={shapeVariants} transition={springConfig}>
+        <div className="w-32 h-32 rounded-full border-[16px] border-accent" />
+      </motion.div>
     );
   }
   if (index === 2) {
     return (
-      <div className={`grid grid-cols-2 gap-3 ${base} ${scale}`}>
+      <motion.div
+        className="grid grid-cols-2 gap-3"
+        animate={hovered ? { scale: 0.88, filter: "blur(4px)" } : { scale: 1, filter: "blur(0px)" }}
+        transition={springConfig}
+      >
         {[0, 1, 2, 3].map((j) => (
-          <div key={j} className={`w-14 h-14 rounded-full bg-accent ${blur}`} />
+          <div key={j} className="w-14 h-14 rounded-full bg-accent" />
         ))}
-      </div>
+      </motion.div>
     );
   }
   return (
-    <div className={`${base} ${scale}`}>
-      <div className={`w-32 h-32 bg-accent ${blur}`} style={{ clipPath: "polygon(50% 0%, 100% 0%, 100% 100%, 50% 100%, 50% 55%, 0% 80%, 0% 20%)" }} />
-    </div>
+    <motion.div animate={hovered ? "hover" : "idle"} variants={shapeVariants} transition={springConfig}>
+      <div className="w-32 h-32 bg-accent" style={{ clipPath: "polygon(50% 0%, 100% 0%, 100% 100%, 50% 100%, 50% 55%, 0% 80%, 0% 20%)" }} />
+    </motion.div>
   );
 }
 
@@ -87,10 +93,12 @@ function ServiceCard({ cat, index }: { cat: typeof serviceCategories[0]; index: 
   const [hovered, setHovered] = useState(false);
 
   return (
-    <div
-      className="group rounded-lg border border-card-light-border bg-white overflow-hidden hover:shadow-xl hover:shadow-black/[0.04] transition-all duration-500 h-full flex flex-col cursor-pointer"
+    <motion.div
+      className="group rounded-lg border border-card-light-border bg-white overflow-hidden h-full flex flex-col cursor-pointer"
       onMouseEnter={() => setHovered(true)}
       onMouseLeave={() => setHovered(false)}
+      whileHover={{ y: -4, boxShadow: "0 20px 40px rgba(0,0,0,0.06)" }}
+      transition={{ type: "spring", stiffness: 200, damping: 25 }}
     >
       <div className="relative h-48 bg-light-primary flex items-center justify-center overflow-hidden">
         <AbstractShape index={index} hovered={hovered} />
@@ -107,27 +115,33 @@ function ServiceCard({ cat, index }: { cat: typeof serviceCategories[0]; index: 
               initial={{ opacity: 0, height: 0, marginTop: 0 }}
               animate={{ opacity: 1, height: "auto", marginTop: 16 }}
               exit={{ opacity: 0, height: 0, marginTop: 0 }}
-              transition={{ duration: 0.35, ease: [0.25, 0.1, 0.25, 1] }}
+              transition={{ duration: 0.4, ease: [0.16, 1, 0.3, 1] }}
               className="overflow-hidden"
             >
               <div className="flex flex-wrap gap-2">
-                {cat.items.map((item) => (
-                  <Link
+                {cat.items.map((item, i) => (
+                  <motion.div
                     key={item.label}
-                    href={`/services/${item.slug}`}
-                    onClick={(e) => e.stopPropagation()}
-                    className="flex items-center gap-1.5 py-1.5 text-sm text-text-dark-muted hover:text-accent transition-colors"
+                    initial={{ opacity: 0, y: 8 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ delay: i * 0.04, duration: 0.3 }}
                   >
-                    {item.label}
-                    <ArrowRight size={11} className="opacity-0 group-hover:opacity-50" />
-                  </Link>
+                    <Link
+                      href={`/services/${item.slug}`}
+                      onClick={(e) => e.stopPropagation()}
+                      className="flex items-center gap-1.5 py-1.5 text-sm text-text-dark-muted hover:text-accent transition-colors"
+                    >
+                      {item.label}
+                      <ArrowRight size={11} className="opacity-0 group-hover:opacity-40" />
+                    </Link>
+                  </motion.div>
                 ))}
               </div>
             </motion.div>
           )}
         </AnimatePresence>
       </div>
-    </div>
+    </motion.div>
   );
 }
 
