@@ -1,7 +1,6 @@
 "use client";
 
 import { stats } from "@/lib/constants";
-import StatsCounter from "./ui/StatsCounter";
 import ScrollReveal from "./ui/ScrollReveal";
 
 export default function StatsSection() {

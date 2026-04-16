@@ -2,7 +2,7 @@ import Button from "@/components/ui/Button";
 
 export default function NotFound() {
   return (
-    <div className="min-h-screen bg-dark-primary flex items-center justify-center px-6">
+    <div id="main-content" className="min-h-screen bg-dark-primary flex items-center justify-center px-6">
       <div className="text-center max-w-lg">
         <h1 className="font-heading text-8xl md:text-9xl font-bold gradient-text mb-4">
           404

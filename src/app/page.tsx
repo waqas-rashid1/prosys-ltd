@@ -19,27 +19,16 @@ export default function Home() {
       <Navbar />
       <main id="main-content">
         <Hero />
-        {/* light */}
         <Services />
-        {/* dark */}
         <About />
-        {/* light */}
         <StatsSection />
-        {/* light */}
         <CaseStudies />
-        {/* dark */}
         <Testimonials />
-        {/* light */}
         <Industries />
-        {/* dark */}
         <Approach />
-        {/* dark */}
         <TechMarquee />
-        {/* light */}
         <Insights />
-        {/* dark */}
         <Partners />
-        {/* dark */}
         <HelpCTA />
       </main>
       <Footer />

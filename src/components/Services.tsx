@@ -182,6 +182,8 @@ export default function Services() {
                 <button
                   onClick={() => setExpandedIndex(expandedIndex === i ? null : i)}
                   className="w-full flex items-center justify-between p-6 cursor-pointer"
+                  aria-expanded={expandedIndex === i}
+                  aria-controls={`service-panel-${i}`}
                 >
                   <h3 className="font-heading text-lg font-bold text-text-dark">{cat.title}</h3>
                   {expandedIndex === i ? <Minus size={18} className="text-accent" /> : <Plus size={18} className="text-text-dark-muted" />}
@@ -189,6 +191,8 @@ export default function Services() {
                 <AnimatePresence initial={false}>
                   {expandedIndex === i && (
                     <motion.div
+                      id={`service-panel-${i}`}
+                      role="region"
                       initial={{ height: 0, opacity: 0 }}
                       animate={{ height: "auto", opacity: 1 }}
                       exit={{ height: 0, opacity: 0 }}

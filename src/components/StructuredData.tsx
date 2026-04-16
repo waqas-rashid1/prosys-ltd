@@ -22,9 +22,10 @@ function OrganizationSchema() {
       contactType: "customer service",
     },
     sameAs: [
-      "https://www.linkedin.com/company/prosysltd",
-      "https://twitter.com/prosysltd",
+      "https://linkedin.com/company/prosysltd",
+      "https://x.com/prosysltd",
       "https://github.com/prosysltd",
+      "https://youtube.com/@prosysltd",
     ],
     knowsAbout: [
       "Web Development",

@@ -1,6 +1,6 @@
 @import "tailwindcss";
 
-/* Plus Jakarta Sans loaded via next/font/google */
+/* Roboto + Inter loaded via next/font/google */
 
 :root {
   --dark-primary: #000000;

@@ -60,7 +60,7 @@ export const metadata: Metadata = {
       "Full-spectrum software development: AI, SaaS, MVPs, web apps, SEO, AIEO & digital marketing. Enterprise-quality engineering at startup speed.",
     images: [
       {
-        url: "/og-image.png",
+        url: "/og-image.svg",
         width: 1200,
         height: 630,
         alt: "PROSYS LTD - Engineering Digital Excellence",
@@ -72,7 +72,7 @@ export const metadata: Metadata = {
     title: "PROSYS LTD | We Build What Others Only Plan",
     description:
       "Full-spectrum software development: AI, SaaS, MVPs, web apps, SEO, AIEO & digital marketing.",
-    images: ["/og-image.png"],
+    images: ["/og-image.svg"],
     creator: "@prosysltd",
   },
   category: "Technology",
