@@ -305,9 +305,9 @@ export const footerLinks = {
     { label: "Contact", href: "/contact" },
   ],
   services: [
-    { label: "Digital", href: "/services" },
-    { label: "Data & Analytics", href: "/services" },
-    { label: "Cloud", href: "/services" },
+    { label: "Digital", href: "/services/digital-consulting" },
+    { label: "Data & Analytics", href: "/services/data-modernization" },
+    { label: "Cloud", href: "/services/cloud-operations" },
     { label: "AI Development", href: "/services/ai-development" },
     { label: "SEO & AIEO", href: "/services/seo" },
   ],
