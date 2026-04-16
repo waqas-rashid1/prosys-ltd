@@ -60,6 +60,18 @@ body {
   overflow-x: hidden;
 }
 
+.bg-dark-primary {
+  background: radial-gradient(ellipse 80% 60% at 50% 100%, #041a0e 0%, #000000 100%);
+}
+
+.bg-dark-secondary {
+  background: radial-gradient(ellipse 70% 50% at 30% 80%, #051a0f 0%, #0a0a0a 100%);
+}
+
+.bg-card-dark {
+  background: linear-gradient(145deg, #0d1a14 0%, #0a0f0c 100%);
+}
+
 ::selection {
   background: var(--accent);
   color: var(--dark-primary);
