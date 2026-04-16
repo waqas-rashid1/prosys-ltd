@@ -64,15 +64,35 @@ const industriesMega = [
   { label: "Startups & SaaS", desc: "MVPs, multi-tenant, billing", href: "/industries" },
 ];
 
+const aboutMega = {
+  left: [
+    { label: "Who We Are", href: "/about" },
+    { label: "Our Leadership", href: "/about#leadership" },
+    { label: "Our Journey", href: "/about#timeline" },
+    { label: "Global Presence", href: "/about#global" },
+    { label: "Careers", href: "/careers" },
+  ],
+  right: [
+    { label: "React", href: "#" },
+    { label: "Next.js", href: "#" },
+    { label: "AWS", href: "#" },
+    { label: "Google Cloud", href: "#" },
+    { label: "OpenAI", href: "#" },
+    { label: "Vercel", href: "#" },
+  ],
+};
+
 export default function Navbar() {
   const [scrolled, setScrolled] = useState(false);
   const [mobileOpen, setMobileOpen] = useState(false);
   const [megaOpen, setMegaOpen] = useState(false);
   const [industriesOpen, setIndustriesOpen] = useState(false);
+  const [aboutOpen, setAboutOpen] = useState(false);
   const pathname = usePathname();
   const megaRef = useRef<HTMLDivElement>(null);
   const megaTimeout = useRef<NodeJS.Timeout | null>(null);
   const indTimeout = useRef<NodeJS.Timeout | null>(null);
+  const aboutTimeout = useRef<NodeJS.Timeout | null>(null);
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 50);
@@ -88,11 +108,14 @@ export default function Navbar() {
     setMobileOpen(false);
     setMegaOpen(false);
     setIndustriesOpen(false);
+    setAboutOpen(false);
   }, [pathname]);
+
+  const closeAll = () => { setMegaOpen(false); setIndustriesOpen(false); setAboutOpen(false); };
 
   const handleMegaEnter = () => {
     if (megaTimeout.current) clearTimeout(megaTimeout.current);
-    setIndustriesOpen(false);
+    closeAll();
     setMegaOpen(true);
   };
 
@@ -102,12 +125,22 @@ export default function Navbar() {
 
   const handleIndEnter = () => {
     if (indTimeout.current) clearTimeout(indTimeout.current);
-    setMegaOpen(false);
+    closeAll();
     setIndustriesOpen(true);
   };
 
   const handleIndLeave = () => {
     indTimeout.current = setTimeout(() => setIndustriesOpen(false), 200);
+  };
+
+  const handleAboutEnter = () => {
+    if (aboutTimeout.current) clearTimeout(aboutTimeout.current);
+    closeAll();
+    setAboutOpen(true);
+  };
+
+  const handleAboutLeave = () => {
+    aboutTimeout.current = setTimeout(() => setAboutOpen(false), 200);
   };
 
   return (
@@ -152,6 +185,21 @@ export default function Navbar() {
                       >
                         {link.label}
                         <ChevronDown size={14} className={`transition-transform duration-300 ${megaOpen ? "rotate-180" : ""}`} />
+                      </Link>
+                    </div>
+                  );
+                }
+                if (link.label === "About") {
+                  return (
+                    <div key={link.href} className="relative" onMouseEnter={handleAboutEnter} onMouseLeave={handleAboutLeave}>
+                      <Link
+                        href={link.href}
+                        className={`flex items-center gap-1 px-4 py-2 text-sm tracking-wide transition-colors duration-300 rounded-lg hover:bg-white/5 ${
+                          pathname === link.href || aboutOpen ? "text-accent-light" : "text-text-light-muted hover:text-accent-light"
+                        }`}
+                      >
+                        {link.label}
+                        <ChevronDown size={14} className={`transition-transform duration-300 ${aboutOpen ? "rotate-180" : ""}`} />
                       </Link>
                     </div>
                   );
@@ -355,6 +403,80 @@ export default function Navbar() {
                         className="mt-4 inline-flex items-center gap-2 text-sm font-medium text-accent-light hover:gap-3 transition-all duration-300"
                       >
                         Explore Industries <ArrowRight size={14} />
+                      </Link>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </motion.div>
+          )}
+        </AnimatePresence>
+
+        {/* About Dropdown */}
+        <AnimatePresence>
+          {aboutOpen && (
+            <motion.div
+              initial={{ opacity: 0, y: -10 }}
+              animate={{ opacity: 1, y: 0 }}
+              exit={{ opacity: 0, y: -10 }}
+              transition={{ duration: 0.25 }}
+              className="absolute left-0 right-0 top-full bg-dark-primary/98 glass-effect border-t border-card-dark-border shadow-2xl shadow-black/40 hidden lg:block"
+              onMouseEnter={handleAboutEnter}
+              onMouseLeave={handleAboutLeave}
+            >
+              <div className="max-w-[1400px] mx-auto px-6 lg:px-8 py-8">
+                <div className="grid grid-cols-12 gap-8">
+                  <div className="col-span-4">
+                    <h4 className="text-[11px] text-accent-light tracking-[0.15em] uppercase font-bold mb-4 pb-2 border-b border-card-dark-border">
+                      Company
+                    </h4>
+                    <div className="space-y-0.5">
+                      {aboutMega.left.map((item) => (
+                        <Link
+                          key={item.label}
+                          href={item.href}
+                          className="flex items-center gap-2 py-2 text-[13px] text-text-light-muted hover:text-white transition-colors group"
+                        >
+                          {item.label}
+                          <ArrowRight size={10} className="opacity-0 group-hover:opacity-100 text-accent-light transition-opacity" />
+                        </Link>
+                      ))}
+                    </div>
+                  </div>
+
+                  <div className="col-span-4">
+                    <h4 className="text-[11px] text-accent-light tracking-[0.15em] uppercase font-bold mb-4 pb-2 border-b border-card-dark-border">
+                      Technology Alliances
+                    </h4>
+                    <div className="space-y-0.5">
+                      {aboutMega.right.map((item) => (
+                        <Link
+                          key={item.label}
+                          href={item.href}
+                          className="flex items-center gap-2 py-2 text-[13px] text-text-light-muted hover:text-white transition-colors group"
+                        >
+                          {item.label}
+                          <ArrowRight size={10} className="opacity-0 group-hover:opacity-100 text-accent-light transition-opacity" />
+                        </Link>
+                      ))}
+                    </div>
+                  </div>
+
+                  <div className="col-span-4">
+                    <div className="rounded-md border border-card-dark-border bg-card-dark p-6 h-full flex flex-col justify-between">
+                      <div>
+                        <span className="inline-block px-2 py-0.5 text-[10px] font-bold rounded-md bg-accent/20 text-accent-light tracking-wider uppercase mb-3">
+                          Culture
+                        </span>
+                        <h3 className="font-heading text-lg font-bold text-text-light mb-2">
+                          Join Our Team
+                        </h3>
+                        <p className="text-text-light-muted text-sm leading-relaxed">
+                          We&apos;re hiring engineers, designers, and growth specialists who want to build products that matter.
+                        </p>
+                      </div>
+                      <Link href="/careers" className="mt-4 inline-flex items-center gap-2 text-sm font-medium text-accent-light hover:gap-3 transition-all duration-300">
+                        View Open Roles <ArrowRight size={14} />
                       </Link>
                     </div>
                   </div>

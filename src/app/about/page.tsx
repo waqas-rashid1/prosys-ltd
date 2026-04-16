@@ -100,6 +100,47 @@ export default function AboutPage() {
           </div>
         </section>
 
+        {/* Team Photos */}
+        <section className="py-28 lg:py-36 bg-white">
+          <div className="max-w-[1400px] mx-auto px-6 lg:px-8">
+            <ScrollReveal>
+              <p className="text-xs text-accent uppercase tracking-[0.2em] font-medium mb-4">Our People</p>
+              <h2 className="font-heading text-3xl md:text-4xl font-bold text-text-dark mb-12">
+                The Team Behind the Code
+              </h2>
+            </ScrollReveal>
+
+            <ScrollReveal delay={0.1}>
+              <div className="grid grid-cols-1 md:grid-cols-3 gap-1">
+                <div className="relative h-72 md:h-96 overflow-hidden group">
+                  <Image src="/images/team-collab.jpg" alt="Team collaboration" fill className="object-cover group-hover:scale-105 transition-transform duration-700" sizes="(max-width: 768px) 100vw, 33vw" />
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent" />
+                  <div className="absolute bottom-6 left-6">
+                    <p className="text-white font-heading text-lg font-bold">Collaborative by Design</p>
+                    <p className="text-white/70 text-sm">Cross-functional teams, shared ownership</p>
+                  </div>
+                </div>
+                <div className="relative h-72 md:h-96 overflow-hidden group">
+                  <Image src="/images/team-meeting.jpg" alt="Team meeting" fill className="object-cover group-hover:scale-105 transition-transform duration-700" sizes="(max-width: 768px) 100vw, 33vw" />
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent" />
+                  <div className="absolute bottom-6 left-6">
+                    <p className="text-white font-heading text-lg font-bold">Strategy-First Approach</p>
+                    <p className="text-white/70 text-sm">Every project starts with deep discovery</p>
+                  </div>
+                </div>
+                <div className="relative h-72 md:h-96 overflow-hidden group">
+                  <Image src="/images/team-office.jpg" alt="Team at work" fill className="object-cover group-hover:scale-105 transition-transform duration-700" sizes="(max-width: 768px) 100vw, 33vw" />
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent" />
+                  <div className="absolute bottom-6 left-6">
+                    <p className="text-white font-heading text-lg font-bold">Shipping Excellence</p>
+                    <p className="text-white/70 text-sm">15+ engineers, designers, and strategists</p>
+                  </div>
+                </div>
+              </div>
+            </ScrollReveal>
+          </div>
+        </section>
+
         {/* Values */}
         <section className="py-28 lg:py-36 bg-dark-primary">
           <div className="max-w-[1400px] mx-auto px-6 lg:px-8">
@@ -132,7 +173,7 @@ export default function AboutPage() {
         </section>
 
         {/* Timeline */}
-        <section className="py-28 lg:py-36 bg-light-primary">
+        <section id="timeline" className="py-28 lg:py-36 bg-light-primary">
           <div className="max-w-[1400px] mx-auto px-6 lg:px-8">
             <ScrollReveal>
               <p className="text-xs text-accent uppercase tracking-[0.2em] font-medium mb-4">Timeline</p>
@@ -159,7 +200,7 @@ export default function AboutPage() {
         </section>
 
         {/* Leadership */}
-        <section className="py-28 lg:py-36 bg-dark-secondary">
+        <section id="leadership" className="py-28 lg:py-36 bg-dark-secondary">
           <div className="max-w-[1400px] mx-auto px-6 lg:px-8">
             <ScrollReveal>
               <p className="text-xs text-accent-light uppercase tracking-[0.2em] font-medium mb-4">Leadership</p>
@@ -188,7 +229,7 @@ export default function AboutPage() {
         </section>
 
         {/* Global Presence */}
-        <section className="py-28 lg:py-36 bg-light-primary">
+        <section id="global" className="py-28 lg:py-36 bg-light-primary">
           <div className="max-w-[1400px] mx-auto px-6 lg:px-8">
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
               <ScrollReveal>
