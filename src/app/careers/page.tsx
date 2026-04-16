@@ -1,40 +1,33 @@
 import type { Metadata } from "next";
-import {
-  Briefcase, Heart, Globe, Zap, GraduationCap, Coffee,
-  MapPin, Clock, ArrowRight, Search,
-} from "lucide-react";
+import Image from "next/image";
+import { Briefcase, Heart, Globe, Zap, GraduationCap, Coffee, MapPin, Clock, ArrowRight, Search } from "lucide-react";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
-import PageHero from "@/components/ui/PageHero";
-import CTABanner from "@/components/ui/CTABanner";
 import ScrollReveal from "@/components/ui/ScrollReveal";
 
 export const metadata: Metadata = {
   title: "Careers",
-  description:
-    "Join PROSYS LTD — we're hiring engineers, designers, and growth specialists who want to build products that matter. Remote-friendly, high-impact work.",
+  description: "Join PROSYS LTD — we're hiring engineers, designers, and growth specialists. Remote-friendly, high-impact work.",
 };
 
 const perks = [
-  { icon: Zap, title: "High-Impact Work", desc: "Ship products used by thousands. No busywork — every project moves the needle." },
+  { icon: Zap, title: "High-Impact Work", desc: "Ship products used by thousands. Every project moves the needle." },
   { icon: Globe, title: "Remote-Friendly", desc: "Work from anywhere. We care about output, not office hours." },
-  { icon: Heart, title: "Growth Culture", desc: "Learning budgets, mentorship from seniors, and a culture that pushes you forward." },
-  { icon: Briefcase, title: "Competitive Pay", desc: "Market-rate salaries with performance bonuses and project-based incentives." },
-  { icon: GraduationCap, title: "Upskilling", desc: "Access to courses, conferences, certifications — we invest in your growth." },
-  { icon: Coffee, title: "Flexible Hours", desc: "Async-first. Overlap with your team, but own your schedule." },
+  { icon: Heart, title: "Growth Culture", desc: "Learning budgets, mentorship, and a culture that pushes you forward." },
+  { icon: Briefcase, title: "Competitive Pay", desc: "Market-rate salaries with performance bonuses." },
+  { icon: GraduationCap, title: "Upskilling", desc: "Courses, conferences, certifications — we invest in you." },
+  { icon: Coffee, title: "Flexible Hours", desc: "Async-first. Own your schedule, align with your team." },
 ];
-
-const departments = ["All", "Engineering", "AI & Data", "Design", "Growth", "Sales", "Operations"];
 
 const openRoles = [
   { title: "Senior Full-Stack Engineer", dept: "Engineering", type: "Full-time", location: "Remote / Lahore", tags: ["Next.js", "Node.js", "PostgreSQL"] },
   { title: "AI/ML Engineer", dept: "AI & Data", type: "Full-time", location: "Remote", tags: ["Python", "LangChain", "OpenAI"] },
-  { title: "Frontend Engineer", dept: "Engineering", type: "Full-time", location: "Remote / Lahore", tags: ["React", "TypeScript", "TailwindCSS"] },
-  { title: "UI/UX Designer", dept: "Design", type: "Full-time / Contract", location: "Remote", tags: ["Figma", "Design Systems", "Prototyping"] },
-  { title: "SEO & Content Strategist", dept: "Growth", type: "Full-time", location: "Remote", tags: ["SEO", "Content Strategy", "Analytics"] },
-  { title: "DevOps Engineer", dept: "Engineering", type: "Full-time", location: "Remote", tags: ["AWS", "Docker", "CI/CD"] },
-  { title: "Business Development Manager", dept: "Sales", type: "Full-time", location: "Lahore", tags: ["B2B Sales", "SaaS", "Partnerships"] },
-  { title: "Project Manager", dept: "Operations", type: "Full-time", location: "Remote / Lahore", tags: ["Agile", "Scrum", "Delivery"] },
+  { title: "Frontend Engineer", dept: "Engineering", type: "Full-time", location: "Remote / Lahore", tags: ["React", "TypeScript"] },
+  { title: "UI/UX Designer", dept: "Design", type: "Full-time", location: "Remote", tags: ["Figma", "Design Systems"] },
+  { title: "SEO & Content Strategist", dept: "Growth", type: "Full-time", location: "Remote", tags: ["SEO", "Content"] },
+  { title: "DevOps Engineer", dept: "Engineering", type: "Full-time", location: "Remote", tags: ["AWS", "Docker"] },
+  { title: "Business Development Manager", dept: "Sales", type: "Full-time", location: "Lahore", tags: ["B2B", "SaaS"] },
+  { title: "Project Manager", dept: "Operations", type: "Full-time", location: "Remote / Lahore", tags: ["Agile", "Scrum"] },
 ];
 
 export default function CareersPage() {
@@ -42,42 +35,55 @@ export default function CareersPage() {
     <>
       <Navbar />
       <main id="main-content">
-        <PageHero
-          badge="We're Hiring"
-          title="Invest in Your Career,"
-          highlight="Grow With Us"
-          description="Join a team that ships real products for real clients. High-impact work, senior talent, and a culture that celebrates craft."
-        />
+        {/* Hero with image */}
+        <section className="relative pt-32 pb-24 lg:pt-40 lg:pb-32 bg-dark-primary overflow-hidden">
+          <div className="absolute inset-0">
+            <Image src="/images/careers-hero.jpg" alt="Careers" fill className="object-cover opacity-20" sizes="100vw" />
+            <div className="absolute inset-0 bg-gradient-to-r from-dark-primary via-dark-primary/90 to-dark-primary/60" />
+          </div>
+          <div className="relative z-10 max-w-[1400px] mx-auto px-6 lg:px-12">
+            <div className="max-w-3xl">
+              <p className="text-xs text-accent-light uppercase tracking-[0.2em] font-medium mb-6">We&apos;re Hiring</p>
+              <h1 className="font-heading text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bold text-white leading-[1.1] mb-6">
+                Invest in your career,
+                <span className="gradient-text"> grow with us.</span>
+              </h1>
+              <p className="text-lg text-text-light-muted leading-relaxed max-w-2xl">
+                Join a team that ships real products for real clients. High-impact work, senior talent, and a culture that celebrates craft.
+              </p>
+            </div>
+          </div>
+        </section>
 
-        {/* Why Join section */}
-        <section className="py-28 lg:py-36 bg-light-primary">
+        {/* Team photos */}
+        <section className="bg-white">
+          <div className="grid grid-cols-3 gap-px">
+            {["/images/team-collab.jpg", "/images/team-meeting.jpg", "/images/team-office.jpg"].map((img, i) => (
+              <div key={i} className="relative h-40 md:h-56 overflow-hidden">
+                <Image src={img} alt="Team" fill className="object-cover" sizes="33vw" />
+              </div>
+            ))}
+          </div>
+        </section>
+
+        {/* Perks */}
+        <section className="py-20 lg:py-28 bg-light-primary">
           <div className="max-w-[1400px] mx-auto px-6 lg:px-8">
             <ScrollReveal>
-              <div className="text-center mb-14">
-                <h2 className="font-heading text-3xl md:text-4xl lg:text-5xl font-bold text-text-dark mb-4">
-                  Why PROSYS?
-                </h2>
-                <p className="text-text-dark-muted text-lg max-w-2xl mx-auto">
-                  We&apos;re not just building software — we&apos;re building careers. Here&apos;s what you get.
-                </p>
-              </div>
+              <p className="text-xs text-accent uppercase tracking-[0.2em] font-medium mb-4">Benefits</p>
+              <h2 className="font-heading text-3xl md:text-4xl font-bold text-text-dark mb-12">Why PROSYS?</h2>
             </ScrollReveal>
-
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-px bg-card-light-border border border-card-light-border">
               {perks.map((perk, i) => {
                 const Icon = perk.icon;
                 return (
                   <ScrollReveal key={perk.title} delay={i * 0.06}>
-                    <div className="group p-6 rounded-lg border border-card-light-border bg-white hover:shadow-lg hover:border-accent/30 transition-all duration-300 h-full">
-                      <div className="flex items-start gap-4">
-                        <div className="w-11 h-11 rounded-md bg-accent/10 text-accent flex items-center justify-center flex-shrink-0 group-hover:bg-accent group-hover:text-white transition-all duration-300">
-                          <Icon size={20} />
-                        </div>
-                        <div>
-                          <h3 className="font-heading text-base font-bold text-text-dark mb-1">{perk.title}</h3>
-                          <p className="text-text-dark-muted text-sm leading-relaxed">{perk.desc}</p>
-                        </div>
+                    <div className="bg-white p-7 h-full group hover:bg-light-primary transition-colors">
+                      <div className="w-10 h-10 rounded-md bg-accent/10 text-accent flex items-center justify-center mb-4 group-hover:bg-accent group-hover:text-white transition-all">
+                        <Icon size={18} />
                       </div>
+                      <h3 className="font-heading text-base font-bold text-text-dark mb-1">{perk.title}</h3>
+                      <p className="text-text-dark-muted text-sm leading-relaxed">{perk.desc}</p>
                     </div>
                   </ScrollReveal>
                 );
@@ -87,145 +93,64 @@ export default function CareersPage() {
         </section>
 
         {/* Open Roles */}
-        <section className="py-28 lg:py-36 bg-dark-primary">
+        <section className="py-20 lg:py-28 bg-dark-primary">
           <div className="max-w-[1400px] mx-auto px-6 lg:px-8">
             <ScrollReveal>
-              <div className="text-center mb-10">
-                <h2 className="font-heading text-3xl md:text-4xl lg:text-5xl font-bold text-text-light mb-4">
-                  Open Positions
-                </h2>
-                <p className="text-text-light-muted text-lg max-w-xl mx-auto">
-                  Find your next role. Don&apos;t see a fit? Send your CV to{" "}
-                  <a href="mailto:careers@prosysltd.com" className="text-accent-light hover:underline">
-                    careers@prosysltd.com
-                  </a>
-                </p>
-              </div>
+              <p className="text-xs text-accent-light uppercase tracking-[0.2em] font-medium mb-4">Open Positions</p>
+              <h2 className="font-heading text-3xl md:text-4xl font-bold text-text-light mb-4">Join the Team</h2>
+              <p className="text-text-light-muted mb-10">
+                Don&apos;t see a fit? Send your CV to <a href="mailto:careers@prosysltd.com" className="text-accent-light hover:underline">careers@prosysltd.com</a>
+              </p>
             </ScrollReveal>
 
-            {/* Search + Filter bar */}
-            <ScrollReveal delay={0.1}>
-              <div className="flex flex-col sm:flex-row gap-4 mb-8 max-w-4xl mx-auto">
-                <div className="relative flex-grow">
-                  <Search size={16} className="absolute left-4 top-1/2 -translate-y-1/2 text-text-light-muted/40" />
-                  <input
-                    type="text"
-                    placeholder="Search roles..."
-                    className="w-full pl-11 pr-4 py-3.5 rounded-md border border-card-dark-border bg-card-dark text-text-light placeholder:text-text-light-muted/40 text-sm focus:outline-none focus:border-accent/50 transition-all"
-                  />
-                </div>
-                <select className="px-4 py-3.5 rounded-md border border-card-dark-border bg-card-dark text-text-light text-sm focus:outline-none focus:border-accent/50 transition-all min-w-[160px]">
-                  {departments.map((d) => (
-                    <option key={d}>{d}</option>
-                  ))}
-                </select>
-              </div>
-            </ScrollReveal>
-
-            {/* Role cards */}
-            <div className="max-w-4xl mx-auto space-y-3">
+            <div className="space-y-px bg-card-dark-border">
               {openRoles.map((role, i) => (
                 <ScrollReveal key={role.title} delay={i * 0.04}>
-                  <a
-                    href="mailto:careers@prosysltd.com"
-                    className="group flex flex-col sm:flex-row sm:items-center justify-between gap-4 p-5 rounded-md border border-card-dark-border bg-card-dark hover:border-accent/40 hover:bg-card-dark/80 transition-all duration-300"
-                  >
-                    <div className="flex-grow">
-                      <div className="font-heading text-base font-bold text-text-light group-hover:text-accent-light transition-colors mb-2">
-                        {role.title}
-                      </div>
-                      <div className="flex flex-wrap items-center gap-x-4 gap-y-1 text-xs text-text-light-muted">
-                        <span className="flex items-center gap-1.5">
-                          <Briefcase size={11} />
-                          {role.dept}
-                        </span>
-                        <span className="flex items-center gap-1.5">
-                          <Clock size={11} />
-                          {role.type}
-                        </span>
-                        <span className="flex items-center gap-1.5">
-                          <MapPin size={11} />
-                          {role.location}
-                        </span>
+                  <a href="mailto:careers@prosysltd.com" className="group flex flex-col sm:flex-row sm:items-center justify-between gap-4 p-6 bg-card-dark hover:bg-accent/[0.04] transition-colors">
+                    <div>
+                      <h3 className="font-heading text-base font-bold text-text-light group-hover:text-accent-light transition-colors mb-1">{role.title}</h3>
+                      <div className="flex flex-wrap gap-x-4 gap-y-1 text-xs text-text-light-muted">
+                        <span className="flex items-center gap-1"><Briefcase size={10} />{role.dept}</span>
+                        <span className="flex items-center gap-1"><Clock size={10} />{role.type}</span>
+                        <span className="flex items-center gap-1"><MapPin size={10} />{role.location}</span>
                       </div>
                     </div>
                     <div className="flex items-center gap-3">
-                      <div className="flex flex-wrap gap-1.5">
-                        {role.tags.map((tag) => (
-                          <span key={tag} className="px-2.5 py-1 text-[10px] rounded-lg border border-card-dark-border text-text-light-muted font-medium">
-                            {tag}
-                          </span>
+                      <div className="flex gap-1.5">
+                        {role.tags.map((t) => (
+                          <span key={t} className="px-2 py-0.5 text-[10px] border border-card-dark-border text-text-light-muted">{t}</span>
                         ))}
                       </div>
-                      <ArrowRight size={16} className="text-text-light-muted/30 group-hover:text-accent-light flex-shrink-0 transition-colors" />
+                      <ArrowRight size={14} className="text-text-light-muted/30 group-hover:text-accent-light transition-colors" />
                     </div>
                   </a>
                 </ScrollReveal>
               ))}
             </div>
 
-            <ScrollReveal delay={0.3}>
-              <div className="text-center mt-10">
-                <p className="text-text-light-muted text-sm">
-                  Showing {openRoles.length} open roles across {departments.length - 1} departments
-                </p>
-              </div>
-            </ScrollReveal>
+            <p className="text-text-light-muted/40 text-sm mt-8 text-center">
+              {openRoles.length} open roles across {new Set(openRoles.map(r => r.dept)).size} departments
+            </p>
           </div>
         </section>
 
-        {/* Life at PROSYS */}
-        <section className="py-28 lg:py-36 bg-light-secondary">
-          <div className="max-w-[1400px] mx-auto px-6 lg:px-8">
+        {/* CTA */}
+        <section className="py-24 lg:py-32 bg-light-primary">
+          <div className="max-w-[1400px] mx-auto px-6 lg:px-12">
             <ScrollReveal>
-              <div className="text-center mb-14">
-                <h2 className="font-heading text-3xl md:text-4xl lg:text-5xl font-bold text-text-dark mb-4">
-                  Life at PROSYS
+              <div className="max-w-2xl">
+                <h2 className="font-heading text-3xl md:text-4xl lg:text-5xl font-bold text-text-dark mb-6 leading-tight">
+                  Ready to build with a team that
+                  <span className="gradient-text"> delivers?</span>
                 </h2>
-                <p className="text-text-dark-muted text-lg max-w-2xl mx-auto">
-                  We&apos;re a small team that does big things. Here&apos;s what it&apos;s like to work with us.
-                </p>
+                <p className="text-text-dark-muted text-lg mb-8">Send us your CV and let&apos;s have a conversation about your future.</p>
+                <a href="mailto:careers@prosysltd.com" className="inline-flex items-center justify-center font-medium rounded-md gradient-bg text-white hover:shadow-lg hover:shadow-accent/20 px-8 py-3.5 text-sm uppercase tracking-widest transition-all duration-300">
+                  Apply Now
+                </a>
               </div>
             </ScrollReveal>
-
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-              {[
-                {
-                  title: "Ship Real Products",
-                  desc: "No internal tools nobody uses. Every project is for a real client with real users. You see your work in production, making impact.",
-                },
-                {
-                  title: "Learn From Seniors",
-                  desc: "Our team has shipped products at scale. You'll work alongside engineers who've built SaaS platforms, AI systems, and enterprise software.",
-                },
-                {
-                  title: "Own Your Growth",
-                  desc: "Conference budgets, certification support, and dedicated learning time. We grow when you grow — and we take that seriously.",
-                },
-              ].map((item, i) => (
-                <ScrollReveal key={item.title} delay={i * 0.1}>
-                  <div className="p-8 rounded-lg border border-card-light-border bg-white h-full">
-                    <h3 className="font-heading text-xl font-bold text-text-dark mb-3">
-                      {item.title}
-                    </h3>
-                    <p className="text-text-dark-muted leading-relaxed">
-                      {item.desc}
-                    </p>
-                  </div>
-                </ScrollReveal>
-              ))}
-            </div>
           </div>
         </section>
-
-        <CTABanner
-          title="Ready to Build"
-          highlight="With Us?"
-          description="Send us your CV and let's have a conversation about your future."
-          buttonText="Apply Now"
-          buttonHref="mailto:careers@prosysltd.com"
-          dark
-        />
       </main>
       <Footer />
     </>

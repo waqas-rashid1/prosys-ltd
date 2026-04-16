@@ -1,149 +1,86 @@
 import type { Metadata } from "next";
-import {
-  Landmark,
-  HeartPulse,
-  ShoppingCart,
-  GraduationCap,
-  Building2,
-  Briefcase,
-  ArrowRight,
-} from "lucide-react";
+import Link from "next/link";
+import Image from "next/image";
+import { ArrowRight, Landmark, HeartPulse, ShoppingCart, GraduationCap, Building2, Briefcase } from "lucide-react";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
-import PageHero from "@/components/ui/PageHero";
-import CTABanner from "@/components/ui/CTABanner";
 import ScrollReveal from "@/components/ui/ScrollReveal";
 import { industries } from "@/lib/constants";
 
 export const metadata: Metadata = {
   title: "Industries",
-  description:
-    "PROSYS LTD serves FinTech, HealthTech, E-Commerce, EdTech, Real Estate, and Startups with tailored software solutions and digital growth services.",
+  description: "PROSYS LTD serves FinTech, HealthTech, E-Commerce, EdTech, Real Estate, and Startups with tailored software solutions.",
 };
 
-const iconMap: Record<string, React.ElementType> = {
-  Landmark,
-  HeartPulse,
-  ShoppingCart,
-  GraduationCap,
-  Building2,
-  Briefcase,
-};
-
-const industrySolutions = [
-  {
-    industry: "FinTech",
-    solutions: [
-      "Payment processing platforms",
-      "Trading & portfolio dashboards",
-      "KYC/AML compliance systems",
-      "Financial analytics & reporting",
-    ],
-  },
-  {
-    industry: "HealthTech",
-    solutions: [
-      "Telehealth platforms",
-      "Patient management systems",
-      "HIPAA-compliant data pipelines",
-      "Clinical workflow automation",
-    ],
-  },
-  {
-    industry: "E-Commerce & D2C",
-    solutions: [
-      "Headless commerce platforms",
-      "AI-powered recommendations",
-      "Inventory & order management",
-      "Conversion rate optimization",
-    ],
-  },
-];
+const iconMap: Record<string, React.ElementType> = { Landmark, HeartPulse, ShoppingCart, GraduationCap, Building2, Briefcase };
+const industryImages = ["/images/industry-fintech.jpg", "/images/industry-health.jpg", "/images/industry-ecom.jpg", "/images/service-digital.jpg", "/images/service-data.jpg", "/images/service-cloud.jpg"];
 
 export default function IndustriesPage() {
   return (
     <>
       <Navbar />
       <main id="main-content">
-        <PageHero
-          badge="Industries"
-          title="Domain Expertise"
-          highlight="That Delivers"
-          description="We don't just build software — we understand your industry's challenges, regulations, and opportunities."
-        />
-
-        {/* Industries Grid */}
-        <section className="py-24 lg:py-32 bg-light-primary">
-          <div className="max-w-[1400px] mx-auto px-6 lg:px-8">
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-              {industries.map((industry, i) => {
-                const Icon = iconMap[industry.icon];
-                return (
-                  <ScrollReveal key={industry.title} delay={i * 0.1}>
-                    <div className="group rounded-lg border border-card-light-border bg-white p-8 hover:shadow-xl hover:shadow-accent/5 hover:border-accent/30 transition-all duration-500 h-full">
-                      <div className="mb-5 w-14 h-14 rounded-md bg-accent/10 text-accent flex items-center justify-center group-hover:bg-accent group-hover:text-white transition-all duration-300">
-                        {Icon && <Icon size={28} />}
-                      </div>
-                      <h3 className="font-heading text-2xl font-bold text-text-dark mb-3">
-                        {industry.title}
-                      </h3>
-                      <p className="text-text-dark-muted leading-relaxed mb-4">
-                        {industry.description}
-                      </p>
-                      <a
-                        href="/contact"
-                        className="inline-flex items-center gap-2 text-sm font-medium text-accent hover:gap-3 transition-all duration-300"
-                      >
-                        Discuss Your Project <ArrowRight size={14} />
-                      </a>
-                    </div>
-                  </ScrollReveal>
-                );
-              })}
+        <section className="relative pt-32 pb-24 lg:pt-40 lg:pb-32 bg-dark-primary overflow-hidden">
+          <div className="absolute top-0 right-0 w-[40%] h-full bg-accent/[0.03] blur-[150px]" />
+          <div className="relative z-10 max-w-[1400px] mx-auto px-6 lg:px-12">
+            <div className="max-w-3xl">
+              <p className="text-xs text-accent-light uppercase tracking-[0.2em] font-medium mb-6">Industries</p>
+              <h1 className="font-heading text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bold text-white leading-[1.1] mb-6">
+                Domain expertise that
+                <span className="gradient-text"> delivers.</span>
+              </h1>
+              <p className="text-lg text-text-light-muted leading-relaxed max-w-2xl">
+                We understand the unique challenges, regulations, and opportunities within each sector we serve.
+              </p>
             </div>
           </div>
         </section>
 
-        {/* Solutions Detail */}
-        <section className="py-24 lg:py-32 bg-dark-primary">
-          <div className="max-w-[1400px] mx-auto px-6 lg:px-8">
-            <ScrollReveal>
-              <div className="text-center mb-16">
-                <h2 className="font-heading text-3xl md:text-4xl lg:text-5xl font-bold text-text-light mb-4">
-                  Solutions We Deliver
-                </h2>
-                <p className="max-w-2xl mx-auto text-lg text-text-light-muted">
-                  Tailored technology solutions for each industry&apos;s unique challenges.
-                </p>
-              </div>
-            </ScrollReveal>
-
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-              {industrySolutions.map((item, i) => (
-                <ScrollReveal key={item.industry} delay={i * 0.1}>
-                  <div className="p-6 rounded-lg border border-card-dark-border bg-card-dark h-full">
-                    <h3 className="font-heading text-xl font-bold text-accent mb-4">
-                      {item.industry}
-                    </h3>
-                    <ul className="space-y-3">
-                      {item.solutions.map((solution) => (
-                        <li
-                          key={solution}
-                          className="flex items-start gap-3 text-text-light-muted text-sm"
-                        >
-                          <span className="h-1.5 w-1.5 rounded-full bg-accent flex-shrink-0 mt-1.5" />
-                          {solution}
-                        </li>
-                      ))}
-                    </ul>
+        {/* Industries alternating layout */}
+        {industries.map((ind, i) => {
+          const Icon = iconMap[ind.icon];
+          return (
+            <section key={ind.title} className={`py-20 lg:py-28 ${i % 2 === 0 ? "bg-light-primary" : "bg-white"}`}>
+              <div className="max-w-[1400px] mx-auto px-6 lg:px-8">
+                <ScrollReveal>
+                  <div className={`grid grid-cols-1 lg:grid-cols-2 gap-12 items-center ${i % 2 !== 0 ? "lg:grid-flow-dense" : ""}`}>
+                    <div className={`relative h-64 lg:h-80 overflow-hidden ${i % 2 !== 0 ? "lg:col-start-2" : ""}`}>
+                      <Image src={industryImages[i % industryImages.length]} alt={ind.title} fill className="object-cover" sizes="50vw" />
+                    </div>
+                    <div>
+                      <div className="w-12 h-12 rounded-md bg-accent/10 text-accent flex items-center justify-center mb-5">
+                        {Icon && <Icon size={22} />}
+                      </div>
+                      <h2 className="font-heading text-3xl md:text-4xl font-bold text-text-dark mb-4">{ind.title}</h2>
+                      <p className="text-text-dark-muted text-lg leading-relaxed mb-6">{ind.description}</p>
+                      <Link href="/contact" className="inline-flex items-center gap-2 text-sm font-semibold text-accent hover:gap-3 transition-all">
+                        Discuss Your Project <ArrowRight size={14} />
+                      </Link>
+                    </div>
                   </div>
                 </ScrollReveal>
-              ))}
-            </div>
+              </div>
+            </section>
+          );
+        })}
+
+        {/* CTA */}
+        <section className="py-24 lg:py-32 bg-dark-primary">
+          <div className="max-w-[1400px] mx-auto px-6 lg:px-12">
+            <ScrollReveal>
+              <div className="max-w-2xl">
+                <h2 className="font-heading text-3xl md:text-4xl lg:text-5xl font-bold text-text-light mb-6 leading-tight">
+                  Don&apos;t see your industry?
+                  <span className="gradient-text"> Let&apos;s talk.</span>
+                </h2>
+                <p className="text-text-light-muted text-lg mb-8">Our engineering approach adapts to any domain.</p>
+                <Link href="/contact" className="inline-flex items-center justify-center font-medium rounded-md gradient-bg text-white hover:shadow-lg hover:shadow-accent/20 px-8 py-3.5 text-sm uppercase tracking-widest transition-all duration-300">
+                  Get in Touch
+                </Link>
+              </div>
+            </ScrollReveal>
           </div>
         </section>
-
-        <CTABanner dark={false} />
       </main>
       <Footer />
     </>

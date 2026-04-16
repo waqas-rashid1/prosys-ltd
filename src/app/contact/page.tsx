@@ -1,43 +1,22 @@
 import type { Metadata } from "next";
-import { Mail, Phone, MapPin, Clock, Globe } from "lucide-react";
+import Image from "next/image";
+import { Mail, Phone, MapPin, Globe } from "lucide-react";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
-import PageHero from "@/components/ui/PageHero";
 import ScrollReveal from "@/components/ui/ScrollReveal";
 import ContactForm from "@/components/ContactForm";
 import { siteConfig } from "@/lib/constants";
 
 export const metadata: Metadata = {
   title: "Contact Us",
-  description:
-    "Get in touch with PROSYS LTD. Whether you need a quote, have a project idea, or want to discuss a partnership — we'd love to hear from you.",
+  description: "Get in touch with PROSYS LTD. Whether you need a quote, have a project idea, or want to discuss a partnership.",
 };
 
 const contactMethods = [
-  {
-    icon: Mail,
-    label: "Email",
-    value: siteConfig.email,
-    description: "Drop us a line anytime",
-  },
-  {
-    icon: Phone,
-    label: "Phone",
-    value: "+92 300 123 4567",
-    description: "Mon-Fri 9am to 6pm PKT",
-  },
-  {
-    icon: MapPin,
-    label: "Office",
-    value: siteConfig.address,
-    description: "Headquarters",
-  },
-  {
-    icon: Globe,
-    label: "Global",
-    value: "Serving clients worldwide",
-    description: "NA, EU, ME, APAC",
-  },
+  { icon: Mail, label: "Email", value: siteConfig.email, desc: "Response within 24 hours" },
+  { icon: Phone, label: "Phone", value: "+92 300 123 4567", desc: "Mon-Fri 9am to 6pm PKT" },
+  { icon: MapPin, label: "Office", value: "Lahore, Pakistan", desc: "Headquarters" },
+  { icon: Globe, label: "Global", value: "12+ countries served", desc: "Remote delivery worldwide" },
 ];
 
 export default function ContactPage() {
@@ -45,94 +24,82 @@ export default function ContactPage() {
     <>
       <Navbar />
       <main id="main-content">
-        <PageHero
-          badge="Get in Touch"
-          title="Let's Build"
-          highlight="Together"
-          description="Have a project in mind? Need a technical partner? Want a quote? We respond within 24 hours."
-        />
+        {/* Hero with bg image */}
+        <section className="relative pt-32 pb-24 lg:pt-40 lg:pb-32 bg-dark-primary overflow-hidden">
+          <div className="absolute inset-0">
+            <Image src="/images/contact-hero.jpg" alt="Contact" fill className="object-cover opacity-15" sizes="100vw" />
+            <div className="absolute inset-0 bg-gradient-to-r from-dark-primary via-dark-primary/90 to-dark-primary/60" />
+          </div>
+          <div className="relative z-10 max-w-[1400px] mx-auto px-6 lg:px-12">
+            <div className="max-w-3xl">
+              <p className="text-xs text-accent-light uppercase tracking-[0.2em] font-medium mb-6">Get in Touch</p>
+              <h1 className="font-heading text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bold text-white leading-[1.1] mb-6">
+                Let&apos;s build
+                <span className="gradient-text"> together.</span>
+              </h1>
+              <p className="text-lg text-text-light-muted leading-relaxed max-w-2xl">
+                Have a project in mind? Need a technical partner? We respond within 24 hours.
+              </p>
+            </div>
+          </div>
+        </section>
 
-        {/* Contact Methods */}
-        <section className="py-16 bg-dark-secondary">
+        {/* Contact methods strip */}
+        <section className="py-10 bg-white border-b border-card-light-border">
           <div className="max-w-[1400px] mx-auto px-6 lg:px-8">
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
-              {contactMethods.map((method, i) => {
-                const Icon = method.icon;
+            <div className="grid grid-cols-2 lg:grid-cols-4 gap-6">
+              {contactMethods.map((m) => {
+                const Icon = m.icon;
                 return (
-                  <ScrollReveal key={method.label} delay={i * 0.08}>
-                    <div className="group p-5 rounded-md border border-card-dark-border bg-card-dark hover:border-accent/30 transition-all duration-300 text-center">
-                      <div className="w-10 h-10 rounded-md bg-accent/10 text-accent flex items-center justify-center mx-auto mb-3 group-hover:bg-accent group-hover:text-white transition-all duration-300">
-                        <Icon size={18} />
-                      </div>
-                      <div className="text-xs text-text-light-muted uppercase tracking-widest mb-1">
-                        {method.label}
-                      </div>
-                      <div className="text-text-light font-medium text-sm mb-1">
-                        {method.value}
-                      </div>
-                      <div className="text-text-light-muted text-xs">
-                        {method.description}
-                      </div>
+                  <div key={m.label} className="flex items-start gap-3">
+                    <div className="w-10 h-10 rounded-md bg-accent/10 text-accent flex items-center justify-center flex-shrink-0">
+                      <Icon size={18} />
                     </div>
-                  </ScrollReveal>
+                    <div>
+                      <p className="text-sm font-bold text-text-dark">{m.value}</p>
+                      <p className="text-xs text-text-dark-muted">{m.desc}</p>
+                    </div>
+                  </div>
                 );
               })}
             </div>
           </div>
         </section>
 
-        {/* Form Section */}
-        <section className="py-24 lg:py-32 bg-light-primary">
+        {/* Form section */}
+        <section className="py-20 lg:py-28 bg-light-primary">
           <div className="max-w-[1400px] mx-auto px-6 lg:px-8">
-            <div className="grid grid-cols-1 lg:grid-cols-5 gap-12 lg:gap-16">
-              <ScrollReveal className="lg:col-span-3">
-                <div className="rounded-lg border border-card-light-border bg-white p-8 md:p-10">
-                  <h2 className="font-heading text-2xl md:text-3xl font-bold text-text-dark mb-2">
-                    Send Us a Message
-                  </h2>
-                  <p className="text-text-dark-muted mb-8">
-                    Fill in the form below and we&apos;ll get back to you within 24 hours.
-                  </p>
+            <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16">
+              <ScrollReveal className="lg:col-span-7">
+                <div className="bg-white border border-card-light-border p-8 md:p-10">
+                  <h2 className="font-heading text-2xl md:text-3xl font-bold text-text-dark mb-2">Send Us a Message</h2>
+                  <p className="text-text-dark-muted mb-8">Fill in the form and we&apos;ll get back within 24 hours.</p>
                   <ContactForm />
                 </div>
               </ScrollReveal>
 
-              <ScrollReveal delay={0.2} className="lg:col-span-2">
+              <ScrollReveal delay={0.15} className="lg:col-span-5">
                 <div className="space-y-6">
-                  <div className="rounded-lg gradient-bg p-8 text-white">
-                    <h3 className="font-heading text-2xl font-bold mb-3">
-                      Free Consultation
-                    </h3>
-                    <p className="text-white/80 leading-relaxed mb-4">
-                      Not sure where to start? Book a free 30-minute consultation
-                      with our team. We&apos;ll discuss your goals, recommend an
-                      approach, and give you a rough timeline and budget — no
-                      strings attached.
+                  <div className="gradient-bg p-8 text-white">
+                    <h3 className="font-heading text-xl font-bold mb-3">Free Consultation</h3>
+                    <p className="text-white/80 text-sm leading-relaxed mb-4">
+                      Not sure where to start? Book a free 30-minute consultation. We&apos;ll discuss your goals, recommend an approach, and provide a rough timeline — no strings attached.
                     </p>
-                    <div className="flex items-center gap-2 text-white/70 text-sm">
-                      <Clock size={14} />
-                      <span>30 min call &middot; No commitment</span>
-                    </div>
+                    <p className="text-white/60 text-xs">30 min call &middot; No commitment</p>
                   </div>
 
-                  <div className="rounded-lg border border-card-light-border bg-white p-8">
-                    <h3 className="font-heading text-xl font-bold text-text-dark mb-4">
-                      What Happens Next?
-                    </h3>
+                  <div className="bg-white border border-card-light-border p-8">
+                    <h3 className="font-heading text-lg font-bold text-text-dark mb-4">What Happens Next?</h3>
                     <div className="space-y-4">
                       {[
-                        { step: "1", text: "We review your message within 24 hours" },
-                        { step: "2", text: "Schedule a discovery call to understand your needs" },
-                        { step: "3", text: "Deliver a detailed proposal with timeline & budget" },
-                        { step: "4", text: "Kick off development upon approval" },
-                      ].map((item) => (
-                        <div key={item.step} className="flex items-start gap-3">
-                          <span className="flex-shrink-0 w-7 h-7 rounded-lg bg-accent/10 text-accent text-xs font-bold flex items-center justify-center">
-                            {item.step}
-                          </span>
-                          <span className="text-text-dark-muted text-sm pt-0.5">
-                            {item.text}
-                          </span>
+                        "We review your message within 24 hours",
+                        "Schedule a discovery call to understand your needs",
+                        "Deliver a detailed proposal with timeline & budget",
+                        "Kick off development upon approval",
+                      ].map((step, i) => (
+                        <div key={i} className="flex items-start gap-3">
+                          <span className="flex-shrink-0 w-6 h-6 bg-accent/10 text-accent text-xs font-bold flex items-center justify-center">{i + 1}</span>
+                          <span className="text-text-dark-muted text-sm">{step}</span>
                         </div>
                       ))}
                     </div>

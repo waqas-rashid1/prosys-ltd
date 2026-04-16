@@ -305,11 +305,11 @@ export const footerLinks = {
     { label: "Contact", href: "/contact" },
   ],
   services: [
-    { label: "Web Development", href: "/services" },
-    { label: "AI Development", href: "/services" },
-    { label: "MVP Development", href: "/services" },
-    { label: "SaaS Development", href: "/services" },
-    { label: "SEO & AIEO", href: "/services" },
+    { label: "Digital", href: "/services" },
+    { label: "Data & Analytics", href: "/services" },
+    { label: "Cloud", href: "/services" },
+    { label: "AI Development", href: "/services/ai-development" },
+    { label: "SEO & AIEO", href: "/services/seo" },
   ],
   resources: [
     { label: "Blog", href: "/blog" },

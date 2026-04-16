@@ -1,107 +1,125 @@
 import type { Metadata } from "next";
+import Link from "next/link";
+import Image from "next/image";
 import { ArrowUpRight } from "lucide-react";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
-import PageHero from "@/components/ui/PageHero";
-import CTABanner from "@/components/ui/CTABanner";
 import ScrollReveal from "@/components/ui/ScrollReveal";
 import { caseStudies } from "@/lib/constants";
 
 export const metadata: Metadata = {
   title: "Our Work",
-  description:
-    "Explore PROSYS LTD's portfolio of case studies — SaaS platforms, AI integrations, MVPs, web applications, and digital transformation projects delivered for clients worldwide.",
+  description: "Explore PROSYS LTD's portfolio — SaaS platforms, AI integrations, MVPs, web applications, and digital transformation projects.",
 };
 
-const additionalProjects = [
+const allProjects = [
+  ...caseStudies,
   {
     category: "Web Development",
     title: "Multi-Vendor Marketplace Platform",
-    description:
-      "A full-featured marketplace with vendor onboarding, payment splitting, real-time inventory management, and an admin dashboard serving 200+ sellers.",
+    description: "A full-featured marketplace with vendor onboarding, payment splitting, and real-time inventory serving 200+ sellers.",
     tags: ["Next.js", "Stripe Connect", "Redis", "PostgreSQL"],
-    metric: "200+ vendors onboarded",
+    metric: "200+ vendors",
   },
   {
     category: "AI Development",
     title: "Legal Document Analysis Engine",
-    description:
-      "An AI-powered platform that analyzes legal contracts, extracts key clauses, identifies risks, and generates summary reports — saving lawyers 15+ hours per week.",
+    description: "An AI platform that analyzes contracts, extracts clauses, and identifies risks — saving lawyers 15+ hours per week.",
     tags: ["Python", "LangChain", "GPT-4", "FastAPI"],
     metric: "15hrs/week saved",
   },
   {
     category: "Digital Marketing",
     title: "D2C Brand Growth Campaign",
-    description:
-      "Full-funnel digital marketing strategy including paid ads, SEO, email automation, and conversion rate optimization for a direct-to-consumer skincare brand.",
+    description: "Full-funnel strategy across Meta, Google, and email that achieved 420% ROAS for a direct-to-consumer brand.",
     tags: ["Google Ads", "Meta Ads", "Klaviyo", "SEO"],
     metric: "420% ROAS",
   },
   {
     category: "SaaS Platform",
     title: "HR Management SaaS",
-    description:
-      "End-to-end HR platform with employee management, payroll integration, leave tracking, performance reviews, and multi-tenant architecture for SMBs.",
+    description: "Multi-tenant HR platform with payroll, leave tracking, and performance reviews — now serving 50+ companies.",
     tags: ["React", "Node.js", "Stripe", "AWS"],
-    metric: "50+ companies using it",
+    metric: "50+ companies",
   },
 ];
 
-const allProjects = [...caseStudies, ...additionalProjects];
+const projectImages = [
+  "/images/case-saas.jpg", "/images/case-health.jpg",
+  "/images/case-automation.jpg", "/images/case-web.jpg",
+  "/images/service-digital.jpg", "/images/service-data.jpg",
+  "/images/service-cloud.jpg", "/images/service-bps.jpg",
+];
 
 export default function WorkPage() {
   return (
     <>
       <Navbar />
       <main id="main-content">
-        <PageHero
-          badge="Our Portfolio"
-          title="Work That"
-          highlight="Speaks"
-          description="Real projects. Real results. Here's a selection of the work we've delivered for startups, scale-ups, and enterprises worldwide."
-        />
+        <section className="relative pt-32 pb-24 lg:pt-40 lg:pb-32 bg-dark-primary overflow-hidden">
+          <div className="absolute top-0 right-0 w-[40%] h-full bg-accent/[0.03] blur-[150px]" />
+          <div className="relative z-10 max-w-[1400px] mx-auto px-6 lg:px-12">
+            <div className="max-w-3xl">
+              <p className="text-xs text-accent-light uppercase tracking-[0.2em] font-medium mb-6">Portfolio</p>
+              <h1 className="font-heading text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bold text-white leading-[1.1] mb-6">
+                Work that
+                <span className="gradient-text"> speaks.</span>
+              </h1>
+              <p className="text-lg text-text-light-muted leading-relaxed max-w-2xl">
+                Real projects. Real outcomes. Here&apos;s a selection of work we&apos;ve delivered for startups, scale-ups, and enterprises.
+              </p>
+            </div>
+          </div>
+        </section>
 
-        {/* Projects Grid */}
-        <section className="py-24 lg:py-32 bg-light-primary">
+        {/* Stats strip */}
+        <section className="py-12 bg-white border-b border-card-light-border">
           <div className="max-w-[1400px] mx-auto px-6 lg:px-8">
-            <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
-              {allProjects.map((project, i) => (
-                <ScrollReveal key={project.title} delay={i * 0.08}>
-                  <div className="group relative rounded-lg border border-card-light-border bg-white p-8 transition-all duration-500 hover:shadow-xl hover:shadow-accent/5 hover:border-accent/30 h-full flex flex-col">
-                    <div className="flex items-start justify-between mb-6">
-                      <span className="inline-block px-3 py-1 text-xs font-medium rounded-md bg-accent/10 text-accent tracking-wide">
-                        {project.category}
-                      </span>
-                      <ArrowUpRight
-                        size={20}
-                        className="text-text-dark-muted/30 group-hover:text-accent group-hover:-translate-y-0.5 group-hover:translate-x-0.5 transition-all duration-300"
-                      />
+            <div className="flex flex-wrap justify-center gap-x-16 gap-y-4">
+              {[
+                { val: "50+", label: "Projects" },
+                { val: "30+", label: "Clients" },
+                { val: "6", label: "Countries" },
+                { val: "4-8 wk", label: "Avg. MVP" },
+              ].map((s) => (
+                <div key={s.label} className="text-center">
+                  <span className="font-heading text-2xl font-bold text-text-dark">{s.val}</span>
+                  <span className="text-text-dark-muted text-xs ml-2 uppercase tracking-wider">{s.label}</span>
+                </div>
+              ))}
+            </div>
+          </div>
+        </section>
+
+        {/* Projects */}
+        <section className="py-20 lg:py-28 bg-light-primary">
+          <div className="max-w-[1400px] mx-auto px-6 lg:px-8">
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+              {allProjects.map((p, i) => (
+                <ScrollReveal key={p.title} delay={i * 0.06}>
+                  <div className="group bg-white border border-card-light-border overflow-hidden hover:shadow-xl hover:shadow-black/[0.04] transition-all duration-500 h-full flex flex-col">
+                    <div className="relative h-52 overflow-hidden">
+                      <Image src={projectImages[i % projectImages.length]} alt={p.title} fill className="object-cover group-hover:scale-105 transition-transform duration-700" sizes="50vw" />
+                      <div className="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent" />
+                      <div className="absolute top-4 left-4">
+                        <span className="px-2.5 py-1 text-[10px] font-semibold bg-accent text-white uppercase tracking-wider">{p.category}</span>
+                      </div>
+                      <ArrowUpRight size={16} className="absolute top-4 right-4 text-white/30 group-hover:text-white transition-colors" />
                     </div>
-
-                    <h3 className="font-heading text-xl md:text-2xl font-bold text-text-dark mb-3 group-hover:text-accent transition-colors duration-300">
-                      {project.title}
-                    </h3>
-                    <p className="text-text-dark-muted leading-relaxed mb-6 flex-grow">
-                      {project.description}
-                    </p>
-
-                    <div className="mb-6 inline-flex items-center gap-2 px-4 py-2 rounded-lg bg-accent/5 border border-accent/10 self-start">
-                      <span className="h-2 w-2 rounded-full bg-accent" />
-                      <span className="text-sm font-medium text-accent">
-                        {project.metric}
-                      </span>
-                    </div>
-
-                    <div className="flex flex-wrap gap-2 pt-4 border-t border-card-light-border">
-                      {project.tags.map((tag) => (
-                        <span
-                          key={tag}
-                          className="px-3 py-1 text-xs rounded-md bg-light-primary text-text-dark-muted font-medium"
-                        >
-                          {tag}
-                        </span>
-                      ))}
+                    <div className="p-7 flex flex-col flex-grow">
+                      <h3 className="font-heading text-xl font-bold text-text-dark mb-3 group-hover:text-accent transition-colors">{p.title}</h3>
+                      <p className="text-text-dark-muted text-sm leading-relaxed mb-5 flex-grow">{p.description}</p>
+                      <div className="flex items-center justify-between pt-4 border-t border-card-light-border">
+                        <div className="flex items-center gap-2">
+                          <span className="h-1.5 w-1.5 rounded-full bg-accent" />
+                          <span className="text-sm font-semibold text-accent">{p.metric}</span>
+                        </div>
+                        <div className="flex gap-2">
+                          {p.tags.slice(0, 2).map((t) => (
+                            <span key={t} className="text-[11px] text-text-dark-muted">{t}</span>
+                          ))}
+                        </div>
+                      </div>
                     </div>
                   </div>
                 </ScrollReveal>
@@ -110,37 +128,23 @@ export default function WorkPage() {
           </div>
         </section>
 
-        {/* Metrics banner */}
-        <section className="py-16 bg-dark-primary">
-          <div className="max-w-[1400px] mx-auto px-6 lg:px-8">
+        {/* CTA */}
+        <section className="py-24 lg:py-32 bg-dark-primary">
+          <div className="max-w-[1400px] mx-auto px-6 lg:px-12">
             <ScrollReveal>
-              <div className="grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
-                {[
-                  { value: "50+", label: "Projects Shipped" },
-                  { value: "30+", label: "Happy Clients" },
-                  { value: "6", label: "Countries Served" },
-                  { value: "4-8 wk", label: "Avg. MVP Delivery" },
-                ].map((item) => (
-                  <div key={item.label}>
-                    <div className="font-heading text-3xl md:text-4xl font-bold text-accent mb-1">
-                      {item.value}
-                    </div>
-                    <div className="text-text-light-muted text-xs uppercase tracking-widest">
-                      {item.label}
-                    </div>
-                  </div>
-                ))}
+              <div className="max-w-2xl">
+                <h2 className="font-heading text-3xl md:text-4xl lg:text-5xl font-bold text-text-light mb-6 leading-tight">
+                  Have a project
+                  <span className="gradient-text"> in mind?</span>
+                </h2>
+                <p className="text-text-light-muted text-lg mb-8">Let&apos;s discuss how we can bring your idea to life.</p>
+                <Link href="/contact" className="inline-flex items-center justify-center font-medium rounded-md gradient-bg text-white hover:shadow-lg hover:shadow-accent/20 px-8 py-3.5 text-sm uppercase tracking-widest transition-all duration-300">
+                  Start a Conversation
+                </Link>
               </div>
             </ScrollReveal>
           </div>
         </section>
-
-        <CTABanner
-          title="Have a Project"
-          highlight="In Mind?"
-          description="We'd love to hear about it. Let's discuss how we can bring your idea to life."
-          dark={false}
-        />
       </main>
       <Footer />
     </>
