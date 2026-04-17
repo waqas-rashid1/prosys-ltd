@@ -88,7 +88,7 @@ export default function TechMarquee() {
   const [activeTab, setActiveTab] = useState(0);
 
   return (
-    <section className="py-32 lg:py-44 bg-dark-primary relative overflow-hidden">
+    <section className="py-20 lg:py-28 bg-dark-primary relative overflow-hidden">
       <div className="absolute bottom-0 right-0 w-[600px] h-[600px] bg-accent/[0.05] blur-[200px] rounded-full translate-x-1/3 translate-y-1/3" />
 
       <div className="relative z-10 max-w-[1400px] mx-auto px-6 lg:px-8">

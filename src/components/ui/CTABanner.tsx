@@ -22,7 +22,7 @@ export default function CTABanner({
 }: CTABannerProps) {
   return (
     <section
-      className={`py-24 lg:py-32 ${dark ? "bg-dark-secondary" : "bg-light-primary"}`}
+      className={`py-20 lg:py-28 ${dark ? "bg-dark-secondary" : "bg-light-primary"}`}
     >
       <div className="max-w-[1400px] mx-auto px-6 lg:px-8 text-center">
         <ScrollReveal>

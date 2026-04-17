@@ -36,7 +36,7 @@ export default function CareersPage() {
       <Navbar />
       <main id="main-content">
         {/* Hero with image */}
-        <section className="relative pt-32 pb-24 lg:pt-40 lg:pb-32 bg-dark-primary overflow-hidden">
+        <section className="relative pt-32 pb-16 lg:pt-40 lg:pb-24 bg-dark-primary overflow-hidden">
           <div className="absolute inset-0">
             <Image src="/images/careers-hero.jpg" alt="Careers" fill className="object-cover opacity-20" sizes="100vw" />
             <div className="absolute inset-0 bg-gradient-to-r from-dark-primary via-dark-primary/90 to-dark-primary/60" />
@@ -135,7 +135,7 @@ export default function CareersPage() {
         </section>
 
         {/* CTA */}
-        <section className="py-24 lg:py-32 bg-light-primary">
+        <section className="py-20 lg:py-28 bg-light-primary">
           <div className="max-w-[1400px] mx-auto px-6 lg:px-12">
             <ScrollReveal>
               <div className="max-w-2xl">

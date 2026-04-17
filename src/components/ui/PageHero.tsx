@@ -16,7 +16,7 @@ export default function PageHero({
   description,
 }: PageHeroProps) {
   return (
-    <section className="relative pt-32 pb-20 lg:pt-40 lg:pb-28 bg-dark-primary overflow-hidden">
+    <section className="relative pt-28 pb-14 lg:pt-36 lg:pb-20 bg-dark-primary overflow-hidden">
       <div className="absolute inset-0">
         <div className="absolute top-1/3 left-1/4 w-[500px] h-[500px] rounded-full bg-accent/[0.03] blur-[120px]" />
         <div className="absolute bottom-1/4 right-1/4 w-[400px] h-[400px] rounded-full bg-cyan-500/[0.03] blur-[100px]" />

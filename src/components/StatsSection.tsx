@@ -6,7 +6,7 @@ import AnimatedCounter from "./ui/AnimatedCounter";
 
 export default function StatsSection() {
   return (
-    <section className="py-24 lg:py-32 bg-light-primary border-y border-card-light-border relative overflow-hidden">
+    <section className="py-20 lg:py-28 bg-light-primary border-y border-card-light-border relative overflow-hidden">
       <div className="absolute inset-0 pointer-events-none opacity-50" style={{ background: "radial-gradient(ellipse 800px 300px at 50% 100%, rgba(12,108,54,0.04) 0%, transparent 70%)" }} />
 
       <div className="relative max-w-[1400px] mx-auto px-6 lg:px-8">

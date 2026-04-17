@@ -16,7 +16,7 @@ const partners = [
 
 export default function Partners() {
   return (
-    <section id="partners" className="py-24 lg:py-32 bg-dark-secondary border-t border-card-dark-border">
+    <section id="partners" className="py-20 lg:py-28 bg-dark-secondary border-t border-card-dark-border">
       <div className="max-w-[1400px] mx-auto px-6 lg:px-8">
         <ScrollReveal>
           <p className="text-center text-xs text-text-light-muted/40 tracking-[0.2em] uppercase font-medium mb-12">

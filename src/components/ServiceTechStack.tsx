@@ -13,7 +13,7 @@ type Props = {
 
 export default function ServiceTechStack({ serviceName, techStack }: Props) {
   return (
-    <section className="py-24 lg:py-32 bg-dark-primary relative overflow-hidden">
+    <section className="py-20 lg:py-28 bg-dark-primary relative overflow-hidden">
       <div className="absolute bottom-0 right-0 w-[600px] h-[600px] bg-accent/[0.05] blur-[200px] rounded-full translate-x-1/3 translate-y-1/3" />
       <div className="absolute top-0 left-0 w-[500px] h-[500px] bg-accent/[0.03] blur-[180px] rounded-full -translate-x-1/3 -translate-y-1/3" />
 

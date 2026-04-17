@@ -5,7 +5,7 @@ import ScrollReveal from "./ui/ScrollReveal";
 
 export default function HelpCTA() {
   return (
-    <section className="relative py-32 lg:py-40 bg-dark-primary overflow-hidden">
+    <section className="relative py-20 lg:py-28 bg-dark-primary overflow-hidden">
       <div className="absolute bottom-0 right-0 w-[60%] h-[60%] bg-accent/[0.06] blur-[200px] rounded-full translate-x-1/4 translate-y-1/4" />
 
       <div className="relative z-10 max-w-[1400px] mx-auto px-6 lg:px-8">

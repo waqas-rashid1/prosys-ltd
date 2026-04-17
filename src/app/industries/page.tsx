@@ -21,7 +21,7 @@ export default function IndustriesPage() {
     <>
       <Navbar />
       <main id="main-content">
-        <section className="relative pt-32 pb-24 lg:pt-40 lg:pb-32 bg-dark-primary overflow-hidden">
+        <section className="relative pt-32 pb-16 lg:pt-40 lg:pb-24 bg-dark-primary overflow-hidden">
           <div className="absolute top-0 right-0 w-[40%] h-full bg-accent/[0.03] blur-[150px]" />
           <div className="relative z-10 max-w-[1400px] mx-auto px-6 lg:px-12">
             <div className="max-w-3xl">

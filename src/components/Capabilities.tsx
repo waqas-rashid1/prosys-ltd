@@ -38,7 +38,7 @@ const capabilities = [
 
 export default function Capabilities() {
   return (
-    <section className="py-24 lg:py-32 bg-dark-secondary border-y border-card-dark-border relative overflow-hidden grain-overlay">
+    <section className="py-20 lg:py-28 bg-dark-secondary border-y border-card-dark-border relative overflow-hidden grain-overlay">
       <div className="absolute inset-0 pointer-events-none opacity-60" style={{ background: "radial-gradient(ellipse 800px 400px at 50% 0%, rgba(12,108,54,0.12) 0%, transparent 60%)" }} />
 
       <div className="relative max-w-[1400px] mx-auto px-6 lg:px-8">

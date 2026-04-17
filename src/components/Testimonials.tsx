@@ -77,14 +77,14 @@ export default function Testimonials() {
   const t = testimonials[current];
 
   return (
-    <section className="py-32 lg:py-44 bg-dark-primary overflow-hidden relative grain-overlay">
-      <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[900px] h-[500px] pointer-events-none opacity-40" style={{ background: "radial-gradient(ellipse at center top, rgba(12,108,54,0.25) 0%, transparent 70%)" }} />
-      <div className="absolute bottom-0 right-0 w-[500px] h-[500px] bg-accent/[0.04] blur-[200px] rounded-full translate-x-1/4 translate-y-1/4" />
+    <section className="py-20 lg:py-28 bg-dark-primary overflow-hidden relative grain-overlay">
+      <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[700px] h-[280px] pointer-events-none opacity-40" style={{ background: "radial-gradient(ellipse at center top, rgba(12,108,54,0.25) 0%, transparent 70%)" }} />
+      <div className="absolute bottom-0 right-0 w-[400px] h-[400px] bg-accent/[0.04] blur-[180px] rounded-full translate-x-1/4 translate-y-1/4" />
 
       <div className="relative max-w-[1400px] mx-auto px-6 lg:px-8">
         {/* Header */}
         <ScrollReveal>
-          <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-8 mb-16 max-w-6xl">
+          <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-6 mb-10 lg:mb-12 max-w-6xl">
             <div className="max-w-2xl">
               <p className="text-[11px] text-accent-light uppercase tracking-[0.25em] font-semibold mb-4">
                 Client Stories
@@ -111,8 +111,8 @@ export default function Testimonials() {
         <ScrollReveal delay={0.1}>
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-px bg-card-dark-border border border-card-dark-border rounded-md overflow-hidden">
             {/* Quote column (left — 8/12) */}
-            <div className="lg:col-span-8 bg-dark-primary relative p-8 md:p-12 lg:p-16 min-h-[480px] flex flex-col justify-between">
-              <Quote size={56} className="text-accent-light/10 mb-6" strokeWidth={1.5} />
+            <div className="lg:col-span-8 bg-dark-primary relative p-8 md:p-10 lg:p-12 flex flex-col justify-between">
+              <Quote size={44} className="text-accent-light/10 mb-4" strokeWidth={1.5} />
 
               <AnimatePresence mode="wait">
                 <motion.div
@@ -160,7 +160,7 @@ export default function Testimonials() {
             </div>
 
             {/* Outcome + indicators column (right — 4/12) */}
-            <div className="lg:col-span-4 bg-card-dark p-8 md:p-10 flex flex-col justify-between min-h-[480px]">
+            <div className="lg:col-span-4 bg-card-dark p-8 md:p-10 flex flex-col justify-between gap-8">
               <div>
                 <p className="text-[11px] text-accent-light uppercase tracking-[0.25em] font-semibold mb-6">
                   Measurable Outcome
@@ -236,7 +236,7 @@ export default function Testimonials() {
 
         {/* Bottom proof strip */}
         <ScrollReveal delay={0.2}>
-          <div className="mt-14 pt-10 border-t border-white/10 grid grid-cols-2 md:grid-cols-4 gap-6 max-w-4xl mx-auto text-center">
+          <div className="mt-10 pt-8 border-t border-white/10 grid grid-cols-2 md:grid-cols-4 gap-6 max-w-4xl mx-auto text-center">
             {[
               { v: "50+", l: "Projects delivered" },
               { v: "12+", l: "Countries served" },

@@ -176,7 +176,7 @@ export default function Services() {
   const [expandedIndex, setExpandedIndex] = useState<number | null>(null);
 
   return (
-    <section id="services" className="py-32 lg:py-44 bg-light-primary">
+    <section id="services" className="py-20 lg:py-28 bg-light-primary">
       <div className="max-w-[1400px] mx-auto px-6 lg:px-8">
         <ScrollReveal>
           <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-6 mb-16">

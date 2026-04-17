@@ -35,7 +35,7 @@ export default function FinalCTA({
         className="absolute bottom-0 right-0 w-[500px] h-[500px] bg-accent/[0.05] blur-[200px] rounded-full translate-x-1/4 translate-y-1/4 pointer-events-none"
       />
 
-      <div className="relative max-w-[1400px] mx-auto px-6 lg:px-8 py-20 lg:py-28">
+      <div className="relative max-w-[1400px] mx-auto px-6 lg:px-8 py-14 lg:py-20">
         <ScrollReveal>
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
             <div className="lg:col-span-7">

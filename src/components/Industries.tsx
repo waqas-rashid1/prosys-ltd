@@ -69,7 +69,7 @@ const industries: Industry[] = [
 
 export default function Industries() {
   return (
-    <section id="industries" className="py-32 lg:py-44 bg-light-secondary relative overflow-hidden">
+    <section id="industries" className="py-20 lg:py-28 bg-light-secondary relative overflow-hidden">
       <div className="absolute inset-0 pointer-events-none opacity-60" style={{ background: "radial-gradient(ellipse 900px 500px at 50% 0%, rgba(12,108,54,0.04) 0%, transparent 65%)" }} />
 
       <div className="relative max-w-[1400px] mx-auto px-6 lg:px-8">
