@@ -7,6 +7,7 @@ export interface BlogPost {
   readTime: string;
   image: string;
   content: string[];
+  author?: string;
 }
 
 export const blogPosts: BlogPost[] = [
