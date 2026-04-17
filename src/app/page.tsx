@@ -8,10 +8,8 @@ import CaseStudies from "@/components/CaseStudies";
 import Testimonials from "@/components/Testimonials";
 import Industries from "@/components/Industries";
 import Approach from "@/components/Approach";
-import TechMarquee from "@/components/TechMarquee";
 import Insights from "@/components/Insights";
 import Partners from "@/components/Partners";
-import HelpCTA from "@/components/HelpCTA";
 import Footer from "@/components/Footer";
 
 export default function Home() {
@@ -25,13 +23,11 @@ export default function Home() {
         <CaseStudies />
         <StatsSection />
         <About />
-        <Testimonials />
         <Industries />
         <Approach />
-        <TechMarquee />
+        <Testimonials />
         <Insights />
         <Partners />
-        <HelpCTA />
       </main>
       <Footer />
     </>
