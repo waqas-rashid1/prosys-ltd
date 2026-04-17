@@ -23,19 +23,16 @@ export default function FinalCTA({
 }: Props) {
   return (
     <section className="relative bg-dark-primary border-t border-card-dark-border overflow-hidden grain-overlay">
-      {/* Ambient green glow — matches footer/hero aesthetic */}
+      {/* Subtle ambient green — bounded so it doesn't bleed empty halo */}
       <div
-        className="absolute top-0 left-1/2 -translate-x-1/2 w-[900px] h-[500px] pointer-events-none opacity-40"
+        className="absolute inset-0 pointer-events-none opacity-50"
         style={{
           background:
-            "radial-gradient(ellipse at center top, rgba(12,108,54,0.35) 0%, transparent 70%)",
+            "radial-gradient(ellipse 500px 180px at 70% 50%, rgba(12,108,54,0.18) 0%, transparent 70%)",
         }}
       />
-      <div
-        className="absolute bottom-0 right-0 w-[500px] h-[500px] bg-accent/[0.05] blur-[200px] rounded-full translate-x-1/4 translate-y-1/4 pointer-events-none"
-      />
 
-      <div className="relative max-w-[1400px] mx-auto px-6 lg:px-8 py-14 lg:py-20">
+      <div className="relative max-w-[1400px] mx-auto px-6 lg:px-8 py-12 lg:py-16">
         <ScrollReveal>
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
             <div className="lg:col-span-7">

@@ -119,7 +119,7 @@ export default function BlogArticleContent({ slug }: { slug: string }) {
       </section>
 
       {/* Related */}
-      <section className="py-20 lg:py-28 bg-white">
+      <section className="py-14 lg:py-20 bg-white">
         <div className="max-w-[1400px] mx-auto px-6 lg:px-8">
           <ScrollReveal>
             <p className="text-xs text-accent uppercase tracking-[0.2em] font-medium mb-4">Keep Reading</p>
@@ -147,7 +147,7 @@ export default function BlogArticleContent({ slug }: { slug: string }) {
       </section>
 
       {/* CTA */}
-      <section className="py-20 lg:py-28 bg-dark-primary">
+      <section className="py-14 lg:py-20 bg-dark-primary">
         <div className="max-w-[1400px] mx-auto px-6 lg:px-12">
           <ScrollReveal>
             <div className="max-w-2xl">

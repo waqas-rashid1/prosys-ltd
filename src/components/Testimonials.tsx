@@ -77,14 +77,13 @@ export default function Testimonials() {
   const t = testimonials[current];
 
   return (
-    <section className="py-20 lg:py-28 bg-dark-primary overflow-hidden relative grain-overlay">
-      <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[700px] h-[280px] pointer-events-none opacity-40" style={{ background: "radial-gradient(ellipse at center top, rgba(12,108,54,0.25) 0%, transparent 70%)" }} />
-      <div className="absolute bottom-0 right-0 w-[400px] h-[400px] bg-accent/[0.04] blur-[180px] rounded-full translate-x-1/4 translate-y-1/4" />
+    <section className="py-14 lg:py-20 bg-dark-secondary border-t border-card-dark-border overflow-hidden relative grain-overlay">
+      <div className="absolute inset-0 pointer-events-none opacity-40" style={{ background: "radial-gradient(ellipse 600px 220px at 50% 0%, rgba(12,108,54,0.18) 0%, transparent 70%)" }} />
 
       <div className="relative max-w-[1400px] mx-auto px-6 lg:px-8">
         {/* Header */}
         <ScrollReveal>
-          <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-6 mb-10 lg:mb-12 max-w-6xl">
+          <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-6 mb-8 lg:mb-10 max-w-6xl">
             <div className="max-w-2xl">
               <p className="text-[11px] text-accent-light uppercase tracking-[0.25em] font-semibold mb-4">
                 Client Stories
@@ -236,7 +235,7 @@ export default function Testimonials() {
 
         {/* Bottom proof strip */}
         <ScrollReveal delay={0.2}>
-          <div className="mt-10 pt-8 border-t border-white/10 grid grid-cols-2 md:grid-cols-4 gap-6 max-w-4xl mx-auto text-center">
+          <div className="mt-8 pt-6 border-t border-white/10 grid grid-cols-2 md:grid-cols-4 gap-6 max-w-4xl mx-auto text-center">
             {[
               { v: "50+", l: "Projects delivered" },
               { v: "12+", l: "Countries served" },

@@ -67,7 +67,7 @@ export default function CareersPage() {
         </section>
 
         {/* Perks */}
-        <section className="py-20 lg:py-28 bg-light-primary">
+        <section className="py-14 lg:py-20 bg-light-primary">
           <div className="max-w-[1400px] mx-auto px-6 lg:px-8">
             <ScrollReveal>
               <p className="text-xs text-accent uppercase tracking-[0.2em] font-medium mb-4">Benefits</p>
@@ -93,7 +93,7 @@ export default function CareersPage() {
         </section>
 
         {/* Open Roles */}
-        <section className="py-20 lg:py-28 bg-dark-primary">
+        <section className="py-14 lg:py-20 bg-dark-primary">
           <div className="max-w-[1400px] mx-auto px-6 lg:px-8">
             <ScrollReveal>
               <p className="text-xs text-accent-light uppercase tracking-[0.2em] font-medium mb-4">Open Positions</p>
@@ -135,7 +135,7 @@ export default function CareersPage() {
         </section>
 
         {/* CTA */}
-        <section className="py-20 lg:py-28 bg-light-primary">
+        <section className="py-14 lg:py-20 bg-light-primary">
           <div className="max-w-[1400px] mx-auto px-6 lg:px-12">
             <ScrollReveal>
               <div className="max-w-2xl">

@@ -166,7 +166,7 @@ export default async function ServicePage({ params }: { params: Promise<{ slug: 
         </section>
 
         {/* What We Do - editorial */}
-        <section className="py-20 lg:py-28 bg-light-primary">
+        <section className="py-14 lg:py-20 bg-light-primary">
           <div className="max-w-[1400px] mx-auto px-6 lg:px-8">
             <div className="grid grid-cols-1 lg:grid-cols-12 gap-16">
               <div className="lg:col-span-7">
@@ -221,7 +221,7 @@ export default async function ServicePage({ params }: { params: Promise<{ slug: 
         </section>
 
         {/* Process */}
-        <section className="py-20 lg:py-28 bg-light-primary">
+        <section className="py-14 lg:py-20 bg-light-primary">
           <div className="max-w-[1400px] mx-auto px-6 lg:px-8">
             <ScrollReveal>
               <p className="text-xs text-accent uppercase tracking-[0.2em] font-medium mb-4">Methodology</p>
@@ -248,7 +248,7 @@ export default async function ServicePage({ params }: { params: Promise<{ slug: 
         <ServiceTechStack serviceName={service.title} techStack={service.techStack} />
 
         {/* Business Outcomes */}
-        <section className="py-20 lg:py-28 bg-light-primary">
+        <section className="py-14 lg:py-20 bg-light-primary">
           <div className="max-w-[1400px] mx-auto px-6 lg:px-8">
             <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-start">
               <ScrollReveal className="lg:col-span-5">
@@ -276,7 +276,7 @@ export default async function ServicePage({ params }: { params: Promise<{ slug: 
         </section>
 
         {/* Case Study - full width */}
-        <section className="py-20 lg:py-28 bg-dark-secondary border-y border-card-dark-border">
+        <section className="py-14 lg:py-20 bg-dark-secondary border-y border-card-dark-border">
           <div className="max-w-[1400px] mx-auto px-6 lg:px-8">
             <ScrollReveal>
               <p className="text-xs text-accent-light uppercase tracking-[0.2em] font-medium mb-4">Case Study</p>
@@ -313,7 +313,7 @@ export default async function ServicePage({ params }: { params: Promise<{ slug: 
         </section>
 
         {/* FAQ */}
-        <section className="py-20 lg:py-28 bg-white">
+        <section className="py-14 lg:py-20 bg-white">
           <div className="max-w-[900px] mx-auto px-6 lg:px-8">
             <ScrollReveal>
               <p className="text-xs text-accent uppercase tracking-[0.2em] font-medium mb-4">FAQ</p>
@@ -358,7 +358,7 @@ export default async function ServicePage({ params }: { params: Promise<{ slug: 
         </section>
 
         {/* CTA */}
-        <section className="py-20 lg:py-28 bg-light-primary">
+        <section className="py-14 lg:py-20 bg-light-primary">
           <div className="max-w-[1400px] mx-auto px-6 lg:px-12">
             <ScrollReveal>
               <div className="max-w-2xl">

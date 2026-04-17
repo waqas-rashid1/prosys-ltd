@@ -280,7 +280,7 @@ export default function ServicesPage() {
               <section
                 key={pillar.number}
                 id={`pillar-${pillar.number}`}
-                className={`relative scroll-mt-24 py-20 lg:py-28 overflow-hidden ${
+                className={`relative scroll-mt-24 py-14 lg:py-20 overflow-hidden ${
                   isDark
                     ? "bg-dark-primary grain-overlay"
                     : "bg-light-primary"
@@ -485,7 +485,7 @@ export default function ServicesPage() {
         </div>
 
         {/* ───────────────────────── Process Strip ───────────────────────── */}
-        <section className="py-20 lg:py-28 bg-dark-secondary border-y border-card-dark-border grain-overlay relative overflow-hidden">
+        <section className="py-14 lg:py-20 bg-dark-secondary border-y border-card-dark-border grain-overlay relative overflow-hidden">
           <div
             className="absolute inset-0 pointer-events-none opacity-50"
             style={{
@@ -538,7 +538,7 @@ export default function ServicesPage() {
         </section>
 
         {/* ───────────────────────── Not Sure Which? (Consultative CTA) ───────────────────────── */}
-        <section className="py-20 lg:py-28 bg-light-primary">
+        <section className="py-14 lg:py-20 bg-light-primary">
           <div className="max-w-[1400px] mx-auto px-6 lg:px-8">
             <ScrollReveal>
               <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 items-start">

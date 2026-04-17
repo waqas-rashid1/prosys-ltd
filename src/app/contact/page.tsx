@@ -67,7 +67,7 @@ export default function ContactPage() {
         </section>
 
         {/* Form section */}
-        <section className="py-20 lg:py-28 bg-light-primary">
+        <section className="py-14 lg:py-20 bg-light-primary">
           <div className="max-w-[1400px] mx-auto px-6 lg:px-8">
             <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16">
               <ScrollReveal className="lg:col-span-7">

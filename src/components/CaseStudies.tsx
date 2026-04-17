@@ -18,7 +18,7 @@ export default function CaseStudies() {
   const rest = caseStudies.slice(1);
 
   return (
-    <section id="work" className="py-20 lg:py-28 bg-light-primary">
+    <section id="work" className="py-14 lg:py-20 bg-light-primary">
       <div className="max-w-[1400px] mx-auto px-6 lg:px-8">
         <ScrollReveal>
           <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-6 mb-14">

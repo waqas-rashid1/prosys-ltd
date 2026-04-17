@@ -41,7 +41,7 @@ export default function BlogPage() {
 
         {/* Featured Article - cinematic */}
         <section className="bg-light-primary">
-          <div className="max-w-[1400px] mx-auto px-6 lg:px-8 py-20 lg:py-28">
+          <div className="max-w-[1400px] mx-auto px-6 lg:px-8 py-14 lg:py-20">
             <ScrollReveal>
               <p className="text-xs text-accent uppercase tracking-[0.2em] font-medium mb-8">Featured</p>
               <Link href={`/blog/${featured.slug}`} className="group block">
@@ -77,7 +77,7 @@ export default function BlogPage() {
         </section>
 
         {/* All Articles - card grid */}
-        <section className="py-20 lg:py-28 bg-white">
+        <section className="py-14 lg:py-20 bg-white">
           <div className="max-w-[1400px] mx-auto px-6 lg:px-8">
             <ScrollReveal>
               <p className="text-xs text-accent uppercase tracking-[0.2em] font-medium mb-4">Latest</p>

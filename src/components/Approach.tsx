@@ -5,14 +5,17 @@ import ScrollReveal from "./ui/ScrollReveal";
 
 export default function Approach() {
   return (
-    <section id="approach" className="py-20 lg:py-28 bg-dark-primary">
+    <section id="approach" className="py-14 lg:py-20 bg-dark-primary">
       <div className="max-w-[1400px] mx-auto px-6 lg:px-8">
         <ScrollReveal>
-          <div className="text-center mb-16">
-            <h2 className="font-heading text-4xl md:text-5xl lg:text-6xl font-bold text-text-light mb-4">
+          <div className="text-center mb-10 lg:mb-12">
+            <p className="text-[11px] text-accent-light uppercase tracking-[0.25em] font-semibold mb-4">
+              Our Methodology
+            </p>
+            <h2 className="font-heading text-3xl md:text-4xl lg:text-5xl font-black text-text-light mb-3 tracking-tight">
               How We Deliver
             </h2>
-            <p className="text-text-light-muted text-lg max-w-2xl mx-auto">
+            <p className="text-text-light-muted text-base max-w-2xl mx-auto">
               A proven, agile methodology that ensures transparency, quality, and results.
             </p>
           </div>
