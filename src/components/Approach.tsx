@@ -5,7 +5,7 @@ import ScrollReveal from "./ui/ScrollReveal";
 
 export default function Approach() {
   return (
-    <section id="approach" className="py-28 lg:py-36 bg-dark-primary">
+    <section id="approach" className="py-32 lg:py-44 bg-dark-primary">
       <div className="max-w-[1400px] mx-auto px-6 lg:px-8">
         <ScrollReveal>
           <div className="text-center mb-16">

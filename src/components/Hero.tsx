@@ -7,26 +7,32 @@ import { ChevronDown, ChevronLeft, ChevronRight } from "lucide-react";
 
 const slides = [
   {
-    eyebrow: "Software Engineering",
-    title: "We Build What Others",
-    highlight: "Only Plan",
+    eyebrow: "Enterprise Product Engineering",
+    title: "Architecting scalable systems for",
+    highlight: "complex environments.",
     description:
-      "From enterprise platforms to investor-ready MVPs — we deliver software engineered for performance, scale, and measurable outcomes.",
+      "We build enterprise-grade software for mid-market teams and funded startups — shipping production-ready platforms in weeks, not quarters.",
   },
   {
     eyebrow: "AI & Automation",
-    title: "AI That Drives",
-    highlight: "Real Results",
+    title: "Production AI that drives",
+    highlight: "measurable outcomes.",
     description:
-      "Production-grade AI systems, intelligent automation, and LLM integrations — built to deliver ROI, not just demos.",
+      "Custom AI systems, LLM integrations, and intelligent automation — engineered for reliability, cost efficiency, and real business impact.",
   },
   {
-    eyebrow: "Digital Growth",
-    title: "Visibility on Every",
-    highlight: "Search Engine",
+    eyebrow: "Digital Growth Engineering",
+    title: "Visibility on every engine —",
+    highlight: "including AI.",
     description:
-      "We optimize your presence for Google, ChatGPT, Gemini, and Perplexity — ensuring your brand is found wherever decisions are made.",
+      "Technical SEO, AIEO, and full-funnel marketing systems that compound organic growth across Google, ChatGPT, Gemini, and Perplexity.",
   },
+];
+
+const proofPoints = [
+  { value: "50+", label: "Projects Shipped" },
+  { value: "12+", label: "Countries Served" },
+  { value: "4-8", label: "Weeks to MVP" },
 ];
 
 export default function Hero() {
@@ -43,9 +49,7 @@ export default function Hero() {
     setIsAutoPlaying(false);
   }, []);
 
-  const next = useCallback(() => {
-    setCurrent((c) => (c + 1) % slides.length);
-  }, []);
+  const next = useCallback(() => setCurrent((c) => (c + 1) % slides.length), []);
 
   useEffect(() => {
     if (!isAutoPlaying) return;
@@ -57,15 +61,13 @@ export default function Hero() {
 
   return (
     <section className="relative min-h-screen flex items-center overflow-hidden">
-      {/* Video Background */}
       <div className="absolute inset-0 z-0" aria-hidden="true">
         <video autoPlay muted loop playsInline preload="auto" src="/videos/hero.mp4" className="absolute inset-0 w-full h-full object-cover" />
-        <div className="absolute inset-0 bg-dark-primary/70" />
-        <div className="absolute inset-0 bg-gradient-to-r from-dark-primary/80 via-dark-primary/40 to-transparent" />
-        <div className="absolute inset-0 bg-gradient-to-t from-dark-primary/80 via-transparent to-dark-primary/30" />
+        <div className="absolute inset-0 bg-dark-primary/75" />
+        <div className="absolute inset-0 bg-gradient-to-r from-dark-primary/90 via-dark-primary/50 to-transparent" />
+        <div className="absolute inset-0 bg-gradient-to-t from-dark-primary/80 via-transparent to-dark-primary/40" />
       </div>
 
-      {/* Slide arrows */}
       <button onClick={prev} className="absolute left-4 md:left-8 top-1/2 -translate-y-1/2 z-20 w-10 h-10 border border-white/10 bg-black/20 glass-effect flex items-center justify-center text-white/50 hover:text-white hover:border-white/30 transition-all duration-300 cursor-pointer" aria-label="Previous slide">
         <ChevronLeft size={20} />
       </button>
@@ -73,8 +75,7 @@ export default function Hero() {
         <ChevronRight size={20} />
       </button>
 
-      {/* Content */}
-      <div className="relative z-10 max-w-[1400px] mx-auto px-6 lg:px-12 xl:px-16 w-full">
+      <div className="relative z-10 max-w-[1400px] mx-auto px-6 lg:px-12 xl:px-16 w-full py-20 lg:py-24">
         <AnimatePresence mode="wait">
           <motion.div
             key={current}
@@ -82,33 +83,56 @@ export default function Hero() {
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -15 }}
             transition={{ duration: 0.6, ease: [0.25, 0.1, 0.25, 1] }}
-            className="max-w-2xl"
+            className="max-w-3xl"
           >
-            <p className="text-xs text-white/40 uppercase tracking-[0.2em] font-medium mb-6">
+            <p className="text-xs text-accent-light uppercase tracking-[0.25em] font-semibold mb-6">
               {slide.eyebrow}
             </p>
 
-            <h1 className="font-heading text-4xl leading-[1.1] sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-bold mb-6 text-white">
+            <h1 className="font-heading text-4xl leading-[1.05] sm:text-5xl md:text-6xl lg:text-7xl xl:text-[5.5rem] font-black mb-8 text-white tracking-tight">
               {slide.title}
               <br />
               <span className="gradient-text">{slide.highlight}</span>
             </h1>
 
-            <p className="max-w-lg text-base sm:text-lg text-white/50 mb-10 leading-relaxed">
+            <p className="max-w-xl text-base sm:text-lg text-white/60 mb-12 leading-relaxed">
               {slide.description}
             </p>
 
-            <Link
-              href="/contact"
-              className="inline-flex items-center justify-center font-medium rounded-md transition-all duration-300 cursor-pointer border border-white/30 text-white hover:bg-white hover:text-dark-primary px-8 py-3.5 text-sm uppercase tracking-widest"
-            >
-              Get in Touch
-            </Link>
+            <div className="flex flex-col sm:flex-row items-start gap-4 mb-16">
+              <Link
+                href="/contact"
+                className="inline-flex items-center justify-center font-semibold rounded-md bg-white text-dark-primary hover:bg-accent hover:text-white px-8 py-4 text-sm uppercase tracking-widest transition-all duration-300"
+              >
+                Book a Consultation
+              </Link>
+              <Link
+                href="/work"
+                className="inline-flex items-center justify-center font-medium rounded-md border border-white/25 text-white hover:border-white/60 px-8 py-4 text-sm uppercase tracking-widest transition-all duration-300"
+              >
+                See Our Work
+              </Link>
+            </div>
           </motion.div>
         </AnimatePresence>
 
+        {/* Proof points strip */}
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ delay: 0.5, duration: 0.6 }}
+          className="flex flex-wrap gap-8 md:gap-16 pt-8 border-t border-white/10 max-w-xl"
+        >
+          {proofPoints.map((p) => (
+            <div key={p.label}>
+              <div className="font-heading text-2xl md:text-3xl font-bold text-white mb-1">{p.value}</div>
+              <div className="text-[11px] text-white/40 uppercase tracking-widest">{p.label}</div>
+            </div>
+          ))}
+        </motion.div>
+
         {/* Slide indicators */}
-        <div className="flex items-center gap-2 mt-16">
+        <div className="flex items-center gap-2 mt-12 absolute bottom-12">
           {slides.map((_, i) => (
             <button
               key={i}
@@ -122,12 +146,11 @@ export default function Hero() {
         </div>
       </div>
 
-      {/* Scroll indicator */}
       <motion.div
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ delay: 1.5 }}
-        className="absolute bottom-8 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 text-white/30 z-10"
+        className="absolute bottom-8 right-8 flex flex-col items-center gap-2 text-white/30 z-10"
       >
         <span className="text-[10px] tracking-[0.25em] uppercase">Scroll</span>
         <motion.div animate={{ y: [0, 5, 0] }} transition={{ duration: 1.5, repeat: Infinity }}>

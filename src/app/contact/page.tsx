@@ -67,42 +67,61 @@ export default function ContactPage() {
         </section>
 
         {/* Form section */}
-        <section className="py-20 lg:py-28 bg-light-primary">
+        <section className="py-24 lg:py-32 bg-light-primary">
           <div className="max-w-[1400px] mx-auto px-6 lg:px-8">
             <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16">
               <ScrollReveal className="lg:col-span-7">
-                <div className="bg-white border border-card-light-border p-8 md:p-10">
-                  <h2 className="font-heading text-2xl md:text-3xl font-bold text-text-dark mb-2">Send Us a Message</h2>
-                  <p className="text-text-dark-muted mb-8">Fill in the form and we&apos;ll get back within 24 hours.</p>
+                <div className="bg-white border border-card-light-border p-8 md:p-10 rounded-md">
+                  <p className="text-[11px] uppercase tracking-widest font-semibold text-accent mb-2">Qualified Lead Form</p>
+                  <h2 className="font-heading text-2xl md:text-3xl font-bold text-text-dark mb-2">Tell us about your project.</h2>
+                  <p className="text-text-dark-muted mb-8 text-sm">Senior consultants review every submission. Expect a tailored response — not a form letter.</p>
                   <ContactForm />
                 </div>
               </ScrollReveal>
 
               <ScrollReveal delay={0.15} className="lg:col-span-5">
-                <div className="space-y-6">
-                  <div className="gradient-bg p-8 text-white">
-                    <h3 className="font-heading text-xl font-bold mb-3">Free Consultation</h3>
-                    <p className="text-white/80 text-sm leading-relaxed mb-4">
-                      Not sure where to start? Book a free 30-minute consultation. We&apos;ll discuss your goals, recommend an approach, and provide a rough timeline — no strings attached.
-                    </p>
-                    <p className="text-white/60 text-xs">30 min call &middot; No commitment</p>
+                <div className="space-y-6 lg:sticky lg:top-28">
+                  <div className="relative overflow-hidden rounded-md p-8 text-white bg-dark-primary border border-card-dark-border">
+                    <div className="absolute inset-0 pointer-events-none opacity-40" style={{ background: "radial-gradient(circle at 100% 0%, rgba(12,108,54,0.4) 0%, transparent 60%)" }} />
+                    <div className="relative">
+                      <p className="text-[11px] uppercase tracking-widest text-accent-light font-semibold mb-3">Prefer to talk?</p>
+                      <h3 className="font-heading text-2xl font-bold mb-3 leading-tight">Book a 30-min consultation.</h3>
+                      <p className="text-white/60 text-sm leading-relaxed mb-5">
+                        Skip the form. Jump on a call with a senior engineer or strategist. We&apos;ll scope the opportunity and suggest an approach — no commitment.
+                      </p>
+                      <a href={`mailto:${siteConfig.email}?subject=Consultation Request`} className="inline-flex items-center gap-2 text-sm font-semibold text-white border-b border-white/40 hover:border-white pb-0.5 transition-colors">
+                        {siteConfig.email}
+                      </a>
+                    </div>
                   </div>
 
-                  <div className="bg-white border border-card-light-border p-8">
-                    <h3 className="font-heading text-lg font-bold text-text-dark mb-4">What Happens Next?</h3>
+                  <div className="bg-white border border-card-light-border p-7 rounded-md">
+                    <h3 className="font-heading text-lg font-bold text-text-dark mb-5">How we route your request</h3>
                     <div className="space-y-4">
                       {[
-                        "We review your message within 24 hours",
-                        "Schedule a discovery call to understand your needs",
-                        "Deliver a detailed proposal with timeline & budget",
-                        "Kick off development upon approval",
+                        { t: "High-intent (Book a Call)", d: "Direct calendar invite within 24 hrs." },
+                        { t: "Proposal Request", d: "Discovery call, then a scoped proposal with timeline + fixed pricing." },
+                        { t: "Exploring Fit", d: "Relevant case studies and a brief intro call — your pace." },
                       ].map((step, i) => (
-                        <div key={i} className="flex items-start gap-3">
-                          <span className="flex-shrink-0 w-6 h-6 bg-accent/10 text-accent text-xs font-bold flex items-center justify-center">{i + 1}</span>
-                          <span className="text-text-dark-muted text-sm">{step}</span>
+                        <div key={i} className="flex items-start gap-3 pb-4 border-b border-card-light-border last:border-0 last:pb-0">
+                          <span className="flex-shrink-0 w-6 h-6 bg-accent/10 text-accent text-xs font-bold flex items-center justify-center rounded">{i + 1}</span>
+                          <div>
+                            <p className="text-sm font-semibold text-text-dark">{step.t}</p>
+                            <p className="text-xs text-text-dark-muted mt-0.5 leading-relaxed">{step.d}</p>
+                          </div>
                         </div>
                       ))}
                     </div>
+                  </div>
+
+                  <div className="bg-white border border-card-light-border p-7 rounded-md">
+                    <h3 className="font-heading text-sm font-bold text-text-dark mb-4 uppercase tracking-wider">Trusted signals</h3>
+                    <ul className="space-y-2.5 text-sm text-text-dark-muted">
+                      <li className="flex items-center gap-2"><span className="h-1 w-1 rounded-full bg-accent" /> NDA signed on request</li>
+                      <li className="flex items-center gap-2"><span className="h-1 w-1 rounded-full bg-accent" /> ISO / SOC2 aligned processes</li>
+                      <li className="flex items-center gap-2"><span className="h-1 w-1 rounded-full bg-accent" /> 12+ countries served</li>
+                      <li className="flex items-center gap-2"><span className="h-1 w-1 rounded-full bg-accent" /> Senior engineers only — no juniors</li>
+                    </ul>
                   </div>
                 </div>
               </ScrollReveal>

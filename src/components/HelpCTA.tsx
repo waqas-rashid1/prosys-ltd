@@ -10,30 +10,43 @@ export default function HelpCTA() {
 
       <div className="relative z-10 max-w-[1400px] mx-auto px-6 lg:px-8">
         <ScrollReveal>
-          <div className="max-w-2xl">
-            <p className="text-xs text-text-light-muted/40 uppercase tracking-[0.2em] font-medium mb-6">
-              Start a Conversation
+          <div className="max-w-3xl">
+            <p className="text-[11px] text-accent-light uppercase tracking-[0.25em] font-semibold mb-6">
+              Start the conversation
             </p>
-            <h2 className="font-heading text-4xl md:text-5xl lg:text-6xl font-bold text-text-light mb-6 leading-tight">
-              Let&apos;s discuss your
-              <span className="gradient-text"> next project.</span>
+            <h2 className="font-heading text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-black text-white mb-8 leading-[1.05] tracking-tight">
+              Talk to a senior engineer — <span className="gradient-text">not a sales rep.</span>
             </h2>
-            <p className="text-text-light-muted text-lg mb-10 leading-relaxed max-w-lg">
-              Schedule a free technical consultation. We&apos;ll review your requirements, recommend an approach, and provide a detailed proposal — no commitment required.
+            <p className="text-text-light-muted text-base md:text-lg mb-12 leading-relaxed max-w-2xl">
+              30 minutes. Real architectural advice. A scoped approach with timeline and pricing. Whether you&apos;re validating an idea or scaling a platform — we respond within one business day.
             </p>
-            <div className="flex flex-col sm:flex-row gap-4">
+            <div className="flex flex-col sm:flex-row gap-3">
               <Link
                 href="/contact"
-                className="inline-flex items-center justify-center font-medium rounded-md transition-all duration-300 cursor-pointer gradient-bg text-white hover:shadow-lg hover:shadow-accent/20 px-8 py-3.5 text-sm uppercase tracking-widest"
+                className="group inline-flex items-center justify-center gap-2 font-semibold rounded-md transition-all duration-300 cursor-pointer bg-white text-dark-primary hover:bg-accent hover:text-white px-8 py-4 text-sm uppercase tracking-widest"
               >
-                Schedule a Call
+                Book a Consultation
               </Link>
               <Link
                 href="/work"
-                className="inline-flex items-center justify-center font-medium rounded-md transition-all duration-300 cursor-pointer border border-white/20 text-white/70 hover:text-white hover:border-white/40 px-8 py-3.5 text-sm uppercase tracking-widest"
+                className="inline-flex items-center justify-center font-medium rounded-md transition-all duration-300 cursor-pointer border border-white/20 text-white/70 hover:text-white hover:border-white/50 px-8 py-4 text-sm uppercase tracking-widest"
               >
-                View Our Work
+                See Case Studies
               </Link>
+            </div>
+
+            <div className="mt-12 pt-8 border-t border-white/10 grid grid-cols-2 md:grid-cols-4 gap-6 max-w-2xl">
+              {[
+                { v: "<24h", l: "Response time" },
+                { v: "Senior", l: "Engineers only" },
+                { v: "NDA", l: "On request" },
+                { v: "Global", l: "12+ countries" },
+              ].map((s) => (
+                <div key={s.l}>
+                  <div className="font-heading text-xl font-bold text-white mb-0.5">{s.v}</div>
+                  <div className="text-[11px] text-white/40 uppercase tracking-widest">{s.l}</div>
+                </div>
+              ))}
             </div>
           </div>
         </ScrollReveal>

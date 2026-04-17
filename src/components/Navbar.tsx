@@ -157,12 +157,11 @@ export default function Navbar() {
       >
         <div className="max-w-[1400px] mx-auto px-6 lg:px-8">
           <div className="flex items-center justify-between h-20">
-            <Link href="/" className="flex items-center gap-1 group">
-              <span className="font-heading text-2xl font-bold">
-                <span className="text-accent-light group-hover:text-accent-hover transition-colors duration-300">PRO</span>
-                <span className="text-text-light">SYS</span>
+            <Link href="/" className="flex items-center gap-2 group">
+              <span className="font-heading text-2xl font-black tracking-tight text-text-light group-hover:text-accent-light transition-colors duration-300">
+                PROSYS
               </span>
-              <span className="text-text-light-muted text-xs font-medium tracking-widest ml-1 hidden sm:inline">LTD</span>
+              <span className="text-text-light-muted/70 text-[11px] font-medium tracking-[0.2em] hidden sm:inline border-l border-white/15 pl-2">LTD</span>
             </Link>
 
             {/* Desktop Nav */}
@@ -238,9 +237,10 @@ export default function Navbar() {
               })}
               <Link
                 href="/contact"
-                className="ml-4 inline-flex items-center justify-center font-medium rounded-md transition-all duration-300 cursor-pointer gradient-bg text-white hover:shadow-lg hover:shadow-accent/25 hover:scale-105 px-6 py-2.5 text-sm"
+                className="ml-4 group inline-flex items-center gap-2 font-semibold rounded-md transition-all duration-300 cursor-pointer bg-white text-dark-primary hover:bg-accent hover:text-white px-6 py-2.5 text-sm"
               >
-                Get in Touch
+                Book a Call
+                <ArrowRight size={14} className="transition-transform duration-300 group-hover:translate-x-0.5" />
               </Link>
             </div>
 
@@ -517,9 +517,9 @@ export default function Navbar() {
               ))}
               <Link
                 href="/contact"
-                className="mt-4 inline-flex items-center justify-center font-medium rounded-md transition-all duration-300 cursor-pointer gradient-bg text-white hover:shadow-lg hover:shadow-accent/25 px-9 py-4 text-base tracking-wide"
+                className="mt-4 inline-flex items-center justify-center font-semibold rounded-md transition-all duration-300 cursor-pointer bg-white text-dark-primary hover:bg-accent hover:text-white px-9 py-4 text-base tracking-wide"
               >
-                Get in Touch
+                Book a Call
               </Link>
             </div>
           </motion.div>

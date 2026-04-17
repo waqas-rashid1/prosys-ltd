@@ -7,7 +7,7 @@ import ScrollReveal from "./ui/ScrollReveal";
 
 export default function Insights() {
   return (
-    <section id="insights" className="py-28 lg:py-36 bg-light-primary">
+    <section id="insights" className="py-32 lg:py-44 bg-light-primary">
       <div className="max-w-[1400px] mx-auto px-6 lg:px-8">
         <ScrollReveal>
           <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-6 mb-14">

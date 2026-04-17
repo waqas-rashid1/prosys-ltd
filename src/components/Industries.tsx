@@ -13,7 +13,7 @@ const iconMap: Record<string, React.ElementType> = {
 
 export default function Industries() {
   return (
-    <section id="industries" className="py-28 lg:py-36 bg-light-secondary">
+    <section id="industries" className="py-32 lg:py-44 bg-light-secondary">
       <div className="max-w-[1400px] mx-auto px-6 lg:px-8">
         <ScrollReveal>
           <div className="text-center mb-14">

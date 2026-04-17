@@ -53,7 +53,7 @@ export default function Testimonials() {
   const t = testimonials[current];
 
   return (
-    <section className="py-28 lg:py-36 bg-dark-primary overflow-hidden">
+    <section className="py-32 lg:py-44 bg-dark-primary overflow-hidden">
       <div className="max-w-[1400px] mx-auto px-6 lg:px-8">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16">
           {/* Left: Testimonials */}

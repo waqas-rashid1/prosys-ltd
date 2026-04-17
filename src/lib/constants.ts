@@ -298,26 +298,52 @@ export const techPartners = [
 ];
 
 export const footerLinks = {
+  productEngineering: [
+    { label: "Web Development", href: "/services/web-development" },
+    { label: "Software Development", href: "/services/software-development" },
+    { label: "SaaS Development", href: "/services/saas-development" },
+    { label: "MVP Development", href: "/services/mvp-development" },
+    { label: "Business Applications", href: "/services/business-applications" },
+  ],
+  aiAndAutomation: [
+    { label: "AI Development", href: "/services/ai-development" },
+    { label: "Generative AI", href: "/services/generative-ai" },
+    { label: "Advanced Analytics", href: "/services/advanced-analytics" },
+    { label: "Data Modernization", href: "/services/data-modernization" },
+    { label: "Connected Intelligence", href: "/services/connected-intelligence" },
+  ],
+  cloudAndPlatform: [
+    { label: "Cloud Migration", href: "/services/cloud-operations" },
+    { label: "Cloud App Development", href: "/services/cloud-app-development" },
+    { label: "Managed Services", href: "/services/managed-services" },
+    { label: "Security", href: "/services/security" },
+    { label: "Digital Infrastructure", href: "/services/digital-infrastructure" },
+  ],
+  growthAndMarketing: [
+    { label: "SEO", href: "/services/seo" },
+    { label: "AIEO", href: "/services/aieo" },
+    { label: "Digital Marketing", href: "/services/digital-marketing" },
+    { label: "Graphics & Branding", href: "/services/graphics-branding" },
+    { label: "Digital Commerce", href: "/services/digital-commerce" },
+  ],
   company: [
     { label: "About Us", href: "/about" },
+    { label: "Leadership", href: "/about#leadership" },
     { label: "Our Work", href: "/work" },
+    { label: "Case Studies", href: "/work" },
     { label: "Careers", href: "/careers" },
     { label: "Contact", href: "/contact" },
   ],
-  services: [
-    { label: "Digital", href: "/services/digital-consulting" },
-    { label: "Data & Analytics", href: "/services/data-modernization" },
-    { label: "Cloud", href: "/services/cloud-operations" },
-    { label: "AI Development", href: "/services/ai-development" },
-    { label: "SEO & AIEO", href: "/services/seo" },
-  ],
   resources: [
-    { label: "Blog", href: "/blog" },
+    { label: "Insights & Blog", href: "/blog" },
+    { label: "Industries", href: "/industries" },
     { label: "FAQ", href: "/faq" },
-    { label: "Case Studies", href: "/work" },
-    { label: "Privacy Policy", href: "/privacy" },
-    { label: "Terms & Conditions", href: "/terms" },
-    { label: "Cookie Policy", href: "/cookie-policy" },
+    { label: "All Services", href: "/services" },
     { label: "Sitemap", href: "/sitemap.xml" },
+  ],
+  legal: [
+    { label: "Privacy Policy", href: "/privacy" },
+    { label: "Terms of Service", href: "/terms" },
+    { label: "Cookie Policy", href: "/cookie-policy" },
   ],
 };

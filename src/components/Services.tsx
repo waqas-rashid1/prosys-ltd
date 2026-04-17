@@ -2,48 +2,61 @@
 
 import { useState } from "react";
 import Link from "next/link";
-import { motion, AnimatePresence, useMotionValue, useTransform, useSpring } from "framer-motion";
+import { motion, AnimatePresence } from "framer-motion";
 import { ArrowRight, Plus, Minus } from "lucide-react";
 import ScrollReveal from "./ui/ScrollReveal";
 
 const serviceCategories = [
   {
-    title: "Digital",
+    number: "01",
+    title: "Product Engineering",
+    subtitle: "Ship production-ready software",
+    description: "Web, SaaS, and custom platforms engineered to scale — built by senior teams with delivery-first discipline.",
     items: [
-      { label: "Digital Consulting & Strategy", slug: "digital-consulting" },
-      { label: "Digital Commerce", slug: "digital-commerce" },
-      { label: "Business Applications", slug: "business-applications" },
       { label: "Web Development", slug: "web-development" },
       { label: "Software Development", slug: "software-development" },
+      { label: "SaaS Development", slug: "saas-development" },
+      { label: "MVP Development", slug: "mvp-development" },
+      { label: "Business Applications", slug: "business-applications" },
     ],
   },
   {
-    title: "Data & Analytics",
+    number: "02",
+    title: "AI & Automation",
+    subtitle: "Outcomes, not demos",
+    description: "Applied AI, LLM systems, and intelligent automation engineered for reliability and measurable ROI.",
     items: [
-      { label: "Data Modernization", slug: "data-modernization" },
-      { label: "Advanced Analytics", slug: "advanced-analytics" },
-      { label: "Connected Intelligence", slug: "connected-intelligence" },
-      { label: "Generative AI", slug: "generative-ai" },
       { label: "AI Development", slug: "ai-development" },
+      { label: "Generative AI", slug: "generative-ai" },
+      { label: "Advanced Analytics", slug: "advanced-analytics" },
+      { label: "Data Modernization", slug: "data-modernization" },
+      { label: "Connected Intelligence", slug: "connected-intelligence" },
     ],
   },
   {
-    title: "Cloud",
+    number: "03",
+    title: "Cloud & Platform",
+    subtitle: "Infrastructure that scales",
+    description: "Cloud-native architecture, migrations, and managed operations on AWS, GCP, and Azure with SRE discipline.",
     items: [
       { label: "Cloud Operations & Migration", slug: "cloud-operations" },
       { label: "Cloud App Development", slug: "cloud-app-development" },
       { label: "Managed Services", slug: "managed-services" },
-      { label: "SaaS Development", slug: "saas-development" },
+      { label: "Security", slug: "security" },
+      { label: "Digital Infrastructure", slug: "digital-infrastructure" },
     ],
   },
   {
-    title: "Business Process Services",
+    number: "04",
+    title: "Growth & Marketing",
+    subtitle: "Compounding pipeline",
+    description: "Technical SEO, AIEO, and full-funnel growth systems that drive qualified traffic and conversions.",
     items: [
-      { label: "Digital Marketing", slug: "digital-marketing" },
-      { label: "Staff Augmentation", slug: "staff-augmentation" },
       { label: "SEO", slug: "seo" },
-      { label: "AIEO", slug: "aieo" },
+      { label: "AIEO (AI Engine Optimization)", slug: "aieo" },
+      { label: "Digital Marketing", slug: "digital-marketing" },
       { label: "Graphics & Branding", slug: "graphics-branding" },
+      { label: "Digital Commerce", slug: "digital-commerce" },
     ],
   },
 ];
@@ -94,45 +107,54 @@ function ServiceCard({ cat, index }: { cat: typeof serviceCategories[0]; index: 
 
   return (
     <motion.div
-      className="group rounded-lg border border-card-light-border bg-white overflow-hidden h-full flex flex-col cursor-pointer"
+      className="group relative rounded-lg border border-card-light-border bg-white overflow-hidden h-full flex flex-col cursor-pointer"
       onMouseEnter={() => setHovered(true)}
       onMouseLeave={() => setHovered(false)}
-      whileHover={{ y: -4, boxShadow: "0 20px 40px rgba(0,0,0,0.06)" }}
+      whileHover={{ y: -6, boxShadow: "0 30px 60px rgba(0,0,0,0.08)" }}
       transition={{ type: "spring", stiffness: 200, damping: 25 }}
     >
-      <div className="relative h-48 bg-light-primary flex items-center justify-center overflow-hidden">
+      <div className="relative h-44 bg-light-primary flex items-center justify-center overflow-hidden border-b border-card-light-border">
         <AbstractShape index={index} hovered={hovered} />
+        <span className="absolute top-4 left-5 text-[11px] font-mono tracking-widest text-text-dark-muted/60">
+          /{cat.number}
+        </span>
       </div>
 
       <div className="p-6 flex-grow flex flex-col">
-        <h3 className="font-heading text-xl font-bold text-text-dark">
+        <p className="text-[11px] uppercase tracking-[0.18em] text-accent font-semibold mb-2">
+          {cat.subtitle}
+        </p>
+        <h3 className="font-heading text-xl font-bold text-text-dark mb-3 leading-tight">
           {cat.title}
         </h3>
+        <p className="text-sm text-text-dark-muted leading-relaxed mb-4">
+          {cat.description}
+        </p>
 
-        <AnimatePresence>
+        <AnimatePresence initial={false}>
           {hovered && (
             <motion.div
-              initial={{ opacity: 0, height: 0, marginTop: 0 }}
-              animate={{ opacity: 1, height: "auto", marginTop: 16 }}
-              exit={{ opacity: 0, height: 0, marginTop: 0 }}
+              initial={{ opacity: 0, height: 0 }}
+              animate={{ opacity: 1, height: "auto" }}
+              exit={{ opacity: 0, height: 0 }}
               transition={{ duration: 0.4, ease: [0.16, 1, 0.3, 1] }}
               className="overflow-hidden"
             >
-              <div className="flex flex-wrap gap-2">
+              <div className="pt-4 border-t border-card-light-border space-y-1.5">
                 {cat.items.map((item, i) => (
                   <motion.div
                     key={item.label}
-                    initial={{ opacity: 0, y: 8 }}
-                    animate={{ opacity: 1, y: 0 }}
+                    initial={{ opacity: 0, x: -6 }}
+                    animate={{ opacity: 1, x: 0 }}
                     transition={{ delay: i * 0.04, duration: 0.3 }}
                   >
                     <Link
                       href={`/services/${item.slug}`}
                       onClick={(e) => e.stopPropagation()}
-                      className="flex items-center gap-1.5 py-1.5 text-sm text-text-dark-muted hover:text-accent transition-colors"
+                      className="flex items-center gap-1.5 py-1 text-[13px] text-text-dark-muted hover:text-accent transition-colors"
                     >
+                      <span className="h-px w-3 bg-current opacity-40" />
                       {item.label}
-                      <ArrowRight size={11} className="opacity-0 group-hover:opacity-40" />
                     </Link>
                   </motion.div>
                 ))}
@@ -140,6 +162,11 @@ function ServiceCard({ cat, index }: { cat: typeof serviceCategories[0]; index: 
             </motion.div>
           )}
         </AnimatePresence>
+
+        <div className="mt-auto pt-4 flex items-center gap-2 text-accent text-xs font-semibold uppercase tracking-widest">
+          <span>Explore</span>
+          <ArrowRight size={12} className="transition-transform duration-300 group-hover:translate-x-1" />
+        </div>
       </div>
     </motion.div>
   );
@@ -149,18 +176,27 @@ export default function Services() {
   const [expandedIndex, setExpandedIndex] = useState<number | null>(null);
 
   return (
-    <section id="services" className="py-28 lg:py-36 bg-light-primary">
+    <section id="services" className="py-32 lg:py-44 bg-light-primary">
       <div className="max-w-[1400px] mx-auto px-6 lg:px-8">
         <ScrollReveal>
-          <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-6 mb-14">
-            <h2 className="font-heading text-4xl md:text-5xl lg:text-6xl font-bold text-text-dark leading-tight">
-              Our services
-            </h2>
+          <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-6 mb-16">
+            <div className="max-w-2xl">
+              <p className="text-[11px] text-accent font-semibold uppercase tracking-[0.25em] mb-4">
+                Capabilities
+              </p>
+              <h2 className="font-heading text-4xl md:text-5xl lg:text-6xl font-black text-text-dark leading-[1.05] tracking-tight mb-5">
+                Four pillars. <br />One delivery standard.
+              </h2>
+              <p className="text-base md:text-lg text-text-dark-muted leading-relaxed">
+                We combine strategic engineering, applied AI, cloud-native architecture, and growth systems — delivered by senior teams that own outcomes end-to-end.
+              </p>
+            </div>
             <Link
               href="/services"
-              className="inline-flex items-center gap-2 px-6 py-3 rounded-md border border-text-dark/10 text-text-dark text-sm font-medium hover:border-accent hover:text-accent transition-all duration-300 self-start md:self-auto"
+              className="inline-flex items-center gap-2 px-6 py-3 rounded-md border border-text-dark/10 text-text-dark text-sm font-medium hover:border-accent hover:text-accent transition-all duration-300 self-start md:self-auto shrink-0"
             >
-              View all services
+              View all 29 services
+              <ArrowRight size={14} />
             </Link>
           </div>
         </ScrollReveal>

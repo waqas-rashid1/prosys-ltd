@@ -5,7 +5,7 @@ import ScrollReveal from "./ui/ScrollReveal";
 
 export default function StatsSection() {
   return (
-    <section className="py-20 lg:py-24 bg-light-primary border-y border-card-light-border">
+    <section className="py-24 lg:py-32 bg-light-primary border-y border-card-light-border">
       <div className="max-w-[1400px] mx-auto px-6 lg:px-8">
         <ScrollReveal>
           <p className="text-center text-xs text-text-dark-muted/60 tracking-[0.2em] uppercase font-medium mb-12">
