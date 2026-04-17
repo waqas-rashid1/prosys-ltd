@@ -4,6 +4,7 @@ import Image from "next/image";
 import { ArrowRight, Landmark, HeartPulse, ShoppingCart, GraduationCap, Building2, Briefcase } from "lucide-react";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
+import FinalCTA from "@/components/FinalCTA";
 import ScrollReveal from "@/components/ui/ScrollReveal";
 import { industries } from "@/lib/constants";
 
@@ -64,23 +65,11 @@ export default function IndustriesPage() {
           );
         })}
 
-        {/* CTA */}
-        <section className="py-24 lg:py-32 bg-dark-primary">
-          <div className="max-w-[1400px] mx-auto px-6 lg:px-12">
-            <ScrollReveal>
-              <div className="max-w-2xl">
-                <h2 className="font-heading text-3xl md:text-4xl lg:text-5xl font-bold text-text-light mb-6 leading-tight">
-                  Don&apos;t see your industry?
-                  <span className="gradient-text"> Let&apos;s talk.</span>
-                </h2>
-                <p className="text-text-light-muted text-lg mb-8">Our engineering approach adapts to any domain.</p>
-                <Link href="/contact" className="inline-flex items-center justify-center font-medium rounded-md gradient-bg text-white hover:shadow-lg hover:shadow-accent/20 px-8 py-3.5 text-sm uppercase tracking-widest transition-all duration-300">
-                  Get in Touch
-                </Link>
-              </div>
-            </ScrollReveal>
-          </div>
-        </section>
+        <FinalCTA
+          eyebrow="Don't see your industry?"
+          title="We adapt fast — and ship faster."
+          primary={{ label: "Discuss Your Sector", href: "/contact" }}
+        />
       </main>
       <Footer />
     </>

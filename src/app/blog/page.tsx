@@ -4,6 +4,7 @@ import Image from "next/image";
 import { Calendar, Clock, ArrowRight } from "lucide-react";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
+import FinalCTA from "@/components/FinalCTA";
 import ScrollReveal from "@/components/ui/ScrollReveal";
 import { blogPosts } from "@/lib/blog-data";
 
@@ -149,6 +150,10 @@ export default function BlogPage() {
             </div>
           </div>
         </section>
+        <FinalCTA
+          eyebrow="From reading to building"
+          title="Have a project that needs this level of thinking?"
+        />
       </main>
       <Footer />
     </>

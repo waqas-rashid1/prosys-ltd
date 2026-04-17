@@ -11,7 +11,7 @@ const slides = [
     title: "Architecting scalable systems for",
     highlight: "complex environments.",
     description:
-      "We build enterprise-grade software for mid-market teams and funded startups — shipping production-ready platforms in weeks, not quarters.",
+      "Enterprise-grade software for mid-market teams and funded startups — shipping production-ready platforms in weeks, not quarters.",
   },
   {
     eyebrow: "AI & Automation",
@@ -25,7 +25,7 @@ const slides = [
     title: "Visibility on every engine —",
     highlight: "including AI.",
     description:
-      "Technical SEO, AIEO, and full-funnel marketing systems that compound organic growth across Google, ChatGPT, Gemini, and Perplexity.",
+      "Technical SEO, AIEO, and full-funnel growth systems that compound organic reach across Google, ChatGPT, Gemini, and Perplexity.",
   },
 ];
 
@@ -60,12 +60,15 @@ export default function Hero() {
   const slide = slides[current];
 
   return (
-    <section className="relative min-h-screen flex items-center overflow-hidden">
+    <section className="relative min-h-[90vh] lg:min-h-screen flex items-center overflow-hidden bg-dark-primary">
       <div className="absolute inset-0 z-0" aria-hidden="true">
-        <video autoPlay muted loop playsInline preload="auto" src="/videos/hero.mp4" className="absolute inset-0 w-full h-full object-cover" />
-        <div className="absolute inset-0 bg-dark-primary/75" />
-        <div className="absolute inset-0 bg-gradient-to-r from-dark-primary/90 via-dark-primary/50 to-transparent" />
-        <div className="absolute inset-0 bg-gradient-to-t from-dark-primary/80 via-transparent to-dark-primary/40" />
+        <video autoPlay muted loop playsInline preload="auto" src="/videos/hero.mp4" className="absolute inset-0 w-full h-full object-cover opacity-50" />
+        <div className="absolute inset-0 bg-dark-primary/70" />
+        <div className="absolute inset-0 bg-gradient-to-r from-dark-primary via-dark-primary/85 to-dark-primary/30" />
+        <div className="absolute inset-0 bg-gradient-to-t from-dark-primary via-transparent to-dark-primary/60" />
+        {/* Ambient green glow — matches service detail hero */}
+        <div className="absolute top-1/2 right-0 w-[600px] h-[600px] pointer-events-none opacity-70" style={{ background: "radial-gradient(circle, rgba(12,108,54,0.18) 0%, transparent 60%)" }} />
+        <div className="absolute bottom-0 left-1/4 w-[400px] h-[400px] pointer-events-none opacity-60" style={{ background: "radial-gradient(circle, rgba(52,211,153,0.1) 0%, transparent 70%)" }} />
       </div>
 
       <button onClick={prev} className="absolute left-4 md:left-8 top-1/2 -translate-y-1/2 z-20 w-10 h-10 border border-white/10 bg-black/20 glass-effect flex items-center justify-center text-white/50 hover:text-white hover:border-white/30 transition-all duration-300 cursor-pointer" aria-label="Previous slide">
@@ -75,7 +78,7 @@ export default function Hero() {
         <ChevronRight size={20} />
       </button>
 
-      <div className="relative z-10 max-w-[1400px] mx-auto px-6 lg:px-12 xl:px-16 w-full py-20 lg:py-24">
+      <div className="relative z-10 max-w-[1400px] mx-auto px-6 lg:px-12 xl:px-16 w-full pt-32 pb-20 lg:pt-40 lg:pb-28">
         <AnimatePresence mode="wait">
           <motion.div
             key={current}
@@ -83,19 +86,18 @@ export default function Hero() {
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -15 }}
             transition={{ duration: 0.6, ease: [0.25, 0.1, 0.25, 1] }}
-            className="max-w-3xl"
+            className="max-w-4xl"
           >
             <p className="text-xs text-accent-light uppercase tracking-[0.25em] font-semibold mb-6">
               {slide.eyebrow}
             </p>
 
             <h1 className="font-heading text-4xl leading-[1.05] sm:text-5xl md:text-6xl lg:text-7xl xl:text-[5.5rem] font-black mb-8 text-white tracking-tight">
-              {slide.title}
-              <br />
+              {slide.title}{" "}
               <span className="gradient-text">{slide.highlight}</span>
             </h1>
 
-            <p className="max-w-xl text-base sm:text-lg text-white/60 mb-12 leading-relaxed">
+            <p className="max-w-2xl text-base sm:text-lg text-white/60 mb-12 leading-relaxed">
               {slide.description}
             </p>
 
@@ -121,7 +123,7 @@ export default function Hero() {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.5, duration: 0.6 }}
-          className="flex flex-wrap gap-8 md:gap-16 pt-8 border-t border-white/10 max-w-xl"
+          className="flex flex-wrap gap-8 md:gap-16 pt-8 border-t border-white/10 max-w-3xl"
         >
           {proofPoints.map((p) => (
             <div key={p.label}>
@@ -131,14 +133,14 @@ export default function Hero() {
           ))}
         </motion.div>
 
-        {/* Slide indicators */}
-        <div className="flex items-center gap-2 mt-12 absolute bottom-12">
+        {/* Slide indicators — anchored to bottom of hero */}
+        <div className="absolute bottom-8 left-6 lg:left-12 xl:left-16 flex items-center gap-2">
           {slides.map((_, i) => (
             <button
               key={i}
               onClick={() => goTo(i)}
               className={`h-[2px] transition-all duration-500 cursor-pointer ${
-                i === current ? "w-10 bg-white" : "w-5 bg-white/20 hover:bg-white/40"
+                i === current ? "w-10 bg-accent-light" : "w-5 bg-white/20 hover:bg-white/40"
               }`}
               aria-label={`Slide ${i + 1}`}
             />

@@ -23,29 +23,6 @@ export default function Footer() {
       {/* Ambient green glow */}
       <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[800px] h-[400px] pointer-events-none opacity-20" style={{ background: "radial-gradient(ellipse at center top, rgba(12,108,54,0.6) 0%, transparent 70%)" }} />
 
-      {/* CTA strip */}
-      <div className="relative border-b border-card-dark-border">
-        <div className="max-w-[1400px] mx-auto px-6 lg:px-8 py-16 lg:py-20">
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
-            <div className="lg:col-span-7">
-              <p className="text-[11px] uppercase tracking-[0.25em] text-accent-light font-semibold mb-4">Let&apos;s build something that lasts</p>
-              <h2 className="font-heading text-3xl md:text-4xl lg:text-5xl font-black text-white leading-[1.1] tracking-tight max-w-2xl">
-                Ready to ship enterprise-grade software?
-              </h2>
-            </div>
-            <div className="lg:col-span-5 flex flex-col sm:flex-row gap-3 lg:justify-end">
-              <Link href="/contact" className="inline-flex items-center justify-center gap-2 bg-white text-dark-primary hover:bg-accent hover:text-white font-semibold px-7 py-4 rounded-md text-sm uppercase tracking-widest transition-all duration-300">
-                Book a Call
-                <ArrowRight size={14} />
-              </Link>
-              <Link href="/work" className="inline-flex items-center justify-center gap-2 border border-white/20 text-white hover:border-white/60 font-medium px-7 py-4 rounded-md text-sm uppercase tracking-widest transition-all duration-300">
-                See Our Work
-              </Link>
-            </div>
-          </div>
-        </div>
-      </div>
-
       {/* Main Mega Footer */}
       <div className="relative max-w-[1400px] mx-auto px-6 lg:px-8 py-16 lg:py-20">
         <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-12 gap-10 lg:gap-8">

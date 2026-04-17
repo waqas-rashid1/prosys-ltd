@@ -10,6 +10,7 @@ import Industries from "@/components/Industries";
 import Approach from "@/components/Approach";
 import Insights from "@/components/Insights";
 import Partners from "@/components/Partners";
+import FinalCTA from "@/components/FinalCTA";
 import Footer from "@/components/Footer";
 
 export default function Home() {
@@ -28,6 +29,7 @@ export default function Home() {
         <Testimonials />
         <Insights />
         <Partners />
+        <FinalCTA />
       </main>
       <Footer />
     </>

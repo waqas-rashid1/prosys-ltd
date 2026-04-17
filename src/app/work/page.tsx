@@ -1,9 +1,9 @@
 import type { Metadata } from "next";
-import Link from "next/link";
 import Image from "next/image";
 import { ArrowUpRight } from "lucide-react";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
+import FinalCTA from "@/components/FinalCTA";
 import ScrollReveal from "@/components/ui/ScrollReveal";
 import { caseStudies } from "@/lib/constants";
 
@@ -128,23 +128,10 @@ export default function WorkPage() {
           </div>
         </section>
 
-        {/* CTA */}
-        <section className="py-24 lg:py-32 bg-dark-primary">
-          <div className="max-w-[1400px] mx-auto px-6 lg:px-12">
-            <ScrollReveal>
-              <div className="max-w-2xl">
-                <h2 className="font-heading text-3xl md:text-4xl lg:text-5xl font-bold text-text-light mb-6 leading-tight">
-                  Have a project
-                  <span className="gradient-text"> in mind?</span>
-                </h2>
-                <p className="text-text-light-muted text-lg mb-8">Let&apos;s discuss how we can bring your idea to life.</p>
-                <Link href="/contact" className="inline-flex items-center justify-center font-medium rounded-md gradient-bg text-white hover:shadow-lg hover:shadow-accent/20 px-8 py-3.5 text-sm uppercase tracking-widest transition-all duration-300">
-                  Start a Conversation
-                </Link>
-              </div>
-            </ScrollReveal>
-          </div>
-        </section>
+        <FinalCTA
+          eyebrow="Have a project in mind?"
+          title="Let's discuss how we can bring your idea to life."
+        />
       </main>
       <Footer />
     </>
