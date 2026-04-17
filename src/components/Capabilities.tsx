@@ -6,8 +6,8 @@ import ScrollReveal from "./ui/ScrollReveal";
 const capabilities = [
   {
     icon: ShieldCheck,
-    label: "ISO 27001 / SOC 2",
-    desc: "Security-aligned processes for regulated industries — FinTech, HealthTech, and enterprise.",
+    label: "ISO / SOC 2 aligned",
+    desc: "Security-aligned processes modeled on ISO 27001 and SOC 2. Formal certification on our roadmap.",
   },
   {
     icon: Users,
@@ -38,7 +38,7 @@ const capabilities = [
 
 export default function Capabilities() {
   return (
-    <section className="py-24 lg:py-32 bg-dark-secondary border-y border-card-dark-border relative overflow-hidden">
+    <section className="py-24 lg:py-32 bg-dark-secondary border-y border-card-dark-border relative overflow-hidden grain-overlay">
       <div className="absolute inset-0 pointer-events-none opacity-60" style={{ background: "radial-gradient(ellipse 800px 400px at 50% 0%, rgba(12,108,54,0.12) 0%, transparent 60%)" }} />
 
       <div className="relative max-w-[1400px] mx-auto px-6 lg:px-8">

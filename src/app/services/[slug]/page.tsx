@@ -12,6 +12,11 @@ import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import ScrollReveal from "@/components/ui/ScrollReveal";
 import ServiceTechStack from "@/components/ServiceTechStack";
+import {
+  BreadcrumbSchema,
+  ServiceDetailSchema,
+  ServiceFAQSchema,
+} from "@/components/schema/PageSchema";
 import { servicesData } from "@/lib/services-data";
 
 const iconMap: Record<string, React.ElementType> = {
@@ -64,15 +69,38 @@ export default async function ServicePage({ params }: { params: Promise<{ slug: 
 
   return (
     <>
+      <BreadcrumbSchema
+        crumbs={[
+          { label: "Home", path: "/" },
+          { label: "Services", path: "/services" },
+          { label: service.title, path: `/services/${service.slug}` },
+        ]}
+      />
+      <ServiceDetailSchema
+        title={service.title}
+        description={service.description}
+        slug={service.slug}
+      />
+      <ServiceFAQSchema faq={service.faq} />
       <Navbar />
       <main id="main-content">
-        {/* Cinematic Hero — mirrors the home hero treatment */}
-        <section className="relative min-h-[90vh] lg:min-h-screen flex items-center overflow-hidden">
+        {/* Cinematic Hero — static image + gradients for performance (home uses video) */}
+        <section className="relative min-h-[90vh] lg:min-h-screen flex items-center overflow-hidden bg-dark-primary">
           <div className="absolute inset-0 z-0" aria-hidden="true">
-            <video autoPlay muted loop playsInline preload="auto" src="/videos/hero.mp4" className="absolute inset-0 w-full h-full object-cover" />
-            <div className="absolute inset-0 bg-dark-primary/75" />
-            <div className="absolute inset-0 bg-gradient-to-r from-dark-primary/90 via-dark-primary/50 to-transparent" />
-            <div className="absolute inset-0 bg-gradient-to-t from-dark-primary/80 via-transparent to-dark-primary/40" />
+            <Image
+              src={heroImage}
+              alt=""
+              fill
+              priority
+              sizes="100vw"
+              className="object-cover opacity-30"
+            />
+            <div className="absolute inset-0 bg-dark-primary/70" />
+            <div className="absolute inset-0 bg-gradient-to-r from-dark-primary via-dark-primary/85 to-dark-primary/30" />
+            <div className="absolute inset-0 bg-gradient-to-t from-dark-primary via-transparent to-dark-primary/60" />
+            {/* Ambient green glow */}
+            <div className="absolute top-1/2 right-0 w-[600px] h-[600px] pointer-events-none opacity-70" style={{ background: "radial-gradient(circle, rgba(12,108,54,0.18) 0%, transparent 60%)" }} />
+            <div className="absolute bottom-0 left-1/4 w-[400px] h-[400px] pointer-events-none opacity-60" style={{ background: "radial-gradient(circle, rgba(52,211,153,0.1) 0%, transparent 70%)" }} />
           </div>
 
           <div className="relative z-10 max-w-[1400px] mx-auto px-6 lg:px-12 xl:px-16 w-full pt-32 pb-20 lg:pt-40 lg:pb-28">

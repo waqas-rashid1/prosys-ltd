@@ -4,6 +4,7 @@ import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import { blogPosts } from "@/lib/blog-data";
 import BlogArticleContent from "./BlogArticleContent";
+import { ArticleSchema, BreadcrumbSchema } from "@/components/schema/PageSchema";
 
 export function generateStaticParams() {
   return blogPosts.map((p) => ({ slug: p.slug }));
@@ -44,6 +45,21 @@ export default async function BlogArticlePage({
 
   return (
     <>
+      <ArticleSchema
+        title={post.title}
+        description={post.excerpt}
+        slug={post.slug}
+        date={post.date}
+        author={post.author}
+        category={post.category}
+      />
+      <BreadcrumbSchema
+        crumbs={[
+          { label: "Home", path: "/" },
+          { label: "Blog", path: "/blog" },
+          { label: post.title, path: `/blog/${post.slug}` },
+        ]}
+      />
       <Navbar />
       <BlogArticleContent slug={slug} />
       <Footer />

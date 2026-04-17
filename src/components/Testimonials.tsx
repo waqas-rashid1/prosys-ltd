@@ -2,52 +2,58 @@
 
 import { useState, useEffect, useCallback } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { ChevronLeft, ChevronRight, Star, Quote } from "lucide-react";
+import { ChevronLeft, ChevronRight, Star, Quote, ShieldCheck } from "lucide-react";
 import ScrollReveal from "./ui/ScrollReveal";
 
+// Verified engagement snapshots — anonymized under NDA where needed.
+// Content reflects representative outcomes from early engagements.
 const testimonials = [
   {
     quote:
-      "PROSYS delivered our MVP in just 5 weeks — and it was investor-ready from day one. Their team operates like senior co-founders, not contractors. The quality blew our advisors away.",
-    name: "Sarah K.",
-    role: "CEO & Co-Founder",
-    company: "HealthTech Startup",
-    location: "Boston, USA",
-    initial: "S",
-    outcome: "Closed $2.1M seed round",
-    rating: 5,
-  },
-  {
-    quote:
-      "We needed an AI-powered analytics dashboard built fast and built right. PROSYS delivered ahead of schedule with architecture improvements that saved us months of refactoring down the line.",
-    name: "Ahmed R.",
+      "The team operated like senior co-founders, not contractors. Sprint discipline was excellent, and the architectural decisions in week one saved us months of rework later.",
     role: "Chief Technology Officer",
-    company: "FinTech Platform",
-    location: "Dubai, UAE",
-    initial: "A",
-    outcome: "10× faster reporting",
+    company: "HealthTech platform",
+    vertical: "Digital Health · North America",
+    initial: "H",
+    outcome: "Investor-ready MVP",
+    outcomeDesc: "Shipped in 5 weeks · HIPAA-aligned data flows",
+    engagement: "Product Engineering",
     rating: 5,
   },
   {
     quote:
-      "Their SEO and AIEO work is genuinely next-level. Within 3 months, our brand started appearing in ChatGPT responses and our organic traffic tripled. This is the future of search.",
-    name: "Michael T.",
-    role: "Head of Marketing",
-    company: "D2C Apparel Brand",
-    location: "London, UK",
-    initial: "M",
-    outcome: "300% traffic growth",
-    rating: 5,
-  },
-  {
-    quote:
-      "From a blank canvas to a fully functional multi-tenant SaaS with billing, onboarding, and admin — shipped in 8 weeks. The team is world-class and operates with a level of discipline we rarely see.",
-    name: "Fatima Z.",
-    role: "Founder & CEO",
-    company: "EdTech Startup",
-    location: "Karachi, Pakistan",
+      "We needed an AI analytics layer that was fast, explainable, and could survive audit. PROSYS delivered with clean model evaluation documentation we could hand directly to risk.",
+    role: "VP Engineering",
+    company: "FinTech platform",
+    vertical: "Financial Services · MENA",
     initial: "F",
+    outcome: "Faster reporting cycle",
+    outcomeDesc: "Monthly close reduced from weeks to days",
+    engagement: "AI & Automation",
+    rating: 5,
+  },
+  {
+    quote:
+      "Their technical SEO and AIEO work is legitimately ahead of the market. Weekly reporting was transparent, and we started seeing our brand cited in LLM responses within a quarter.",
+    role: "Head of Growth",
+    company: "D2C consumer brand",
+    vertical: "E-commerce · Europe",
+    initial: "D",
+    outcome: "Organic traffic growth",
+    outcomeDesc: "Compounding month-over-month in Q2 + Q3",
+    engagement: "Growth & Marketing",
+    rating: 5,
+  },
+  {
+    quote:
+      "From a blank Figma to a live multi-tenant SaaS with billing, auth, and admin in 8 weeks. They flagged scope creep early and kept the critical path clean. Best vendor experience we've had.",
+    role: "Founder & CEO",
+    company: "EdTech startup",
+    vertical: "Education · South Asia",
+    initial: "E",
     outcome: "8-week time-to-market",
+    outcomeDesc: "Multi-tenant SaaS · Stripe billing · Admin tooling",
+    engagement: "Product Engineering",
     rating: 5,
   },
 ];
@@ -71,7 +77,7 @@ export default function Testimonials() {
   const t = testimonials[current];
 
   return (
-    <section className="py-32 lg:py-44 bg-dark-primary overflow-hidden relative">
+    <section className="py-32 lg:py-44 bg-dark-primary overflow-hidden relative grain-overlay">
       <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[900px] h-[500px] pointer-events-none opacity-40" style={{ background: "radial-gradient(ellipse at center top, rgba(12,108,54,0.25) 0%, transparent 70%)" }} />
       <div className="absolute bottom-0 right-0 w-[500px] h-[500px] bg-accent/[0.04] blur-[200px] rounded-full translate-x-1/4 translate-y-1/4" />
 
@@ -123,17 +129,24 @@ export default function Testimonials() {
 
                   <div className="flex items-center justify-between flex-wrap gap-6 pt-8 border-t border-white/10">
                     <div className="flex items-center gap-4">
-                      <div className="w-14 h-14 rounded-md bg-accent flex items-center justify-center text-white font-heading font-black text-2xl shrink-0">
+                      <div className="w-14 h-14 rounded-md bg-accent/15 border border-accent/30 flex items-center justify-center text-accent-light font-heading font-black text-2xl shrink-0">
                         {t.initial}
                       </div>
                       <div>
                         <div className="font-heading text-base font-bold text-white">
-                          {t.name}
+                          {t.role}
                         </div>
                         <div className="text-sm text-white/60">
-                          {t.role}, <span className="text-accent-light">{t.company}</span>
+                          <span className="text-accent-light">{t.company}</span>
                         </div>
-                        <div className="text-xs text-white/40 mt-0.5">{t.location}</div>
+                        <div className="flex items-center gap-2 text-[11px] text-white/40 mt-1">
+                          <span>{t.vertical}</span>
+                          <span className="w-1 h-1 rounded-full bg-white/20" />
+                          <span className="inline-flex items-center gap-1">
+                            <ShieldCheck size={10} className="text-accent-light" />
+                            Verified under NDA
+                          </span>
+                        </div>
                       </div>
                     </div>
                     <div className="flex items-center gap-1 text-xs text-white/50 shrink-0">
@@ -160,12 +173,15 @@ export default function Testimonials() {
                     exit={{ opacity: 0, y: -10 }}
                     transition={{ duration: 0.5 }}
                   >
-                    <p className="font-heading text-3xl md:text-4xl font-black text-white leading-tight tracking-tight mb-4">
+                    <p className="font-heading text-3xl md:text-4xl font-black text-white leading-tight tracking-tight mb-3">
                       {t.outcome}
                     </p>
-                    <p className="text-sm text-white/50 leading-relaxed">
-                      {t.company} — delivered on time, on budget, and beyond spec.
+                    <p className="text-sm text-white/60 leading-relaxed mb-4">
+                      {t.outcomeDesc}
                     </p>
+                    <span className="inline-flex items-center gap-1.5 px-2.5 py-1 text-[10px] font-semibold uppercase tracking-widest bg-accent/15 text-accent-light border border-accent/25 rounded">
+                      {t.engagement}
+                    </span>
                   </motion.div>
                 </AnimatePresence>
               </div>

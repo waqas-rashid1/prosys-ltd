@@ -4,7 +4,7 @@ import { useState, useEffect, useRef } from "react";
 import { usePathname } from "next/navigation";
 import Link from "next/link";
 import { motion, AnimatePresence } from "framer-motion";
-import { Menu, X, ChevronDown, ArrowRight } from "lucide-react";
+import { Menu, X, ChevronDown, ArrowRight, Search } from "lucide-react";
 import { navLinks } from "@/lib/constants";
 
 const servicesMega = [
@@ -235,9 +235,19 @@ export default function Navbar() {
                   </Link>
                 );
               })}
+              <button
+                type="button"
+                onClick={() => window.dispatchEvent(new CustomEvent("prosys:open-cmdk"))}
+                className="ml-2 hidden xl:inline-flex items-center gap-2 px-3 py-2 rounded-md border border-card-dark-border bg-card-dark/50 hover:border-white/20 hover:bg-white/5 text-text-light-muted hover:text-white transition-all duration-300 cursor-pointer text-xs"
+                aria-label="Open quick search (Command+K)"
+              >
+                <Search size={12} />
+                <span>Quick search</span>
+                <kbd className="px-1.5 py-0.5 text-[9px] font-mono border border-card-dark-border rounded bg-dark-primary/50 ml-2">⌘K</kbd>
+              </button>
               <Link
                 href="/contact"
-                className="ml-4 group inline-flex items-center gap-2 font-semibold rounded-md transition-all duration-300 cursor-pointer bg-white text-dark-primary hover:bg-accent hover:text-white px-6 py-2.5 text-sm"
+                className="ml-2 group inline-flex items-center gap-2 font-semibold rounded-md transition-all duration-300 cursor-pointer bg-white text-dark-primary hover:bg-accent hover:text-white px-6 py-2.5 text-sm"
               >
                 Book a Call
                 <ArrowRight size={14} className="transition-transform duration-300 group-hover:translate-x-0.5" />

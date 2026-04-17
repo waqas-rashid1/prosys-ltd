@@ -3,7 +3,7 @@ import { servicesData } from "@/lib/services-data";
 import { blogPosts } from "@/lib/blog-data";
 
 export default function sitemap(): MetadataRoute.Sitemap {
-  const baseUrl = "https://prosysltd.com";
+  const baseUrl = process.env.NEXT_PUBLIC_SITE_URL || "https://prosysltd.com";
 
   const servicePages = servicesData.map((s) => ({
     url: `${baseUrl}/services/${s.slug}`,

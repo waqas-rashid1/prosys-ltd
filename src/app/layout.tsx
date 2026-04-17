@@ -1,41 +1,53 @@
-import type { Metadata } from "next";
+import type { Metadata, Viewport } from "next";
+import { Analytics } from "@vercel/analytics/react";
+import { SpeedInsights } from "@vercel/speed-insights/next";
 import { inter, roboto } from "@/lib/fonts";
 import StructuredData from "@/components/StructuredData";
 import StickyCTA from "@/components/StickyCTA";
 import CookieConsent from "@/components/CookieConsent";
+import ScrollProgress from "@/components/ScrollProgress";
+import CommandMenu from "@/components/CommandMenu";
 import "./globals.css";
 
+const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL || "https://prosysltd.com";
+
 export const metadata: Metadata = {
-  metadataBase: new URL("https://prosysltd.com"),
+  metadataBase: new URL(SITE_URL),
   title: {
     default:
-      "PROSYS LTD | Web Development, AI Development, SaaS & MVP Experts",
+      "PROSYS LTD | Enterprise-grade Product Engineering, AI & Growth Systems",
     template: "%s | PROSYS LTD",
   },
   description:
-    "PROSYS LTD is a full-spectrum software development company specializing in AI development, SaaS platforms, MVP engineering, web applications, SEO, AIEO, and digital marketing. We build what others only plan.",
+    "PROSYS LTD is a senior-staffed product engineering firm building enterprise-grade software, AI systems, and growth platforms for funded startups and mid-market teams.",
   keywords: [
     "PROSYS LTD",
-    "web development company",
+    "enterprise product engineering",
     "AI development",
-    "software development",
-    "MVP development",
     "SaaS development",
-    "SEO services",
+    "MVP development",
+    "cloud architecture",
+    "software development",
+    "SEO",
     "AIEO",
     "AI Engine Optimization",
-    "AI automations",
     "digital marketing",
-    "custom software",
-    "Next.js development",
+    "Next.js agency",
     "React development",
     "startup development partner",
     "software house Pakistan",
     "software house Lahore",
   ],
-  authors: [{ name: "PROSYS LTD", url: "https://prosysltd.com" }],
+  authors: [{ name: "PROSYS LTD", url: SITE_URL }],
   creator: "PROSYS LTD",
   publisher: "PROSYS LTD",
+  applicationName: "PROSYS LTD",
+  referrer: "origin-when-cross-origin",
+  formatDetection: {
+    email: false,
+    address: false,
+    telephone: false,
+  },
   robots: {
     index: true,
     follow: true,
@@ -48,34 +60,36 @@ export const metadata: Metadata = {
     },
   },
   alternates: {
-    canonical: "https://prosysltd.com",
+    canonical: SITE_URL,
   },
   openGraph: {
     type: "website",
     locale: "en_US",
-    url: "https://prosysltd.com",
+    url: SITE_URL,
     siteName: "PROSYS LTD",
-    title: "PROSYS LTD | We Build What Others Only Plan",
+    title: "PROSYS LTD | Architecting scalable systems, end-to-end.",
     description:
-      "Full-spectrum software development: AI, SaaS, MVPs, web apps, SEO, AIEO & digital marketing. Enterprise-quality engineering at startup speed.",
-    images: [
-      {
-        url: "/og-image.svg",
-        width: 1200,
-        height: 630,
-        alt: "PROSYS LTD - Engineering Digital Excellence",
-      },
-    ],
+      "Enterprise-grade product engineering, AI, and growth systems — delivered by senior teams.",
   },
   twitter: {
     card: "summary_large_image",
-    title: "PROSYS LTD | We Build What Others Only Plan",
+    title: "PROSYS LTD | Architecting scalable systems, end-to-end.",
     description:
-      "Full-spectrum software development: AI, SaaS, MVPs, web apps, SEO, AIEO & digital marketing.",
-    images: ["/og-image.svg"],
+      "Enterprise-grade product engineering, AI, and growth systems — delivered by senior teams.",
     creator: "@prosysltd",
   },
   category: "Technology",
+};
+
+export const viewport: Viewport = {
+  themeColor: [
+    { media: "(prefers-color-scheme: light)", color: "#000000" },
+    { media: "(prefers-color-scheme: dark)", color: "#000000" },
+  ],
+  colorScheme: "dark",
+  width: "device-width",
+  initialScale: 1,
+  maximumScale: 5,
 };
 
 export default function RootLayout({
@@ -84,23 +98,32 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" data-scroll-behavior="smooth" className={`${inter.variable} ${roboto.variable} h-full`}>
+    <html
+      lang="en"
+      data-scroll-behavior="smooth"
+      className={`${inter.variable} ${roboto.variable} h-full`}
+    >
       <head>
         <StructuredData />
         <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
         <link rel="apple-touch-icon" href="/favicon.svg" />
-        <meta name="theme-color" content="#000000" />
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="" />
       </head>
       <body className="min-h-full antialiased">
         <a
           href="#main-content"
-          className="sr-only focus:not-sr-only focus:fixed focus:top-4 focus:left-4 focus:z-[100] focus:px-4 focus:py-2 focus:rounded-lg focus:bg-accent focus:text-dark-primary focus:text-sm focus:font-medium"
+          className="sr-only focus:not-sr-only focus:fixed focus:top-4 focus:left-4 focus:z-[100] focus:px-4 focus:py-2 focus:rounded-md focus:bg-accent focus:text-white focus:text-sm focus:font-semibold"
         >
           Skip to main content
         </a>
+        <ScrollProgress />
         {children}
         <StickyCTA />
         <CookieConsent />
+        <CommandMenu />
+        <Analytics />
+        <SpeedInsights />
       </body>
     </html>
   );

@@ -1,7 +1,7 @@
 "use client";
 
 import { useState } from "react";
-import { Send, Briefcase, Clock, Target, CheckCircle2 } from "lucide-react";
+import { Send, Briefcase, Clock, Target, CheckCircle2, AlertCircle, Loader2 } from "lucide-react";
 import Button from "./ui/Button";
 
 const intentOptions = [
@@ -10,32 +10,82 @@ const intentOptions = [
   { id: "explore", label: "Explore Fit", desc: "Researching options and capabilities", icon: Clock },
 ];
 
+type Status = "idle" | "submitting" | "success" | "error";
+
 export default function ContactForm() {
   const [intent, setIntent] = useState("book-call");
-  const [submitted, setSubmitted] = useState(false);
+  const [status, setStatus] = useState<Status>("idle");
+  const [errorMsg, setErrorMsg] = useState("");
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    setSubmitted(true);
+    if (status === "submitting") return;
+
+    const fd = new FormData(e.currentTarget);
+    const payload = {
+      intent,
+      name: (fd.get("name") || "").toString().trim(),
+      email: (fd.get("email") || "").toString().trim(),
+      company: (fd.get("company") || "").toString().trim(),
+      role: (fd.get("role") || "").toString().trim(),
+      companySize: (fd.get("companySize") || "").toString(),
+      industry: (fd.get("industry") || "").toString(),
+      service: (fd.get("service") || "").toString(),
+      timeline: (fd.get("timeline") || "").toString(),
+      budget: (fd.get("budget") || "").toString(),
+      message: (fd.get("message") || "").toString().trim(),
+    };
+
+    if (!payload.name || !payload.email || !payload.message) {
+      setStatus("error");
+      setErrorMsg("Please complete your name, email, and project details.");
+      return;
+    }
+
+    setStatus("submitting");
+    setErrorMsg("");
+
+    try {
+      const resp = await fetch("/api/contact", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(payload),
+      });
+      const data = await resp.json().catch(() => ({}));
+      if (!resp.ok || !data.ok) {
+        throw new Error(data.error || "Could not send your message.");
+      }
+      setStatus("success");
+    } catch (err) {
+      const msg = err instanceof Error ? err.message : "Something went wrong.";
+      setErrorMsg(msg);
+      setStatus("error");
+    }
   };
 
-  if (submitted) {
+  if (status === "success") {
     return (
-      <div className="text-center py-8">
-        <div className="w-16 h-16 rounded-full bg-accent/10 text-accent mx-auto flex items-center justify-center mb-5">
+      <div className="text-center py-10 animate-in fade-in duration-500">
+        <div className="w-16 h-16 rounded-full bg-accent/10 text-accent mx-auto flex items-center justify-center mb-5 animate-in zoom-in duration-500">
           <CheckCircle2 size={32} />
         </div>
         <h3 className="font-heading text-2xl font-bold text-text-dark mb-3">Message received.</h3>
-        <p className="text-text-dark-muted max-w-md mx-auto">
+        <p className="text-text-dark-muted max-w-md mx-auto mb-6">
           A senior consultant will reach out within 24 business hours with next steps tailored to your project.
         </p>
+        <button
+          onClick={() => setStatus("idle")}
+          className="text-sm text-accent font-semibold hover:underline cursor-pointer"
+        >
+          Send another inquiry
+        </button>
       </div>
     );
   }
 
   return (
-    <form className="space-y-7" onSubmit={handleSubmit}>
-      {/* Intent routing — the most important qualification step */}
+    <form className="space-y-7" onSubmit={handleSubmit} noValidate>
+      {/* Intent routing */}
       <div>
         <label className="block text-[11px] uppercase tracking-widest font-semibold text-text-dark-muted mb-3">
           What brings you here?
@@ -72,10 +122,7 @@ export default function ContactForm() {
             Full Name <span className="text-accent">*</span>
           </label>
           <input
-            type="text"
-            id="name"
-            name="name"
-            required
+            type="text" id="name" name="name" required autoComplete="name"
             placeholder="Jane Doe"
             className="w-full px-4 py-3 rounded-md border border-card-light-border bg-light-primary text-text-dark placeholder:text-text-dark-muted/50 focus:outline-none focus:border-accent focus:ring-1 focus:ring-accent/20 transition-all"
           />
@@ -85,10 +132,7 @@ export default function ContactForm() {
             Work Email <span className="text-accent">*</span>
           </label>
           <input
-            type="email"
-            id="email"
-            name="email"
-            required
+            type="email" id="email" name="email" required autoComplete="email"
             placeholder="jane@company.com"
             className="w-full px-4 py-3 rounded-md border border-card-light-border bg-light-primary text-text-dark placeholder:text-text-dark-muted/50 focus:outline-none focus:border-accent focus:ring-1 focus:ring-accent/20 transition-all"
           />
@@ -101,10 +145,7 @@ export default function ContactForm() {
             Company <span className="text-accent">*</span>
           </label>
           <input
-            type="text"
-            id="company"
-            name="company"
-            required
+            type="text" id="company" name="company" required autoComplete="organization"
             placeholder="Acme Inc."
             className="w-full px-4 py-3 rounded-md border border-card-light-border bg-light-primary text-text-dark placeholder:text-text-dark-muted/50 focus:outline-none focus:border-accent focus:ring-1 focus:ring-accent/20 transition-all"
           />
@@ -114,9 +155,7 @@ export default function ContactForm() {
             Your Role
           </label>
           <input
-            type="text"
-            id="role"
-            name="role"
+            type="text" id="role" name="role" autoComplete="organization-title"
             placeholder="CTO, Founder, Product Lead…"
             className="w-full px-4 py-3 rounded-md border border-card-light-border bg-light-primary text-text-dark placeholder:text-text-dark-muted/50 focus:outline-none focus:border-accent focus:ring-1 focus:ring-accent/20 transition-all"
           />
@@ -129,9 +168,7 @@ export default function ContactForm() {
             Company Size
           </label>
           <select
-            id="companySize"
-            name="companySize"
-            defaultValue=""
+            id="companySize" name="companySize" defaultValue=""
             className="w-full px-4 py-3 rounded-md border border-card-light-border bg-light-primary text-text-dark focus:outline-none focus:border-accent focus:ring-1 focus:ring-accent/20 transition-all"
           >
             <option value="" disabled>Select size</option>
@@ -148,9 +185,7 @@ export default function ContactForm() {
             Industry
           </label>
           <select
-            id="industry"
-            name="industry"
-            defaultValue=""
+            id="industry" name="industry" defaultValue=""
             className="w-full px-4 py-3 rounded-md border border-card-light-border bg-light-primary text-text-dark focus:outline-none focus:border-accent focus:ring-1 focus:ring-accent/20 transition-all"
           >
             <option value="" disabled>Select industry</option>
@@ -174,9 +209,7 @@ export default function ContactForm() {
             Primary Need
           </label>
           <select
-            id="service"
-            name="service"
-            defaultValue=""
+            id="service" name="service" defaultValue=""
             className="w-full px-4 py-3 rounded-md border border-card-light-border bg-light-primary text-text-dark focus:outline-none focus:border-accent focus:ring-1 focus:ring-accent/20 transition-all"
           >
             <option value="" disabled>Select a capability</option>
@@ -194,9 +227,7 @@ export default function ContactForm() {
             Timeline
           </label>
           <select
-            id="timeline"
-            name="timeline"
-            defaultValue=""
+            id="timeline" name="timeline" defaultValue=""
             className="w-full px-4 py-3 rounded-md border border-card-light-border bg-light-primary text-text-dark focus:outline-none focus:border-accent focus:ring-1 focus:ring-accent/20 transition-all"
           >
             <option value="" disabled>When to start?</option>
@@ -229,22 +260,35 @@ export default function ContactForm() {
           Project Details <span className="text-accent">*</span>
         </label>
         <textarea
-          id="message"
-          name="message"
-          required
-          rows={5}
+          id="message" name="message" required rows={5} maxLength={5000}
           placeholder="Briefly describe your project, challenges, or goals. The more context you share, the sharper our response."
           className="w-full px-4 py-3 rounded-md border border-card-light-border bg-light-primary text-text-dark placeholder:text-text-dark-muted/50 focus:outline-none focus:border-accent focus:ring-1 focus:ring-accent/20 transition-all resize-none"
         />
       </div>
 
+      {status === "error" && errorMsg && (
+        <div className="flex items-start gap-3 p-4 rounded-md bg-red-50 border border-red-200 text-red-700" role="alert">
+          <AlertCircle size={18} className="flex-shrink-0 mt-0.5" />
+          <p className="text-sm">{errorMsg}</p>
+        </div>
+      )}
+
       <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4 pt-2">
         <p className="text-xs text-text-dark-muted">
           By submitting, you agree to our <a href="/privacy" className="text-accent hover:underline">privacy policy</a>. We respond within 24 hours.
         </p>
-        <Button type="submit" size="lg" className="gap-2 shrink-0">
-          <Send size={16} />
-          {intent === "book-call" ? "Book My Call" : intent === "proposal" ? "Request Proposal" : "Send Message"}
+        <Button type="submit" size="lg" className="gap-2 shrink-0" disabled={status === "submitting"}>
+          {status === "submitting" ? (
+            <>
+              <Loader2 size={16} className="animate-spin" />
+              Sending…
+            </>
+          ) : (
+            <>
+              <Send size={16} />
+              {intent === "book-call" ? "Book My Call" : intent === "proposal" ? "Request Proposal" : "Send Message"}
+            </>
+          )}
         </Button>
       </div>
     </form>

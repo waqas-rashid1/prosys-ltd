@@ -3,6 +3,7 @@
 import Link from "next/link";
 import { ArrowUp, ArrowRight, Mail, Phone, MapPin } from "lucide-react";
 import { LinkedInIcon, XIcon, GitHubIcon, YouTubeIcon } from "./ui/SocialIcons";
+import NewsletterForm from "./NewsletterForm";
 import { siteConfig, footerLinks } from "@/lib/constants";
 
 const pillars: { heading: string; key: keyof typeof footerLinks }[] = [
@@ -155,26 +156,7 @@ export default function Footer() {
                   <h3 className="font-heading text-lg font-bold text-white mb-1">Engineering insights, monthly.</h3>
                   <p className="text-text-light-muted text-xs">Architecture patterns, AI in production, and growth tactics. No noise.</p>
                 </div>
-                <form
-                  onSubmit={(e) => e.preventDefault()}
-                  className="flex w-full lg:w-auto gap-2 shrink-0"
-                >
-                  <label htmlFor="newsletter-email" className="sr-only">Email address</label>
-                  <input
-                    id="newsletter-email"
-                    name="email"
-                    type="email"
-                    placeholder="Work email"
-                    className="flex-grow lg:w-72 px-4 py-3 rounded-md border border-card-dark-border bg-dark-primary text-text-light placeholder:text-text-light-muted/50 focus:outline-none focus:border-accent focus:ring-1 focus:ring-accent/20 transition-all text-sm"
-                  />
-                  <button
-                    type="submit"
-                    className="bg-white text-dark-primary hover:bg-accent hover:text-white px-5 py-3 rounded-md font-semibold text-sm transition-all duration-300 cursor-pointer flex items-center gap-2 flex-shrink-0"
-                  >
-                    Subscribe
-                    <ArrowRight size={14} />
-                  </button>
-                </form>
+                <NewsletterForm />
               </div>
             </div>
           </div>
