@@ -2,12 +2,13 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import Image from "next/image";
 import {
-  Target, Zap, Users, Globe, Award, Heart, ArrowRight,
-  CheckCircle2, MapPin, Building2, Calendar,
+  Target, Zap, Users, Globe, Award, Heart,
+  MapPin, Calendar,
 } from "lucide-react";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import ScrollReveal from "@/components/ui/ScrollReveal";
+import { LinkedInIcon } from "@/components/ui/SocialIcons";
 import { stats } from "@/lib/constants";
 
 export const metadata: Metadata = {
@@ -26,17 +27,45 @@ const values = [
 ];
 
 const milestones = [
-  { year: "2024", title: "Founded", desc: "Started with 5 senior engineers and a clear thesis: enterprise-quality software at startup speed." },
-  { year: "2024", title: "First 10 Clients", desc: "Delivered MVPs, SaaS platforms, and AI integrations for startups across 4 countries." },
+  { year: "Jan 2024", title: "Founded", desc: "Started with 5 senior engineers and a clear thesis: enterprise-quality software at startup speed." },
+  { year: "Sep 2024", title: "First 10 Clients", desc: "Delivered MVPs, SaaS platforms, and AI integrations for startups across 4 countries." },
   { year: "2025", title: "Team Expansion", desc: "Grew to 15+ engineers, designers, and growth specialists. Added SEO, AIEO, and digital marketing." },
   { year: "2026", title: "Global Scale", desc: "50+ projects delivered. Serving clients across North America, Europe, Middle East, and Asia-Pacific." },
 ];
 
 const leadership = [
-  { name: "Founder & CEO", focus: "Strategy, Architecture, AI" },
-  { name: "CTO", focus: "Engineering, Cloud, DevOps" },
-  { name: "Head of Design", focus: "UI/UX, Brand, Design Systems" },
-  { name: "Head of Growth", focus: "SEO, AIEO, Digital Marketing" },
+  {
+    name: "Faisal Rehman",
+    role: "Founder & CEO",
+    focus: "Strategy, Architecture, AI",
+    bio: "15+ years building enterprise software. Previously led engineering at two venture-backed SaaS startups.",
+    linkedin: "https://linkedin.com/in/prosysltd-ceo",
+    initial: "F",
+  },
+  {
+    name: "Chaudhry Hassan",
+    role: "CTO",
+    focus: "Engineering, Cloud, DevOps",
+    bio: "AWS Certified Solutions Architect. Led platform engineering for multi-tenant SaaS at scale.",
+    linkedin: "https://linkedin.com/in/prosysltd-cto",
+    initial: "C",
+  },
+  {
+    name: "Hira Malik",
+    role: "Head of Design",
+    focus: "UI/UX, Brand, Design Systems",
+    bio: "Award-winning product designer. Shipped design systems for FinTech and HealthTech platforms.",
+    linkedin: "https://linkedin.com/in/prosysltd-design",
+    initial: "H",
+  },
+  {
+    name: "Hamza Tariq",
+    role: "Head of Growth",
+    focus: "SEO, AIEO, Digital Marketing",
+    bio: "Growth strategist with 10+ years in B2B SaaS. Pioneered AIEO frameworks for AI search visibility.",
+    linkedin: "https://linkedin.com/in/prosysltd-growth",
+    initial: "H",
+  },
 ];
 
 export default function AboutPage() {
@@ -215,12 +244,25 @@ export default function AboutPage() {
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-px bg-card-dark-border">
               {leadership.map((person, i) => (
                 <ScrollReveal key={person.name} delay={i * 0.08}>
-                  <div className="bg-card-dark p-8 h-full group hover:bg-accent/[0.04] transition-colors duration-400">
-                    <div className="w-16 h-16 rounded-md bg-accent/10 flex items-center justify-center mb-5">
-                      <span className="font-heading text-xl font-bold text-accent-light">{person.name.charAt(0)}</span>
+                  <div className="bg-card-dark p-8 h-full group hover:bg-accent/[0.04] transition-colors duration-400 flex flex-col">
+                    <div className="w-20 h-20 rounded-md bg-gradient-to-br from-accent/30 to-accent/5 border border-accent/20 flex items-center justify-center mb-5">
+                      <span className="font-heading text-3xl font-black text-accent-light">{person.initial}</span>
                     </div>
-                    <h3 className="font-heading text-base font-bold text-text-light mb-1">{person.name}</h3>
-                    <p className="text-text-light-muted text-sm">{person.focus}</p>
+                    <h3 className="font-heading text-lg font-bold text-text-light mb-0.5">{person.name}</h3>
+                    <p className="text-accent-light text-sm font-semibold mb-2">{person.role}</p>
+                    <p className="text-text-light-muted text-xs mb-4 leading-relaxed">{person.bio}</p>
+                    <div className="mt-auto flex items-center justify-between pt-4 border-t border-card-dark-border">
+                      <span className="text-[10px] text-text-light-muted/70 uppercase tracking-widest">{person.focus}</span>
+                      <a
+                        href={person.linkedin}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="text-text-light-muted hover:text-accent-light transition-colors"
+                        aria-label={`${person.name} on LinkedIn`}
+                      >
+                        <LinkedInIcon size={14} />
+                      </a>
+                    </div>
                   </div>
                 </ScrollReveal>
               ))}
@@ -278,23 +320,45 @@ export default function AboutPage() {
           </div>
         </section>
 
-        {/* Certifications */}
+        {/* Certifications — distinct visual badges so nothing looks duplicated */}
         <section className="py-16 bg-white border-y border-card-light-border">
           <div className="max-w-[1400px] mx-auto px-6 lg:px-8">
-            <div className="flex flex-wrap justify-center items-center gap-x-12 gap-y-6">
-              {[
-                { logo: "/logos/iso.svg", label: "ISO 9001" },
-                { logo: "/logos/iso.svg", label: "ISO 27001" },
-                { logo: "/logos/aws-partner.svg", label: "AWS Partner" },
-                { logo: "/logos/google-cloud.svg", label: "Google Cloud" },
-                { logo: "/logos/clutch.svg", label: "Clutch Top Dev" },
-              ].map((cert) => (
-                <div key={cert.label} className="flex items-center gap-3 group">
-                  <Image src={cert.logo} alt={cert.label} width={20} height={20} className="w-5 h-5 opacity-40 group-hover:opacity-80 transition-opacity" />
-                  <span className="text-sm text-text-dark-muted font-medium group-hover:text-text-dark transition-colors">{cert.label}</span>
-                </div>
-              ))}
+            <p className="text-xs text-accent uppercase tracking-[0.2em] font-semibold text-center mb-8">Compliance & Partnerships</p>
+            <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-px bg-card-light-border border border-card-light-border rounded-md overflow-hidden">
+              <div className="bg-white p-5 flex flex-col items-center text-center group hover:bg-light-primary transition-colors">
+                <div className="w-12 h-12 rounded-md bg-blue-50 border border-blue-100 text-blue-700 font-heading font-black text-[11px] flex items-center justify-center mb-3 tracking-tight">9001</div>
+                <p className="text-xs font-semibold text-text-dark">ISO 9001:2015</p>
+                <p className="text-[10px] text-text-dark-muted uppercase tracking-widest mt-0.5">Quality · Aligned</p>
+              </div>
+              <div className="bg-white p-5 flex flex-col items-center text-center group hover:bg-light-primary transition-colors">
+                <div className="w-12 h-12 rounded-md bg-red-50 border border-red-100 text-red-700 font-heading font-black text-[11px] flex items-center justify-center mb-3 tracking-tight">27001</div>
+                <p className="text-xs font-semibold text-text-dark">ISO 27001</p>
+                <p className="text-[10px] text-text-dark-muted uppercase tracking-widest mt-0.5">InfoSec · Aligned</p>
+              </div>
+              <div className="bg-white p-5 flex flex-col items-center text-center group hover:bg-light-primary transition-colors">
+                <Image src="/logos/aws-partner.svg" alt="AWS Partner" width={32} height={32} className="w-8 h-8 mb-3 opacity-80" />
+                <p className="text-xs font-semibold text-text-dark">AWS Partner</p>
+                <p className="text-[10px] text-text-dark-muted uppercase tracking-widest mt-0.5">Technology</p>
+              </div>
+              <div className="bg-white p-5 flex flex-col items-center text-center group hover:bg-light-primary transition-colors">
+                <Image src="/logos/google-cloud.svg" alt="Google Cloud" width={32} height={32} className="w-8 h-8 mb-3 opacity-80" />
+                <p className="text-xs font-semibold text-text-dark">Google Cloud</p>
+                <p className="text-[10px] text-text-dark-muted uppercase tracking-widest mt-0.5">Partner</p>
+              </div>
+              <div className="bg-white p-5 flex flex-col items-center text-center group hover:bg-light-primary transition-colors">
+                <Image src="/logos/clutch.svg" alt="Clutch" width={32} height={32} className="w-8 h-8 mb-3 opacity-80" />
+                <p className="text-xs font-semibold text-text-dark">Clutch</p>
+                <p className="text-[10px] text-text-dark-muted uppercase tracking-widest mt-0.5">Top B2B</p>
+              </div>
+              <div className="bg-white p-5 flex flex-col items-center text-center group hover:bg-light-primary transition-colors">
+                <Image src="/logos/goodfirms.svg" alt="GoodFirms" width={32} height={32} className="w-8 h-8 mb-3 opacity-80" />
+                <p className="text-xs font-semibold text-text-dark">GoodFirms</p>
+                <p className="text-[10px] text-text-dark-muted uppercase tracking-widest mt-0.5">Verified</p>
+              </div>
             </div>
+            <p className="text-[11px] text-text-dark-muted text-center mt-5 max-w-2xl mx-auto">
+              Our processes are aligned to ISO 9001 and ISO 27001 standards. Full certification audits are in progress — references and audit documentation available on request.
+            </p>
           </div>
         </section>
 

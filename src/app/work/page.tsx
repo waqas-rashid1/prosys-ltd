@@ -1,9 +1,9 @@
 import type { Metadata } from "next";
+import Link from "next/link";
 import Image from "next/image";
-import { ArrowUpRight } from "lucide-react";
+import { ArrowUpRight, MapPin, Calendar, ArrowRight } from "lucide-react";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
-import FinalCTA from "@/components/FinalCTA";
 import ScrollReveal from "@/components/ui/ScrollReveal";
 import { caseStudies } from "@/lib/constants";
 
@@ -12,43 +12,48 @@ export const metadata: Metadata = {
   description: "Explore PROSYS LTD's portfolio — SaaS platforms, AI integrations, MVPs, web applications, and digital transformation projects.",
 };
 
-const allProjects = [
-  ...caseStudies,
+// Additional (summary-only) engagements we can show alongside full case studies.
+const additionalProjects = [
   {
     category: "Web Development",
     title: "Multi-Vendor Marketplace Platform",
+    client: "Retail tech, Saudi Arabia",
+    year: "2025",
     description: "A full-featured marketplace with vendor onboarding, payment splitting, and real-time inventory serving 200+ sellers.",
     tags: ["Next.js", "Stripe Connect", "Redis", "PostgreSQL"],
     metric: "200+ vendors",
+    image: "/images/service-digital.jpg",
   },
   {
     category: "AI Development",
     title: "Legal Document Analysis Engine",
+    client: "Legal tech, UK",
+    year: "2025",
     description: "An AI platform that analyzes contracts, extracts clauses, and identifies risks — saving lawyers 15+ hours per week.",
     tags: ["Python", "LangChain", "GPT-4", "FastAPI"],
     metric: "15hrs/week saved",
+    image: "/images/service-data.jpg",
   },
   {
     category: "Digital Marketing",
     title: "D2C Brand Growth Campaign",
+    client: "D2C brand, Germany",
+    year: "2025",
     description: "Full-funnel strategy across Meta, Google, and email that achieved 420% ROAS for a direct-to-consumer brand.",
     tags: ["Google Ads", "Meta Ads", "Klaviyo", "SEO"],
     metric: "420% ROAS",
+    image: "/images/service-cloud.jpg",
   },
   {
     category: "SaaS Platform",
     title: "HR Management SaaS",
+    client: "HR SaaS, Pakistan",
+    year: "2024",
     description: "Multi-tenant HR platform with payroll, leave tracking, and performance reviews — now serving 50+ companies.",
     tags: ["React", "Node.js", "Stripe", "AWS"],
     metric: "50+ companies",
+    image: "/images/service-bps.jpg",
   },
-];
-
-const projectImages = [
-  "/images/case-saas.jpg", "/images/case-health.jpg",
-  "/images/case-automation.jpg", "/images/case-web.jpg",
-  "/images/service-digital.jpg", "/images/service-data.jpg",
-  "/images/service-cloud.jpg", "/images/service-bps.jpg",
 ];
 
 export default function WorkPage() {
@@ -79,7 +84,7 @@ export default function WorkPage() {
               {[
                 { val: "50+", label: "Projects" },
                 { val: "30+", label: "Clients" },
-                { val: "6", label: "Countries" },
+                { val: "12+", label: "Countries" },
                 { val: "4-8 wk", label: "Avg. MVP" },
               ].map((s) => (
                 <div key={s.label} className="text-center">
@@ -91,47 +96,113 @@ export default function WorkPage() {
           </div>
         </section>
 
-        {/* Projects */}
+        {/* Featured detailed case studies */}
         <section className="py-14 lg:py-20 bg-light-primary">
           <div className="max-w-[1400px] mx-auto px-6 lg:px-8">
+            <ScrollReveal>
+              <div className="flex items-end justify-between mb-10">
+                <div>
+                  <p className="text-xs text-accent uppercase tracking-[0.2em] font-medium mb-3">In-depth Case Studies</p>
+                  <h2 className="font-heading text-3xl md:text-4xl font-bold text-text-dark">Read the full story</h2>
+                </div>
+                <p className="text-sm text-text-dark-muted hidden md:block">{caseStudies.length} deep-dives</p>
+              </div>
+            </ScrollReveal>
+
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-              {allProjects.map((p, i) => (
-                <ScrollReveal key={p.title} delay={i * 0.06}>
-                  <div className="group bg-white border border-card-light-border overflow-hidden hover:shadow-xl hover:shadow-black/[0.04] transition-all duration-500 h-full flex flex-col">
-                    <div className="relative h-52 overflow-hidden">
-                      <Image src={projectImages[i % projectImages.length]} alt={p.title} fill className="object-cover group-hover:scale-105 transition-transform duration-700" sizes="50vw" />
-                      <div className="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent" />
-                      <div className="absolute top-4 left-4">
-                        <span className="px-2.5 py-1 text-[10px] font-semibold bg-accent text-white uppercase tracking-wider">{p.category}</span>
-                      </div>
-                      <ArrowUpRight size={16} className="absolute top-4 right-4 text-white/30 group-hover:text-white transition-colors" />
-                    </div>
-                    <div className="p-7 flex flex-col flex-grow">
-                      <h3 className="font-heading text-xl font-bold text-text-dark mb-3 group-hover:text-accent transition-colors">{p.title}</h3>
-                      <p className="text-text-dark-muted text-sm leading-relaxed mb-5 flex-grow">{p.description}</p>
-                      <div className="flex items-center justify-between pt-4 border-t border-card-light-border">
-                        <div className="flex items-center gap-2">
-                          <span className="h-1.5 w-1.5 rounded-full bg-accent" />
-                          <span className="text-sm font-semibold text-accent">{p.metric}</span>
+              {caseStudies.map((p, i) => (
+                <ScrollReveal key={p.slug} delay={i * 0.06}>
+                  <Link href={`/work/${p.slug}`} className="group block h-full">
+                    <div className="bg-white border border-card-light-border overflow-hidden hover:shadow-xl hover:shadow-black/[0.04] hover:border-accent/30 transition-all duration-500 h-full flex flex-col">
+                      <div className="relative h-52 overflow-hidden">
+                        <Image src={p.image} alt={p.title} fill className="object-cover group-hover:scale-105 transition-transform duration-700" sizes="50vw" />
+                        <div className="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent" />
+                        <div className="absolute top-4 left-4">
+                          <span className="px-2.5 py-1 text-[10px] font-semibold bg-accent text-white uppercase tracking-wider">{p.category}</span>
                         </div>
-                        <div className="flex gap-2">
-                          {p.tags.slice(0, 2).map((t) => (
-                            <span key={t} className="text-[11px] text-text-dark-muted">{t}</span>
-                          ))}
+                        <ArrowUpRight size={16} className="absolute top-4 right-4 text-white/50 group-hover:text-white transition-colors" />
+                      </div>
+                      <div className="p-7 flex flex-col flex-grow">
+                        <div className="flex items-center gap-4 mb-3 text-[11px] text-text-dark-muted">
+                          <span className="flex items-center gap-1"><MapPin size={10} />{p.clientRegion}</span>
+                          <span className="flex items-center gap-1"><Calendar size={10} />{p.year}</span>
+                          <span>{p.client}</span>
+                        </div>
+                        <h3 className="font-heading text-xl font-bold text-text-dark mb-3 group-hover:text-accent transition-colors">{p.title}</h3>
+                        <p className="text-text-dark-muted text-sm leading-relaxed mb-5 flex-grow">{p.description}</p>
+                        <div className="flex items-center justify-between pt-4 border-t border-card-light-border">
+                          <div className="flex items-center gap-2">
+                            <span className="h-1.5 w-1.5 rounded-full bg-accent" />
+                            <span className="text-sm font-semibold text-accent">{p.metric}</span>
+                          </div>
+                          <span className="inline-flex items-center gap-1.5 text-xs font-semibold text-accent group-hover:gap-2.5 transition-all">
+                            View Case Study <ArrowRight size={12} />
+                          </span>
                         </div>
                       </div>
                     </div>
-                  </div>
+                  </Link>
                 </ScrollReveal>
               ))}
             </div>
           </div>
         </section>
 
-        <FinalCTA
-          eyebrow="Have a project in mind?"
-          title="Let's discuss how we can bring your idea to life."
-        />
+        {/* Additional engagements (summary cards) */}
+        <section className="py-14 lg:py-20 bg-white border-t border-card-light-border">
+          <div className="max-w-[1400px] mx-auto px-6 lg:px-8">
+            <ScrollReveal>
+              <div className="flex items-end justify-between mb-10">
+                <div>
+                  <p className="text-xs text-accent uppercase tracking-[0.2em] font-medium mb-3">More Engagements</p>
+                  <h2 className="font-heading text-3xl md:text-4xl font-bold text-text-dark">Selected highlights</h2>
+                </div>
+                <Link href="/contact" className="text-sm font-semibold text-accent hover:gap-2.5 inline-flex items-center gap-2 transition-all">
+                  Request full case pack <ArrowRight size={14} />
+                </Link>
+              </div>
+            </ScrollReveal>
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-px bg-card-light-border border border-card-light-border">
+              {additionalProjects.map((p, i) => (
+                <ScrollReveal key={p.title} delay={i * 0.05}>
+                  <div className="bg-white p-6 h-full">
+                    <p className="text-[10px] uppercase tracking-widest text-accent font-semibold mb-2">{p.category}</p>
+                    <h3 className="font-heading text-base font-bold text-text-dark mb-3 leading-snug">{p.title}</h3>
+                    <p className="text-text-dark-muted text-xs leading-relaxed mb-4">{p.description}</p>
+                    <div className="pt-4 border-t border-card-light-border text-[11px] text-text-dark-muted flex items-center justify-between">
+                      <span>{p.client} · {p.year}</span>
+                      <span className="font-semibold text-accent">{p.metric}</span>
+                    </div>
+                  </div>
+                </ScrollReveal>
+              ))}
+            </div>
+
+            <p className="text-center text-sm text-text-dark-muted mt-10">
+              50+ projects delivered · Some under NDA. Request a full case pack via <Link href="/contact" className="text-accent font-semibold hover:underline">our contact form</Link>.
+            </p>
+          </div>
+        </section>
+
+        {/* CTA (fixed self-reference) */}
+        <section className="py-20 bg-dark-primary">
+          <div className="max-w-[1400px] mx-auto px-6 lg:px-12">
+            <div className="max-w-3xl">
+              <p className="text-xs text-accent-light uppercase tracking-[0.2em] font-medium mb-4">Have a project in mind?</p>
+              <h2 className="font-heading text-3xl md:text-4xl lg:text-5xl font-bold text-text-light mb-6 leading-tight">
+                Let&apos;s discuss how we can bring your idea to life.
+              </h2>
+              <div className="flex flex-wrap gap-4">
+                <Link href="/contact" className="inline-flex items-center justify-center gap-2 font-medium rounded-md gradient-bg text-white hover:shadow-lg hover:shadow-accent/20 px-8 py-3.5 text-sm uppercase tracking-widest transition-all duration-300">
+                  Discuss a Project <ArrowRight size={14} />
+                </Link>
+                <Link href="/services" className="inline-flex items-center justify-center gap-2 font-medium rounded-md border border-white/20 text-white/70 hover:text-white hover:border-white/40 px-8 py-3.5 text-sm uppercase tracking-widest transition-all duration-300">
+                  Browse Services
+                </Link>
+              </div>
+            </div>
+          </div>
+        </section>
       </main>
       <Footer />
     </>

@@ -1,33 +1,210 @@
 import type { Metadata } from "next";
 import Image from "next/image";
-import { Briefcase, Heart, Globe, Zap, GraduationCap, Coffee, MapPin, Clock, ArrowRight, Search } from "lucide-react";
+import Link from "next/link";
+import {
+  Briefcase, Heart, Globe, Zap, GraduationCap, Coffee, MapPin, Clock,
+  ArrowRight, DollarSign, Users2, Quote,
+} from "lucide-react";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import ScrollReveal from "@/components/ui/ScrollReveal";
 
 export const metadata: Metadata = {
   title: "Careers",
-  description: "Join PROSYS LTD — we're hiring engineers, designers, and growth specialists. Remote-friendly, high-impact work.",
+  description: "Join PROSYS LTD — we're hiring engineers, designers, and growth specialists. Remote-friendly, high-impact work, competitive compensation.",
 };
 
 const perks = [
   { icon: Zap, title: "High-Impact Work", desc: "Ship products used by thousands. Every project moves the needle." },
   { icon: Globe, title: "Remote-Friendly", desc: "Work from anywhere. We care about output, not office hours." },
   { icon: Heart, title: "Growth Culture", desc: "Learning budgets, mentorship, and a culture that pushes you forward." },
-  { icon: Briefcase, title: "Competitive Pay", desc: "Market-rate salaries with performance bonuses." },
-  { icon: GraduationCap, title: "Upskilling", desc: "Courses, conferences, certifications — we invest in you." },
-  { icon: Coffee, title: "Flexible Hours", desc: "Async-first. Own your schedule, align with your team." },
+  { icon: Briefcase, title: "Competitive Pay", desc: "Market-rate salaries with performance bonuses and equity for senior roles." },
+  { icon: GraduationCap, title: "Upskilling", desc: "$1,200/year learning budget. Courses, conferences, and certifications covered." },
+  { icon: Coffee, title: "Flexible Hours", desc: "Async-first. Own your schedule, align with your team. 25 days PTO + public holidays." },
 ];
 
 const openRoles = [
-  { title: "Senior Full-Stack Engineer", dept: "Engineering", type: "Full-time", location: "Remote / Lahore", tags: ["Next.js", "Node.js", "PostgreSQL"] },
-  { title: "AI/ML Engineer", dept: "AI & Data", type: "Full-time", location: "Remote", tags: ["Python", "LangChain", "OpenAI"] },
-  { title: "Frontend Engineer", dept: "Engineering", type: "Full-time", location: "Remote / Lahore", tags: ["React", "TypeScript"] },
-  { title: "UI/UX Designer", dept: "Design", type: "Full-time", location: "Remote", tags: ["Figma", "Design Systems"] },
-  { title: "SEO & Content Strategist", dept: "Growth", type: "Full-time", location: "Remote", tags: ["SEO", "Content"] },
-  { title: "DevOps Engineer", dept: "Engineering", type: "Full-time", location: "Remote", tags: ["AWS", "Docker"] },
-  { title: "Business Development Manager", dept: "Sales", type: "Full-time", location: "Lahore", tags: ["B2B", "SaaS"] },
-  { title: "Project Manager", dept: "Operations", type: "Full-time", location: "Remote / Lahore", tags: ["Agile", "Scrum"] },
+  {
+    title: "Senior Full-Stack Engineer",
+    dept: "Engineering",
+    type: "Full-time",
+    location: "Remote / Lahore",
+    experience: "5+ years",
+    salary: "PKR 400K – 650K / month",
+    tags: ["Next.js", "Node.js", "PostgreSQL"],
+    responsibilities: [
+      "Architect and ship production features end-to-end",
+      "Lead code reviews and mentor mid-level engineers",
+      "Own technical design for greenfield products",
+    ],
+    requirements: [
+      "5+ years shipping React/Next.js and Node.js in production",
+      "Deep PostgreSQL + distributed systems experience",
+      "Track record of owning features from spec to prod",
+    ],
+    process: "CV screen → Technical take-home → 2 interviews → Offer (2 weeks total)",
+  },
+  {
+    title: "AI/ML Engineer",
+    dept: "AI & Data",
+    type: "Full-time",
+    location: "Remote",
+    experience: "3+ years",
+    salary: "PKR 350K – 550K / month",
+    tags: ["Python", "LangChain", "OpenAI"],
+    responsibilities: [
+      "Design and ship LLM-powered features in production",
+      "Build evaluation harnesses and model-routing strategies",
+      "Own cost optimization and latency budgets",
+    ],
+    requirements: [
+      "3+ years Python + ML in production",
+      "Hands-on with LangChain, OpenAI, vector DBs",
+      "Strong systems fundamentals",
+    ],
+    process: "CV screen → Live coding + ML review → 2 interviews → Offer",
+  },
+  {
+    title: "Frontend Engineer",
+    dept: "Engineering",
+    type: "Full-time",
+    location: "Remote / Lahore",
+    experience: "2+ years",
+    salary: "PKR 220K – 380K / month",
+    tags: ["React", "TypeScript"],
+    responsibilities: [
+      "Build pixel-perfect, accessible UIs in Next.js + Tailwind",
+      "Own component library quality bar",
+      "Collaborate tightly with design",
+    ],
+    requirements: [
+      "2+ years React/TypeScript in production",
+      "Strong CSS + responsive/accessibility fundamentals",
+      "Obsessive about UX polish",
+    ],
+    process: "CV screen → Take-home → 2 interviews → Offer",
+  },
+  {
+    title: "UI/UX Designer",
+    dept: "Design",
+    type: "Full-time",
+    location: "Remote",
+    experience: "3+ years",
+    salary: "PKR 250K – 450K / month",
+    tags: ["Figma", "Design Systems"],
+    responsibilities: [
+      "Own product design from discovery to ship",
+      "Build and maintain design systems",
+      "Partner with engineering on component primitives",
+    ],
+    requirements: [
+      "3+ years shipping B2B/SaaS product design",
+      "Figma + design system proficiency",
+      "Portfolio showing system thinking, not just pretty pixels",
+    ],
+    process: "Portfolio review → Design exercise → 2 interviews → Offer",
+  },
+  {
+    title: "SEO & Content Strategist",
+    dept: "Growth",
+    type: "Full-time",
+    location: "Remote",
+    experience: "3+ years",
+    salary: "PKR 220K – 380K / month",
+    tags: ["SEO", "Content"],
+    responsibilities: [
+      "Own technical + on-page SEO strategy for clients",
+      "Build content clusters that rank and convert",
+      "Drive AIEO (AI search) playbooks",
+    ],
+    requirements: [
+      "3+ years shipping measurable SEO growth",
+      "Proficient with GSC, Ahrefs, SEMrush, Screaming Frog",
+      "Strong writing + editorial instincts",
+    ],
+    process: "CV screen → SEO audit exercise → 2 interviews → Offer",
+  },
+  {
+    title: "DevOps Engineer",
+    dept: "Engineering",
+    type: "Full-time",
+    location: "Remote",
+    experience: "4+ years",
+    salary: "PKR 320K – 520K / month",
+    tags: ["AWS", "Docker", "Terraform"],
+    responsibilities: [
+      "Own infra-as-code across AWS/GCP",
+      "Harden CI/CD, observability, and incident response",
+      "Drive cost + reliability engineering",
+    ],
+    requirements: [
+      "4+ years SRE/DevOps in production",
+      "AWS + Terraform + Kubernetes proficient",
+      "Strong security instincts",
+    ],
+    process: "CV screen → Systems design interview → 2 interviews → Offer",
+  },
+  {
+    title: "Business Development Manager",
+    dept: "Sales",
+    type: "Full-time",
+    location: "Lahore",
+    experience: "4+ years",
+    salary: "PKR 250K – 400K / month + commission",
+    tags: ["B2B", "SaaS"],
+    responsibilities: [
+      "Own outbound pipeline for mid-market + enterprise",
+      "Qualify and scope inbound leads",
+      "Partner with delivery on proposals and SOWs",
+    ],
+    requirements: [
+      "4+ years B2B SaaS / services sales",
+      "Comfortable selling technical engagements",
+      "Polished written + verbal communication",
+    ],
+    process: "CV screen → Role-play call → 2 interviews → Offer",
+  },
+  {
+    title: "Project Manager",
+    dept: "Operations",
+    type: "Full-time",
+    location: "Remote / Lahore",
+    experience: "3+ years",
+    salary: "PKR 220K – 380K / month",
+    tags: ["Agile", "Scrum"],
+    responsibilities: [
+      "Own delivery across 3–5 concurrent client engagements",
+      "Keep scope, timeline, and margin healthy",
+      "Be the single throat to choke for clients",
+    ],
+    requirements: [
+      "3+ years managing software delivery",
+      "Fluent with Linear/Jira + async ops",
+      "Cool under pressure",
+    ],
+    process: "CV screen → Case exercise → 2 interviews → Offer",
+  },
+];
+
+const employeeVoices = [
+  {
+    quote:
+      "I've shipped more production code in 12 months at PROSYS than in the 3 years at my last company. Senior people, high trust, no meetings-theater.",
+    role: "Frontend Engineer",
+    tenure: "1.5 yrs",
+  },
+  {
+    quote:
+      "The learning budget is real. I took a paid week off to do a system-design intensive and the team covered my sprints. No other place I've worked does that.",
+    role: "AI/ML Engineer",
+    tenure: "2 yrs",
+  },
+  {
+    quote:
+      "Design is treated like product here, not decoration. I own problems, not pixels. Everyone from engineering to leadership actually cares about UX.",
+    role: "Product Designer",
+    tenure: "10 mo",
+  },
 ];
 
 export default function CareersPage() {
@@ -35,7 +212,7 @@ export default function CareersPage() {
     <>
       <Navbar />
       <main id="main-content">
-        {/* Hero with image */}
+        {/* Hero */}
         <section className="relative pt-32 pb-16 lg:pt-40 lg:pb-24 bg-dark-primary overflow-hidden">
           <div className="absolute inset-0">
             <Image src="/images/careers-hero.jpg" alt="Careers" fill className="object-cover opacity-20" sizes="100vw" />
@@ -92,61 +269,123 @@ export default function CareersPage() {
           </div>
         </section>
 
-        {/* Open Roles */}
+        {/* Employee Voices */}
+        <section className="py-14 lg:py-20 bg-white">
+          <div className="max-w-[1400px] mx-auto px-6 lg:px-8">
+            <ScrollReveal>
+              <p className="text-xs text-accent uppercase tracking-[0.2em] font-medium mb-4">Voices From The Team</p>
+              <h2 className="font-heading text-3xl md:text-4xl font-bold text-text-dark mb-12">What it&apos;s like to work here</h2>
+            </ScrollReveal>
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+              {employeeVoices.map((v, i) => (
+                <ScrollReveal key={i} delay={i * 0.08}>
+                  <div className="bg-light-primary border border-card-light-border rounded-md p-7 h-full flex flex-col">
+                    <Quote size={24} className="text-accent/30 mb-4" strokeWidth={1.5} />
+                    <p className="text-text-dark text-[15px] leading-relaxed flex-grow">&ldquo;{v.quote}&rdquo;</p>
+                    <div className="mt-5 pt-5 border-t border-card-light-border flex items-center justify-between">
+                      <p className="text-sm font-bold text-text-dark">{v.role}</p>
+                      <p className="text-xs text-text-dark-muted">{v.tenure}</p>
+                    </div>
+                  </div>
+                </ScrollReveal>
+              ))}
+            </div>
+          </div>
+        </section>
+
+        {/* Open Roles with salary + details */}
         <section className="py-14 lg:py-20 bg-dark-primary">
           <div className="max-w-[1400px] mx-auto px-6 lg:px-8">
             <ScrollReveal>
               <p className="text-xs text-accent-light uppercase tracking-[0.2em] font-medium mb-4">Open Positions</p>
               <h2 className="font-heading text-3xl md:text-4xl font-bold text-text-light mb-4">Join the Team</h2>
               <p className="text-text-light-muted mb-10">
-                Don&apos;t see a fit? Send your CV to <a href="mailto:careers@prosysltd.com" className="text-accent-light hover:underline">careers@prosysltd.com</a>
+                {openRoles.length} open roles across {new Set(openRoles.map(r => r.dept)).size} departments · Salary ranges transparent
               </p>
             </ScrollReveal>
 
-            <div className="space-y-px bg-card-dark-border">
+            <div className="space-y-4">
               {openRoles.map((role, i) => (
-                <ScrollReveal key={role.title} delay={i * 0.04}>
-                  <a href="mailto:careers@prosysltd.com" className="group flex flex-col sm:flex-row sm:items-center justify-between gap-4 p-6 bg-card-dark hover:bg-accent/[0.04] transition-colors">
-                    <div>
-                      <h3 className="font-heading text-base font-bold text-text-light group-hover:text-accent-light transition-colors mb-1">{role.title}</h3>
-                      <div className="flex flex-wrap gap-x-4 gap-y-1 text-xs text-text-light-muted">
-                        <span className="flex items-center gap-1"><Briefcase size={10} />{role.dept}</span>
-                        <span className="flex items-center gap-1"><Clock size={10} />{role.type}</span>
-                        <span className="flex items-center gap-1"><MapPin size={10} />{role.location}</span>
+                <ScrollReveal key={role.title} delay={i * 0.03}>
+                  <details className="group bg-card-dark border border-card-dark-border rounded-md overflow-hidden">
+                    <summary className="cursor-pointer list-none flex flex-col sm:flex-row sm:items-center justify-between gap-4 p-6 hover:bg-accent/[0.04] transition-colors">
+                      <div>
+                        <h3 className="font-heading text-base font-bold text-text-light group-open:text-accent-light transition-colors mb-1.5">
+                          {role.title}
+                        </h3>
+                        <div className="flex flex-wrap gap-x-4 gap-y-1.5 text-xs text-text-light-muted">
+                          <span className="flex items-center gap-1"><Briefcase size={10} />{role.dept}</span>
+                          <span className="flex items-center gap-1"><Clock size={10} />{role.type}</span>
+                          <span className="flex items-center gap-1"><MapPin size={10} />{role.location}</span>
+                          <span className="flex items-center gap-1"><Users2 size={10} />{role.experience}</span>
+                          <span className="flex items-center gap-1 text-accent-light font-semibold"><DollarSign size={10} />{role.salary}</span>
+                        </div>
+                      </div>
+                      <div className="flex items-center gap-3">
+                        <div className="flex gap-1.5 flex-wrap">
+                          {role.tags.map((t) => (
+                            <span key={t} className="px-2 py-0.5 text-[10px] border border-card-dark-border text-text-light-muted">{t}</span>
+                          ))}
+                        </div>
+                        <ArrowRight size={14} className="text-text-light-muted/40 group-open:rotate-90 transition-transform" />
+                      </div>
+                    </summary>
+
+                    <div className="p-6 pt-2 border-t border-card-dark-border grid grid-cols-1 md:grid-cols-2 gap-8">
+                      <div>
+                        <h4 className="text-[11px] uppercase tracking-widest text-accent-light font-semibold mb-3">What you&apos;ll do</h4>
+                        <ul className="space-y-2.5 text-sm text-text-light-muted">
+                          {role.responsibilities.map((r) => (
+                            <li key={r} className="flex items-start gap-2">
+                              <span className="mt-2 h-1 w-1 rounded-full bg-accent-light flex-shrink-0" />
+                              <span>{r}</span>
+                            </li>
+                          ))}
+                        </ul>
+                      </div>
+                      <div>
+                        <h4 className="text-[11px] uppercase tracking-widest text-accent-light font-semibold mb-3">What we&apos;re looking for</h4>
+                        <ul className="space-y-2.5 text-sm text-text-light-muted">
+                          {role.requirements.map((r) => (
+                            <li key={r} className="flex items-start gap-2">
+                              <span className="mt-2 h-1 w-1 rounded-full bg-accent-light flex-shrink-0" />
+                              <span>{r}</span>
+                            </li>
+                          ))}
+                        </ul>
+                      </div>
+                      <div className="md:col-span-2 flex flex-col sm:flex-row sm:items-center justify-between gap-4 pt-5 border-t border-card-dark-border">
+                        <p className="text-xs text-text-light-muted">
+                          <span className="text-accent-light font-semibold uppercase tracking-widest mr-2">Process:</span>
+                          {role.process}
+                        </p>
+                        <Link
+                          href={`/careers/apply?role=${encodeURIComponent(role.title)}`}
+                          className="inline-flex items-center gap-2 bg-white text-dark-primary hover:bg-accent hover:text-white font-semibold px-5 py-2.5 rounded-md text-xs uppercase tracking-widest transition-all"
+                        >
+                          Apply for this role <ArrowRight size={12} />
+                        </Link>
                       </div>
                     </div>
-                    <div className="flex items-center gap-3">
-                      <div className="flex gap-1.5">
-                        {role.tags.map((t) => (
-                          <span key={t} className="px-2 py-0.5 text-[10px] border border-card-dark-border text-text-light-muted">{t}</span>
-                        ))}
-                      </div>
-                      <ArrowRight size={14} className="text-text-light-muted/30 group-hover:text-accent-light transition-colors" />
-                    </div>
-                  </a>
+                  </details>
                 </ScrollReveal>
               ))}
             </div>
-
-            <p className="text-text-light-muted/40 text-sm mt-8 text-center">
-              {openRoles.length} open roles across {new Set(openRoles.map(r => r.dept)).size} departments
-            </p>
           </div>
         </section>
 
-        {/* CTA */}
+        {/* General CTA */}
         <section className="py-14 lg:py-20 bg-light-primary">
           <div className="max-w-[1400px] mx-auto px-6 lg:px-12">
             <ScrollReveal>
               <div className="max-w-2xl">
                 <h2 className="font-heading text-3xl md:text-4xl lg:text-5xl font-bold text-text-dark mb-6 leading-tight">
-                  Ready to build with a team that
-                  <span className="gradient-text"> delivers?</span>
+                  Don&apos;t see the role you&apos;re looking for?
                 </h2>
-                <p className="text-text-dark-muted text-lg mb-8">Send us your CV and let&apos;s have a conversation about your future.</p>
-                <a href="mailto:careers@prosysltd.com" className="inline-flex items-center justify-center font-medium rounded-md gradient-bg text-white hover:shadow-lg hover:shadow-accent/20 px-8 py-3.5 text-sm uppercase tracking-widest transition-all duration-300">
-                  Apply Now
-                </a>
+                <p className="text-text-dark-muted text-lg mb-8">We&apos;re always open to talking to great people. Send us your CV and tell us how you&apos;d contribute.</p>
+                <Link href="/careers/apply" className="inline-flex items-center justify-center gap-2 font-medium rounded-md gradient-bg text-white hover:shadow-lg hover:shadow-accent/20 px-8 py-3.5 text-sm uppercase tracking-widest transition-all duration-300">
+                  Apply Now <ArrowRight size={14} />
+                </Link>
               </div>
             </ScrollReveal>
           </div>

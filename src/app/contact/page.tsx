@@ -86,12 +86,36 @@ export default function ContactPage() {
                     <div className="relative">
                       <p className="text-[11px] uppercase tracking-widest text-accent-light font-semibold mb-3">Prefer to talk?</p>
                       <h3 className="font-heading text-2xl font-bold mb-3 leading-tight">Book a 30-min consultation.</h3>
-                      <p className="text-white/60 text-sm leading-relaxed mb-5">
+                      <p className="text-white/70 text-sm leading-relaxed mb-5">
                         Skip the form. Jump on a call with a senior engineer or strategist. We&apos;ll scope the opportunity and suggest an approach — no commitment.
                       </p>
-                      <a href={`mailto:${siteConfig.email}?subject=Consultation Request`} className="inline-flex items-center gap-2 text-sm font-semibold text-white border-b border-white/40 hover:border-white pb-0.5 transition-colors">
-                        {siteConfig.email}
-                      </a>
+                      <div className="space-y-2.5">
+                        <a
+                          href="https://cal.com/prosysltd/30min"
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="flex items-center justify-between gap-2 text-sm font-semibold text-dark-primary bg-white hover:bg-accent hover:text-white px-4 py-2.5 rounded-md transition-colors"
+                        >
+                          <span>Schedule on Cal.com</span>
+                          <span className="text-[11px] opacity-70">30 min</span>
+                        </a>
+                        <a
+                          href={`mailto:${siteConfig.email}?subject=Consultation Request`}
+                          className="flex items-center justify-between gap-2 text-sm font-semibold text-white border border-white/20 hover:border-accent hover:bg-accent/10 px-4 py-2.5 rounded-md transition-colors"
+                        >
+                          <span>Email us directly</span>
+                          <span className="text-[11px] opacity-70">24hr reply</span>
+                        </a>
+                        <a
+                          href={`https://wa.me/${siteConfig.phone.replace(/\D/g, "")}`}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="flex items-center justify-between gap-2 text-sm font-semibold text-white border border-white/20 hover:border-accent hover:bg-accent/10 px-4 py-2.5 rounded-md transition-colors"
+                        >
+                          <span>WhatsApp Business</span>
+                          <span className="text-[11px] opacity-70">Fastest</span>
+                        </a>
+                      </div>
                     </div>
                   </div>
 
@@ -122,6 +146,32 @@ export default function ContactPage() {
                       <li className="flex items-center gap-2"><span className="h-1 w-1 rounded-full bg-accent" /> 12+ countries served</li>
                       <li className="flex items-center gap-2"><span className="h-1 w-1 rounded-full bg-accent" /> Senior engineers only — no juniors</li>
                     </ul>
+                  </div>
+
+                  <div className="bg-white border border-card-light-border p-7 rounded-md">
+                    <h3 className="font-heading text-sm font-bold text-text-dark mb-2 uppercase tracking-wider">Headquarters</h3>
+                    <address className="not-italic text-sm text-text-dark-muted mb-4 leading-relaxed">
+                      PROSYS LTD<br />
+                      Gulberg III, Lahore 54660<br />
+                      Punjab, Pakistan
+                    </address>
+                    <div className="relative h-44 rounded-sm overflow-hidden border border-card-light-border">
+                      <iframe
+                        title="PROSYS LTD Headquarters, Lahore"
+                        src="https://www.google.com/maps?q=Gulberg%20III%2C%20Lahore%2C%20Pakistan&output=embed"
+                        className="absolute inset-0 w-full h-full"
+                        loading="lazy"
+                        referrerPolicy="no-referrer-when-downgrade"
+                      />
+                    </div>
+                    <a
+                      href="https://www.google.com/maps/search/?api=1&query=Gulberg+III+Lahore+Pakistan"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="mt-3 inline-flex items-center gap-1.5 text-xs font-semibold text-accent hover:underline"
+                    >
+                      Get directions →
+                    </a>
                   </div>
                 </div>
               </ScrollReveal>

@@ -4,6 +4,8 @@ import Footer from "@/components/Footer";
 import PageHero from "@/components/ui/PageHero";
 import FAQ from "@/components/FAQ";
 import CTABanner from "@/components/ui/CTABanner";
+import { ServiceFAQSchema, BreadcrumbSchema } from "@/components/schema/PageSchema";
+import { faq } from "@/lib/constants";
 
 export const metadata: Metadata = {
   title: "FAQ",
@@ -12,15 +14,24 @@ export const metadata: Metadata = {
 };
 
 export default function FAQPage() {
+  const faqSchemaItems = faq.map((f) => ({ q: f.question, a: f.answer }));
+
   return (
     <>
+      <ServiceFAQSchema faq={faqSchemaItems} />
+      <BreadcrumbSchema
+        crumbs={[
+          { label: "Home", path: "/" },
+          { label: "FAQ", path: "/faq" },
+        ]}
+      />
       <Navbar />
       <main id="main-content">
         <PageHero
           badge="FAQ"
           title="Got"
           highlight="Questions?"
-          description="Everything you need to know about working with PROSYS LTD. Can't find what you're looking for? Reach out directly."
+          description="Everything you need to know about working with PROSYS LTD — scope, pricing, IP ownership, process, and more."
         />
 
         <div className="bg-dark-secondary">

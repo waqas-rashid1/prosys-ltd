@@ -1,7 +1,6 @@
 "use client";
 
 import { useEffect, useRef, useState } from "react";
-import { useInView } from "framer-motion";
 
 type Props = {
   value: number;
@@ -19,11 +18,10 @@ export default function AnimatedCounter({
   className = "",
 }: Props) {
   const ref = useRef<HTMLSpanElement>(null);
-  const inView = useInView(ref, { once: true, margin: "-60px" });
   const [count, setCount] = useState(0);
+  const hasAnimated = useRef(false);
 
   useEffect(() => {
-    if (!inView) return;
     const prefersReduced =
       typeof window !== "undefined" &&
       window.matchMedia("(prefers-reduced-motion: reduce)").matches;
@@ -34,20 +32,64 @@ export default function AnimatedCounter({
     }
 
     let raf = 0;
-    const start = performance.now();
 
-    const tick = (now: number) => {
-      const elapsed = now - start;
-      const progress = Math.min(elapsed / duration, 1);
-      // easeOutExpo
-      const eased = progress === 1 ? 1 : 1 - Math.pow(2, -10 * progress);
-      setCount(Math.round(eased * value));
-      if (progress < 1) raf = requestAnimationFrame(tick);
+    const animate = () => {
+      if (hasAnimated.current) return;
+      hasAnimated.current = true;
+      const start = performance.now();
+
+      const tick = (now: number) => {
+        const elapsed = now - start;
+        const progress = Math.min(elapsed / duration, 1);
+        // easeOutExpo
+        const eased = progress === 1 ? 1 : 1 - Math.pow(2, -10 * progress);
+        setCount(Math.round(eased * value));
+        if (progress < 1) raf = requestAnimationFrame(tick);
+      };
+
+      raf = requestAnimationFrame(tick);
     };
 
-    raf = requestAnimationFrame(tick);
-    return () => cancelAnimationFrame(raf);
-  }, [inView, value, duration]);
+    const el = ref.current;
+    if (!el) {
+      animate();
+      return;
+    }
+
+    // If the element is already in view at mount, animate immediately.
+    const rect = el.getBoundingClientRect();
+    const viewportHeight = window.innerHeight || document.documentElement.clientHeight;
+    if (rect.top < viewportHeight && rect.bottom > 0) {
+      animate();
+      return;
+    }
+
+    // Otherwise use IntersectionObserver, with a hard safety timeout fallback
+    const observer = new IntersectionObserver(
+      (entries) => {
+        if (entries.some((e) => e.isIntersecting)) {
+          animate();
+          observer.disconnect();
+        }
+      },
+      { rootMargin: "0px 0px -60px 0px", threshold: 0.01 }
+    );
+    observer.observe(el);
+
+    // Safety net: force animation after 3 seconds so counters NEVER display 0 permanently.
+    const safety = window.setTimeout(() => {
+      if (!hasAnimated.current) {
+        animate();
+        observer.disconnect();
+      }
+    }, 3000);
+
+    return () => {
+      observer.disconnect();
+      window.clearTimeout(safety);
+      if (raf) cancelAnimationFrame(raf);
+    };
+  }, [value, duration]);
 
   return (
     <span ref={ref} className={className}>

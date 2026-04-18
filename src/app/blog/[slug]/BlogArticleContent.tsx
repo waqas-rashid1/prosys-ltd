@@ -2,17 +2,26 @@
 
 import Link from "next/link";
 import Image from "next/image";
-import { Calendar, Clock, ArrowLeft, ArrowRight, Share2, BookOpen } from "lucide-react";
+import { Calendar, Clock, ArrowLeft, ArrowRight } from "lucide-react";
 import { motion } from "framer-motion";
 import ScrollReveal from "@/components/ui/ScrollReveal";
+import ShareButtons from "@/components/ui/ShareButtons";
+import { LinkedInIcon } from "@/components/ui/SocialIcons";
 import { blogPosts } from "@/lib/blog-data";
+import { siteConfig } from "@/lib/constants";
 
 export default function BlogArticleContent({ slug }: { slug: string }) {
   const post = blogPosts.find((p) => p.slug === slug)!;
   const currentIndex = blogPosts.findIndex((p) => p.slug === slug);
   const prevPost = currentIndex > 0 ? blogPosts[currentIndex - 1] : null;
   const nextPost = currentIndex < blogPosts.length - 1 ? blogPosts[currentIndex + 1] : null;
-  const relatedPosts = blogPosts.filter((p) => p.slug !== slug).slice(0, 3);
+  // Related = same category first, then fill from others
+  const byCategory = blogPosts.filter((p) => p.slug !== slug && p.category === post.category);
+  const byOther = blogPosts.filter((p) => p.slug !== slug && p.category !== post.category);
+  const relatedPosts = [...byCategory, ...byOther].slice(0, 3);
+
+  const url = `${siteConfig.url}/blog/${post.slug}`;
+  const author = post.author;
 
   return (
     <main id="main-content">
@@ -25,15 +34,26 @@ export default function BlogArticleContent({ slug }: { slug: string }) {
           <div className="absolute bottom-0 left-0 right-0 z-10">
             <div className="max-w-[1400px] mx-auto px-6 lg:px-12 pb-12 lg:pb-16">
               <motion.div initial={{ opacity: 0, y: 30 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.7 }} className="max-w-3xl">
-                <Link href="/blog" className="inline-flex items-center gap-2 text-white/40 text-sm hover:text-white transition-colors mb-6">
+                <Link href="/blog" className="inline-flex items-center gap-2 text-white/50 text-sm hover:text-white transition-colors mb-6">
                   <ArrowLeft size={14} /> Back to Blog
                 </Link>
-                <div className="flex items-center gap-4 mb-5">
+                <div className="flex items-center gap-4 mb-5 flex-wrap">
                   <span className="px-3 py-1 text-[11px] font-semibold bg-accent text-white uppercase tracking-wider">{post.category}</span>
-                  <span className="flex items-center gap-1.5 text-white/50 text-xs"><Calendar size={12} />{post.date}</span>
-                  <span className="flex items-center gap-1.5 text-white/50 text-xs"><Clock size={12} />{post.readTime}</span>
+                  <span className="flex items-center gap-1.5 text-white/60 text-xs"><Calendar size={12} />{post.date}</span>
+                  <span className="flex items-center gap-1.5 text-white/60 text-xs"><Clock size={12} />{post.readTime}</span>
                 </div>
                 <h1 className="font-heading text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-bold text-white leading-[1.12]">{post.title}</h1>
+                {author && (
+                  <div className="mt-6 flex items-center gap-3">
+                    <div className="w-10 h-10 rounded-full bg-gradient-to-br from-accent/40 to-accent/10 border border-accent/30 flex items-center justify-center text-accent-light font-heading font-black">
+                      {author.initial}
+                    </div>
+                    <div>
+                      <p className="text-sm font-bold text-white">{author.name}</p>
+                      <p className="text-xs text-white/60">{author.role}</p>
+                    </div>
+                  </div>
+                )}
               </motion.div>
             </div>
           </div>
@@ -42,27 +62,33 @@ export default function BlogArticleContent({ slug }: { slug: string }) {
 
       {/* Article body */}
       <section className="bg-white">
-        <div className="max-w-[1400px] mx-auto px-6 lg:px-8">
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-0">
-            {/* Left sidebar */}
-            <div className="hidden lg:block lg:col-span-2 pt-16">
-              <motion.div initial={{ opacity: 0, x: -20 }} animate={{ opacity: 1, x: 0 }} transition={{ delay: 0.5 }} className="sticky top-28 space-y-6">
-                <div><p className="text-[10px] text-text-dark-muted uppercase tracking-widest mb-1">Category</p><p className="text-sm font-bold text-text-dark">{post.category}</p></div>
-                <div><p className="text-[10px] text-text-dark-muted uppercase tracking-widest mb-1">Published</p><p className="text-sm font-bold text-text-dark">{post.date}</p></div>
-                <div><p className="text-[10px] text-text-dark-muted uppercase tracking-widest mb-1">Read Time</p><p className="text-sm font-bold text-text-dark">{post.readTime}</p></div>
+        <div className="max-w-[1100px] mx-auto px-6 lg:px-8">
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-10">
+            {/* Left meta rail (no duplicate articles list) */}
+            <aside className="hidden lg:block lg:col-span-3 pt-16">
+              <div className="sticky top-28 space-y-6">
+                <div>
+                  <p className="text-[10px] text-text-dark-muted uppercase tracking-widest mb-1">Category</p>
+                  <p className="text-sm font-bold text-text-dark">{post.category}</p>
+                </div>
+                <div>
+                  <p className="text-[10px] text-text-dark-muted uppercase tracking-widest mb-1">Published</p>
+                  <p className="text-sm font-bold text-text-dark">{post.date}</p>
+                </div>
+                <div>
+                  <p className="text-[10px] text-text-dark-muted uppercase tracking-widest mb-1">Read Time</p>
+                  <p className="text-sm font-bold text-text-dark">{post.readTime}</p>
+                </div>
                 <div className="pt-4 border-t border-card-light-border">
                   <p className="text-[10px] text-text-dark-muted uppercase tracking-widest mb-3">Share</p>
-                  <div className="flex gap-2">
-                    <button className="w-8 h-8 border border-card-light-border flex items-center justify-center text-text-dark-muted hover:text-accent hover:border-accent transition-all cursor-pointer" aria-label="Share"><Share2 size={14} /></button>
-                    <button className="w-8 h-8 border border-card-light-border flex items-center justify-center text-text-dark-muted hover:text-accent hover:border-accent transition-all cursor-pointer" aria-label="Bookmark"><BookOpen size={14} /></button>
-                  </div>
+                  <ShareButtons title={post.title} url={url} />
                 </div>
-              </motion.div>
-            </div>
+              </div>
+            </aside>
 
             {/* Main content */}
-            <div className="lg:col-span-8 py-12 lg:py-16 lg:px-12 border-x border-card-light-border">
-              <motion.p initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.3 }} className="text-xl md:text-2xl text-text-dark font-light leading-relaxed mb-10 pb-10 border-b border-card-light-border">
+            <div className="lg:col-span-9 py-12 lg:py-16 lg:pl-10 border-l border-card-light-border">
+              <motion.p initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.2 }} className="text-xl md:text-2xl text-text-dark font-light leading-relaxed mb-10 pb-10 border-b border-card-light-border">
                 {post.excerpt}
               </motion.p>
               <article>
@@ -72,27 +98,34 @@ export default function BlogArticleContent({ slug }: { slug: string }) {
                   </motion.p>
                 ))}
               </article>
-              <motion.div initial={{ opacity: 0 }} whileInView={{ opacity: 1 }} viewport={{ once: true }} className="mt-14 pt-8 border-t border-card-light-border">
-                <div className="flex items-center gap-4">
-                  <div className="w-12 h-12 rounded-md gradient-bg flex items-center justify-center text-white font-heading font-bold">P</div>
-                  <div><p className="text-sm font-bold text-text-dark">PROSYS LTD Team</p><p className="text-xs text-text-dark-muted">Engineering & Strategy</p></div>
-                </div>
-              </motion.div>
-            </div>
 
-            {/* Right sidebar */}
-            <div className="hidden lg:block lg:col-span-2 pt-16">
-              <motion.div initial={{ opacity: 0, x: 20 }} animate={{ opacity: 1, x: 0 }} transition={{ delay: 0.5 }} className="sticky top-28">
-                <p className="text-[10px] text-text-dark-muted uppercase tracking-widest mb-4">More Articles</p>
-                <div className="space-y-4">
-                  {relatedPosts.map((r) => (
-                    <Link key={r.slug} href={`/blog/${r.slug}`} className="block group">
-                      <p className="text-xs font-bold text-text-dark group-hover:text-accent transition-colors leading-snug mb-0.5">{r.title}</p>
-                      <p className="text-[10px] text-text-dark-muted">{r.readTime}</p>
-                    </Link>
-                  ))}
+              {/* Author card */}
+              {author && (
+                <div className="mt-14 pt-8 border-t border-card-light-border">
+                  <div className="flex items-start gap-5 p-6 bg-light-primary rounded-md border border-card-light-border">
+                    <div className="w-14 h-14 rounded-md gradient-bg flex items-center justify-center text-white font-heading font-black text-xl flex-shrink-0">
+                      {author.initial}
+                    </div>
+                    <div className="flex-grow">
+                      <p className="text-sm font-bold text-text-dark">{author.name}</p>
+                      <p className="text-xs text-text-dark-muted mb-2">{author.role}</p>
+                      {author.linkedin && (
+                        <a
+                          href={author.linkedin}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="inline-flex items-center gap-1.5 text-xs text-accent hover:underline font-semibold"
+                        >
+                          <LinkedInIcon size={12} /> Connect on LinkedIn
+                        </a>
+                      )}
+                    </div>
+                    <div className="hidden sm:block">
+                      <ShareButtons title={post.title} url={url} />
+                    </div>
+                  </div>
                 </div>
-              </motion.div>
+              )}
             </div>
           </div>
         </div>

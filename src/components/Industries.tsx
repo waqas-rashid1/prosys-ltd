@@ -8,6 +8,7 @@ import { motion } from "framer-motion";
 import ScrollReveal from "./ui/ScrollReveal";
 
 type Industry = {
+  slug: string;
   icon: React.ElementType;
   title: string;
   description: string;
@@ -18,30 +19,34 @@ type Industry = {
 
 const industries: Industry[] = [
   {
+    slug: "fintech",
     icon: Landmark,
     title: "FinTech",
     description: "Secure, compliant platforms for payments, lending, trading, and financial analytics with bank-grade controls.",
     metric: { value: "PCI-aligned", label: "Security practices in every engagement" },
     tags: ["Payments", "KYC/AML", "Trading", "Lending"],
-    image: "/images/case-saas.jpg",
+    image: "/images/industry-fintech.jpg",
   },
   {
+    slug: "healthtech",
     icon: HeartPulse,
     title: "HealthTech",
     description: "HIPAA-aligned applications for telehealth, patient management, clinical workflows, and health data analytics.",
     metric: { value: "HIPAA-aligned", label: "Architectures built for regulated data" },
     tags: ["Telehealth", "EHR", "HIPAA", "Clinical"],
-    image: "/images/case-health.jpg",
+    image: "/images/industry-health.jpg",
   },
   {
+    slug: "ecommerce",
     icon: ShoppingCart,
     title: "E-Commerce & D2C",
     description: "Headless commerce, inventory systems, AI-powered recommendations, and omnichannel experiences that drive revenue.",
     metric: { value: "Conversion-first", label: "Every build is tuned for LTV & CVR" },
     tags: ["Headless", "Shopify", "CRO", "Omnichannel"],
-    image: "/images/case-web.jpg",
+    image: "/images/industry-ecom.jpg",
   },
   {
+    slug: "edtech",
     icon: GraduationCap,
     title: "EdTech",
     description: "Learning management systems, AI tutors, assessment platforms, and interactive content delivery for modern education.",
@@ -50,20 +55,22 @@ const industries: Industry[] = [
     image: "/images/case-automation.jpg",
   },
   {
+    slug: "real-estate",
     icon: Building2,
     title: "Real Estate",
     description: "Property listing platforms, CRM systems, virtual tours, and AI-powered valuation tools for the real estate industry.",
     metric: { value: "Agent-CRM", label: "Listings · CRM · Valuation in one stack" },
     tags: ["Listings", "CRM", "Virtual Tours", "Valuation"],
-    image: "/images/services-hero.jpg",
+    image: "/images/case-web.jpg",
   },
   {
+    slug: "saas-startups",
     icon: Briefcase,
     title: "Startups & SaaS",
     description: "From zero-to-one MVPs to scale-ready SaaS platforms — we are the technical co-founder startups wish they had.",
     metric: { value: "4-8 weeks", label: "Investor-ready MVP timeline" },
     tags: ["MVP", "Multi-tenant", "Billing", "Growth"],
-    image: "/images/service-cloud.jpg",
+    image: "/images/case-saas.jpg",
   },
 ];
 
@@ -102,7 +109,7 @@ export default function Industries() {
             const Icon = industry.icon;
             return (
               <ScrollReveal key={industry.title} delay={i * 0.06}>
-                <Link href="/industries" className="group block bg-white h-full relative overflow-hidden">
+                <Link href={`/industries/${industry.slug}`} className="group block bg-white h-full relative overflow-hidden">
                   {/* Image header */}
                   <div className="relative h-44 overflow-hidden bg-dark-primary">
                     <motion.div

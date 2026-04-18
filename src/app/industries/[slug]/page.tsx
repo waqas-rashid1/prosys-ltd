@@ -1,0 +1,198 @@
+import type { Metadata } from "next";
+import Link from "next/link";
+import Image from "next/image";
+import { notFound } from "next/navigation";
+import {
+  ArrowLeft, ArrowRight, Landmark, HeartPulse, ShoppingCart, GraduationCap,
+  Building2, Briefcase, Truck, PlaySquare, ShieldCheck, Cpu, Target,
+} from "lucide-react";
+import Navbar from "@/components/Navbar";
+import Footer from "@/components/Footer";
+import ScrollReveal from "@/components/ui/ScrollReveal";
+import { industries, caseStudies } from "@/lib/constants";
+import { BreadcrumbSchema } from "@/components/schema/PageSchema";
+
+const iconMap: Record<string, React.ElementType> = {
+  Landmark, HeartPulse, ShoppingCart, GraduationCap, Building2, Briefcase, Truck, PlaySquare,
+};
+
+export function generateStaticParams() {
+  return industries.map((ind) => ({ slug: ind.slug }));
+}
+
+export async function generateMetadata({
+  params,
+}: {
+  params: Promise<{ slug: string }>;
+}): Promise<Metadata> {
+  const { slug } = await params;
+  const industry = industries.find((i) => i.slug === slug);
+  if (!industry) return { title: "Industry Not Found" };
+  return {
+    title: `${industry.title} Software Development`,
+    description: industry.description,
+    openGraph: {
+      title: `${industry.title} Software Solutions | PROSYS LTD`,
+      description: industry.description,
+      images: [industry.image],
+    },
+  };
+}
+
+export default async function IndustryDetailPage({
+  params,
+}: {
+  params: Promise<{ slug: string }>;
+}) {
+  const { slug } = await params;
+  const industry = industries.find((i) => i.slug === slug);
+  if (!industry) notFound();
+
+  const Icon = iconMap[industry.icon] || Briefcase;
+  // Pick a couple of relevant case studies to surface
+  const relevantStudies = caseStudies.slice(0, 2);
+
+  return (
+    <>
+      <BreadcrumbSchema
+        crumbs={[
+          { label: "Home", path: "/" },
+          { label: "Industries", path: "/industries" },
+          { label: industry.title, path: `/industries/${industry.slug}` },
+        ]}
+      />
+      <Navbar />
+      <main id="main-content">
+        <section className="relative pt-32 pb-16 lg:pt-40 lg:pb-20 bg-dark-primary overflow-hidden">
+          <div className="absolute inset-0">
+            <Image src={industry.image} alt={industry.title} fill className="object-cover opacity-25" priority sizes="100vw" />
+            <div className="absolute inset-0 bg-gradient-to-b from-dark-primary/90 via-dark-primary/80 to-dark-primary" />
+          </div>
+          <div className="relative z-10 max-w-[1400px] mx-auto px-6 lg:px-12">
+            <Link href="/industries" className="inline-flex items-center gap-2 text-white/50 text-sm hover:text-white transition-colors mb-8">
+              <ArrowLeft size={14} /> All Industries
+            </Link>
+            <div className="flex items-center gap-4 mb-6">
+              <div className="w-14 h-14 rounded-md bg-white/10 border border-white/20 backdrop-blur-md flex items-center justify-center text-white">
+                <Icon size={24} />
+              </div>
+              <span className="px-3 py-1 text-[10px] font-semibold bg-accent text-white uppercase tracking-wider">Industry</span>
+            </div>
+            <h1 className="font-heading text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bold text-white leading-[1.08] mb-6">
+              {industry.title}
+              <span className="gradient-text"> Software Solutions.</span>
+            </h1>
+            <p className="text-lg md:text-xl text-text-light-muted leading-relaxed max-w-3xl">
+              {industry.description}
+            </p>
+          </div>
+        </section>
+
+        {/* Capabilities + Compliance */}
+        <section className="py-14 lg:py-20 bg-light-primary">
+          <div className="max-w-[1400px] mx-auto px-6 lg:px-8">
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-10">
+              <ScrollReveal>
+                <div className="bg-white border border-card-light-border rounded-md p-8">
+                  <div className="flex items-center gap-2 mb-5">
+                    <Target size={18} className="text-accent" />
+                    <h2 className="font-heading text-xl font-bold text-text-dark">Capabilities</h2>
+                  </div>
+                  <ul className="space-y-3">
+                    {industry.capabilities.map((c) => (
+                      <li key={c} className="flex items-start gap-3 pb-3 border-b border-card-light-border last:border-0 last:pb-0">
+                        <span className="mt-1.5 h-1.5 w-1.5 rounded-full bg-accent flex-shrink-0" />
+                        <span className="text-text-dark text-sm">{c}</span>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+              </ScrollReveal>
+
+              <ScrollReveal delay={0.1}>
+                <div className="bg-white border border-card-light-border rounded-md p-8">
+                  <div className="flex items-center gap-2 mb-5">
+                    <ShieldCheck size={18} className="text-accent" />
+                    <h2 className="font-heading text-xl font-bold text-text-dark">Compliance & Regulations</h2>
+                  </div>
+                  <ul className="space-y-3">
+                    {industry.compliance.map((c) => (
+                      <li key={c} className="flex items-start gap-3 pb-3 border-b border-card-light-border last:border-0 last:pb-0">
+                        <span className="mt-1.5 h-1.5 w-1.5 rounded-full bg-accent flex-shrink-0" />
+                        <span className="text-text-dark text-sm">{c}</span>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+              </ScrollReveal>
+            </div>
+          </div>
+        </section>
+
+        {/* Tech Stack */}
+        <section className="py-14 lg:py-20 bg-white border-t border-card-light-border">
+          <div className="max-w-[1400px] mx-auto px-6 lg:px-8">
+            <ScrollReveal>
+              <div className="flex items-center gap-2 mb-5">
+                <Cpu size={18} className="text-accent" />
+                <h2 className="font-heading text-xl font-bold text-text-dark">Reference Tech Stack</h2>
+              </div>
+              <div className="flex flex-wrap gap-3">
+                {industry.tech.map((t) => (
+                  <span key={t} className="px-4 py-2 text-sm border border-card-light-border rounded-md text-text-dark font-medium">
+                    {t}
+                  </span>
+                ))}
+              </div>
+            </ScrollReveal>
+          </div>
+        </section>
+
+        {/* Related case studies */}
+        <section className="py-14 lg:py-20 bg-light-primary border-t border-card-light-border">
+          <div className="max-w-[1400px] mx-auto px-6 lg:px-8">
+            <ScrollReveal>
+              <p className="text-xs text-accent uppercase tracking-[0.2em] font-medium mb-3">Relevant Work</p>
+              <h2 className="font-heading text-2xl md:text-3xl font-bold text-text-dark mb-10">Case studies in {industry.title}-adjacent sectors</h2>
+            </ScrollReveal>
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+              {relevantStudies.map((cs) => (
+                <Link key={cs.slug} href={`/work/${cs.slug}`} className="group block bg-white border border-card-light-border hover:border-accent/40 transition-colors">
+                  <div className="relative h-40 overflow-hidden">
+                    <Image src={cs.image} alt={cs.title} fill className="object-cover group-hover:scale-105 transition-transform duration-700" sizes="50vw" />
+                    <div className="absolute top-3 left-3">
+                      <span className="px-2 py-0.5 text-[10px] font-semibold bg-accent text-white uppercase tracking-wider">{cs.category}</span>
+                    </div>
+                  </div>
+                  <div className="p-6">
+                    <h3 className="font-heading text-base font-bold text-text-dark mb-2 group-hover:text-accent transition-colors leading-snug">{cs.title}</h3>
+                    <p className="text-text-dark-muted text-xs leading-relaxed">{cs.description}</p>
+                  </div>
+                </Link>
+              ))}
+            </div>
+          </div>
+        </section>
+
+        {/* Sector-specific CTA */}
+        <section className="py-14 lg:py-20 bg-dark-primary">
+          <div className="max-w-[1400px] mx-auto px-6 lg:px-12">
+            <div className="max-w-3xl">
+              <p className="text-xs text-accent-light uppercase tracking-[0.2em] font-medium mb-4">Ready to build in {industry.title}?</p>
+              <h2 className="font-heading text-3xl md:text-4xl lg:text-5xl font-bold text-text-light mb-6 leading-tight">
+                Let&apos;s scope your {industry.title} platform.
+              </h2>
+              <p className="text-text-light-muted text-lg mb-8 leading-relaxed">
+                Senior engineers, regulated-industry experience, and a process tuned for high-stakes delivery.
+              </p>
+              <Link href="/contact" className="inline-flex items-center gap-2 gradient-bg text-white hover:shadow-lg hover:shadow-accent/20 px-8 py-3.5 text-sm uppercase tracking-widest rounded-md font-medium transition-all">
+                Book a Call <ArrowRight size={14} />
+              </Link>
+            </div>
+          </div>
+        </section>
+      </main>
+      <Footer />
+    </>
+  );
+}

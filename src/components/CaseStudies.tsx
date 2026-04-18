@@ -6,13 +6,6 @@ import { ArrowRight } from "lucide-react";
 import { caseStudies } from "@/lib/constants";
 import ScrollReveal from "./ui/ScrollReveal";
 
-const caseImages = [
-  "/images/case-saas.jpg",
-  "/images/case-health.jpg",
-  "/images/case-automation.jpg",
-  "/images/case-web.jpg",
-];
-
 export default function CaseStudies() {
   const featured = caseStudies[0];
   const rest = caseStudies.slice(1);
@@ -36,9 +29,9 @@ export default function CaseStudies() {
 
         {/* Featured - full width cinematic card */}
         <ScrollReveal>
-          <Link href="/work" className="group block mb-8">
+          <Link href={`/work/${featured.slug}`} className="group block mb-8">
             <div className="relative h-72 md:h-[28rem] overflow-hidden">
-              <Image src={caseImages[0]} alt={featured.title} fill className="object-cover group-hover:scale-[1.03] transition-transform duration-1000" sizes="100vw" />
+              <Image src={featured.image} alt={featured.title} fill className="object-cover group-hover:scale-[1.03] transition-transform duration-1000" sizes="100vw" />
               <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/30 to-transparent" />
               <div className="absolute inset-0 bg-gradient-to-r from-black/50 to-transparent" />
 
@@ -74,9 +67,9 @@ export default function CaseStudies() {
         <div className="grid grid-cols-1 md:grid-cols-3 gap-px bg-card-light-border border border-card-light-border">
           {rest.map((study, i) => (
             <ScrollReveal key={study.title} delay={i * 0.08}>
-              <Link href="/work" className="group block bg-white hover:bg-light-primary transition-colors h-full">
+              <Link href={`/work/${study.slug}`} className="group block bg-white hover:bg-light-primary transition-colors h-full">
                 <div className="relative h-44 overflow-hidden">
-                  <Image src={caseImages[(i + 1) % caseImages.length]} alt={study.title} fill className="object-cover group-hover:scale-105 transition-transform duration-700" sizes="33vw" />
+                  <Image src={study.image} alt={study.title} fill className="object-cover group-hover:scale-105 transition-transform duration-700" sizes="33vw" />
                   <div className="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent" />
                   <div className="absolute top-4 left-4">
                     <span className="px-2.5 py-1 text-[10px] font-semibold bg-accent text-white uppercase tracking-wider">

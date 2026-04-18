@@ -1,3 +1,10 @@
+export interface BlogAuthor {
+  name: string;
+  role: string;
+  initial: string;
+  linkedin?: string;
+}
+
 export interface BlogPost {
   slug: string;
   category: string;
@@ -7,8 +14,35 @@ export interface BlogPost {
   readTime: string;
   image: string;
   content: string[];
-  author?: string;
+  author: BlogAuthor;
 }
+
+export const authors: Record<string, BlogAuthor> = {
+  faisal: {
+    name: "Faisal Rehman",
+    role: "Founder & CEO, PROSYS LTD",
+    initial: "F",
+    linkedin: "https://linkedin.com/in/prosysltd-ceo",
+  },
+  chaudhry: {
+    name: "Chaudhry Hassan",
+    role: "CTO, PROSYS LTD",
+    initial: "C",
+    linkedin: "https://linkedin.com/in/prosysltd-cto",
+  },
+  hira: {
+    name: "Hira Malik",
+    role: "Head of Design, PROSYS LTD",
+    initial: "H",
+    linkedin: "https://linkedin.com/in/prosysltd-design",
+  },
+  hamza: {
+    name: "Hamza Tariq",
+    role: "Head of Growth, PROSYS LTD",
+    initial: "H",
+    linkedin: "https://linkedin.com/in/prosysltd-growth",
+  },
+};
 
 export const blogPosts: BlogPost[] = [
   {
@@ -29,6 +63,7 @@ export const blogPosts: BlogPost[] = [
       "Measurement is key. Run structured queries across ChatGPT, Gemini, Perplexity, and Claude weekly. Track whether your brand is mentioned, in what context, and how the recommendations change over time. This is your AIEO audit — and it should be as regular as checking your Google rankings.",
       "The companies that invest in AIEO now will have a massive first-mover advantage. AI search is growing 40%+ year over year. By the time your competitors realize they need AIEO, you'll already own the conversation.",
     ],
+    author: authors.hamza,
   },
   {
     slug: "why-every-startup-needs-ai-strategy-2026",
@@ -47,6 +82,7 @@ export const blogPosts: BlogPost[] = [
       "Measure actual business impact, not AI metrics. Don't track model accuracy in isolation — track the business outcomes AI drives. Revenue increase? Time saved? Customer satisfaction improvement? Cost reduction? These are the numbers that matter to your board and your investors.",
       "The startups that will win in 2026 and beyond are the ones treating AI as a core competency, not a side project. Build your AI strategy now, start small, measure everything, and iterate fast. The compounding returns of early AI adoption are enormous.",
     ],
+    author: authors.faisal,
   },
   {
     slug: "mvp-to-scale-architecture-decisions",
@@ -66,6 +102,7 @@ export const blogPosts: BlogPost[] = [
       "Decision 6: CI/CD pipeline before your first production deploy. Automated testing and deployment isn't a luxury — it's how you maintain velocity as your team grows. A 15-minute pipeline setup saves hundreds of hours of manual deployment coordination.",
       "Decision 7: Observability is not optional. Set up error tracking (Sentry), application monitoring (Vercel Analytics or Datadog), and structured logging from day one. When things break in production — and they will — you need to know immediately and understand why.",
     ],
+    author: authors.chaudhry,
   },
   {
     slug: "technical-seo-playbook-nextjs-2026",
@@ -84,6 +121,7 @@ export const blogPosts: BlogPost[] = [
       "Canonical URLs prevent duplicate content penalties. Set them explicitly in your Metadata API for every page. This is especially important for pages with query parameters, pagination, or multiple URL paths to the same content.",
       "Internal linking architecture is the most underrated SEO lever. Create a clear hierarchy: homepage → category pages → individual pages. Use descriptive anchor text. Add related content links within blog posts. Build topic clusters around your key service areas.",
     ],
+    author: authors.hamza,
   },
   {
     slug: "multi-tenant-architecture-patterns-scale",
@@ -102,6 +140,7 @@ export const blogPosts: BlogPost[] = [
       "Tenant isolation testing is critical. Build automated tests that verify: Tenant A cannot access Tenant B's data via any API endpoint. Run these tests in CI/CD. One isolation bug can destroy customer trust instantly.",
       "Plan for the real costs. At 10 tenants, any approach works. At 100 tenants, operational complexity starts mattering. At 1,000 tenants, your database connection management, migration strategy, and monitoring infrastructure become critical. Design for where you want to be in 18 months, not where you are today.",
     ],
+    author: authors.chaudhry,
   },
   {
     slug: "building-ai-agents-production",
@@ -120,5 +159,6 @@ export const blogPosts: BlogPost[] = [
       "Build evaluation frameworks before you deploy. Define what 'correct' looks like for every agent action. Create test datasets with expected outputs. Run evaluations automatically in CI/CD. Track accuracy, latency, and cost per action over time. Without measurement, you're flying blind.",
       "Production monitoring must catch failures before users do. Log every agent decision with full context. Set up alerts for: accuracy drops, latency spikes, cost anomalies, and human escalation rate increases. Build dashboards that show agent performance trends. The moment an agent starts degrading, you need to know.",
     ],
+    author: authors.faisal,
   },
 ];

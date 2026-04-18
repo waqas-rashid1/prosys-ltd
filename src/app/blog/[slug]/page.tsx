@@ -50,7 +50,7 @@ export default async function BlogArticlePage({
         description={post.excerpt}
         slug={post.slug}
         date={post.date}
-        author={post.author}
+        author={post.author?.name}
         category={post.category}
       />
       <BreadcrumbSchema
