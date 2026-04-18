@@ -63,28 +63,40 @@ export default async function IndustryDetailPage({
       />
       <Navbar />
       <main id="main-content">
-        <section className="relative pt-32 pb-16 lg:pt-40 lg:pb-20 bg-dark-primary overflow-hidden">
-          <div className="absolute inset-0">
-            <Image src={industry.image} alt={industry.title} fill className="object-cover opacity-25" priority sizes="100vw" />
-            <div className="absolute inset-0 bg-gradient-to-b from-dark-primary/90 via-dark-primary/80 to-dark-primary" />
+        <section className="relative min-h-[92vh] lg:min-h-screen flex items-center bg-dark-primary overflow-hidden">
+          <div className="absolute inset-0 z-0" aria-hidden="true">
+            <Image src={industry.image} alt="" fill className="object-cover opacity-30" priority sizes="100vw" />
+            <div className="absolute inset-0 bg-gradient-to-r from-dark-primary via-dark-primary/90 to-dark-primary/40" />
+            <div className="absolute inset-0 bg-gradient-to-b from-dark-primary/60 via-transparent to-dark-primary" />
+            <div className="absolute top-1/3 left-1/4 w-[520px] h-[520px] rounded-full blur-[140px] opacity-60" style={{ background: "radial-gradient(circle, rgba(12,108,54,0.3) 0%, transparent 65%)" }} />
           </div>
-          <div className="relative z-10 max-w-[1400px] mx-auto px-6 lg:px-12">
-            <Link href="/industries" className="inline-flex items-center gap-2 text-white/50 text-sm hover:text-white transition-colors mb-8">
+          <div className="relative z-10 w-full max-w-[1400px] mx-auto px-6 lg:px-12 pt-32 pb-20 lg:pt-36 lg:pb-28">
+            <Link href="/industries" className="inline-flex items-center gap-2 text-white/50 text-sm hover:text-white transition-colors mb-10">
               <ArrowLeft size={14} /> All Industries
             </Link>
-            <div className="flex items-center gap-4 mb-6">
-              <div className="w-14 h-14 rounded-md bg-white/10 border border-white/20 backdrop-blur-md flex items-center justify-center text-white">
-                <Icon size={24} />
+            <div className="max-w-4xl">
+              <div className="flex items-center gap-4 mb-8">
+                <div className="w-14 h-14 rounded-md bg-white/10 border border-white/20 backdrop-blur-md flex items-center justify-center text-white">
+                  <Icon size={24} />
+                </div>
+                <span className="px-3 py-1 text-[10px] font-semibold bg-accent text-white uppercase tracking-wider rounded-sm">Industry Expertise</span>
               </div>
-              <span className="px-3 py-1 text-[10px] font-semibold bg-accent text-white uppercase tracking-wider">Industry</span>
+              <h1 className="font-heading text-5xl md:text-6xl lg:text-7xl xl:text-[5.5rem] font-black text-white leading-[1.04] tracking-tight mb-8">
+                {industry.title}
+                <br />
+                <span className="gradient-text">Software Solutions.</span>
+              </h1>
+              <p className="text-lg md:text-xl text-text-light-muted leading-relaxed max-w-3xl mb-10">
+                {industry.description}
+              </p>
+              <div className="flex flex-wrap gap-x-5 gap-y-2.5 text-sm text-text-light-muted/80">
+                {industry.compliance.slice(0, 4).map((c) => (
+                  <span key={c} className="flex items-center gap-2">
+                    <ShieldCheck size={13} className="text-accent-light" /> {c}
+                  </span>
+                ))}
+              </div>
             </div>
-            <h1 className="font-heading text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bold text-white leading-[1.08] mb-6">
-              {industry.title}
-              <span className="gradient-text"> Software Solutions.</span>
-            </h1>
-            <p className="text-lg md:text-xl text-text-light-muted leading-relaxed max-w-3xl">
-              {industry.description}
-            </p>
           </div>
         </section>
 

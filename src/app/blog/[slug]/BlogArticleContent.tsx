@@ -26,37 +26,38 @@ export default function BlogArticleContent({ slug }: { slug: string }) {
   return (
     <main id="main-content">
       {/* Hero image */}
-      <section className="relative pt-20">
-        <div className="relative h-[50vh] md:h-[60vh] lg:h-[70vh] overflow-hidden">
-          <Image src={post.image} alt={post.title} fill className="object-cover" priority sizes="100vw" />
-          <div className="absolute inset-0 bg-gradient-to-t from-dark-primary via-dark-primary/60 to-dark-primary/20" />
-          <div className="absolute inset-0 bg-gradient-to-r from-dark-primary/70 to-transparent" />
-          <div className="absolute bottom-0 left-0 right-0 z-10">
-            <div className="max-w-[1400px] mx-auto px-6 lg:px-12 pb-12 lg:pb-16">
-              <motion.div initial={{ opacity: 0, y: 30 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.7 }} className="max-w-3xl">
-                <Link href="/blog" className="inline-flex items-center gap-2 text-white/50 text-sm hover:text-white transition-colors mb-6">
-                  <ArrowLeft size={14} /> Back to Blog
-                </Link>
-                <div className="flex items-center gap-4 mb-5 flex-wrap">
-                  <span className="px-3 py-1 text-[11px] font-semibold bg-accent text-white uppercase tracking-wider">{post.category}</span>
-                  <span className="flex items-center gap-1.5 text-white/60 text-xs"><Calendar size={12} />{post.date}</span>
-                  <span className="flex items-center gap-1.5 text-white/60 text-xs"><Clock size={12} />{post.readTime}</span>
-                </div>
-                <h1 className="font-heading text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-bold text-white leading-[1.12]">{post.title}</h1>
-                {author && (
-                  <div className="mt-6 flex items-center gap-3">
-                    <div className="w-10 h-10 rounded-full bg-gradient-to-br from-accent/40 to-accent/10 border border-accent/30 flex items-center justify-center text-accent-light font-heading font-black">
-                      {author.initial}
-                    </div>
-                    <div>
-                      <p className="text-sm font-bold text-white">{author.name}</p>
-                      <p className="text-xs text-white/60">{author.role}</p>
-                    </div>
-                  </div>
-                )}
-              </motion.div>
+      <section className="relative min-h-[92vh] lg:min-h-screen flex items-end overflow-hidden bg-dark-primary">
+        <div className="absolute inset-0 z-0" aria-hidden="true">
+          <Image src={post.image} alt="" fill className="object-cover" priority sizes="100vw" />
+          <div className="absolute inset-0 bg-gradient-to-t from-dark-primary via-dark-primary/70 to-dark-primary/30" />
+          <div className="absolute inset-0 bg-gradient-to-r from-dark-primary/80 via-dark-primary/40 to-transparent" />
+        </div>
+        <div className="relative z-10 w-full max-w-[1400px] mx-auto px-6 lg:px-12 pt-32 pb-16 lg:pb-24">
+          <motion.div initial={{ opacity: 0, y: 30 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.7 }} className="max-w-4xl">
+            <Link href="/blog" className="inline-flex items-center gap-2 text-white/50 text-sm hover:text-white transition-colors mb-8">
+              <ArrowLeft size={14} /> Back to Blog
+            </Link>
+            <div className="flex items-center gap-4 mb-6 flex-wrap">
+              <span className="px-3 py-1 text-[11px] font-semibold bg-accent text-white uppercase tracking-wider rounded-sm">{post.category}</span>
+              <span className="flex items-center gap-1.5 text-white/60 text-xs"><Calendar size={12} />{post.date}</span>
+              <span className="flex items-center gap-1.5 text-white/60 text-xs"><Clock size={12} />{post.readTime}</span>
             </div>
-          </div>
+            <h1 className="font-heading text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-black text-white leading-[1.05] tracking-tight">{post.title}</h1>
+            {post.excerpt && (
+              <p className="mt-6 text-lg md:text-xl text-text-light-muted leading-relaxed max-w-3xl">{post.excerpt}</p>
+            )}
+            {author && (
+              <div className="mt-8 flex items-center gap-3">
+                <div className="w-11 h-11 rounded-full bg-gradient-to-br from-accent/40 to-accent/10 border border-accent/30 flex items-center justify-center text-accent-light font-heading font-black">
+                  {author.initial}
+                </div>
+                <div>
+                  <p className="text-sm font-bold text-white">{author.name}</p>
+                  <p className="text-xs text-white/60">{author.role}</p>
+                </div>
+              </div>
+            )}
+          </motion.div>
         </div>
       </section>
 

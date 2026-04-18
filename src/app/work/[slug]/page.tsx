@@ -59,23 +59,25 @@ export default async function CaseStudyDetailPage({
       <Navbar />
       <main id="main-content">
         {/* Hero */}
-        <section className="relative pt-32 pb-16 lg:pt-40 lg:pb-20 bg-dark-primary overflow-hidden">
-          <div className="absolute inset-0">
-            <Image src={study.image} alt={study.title} fill className="object-cover opacity-25" sizes="100vw" priority />
-            <div className="absolute inset-0 bg-gradient-to-b from-dark-primary/90 via-dark-primary/80 to-dark-primary" />
+        <section className="relative min-h-[92vh] lg:min-h-screen flex items-center bg-dark-primary overflow-hidden">
+          <div className="absolute inset-0 z-0" aria-hidden="true">
+            <Image src={study.image} alt="" fill className="object-cover opacity-30" sizes="100vw" priority />
+            <div className="absolute inset-0 bg-gradient-to-r from-dark-primary via-dark-primary/90 to-dark-primary/40" />
+            <div className="absolute inset-0 bg-gradient-to-b from-dark-primary/60 via-transparent to-dark-primary" />
+            <div className="absolute top-1/3 left-1/4 w-[500px] h-[500px] rounded-full blur-[140px] opacity-60" style={{ background: "radial-gradient(circle, rgba(12,108,54,0.3) 0%, transparent 65%)" }} />
           </div>
-          <div className="relative z-10 max-w-[1400px] mx-auto px-6 lg:px-12">
-            <Link href="/work" className="inline-flex items-center gap-2 text-white/50 text-sm hover:text-white transition-colors mb-8">
+          <div className="relative z-10 w-full max-w-[1400px] mx-auto px-6 lg:px-12 pt-32 pb-20 lg:pt-36 lg:pb-28">
+            <Link href="/work" className="inline-flex items-center gap-2 text-white/50 text-sm hover:text-white transition-colors mb-10">
               <ArrowLeft size={14} /> Back to all work
             </Link>
             <div className="max-w-4xl">
-              <span className="px-3 py-1 text-[10px] font-semibold bg-accent text-white uppercase tracking-wider mb-6 inline-block">
+              <span className="px-3 py-1 text-[10px] font-semibold bg-accent text-white uppercase tracking-wider mb-6 inline-block rounded-sm">
                 {study.category}
               </span>
-              <h1 className="font-heading text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bold text-white leading-[1.08] mb-6">
+              <h1 className="font-heading text-5xl md:text-6xl lg:text-7xl xl:text-[5.5rem] font-black text-white leading-[1.04] tracking-tight mb-8">
                 {study.title}
               </h1>
-              <p className="text-lg md:text-xl text-text-light-muted leading-relaxed max-w-3xl mb-10">
+              <p className="text-lg md:text-xl text-text-light-muted leading-relaxed max-w-3xl mb-12">
                 {study.description}
               </p>
 

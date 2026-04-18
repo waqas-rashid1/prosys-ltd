@@ -24,7 +24,7 @@ export default function BlogListing() {
   const rest = filtered.slice(1);
 
   return (
-    <>
+    <div id="articles" className="scroll-mt-20">
       {/* Featured */}
       {featured && (
         <section className="bg-light-primary">
@@ -150,6 +150,6 @@ export default function BlogListing() {
           )}
         </div>
       </section>
-    </>
+    </div>
   );
 }

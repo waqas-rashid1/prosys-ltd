@@ -8,6 +8,7 @@ import {
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import ScrollReveal from "@/components/ui/ScrollReveal";
+import PageHero from "@/components/ui/PageHero";
 
 export const metadata: Metadata = {
   title: "Careers",
@@ -213,24 +214,23 @@ export default function CareersPage() {
       <Navbar />
       <main id="main-content">
         {/* Hero */}
-        <section className="relative pt-32 pb-16 lg:pt-40 lg:pb-24 bg-dark-primary overflow-hidden">
-          <div className="absolute inset-0">
-            <Image src="/images/careers-hero.jpg" alt="Careers" fill className="object-cover opacity-20" sizes="100vw" />
-            <div className="absolute inset-0 bg-gradient-to-r from-dark-primary via-dark-primary/90 to-dark-primary/60" />
-          </div>
-          <div className="relative z-10 max-w-[1400px] mx-auto px-6 lg:px-12">
-            <div className="max-w-3xl">
-              <p className="text-xs text-accent-light uppercase tracking-[0.2em] font-medium mb-6">We&apos;re Hiring</p>
-              <h1 className="font-heading text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bold text-white leading-[1.1] mb-6">
-                Invest in your career,
-                <span className="gradient-text"> grow with us.</span>
-              </h1>
-              <p className="text-lg text-text-light-muted leading-relaxed max-w-2xl">
-                Join a team that ships real products for real clients. High-impact work, senior talent, and a culture that celebrates craft.
-              </p>
-            </div>
-          </div>
-        </section>
+        <PageHero
+          badge="We're Hiring"
+          title="Invest in your career,"
+          highlight="grow with us."
+          description="Join a team that ships real products for real clients. High-impact work, senior talent, and a culture that celebrates craft."
+          bgImage="/images/careers-hero.jpg"
+          bgImageOpacity={0.25}
+          trustSignals={["Remote-friendly", "Senior talent", "Equity for senior roles", "25 days PTO"]}
+          primaryCta={{ label: "View open roles", href: "#roles" }}
+          secondaryCta={{ label: "Submit a general CV", href: "/careers/apply" }}
+          stats={[
+            { value: `${openRoles.length}`, label: "Open Roles" },
+            { value: `${new Set(openRoles.map((r) => r.dept)).size}`, label: "Departments" },
+            { value: "Remote+", label: "Work Model" },
+            { value: "PKR 220K+", label: "Starting Salary" },
+          ]}
+        />
 
         {/* Team photos */}
         <section className="bg-white">
@@ -294,7 +294,7 @@ export default function CareersPage() {
         </section>
 
         {/* Open Roles with salary + details */}
-        <section className="py-14 lg:py-20 bg-dark-primary">
+        <section id="roles" className="py-14 lg:py-20 bg-dark-primary scroll-mt-20">
           <div className="max-w-[1400px] mx-auto px-6 lg:px-8">
             <ScrollReveal>
               <p className="text-xs text-accent-light uppercase tracking-[0.2em] font-medium mb-4">Open Positions</p>

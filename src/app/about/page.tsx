@@ -8,6 +8,7 @@ import {
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import ScrollReveal from "@/components/ui/ScrollReveal";
+import PageHero from "@/components/ui/PageHero";
 import { LinkedInIcon } from "@/components/ui/SocialIcons";
 import { stats } from "@/lib/constants";
 
@@ -73,22 +74,17 @@ export default function AboutPage() {
     <>
       <Navbar />
       <main id="main-content">
-        {/* Hero - editorial style */}
-        <section className="relative pt-32 pb-16 lg:pt-40 lg:pb-24 bg-dark-primary overflow-hidden">
-          <div className="absolute top-0 right-0 w-[40%] h-full bg-accent/[0.03] blur-[150px]" />
-          <div className="relative z-10 max-w-[1400px] mx-auto px-6 lg:px-12">
-            <div className="max-w-3xl">
-              <p className="text-xs text-accent-light uppercase tracking-[0.2em] font-medium mb-6">About PROSYS LTD</p>
-              <h1 className="font-heading text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bold text-white leading-[1.1] mb-6">
-                We build software that
-                <span className="gradient-text"> moves industries.</span>
-              </h1>
-              <p className="text-lg text-text-light-muted leading-relaxed max-w-2xl">
-                PROSYS LTD is a full-spectrum software development company. We combine senior engineering talent with strategic thinking to deliver platforms, products, and growth systems that create lasting business impact.
-              </p>
-            </div>
-          </div>
-        </section>
+        {/* Hero */}
+        <PageHero
+          badge="About PROSYS LTD"
+          title="We build software that"
+          highlight="moves industries."
+          description="PROSYS LTD is a full-spectrum software development company. We combine senior engineering talent with strategic thinking to deliver platforms, products, and growth systems that create lasting business impact."
+          trustSignals={["Founded 2024", "15+ senior specialists", "Global delivery", "ISO-aligned processes"]}
+          primaryCta={{ label: "Meet the team", href: "#leadership" }}
+          secondaryCta={{ label: "Start a project", href: "/contact" }}
+          stats={stats.map((s) => ({ value: `${s.value}${s.suffix}`, label: s.label }))}
+        />
 
         {/* Mission + Stats side by side */}
         <section className="py-28 lg:py-36 bg-light-primary">

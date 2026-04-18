@@ -9,6 +9,7 @@ import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import FinalCTA from "@/components/FinalCTA";
 import ScrollReveal from "@/components/ui/ScrollReveal";
+import PageHero from "@/components/ui/PageHero";
 import { industries } from "@/lib/constants";
 
 export const metadata: Metadata = {
@@ -25,24 +26,24 @@ export default function IndustriesPage() {
     <>
       <Navbar />
       <main id="main-content">
-        <section className="relative pt-32 pb-16 lg:pt-40 lg:pb-24 bg-dark-primary overflow-hidden">
-          <div className="absolute top-0 right-0 w-[40%] h-full bg-accent/[0.03] blur-[150px]" />
-          <div className="relative z-10 max-w-[1400px] mx-auto px-6 lg:px-12">
-            <div className="max-w-3xl">
-              <p className="text-xs text-accent-light uppercase tracking-[0.2em] font-medium mb-6">Industries</p>
-              <h1 className="font-heading text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bold text-white leading-[1.1] mb-6">
-                Domain expertise that
-                <span className="gradient-text"> delivers.</span>
-              </h1>
-              <p className="text-lg text-text-light-muted leading-relaxed max-w-2xl">
-                We understand the unique challenges, regulations, and opportunities within each sector we serve.
-              </p>
-            </div>
-          </div>
-        </section>
+        <PageHero
+          badge="Industries"
+          title="Domain expertise that"
+          highlight="delivers."
+          description="We understand the unique challenges, regulations, and opportunities within each sector we serve — from FinTech and HealthTech to Logistics and SaaS."
+          trustSignals={["HIPAA · PCI-DSS · GDPR", "SOC2-aligned", "Multi-region delivery"]}
+          primaryCta={{ label: "Explore industries", href: "#industries-grid" }}
+          secondaryCta={{ label: "Discuss your sector", href: "/contact" }}
+          stats={[
+            { value: `${industries.length}`, label: "Core Sectors" },
+            { value: "12+", label: "Countries" },
+            { value: "30+", label: "Active Clients" },
+            { value: "50+", label: "Engagements" },
+          ]}
+        />
 
         {/* Grid overview */}
-        <section className="py-14 lg:py-20 bg-light-primary">
+        <section id="industries-grid" className="py-14 lg:py-20 bg-light-primary scroll-mt-20">
           <div className="max-w-[1400px] mx-auto px-6 lg:px-8">
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-px bg-card-light-border border border-card-light-border rounded-md overflow-hidden">
               {industries.map((ind, i) => {

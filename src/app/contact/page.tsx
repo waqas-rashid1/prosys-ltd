@@ -1,9 +1,9 @@
 import type { Metadata } from "next";
-import Image from "next/image";
 import { Mail, Phone, MapPin, Globe } from "lucide-react";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import ScrollReveal from "@/components/ui/ScrollReveal";
+import PageHero from "@/components/ui/PageHero";
 import ContactForm from "@/components/ContactForm";
 import { siteConfig } from "@/lib/constants";
 
@@ -24,25 +24,24 @@ export default function ContactPage() {
     <>
       <Navbar />
       <main id="main-content">
-        {/* Hero with bg image */}
-        <section className="relative pt-32 pb-16 lg:pt-40 lg:pb-24 bg-dark-primary overflow-hidden">
-          <div className="absolute inset-0">
-            <Image src="/images/contact-hero.jpg" alt="Contact" fill className="object-cover opacity-15" sizes="100vw" />
-            <div className="absolute inset-0 bg-gradient-to-r from-dark-primary via-dark-primary/90 to-dark-primary/60" />
-          </div>
-          <div className="relative z-10 max-w-[1400px] mx-auto px-6 lg:px-12">
-            <div className="max-w-3xl">
-              <p className="text-xs text-accent-light uppercase tracking-[0.2em] font-medium mb-6">Get in Touch</p>
-              <h1 className="font-heading text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bold text-white leading-[1.1] mb-6">
-                Let&apos;s build
-                <span className="gradient-text"> together.</span>
-              </h1>
-              <p className="text-lg text-text-light-muted leading-relaxed max-w-2xl">
-                Have a project in mind? Need a technical partner? We respond within 24 hours.
-              </p>
-            </div>
-          </div>
-        </section>
+        {/* Hero */}
+        <PageHero
+          badge="Get in Touch"
+          title="Let's build"
+          highlight="together."
+          description="Have a project in mind? Need a technical partner? Senior consultants review every submission and respond within 24 hours."
+          bgImage="/images/contact-hero.jpg"
+          bgImageOpacity={0.18}
+          trustSignals={["24-hour response SLA", "NDA on request", "Global delivery", "Senior engineers only"]}
+          primaryCta={{ label: "Send a brief", href: "#contact-form" }}
+          secondaryCta={{ label: "Book a call", href: "https://cal.com/prosysltd/30min" }}
+          stats={[
+            { value: "<24h", label: "Response Time" },
+            { value: "12+", label: "Countries" },
+            { value: "50+", label: "Projects" },
+            { value: "99%", label: "Satisfaction" },
+          ]}
+        />
 
         {/* Contact methods strip */}
         <section className="py-10 bg-white border-b border-card-light-border">
@@ -67,7 +66,7 @@ export default function ContactPage() {
         </section>
 
         {/* Form section */}
-        <section className="py-14 lg:py-20 bg-light-primary">
+        <section id="contact-form" className="py-14 lg:py-20 bg-light-primary scroll-mt-20">
           <div className="max-w-[1400px] mx-auto px-6 lg:px-8">
             <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16">
               <ScrollReveal className="lg:col-span-7">

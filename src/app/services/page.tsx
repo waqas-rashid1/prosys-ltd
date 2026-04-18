@@ -19,6 +19,7 @@ import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import FinalCTA from "@/components/FinalCTA";
 import ScrollReveal from "@/components/ui/ScrollReveal";
+import PageHero from "@/components/ui/PageHero";
 import { servicesData } from "@/lib/services-data";
 
 export const metadata: Metadata = {
@@ -122,80 +123,24 @@ export default function ServicesPage() {
     <>
       <Navbar />
       <main id="main-content">
-        {/* ───────────────────────── Cinematic Hero (100vh) ───────────────────────── */}
-        <section className="relative min-h-[90vh] lg:min-h-screen flex items-center overflow-hidden bg-dark-primary">
-          <div className="absolute inset-0 z-0" aria-hidden="true">
-            <Image
-              src="/images/services-hero.jpg"
-              alt=""
-              fill
-              priority
-              sizes="100vw"
-              className="object-cover opacity-30"
-            />
-            <div className="absolute inset-0 bg-dark-primary/70" />
-            <div className="absolute inset-0 bg-gradient-to-r from-dark-primary via-dark-primary/85 to-dark-primary/30" />
-            <div className="absolute inset-0 bg-gradient-to-t from-dark-primary via-transparent to-dark-primary/60" />
-            <div
-              className="absolute top-1/2 right-0 w-[600px] h-[600px] pointer-events-none opacity-70"
-              style={{
-                background:
-                  "radial-gradient(circle, rgba(12,108,54,0.18) 0%, transparent 60%)",
-              }}
-            />
-            <div
-              className="absolute bottom-0 left-1/4 w-[400px] h-[400px] pointer-events-none opacity-60"
-              style={{
-                background:
-                  "radial-gradient(circle, rgba(52,211,153,0.1) 0%, transparent 70%)",
-              }}
-            />
-          </div>
-
-          <div className="relative z-10 max-w-[1400px] mx-auto px-6 lg:px-12 xl:px-16 w-full pt-32 pb-20 lg:pt-40 lg:pb-28">
-            <p className="text-xs text-accent-light uppercase tracking-[0.25em] font-semibold mb-6">
-              Capabilities
-            </p>
-
-            <h1 className="font-heading text-4xl leading-[1.05] sm:text-5xl md:text-6xl lg:text-7xl xl:text-[5.5rem] font-black mb-8 text-white tracking-tight max-w-4xl">
-              Four pillars.{" "}
-              <span className="gradient-text">One delivery standard.</span>
-            </h1>
-
-            <p className="max-w-2xl text-base sm:text-lg text-white/60 mb-12 leading-relaxed">
-              From strategy and product engineering to AI, cloud, and growth — PROSYS delivers 29 deep capabilities under a single delivery discipline.
-            </p>
-
-            <div className="flex flex-col sm:flex-row items-start gap-4 mb-16">
-              <Link
-                href="/contact"
-                className="inline-flex items-center justify-center gap-2 font-semibold rounded-md bg-white text-dark-primary hover:bg-accent hover:text-white px-8 py-4 text-sm uppercase tracking-widest transition-all duration-300"
-              >
-                Book a Consultation
-              </Link>
-              <Link
-                href="#pillars"
-                className="inline-flex items-center justify-center gap-2 font-medium rounded-md border border-white/25 text-white hover:border-white/60 px-8 py-4 text-sm uppercase tracking-widest transition-all duration-300"
-              >
-                Explore All 29
-              </Link>
-            </div>
-
-            {/* Proof points strip */}
-            <div className="flex flex-wrap gap-8 md:gap-16 pt-8 border-t border-white/10 max-w-3xl">
-              {proofPoints.map((p) => (
-                <div key={p.label}>
-                  <div className="font-heading text-2xl md:text-3xl font-bold text-white mb-1">
-                    {p.value}
-                  </div>
-                  <div className="text-[11px] text-white/40 uppercase tracking-widest">
-                    {p.label}
-                  </div>
-                </div>
-              ))}
-            </div>
-          </div>
-        </section>
+        {/* Cinematic Hero */}
+        <PageHero
+          badge="Capabilities"
+          title="Four pillars."
+          highlight="One delivery standard."
+          description="From strategy and product engineering to AI, cloud, and growth — PROSYS delivers 29 deep capabilities under a single delivery discipline."
+          bgImage="/images/services-hero.jpg"
+          bgImageOpacity={0.3}
+          trustSignals={[
+            "Senior engineers only",
+            "Fixed-scope, fixed-price",
+            "SOC2-aligned",
+            "24-hour response SLA",
+          ]}
+          primaryCta={{ label: "Book a consultation", href: "/contact" }}
+          secondaryCta={{ label: "Explore all 29", href: "#pillars" }}
+          stats={proofPoints.map((p) => ({ value: p.value, label: p.label }))}
+        />
 
         {/* ───────────────────────── Delivery Standards Strip ───────────────────────── */}
         <section className="bg-white border-b border-card-light-border">

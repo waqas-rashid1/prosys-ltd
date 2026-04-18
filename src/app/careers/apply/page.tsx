@@ -21,18 +21,40 @@ export default async function ApplyPage({
     <>
       <Navbar />
       <main id="main-content">
-        <section className="relative pt-32 pb-14 bg-dark-primary overflow-hidden">
-          <div className="max-w-[1100px] mx-auto px-6 lg:px-8">
-            <Link href="/careers" className="inline-flex items-center gap-2 text-white/50 text-sm hover:text-white transition-colors mb-6">
+        <section className="relative min-h-[80vh] lg:min-h-[90vh] flex items-center bg-dark-primary overflow-hidden">
+          <div className="absolute inset-0 z-0 pointer-events-none" aria-hidden="true">
+            <div className="absolute top-1/4 -left-20 w-[500px] h-[500px] rounded-full blur-[140px] animate-pulse-glow" style={{ background: "radial-gradient(circle, rgba(12,108,54,0.35) 0%, transparent 65%)" }} />
+            <div className="absolute bottom-0 right-0 w-[600px] h-[600px] rounded-full blur-[180px]" style={{ background: "radial-gradient(circle, rgba(52,211,153,0.12) 0%, transparent 70%)" }} />
+            <div className="absolute inset-0 opacity-[0.025]" style={{ backgroundImage: "linear-gradient(var(--accent-light) 1px, transparent 1px), linear-gradient(90deg, var(--accent-light) 1px, transparent 1px)", backgroundSize: "90px 90px" }} />
+          </div>
+          <div className="relative z-10 w-full max-w-[1100px] mx-auto px-6 lg:px-8 pt-32 pb-16">
+            <Link href="/careers" className="inline-flex items-center gap-2 text-white/50 text-sm hover:text-white transition-colors mb-8">
               <ArrowLeft size={14} /> Back to all roles
             </Link>
-            <p className="text-xs text-accent-light uppercase tracking-[0.2em] font-medium mb-4">Application</p>
-            <h1 className="font-heading text-4xl md:text-5xl font-bold text-white leading-tight mb-3">
-              {role ? `Apply: ${role}` : "Apply to PROSYS LTD"}
-            </h1>
-            <p className="text-text-light-muted leading-relaxed max-w-2xl">
-              Tell us about yourself. We read every application. Expect to hear back within 5 business days.
-            </p>
+            <div className="max-w-3xl">
+              <p className="text-[11px] text-accent-light uppercase tracking-[0.2em] font-semibold mb-5">Application</p>
+              <h1 className="font-heading text-5xl md:text-6xl lg:text-7xl font-black text-white leading-[1.04] tracking-tight mb-6">
+                {role ? (
+                  <>
+                    Apply:{" "}
+                    <span className="gradient-text">{role}</span>
+                  </>
+                ) : (
+                  <>
+                    Apply to{" "}
+                    <span className="gradient-text">PROSYS LTD.</span>
+                  </>
+                )}
+              </h1>
+              <p className="text-lg text-text-light-muted leading-relaxed max-w-2xl mb-8">
+                Tell us about yourself. We read every application. Expect to hear back within 5 business days.
+              </p>
+              <div className="flex flex-wrap gap-x-5 gap-y-2.5 text-sm text-text-light-muted/80">
+                <span className="flex items-center gap-2"><span className="h-1.5 w-1.5 rounded-full bg-accent-light" /> 5-day response SLA</span>
+                <span className="flex items-center gap-2"><span className="h-1.5 w-1.5 rounded-full bg-accent-light" /> Remote-friendly</span>
+                <span className="flex items-center gap-2"><span className="h-1.5 w-1.5 rounded-full bg-accent-light" /> Transparent process</span>
+              </div>
+            </div>
           </div>
         </section>
 

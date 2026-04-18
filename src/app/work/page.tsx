@@ -5,6 +5,7 @@ import { ArrowUpRight, MapPin, Calendar, ArrowRight } from "lucide-react";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import ScrollReveal from "@/components/ui/ScrollReveal";
+import PageHero from "@/components/ui/PageHero";
 import { caseStudies } from "@/lib/constants";
 
 export const metadata: Metadata = {
@@ -61,43 +62,24 @@ export default function WorkPage() {
     <>
       <Navbar />
       <main id="main-content">
-        <section className="relative pt-32 pb-16 lg:pt-40 lg:pb-24 bg-dark-primary overflow-hidden">
-          <div className="absolute top-0 right-0 w-[40%] h-full bg-accent/[0.03] blur-[150px]" />
-          <div className="relative z-10 max-w-[1400px] mx-auto px-6 lg:px-12">
-            <div className="max-w-3xl">
-              <p className="text-xs text-accent-light uppercase tracking-[0.2em] font-medium mb-6">Portfolio</p>
-              <h1 className="font-heading text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bold text-white leading-[1.1] mb-6">
-                Work that
-                <span className="gradient-text"> speaks.</span>
-              </h1>
-              <p className="text-lg text-text-light-muted leading-relaxed max-w-2xl">
-                Real projects. Real outcomes. Here&apos;s a selection of work we&apos;ve delivered for startups, scale-ups, and enterprises.
-              </p>
-            </div>
-          </div>
-        </section>
-
-        {/* Stats strip */}
-        <section className="py-12 bg-white border-b border-card-light-border">
-          <div className="max-w-[1400px] mx-auto px-6 lg:px-8">
-            <div className="flex flex-wrap justify-center gap-x-16 gap-y-4">
-              {[
-                { val: "50+", label: "Projects" },
-                { val: "30+", label: "Clients" },
-                { val: "12+", label: "Countries" },
-                { val: "4-8 wk", label: "Avg. MVP" },
-              ].map((s) => (
-                <div key={s.label} className="text-center">
-                  <span className="font-heading text-2xl font-bold text-text-dark">{s.val}</span>
-                  <span className="text-text-dark-muted text-xs ml-2 uppercase tracking-wider">{s.label}</span>
-                </div>
-              ))}
-            </div>
-          </div>
-        </section>
+        <PageHero
+          badge="Portfolio"
+          title="Work that"
+          highlight="speaks."
+          description="Real projects. Real outcomes. Here's a selection of work we've delivered for startups, scale-ups, and enterprises across 12+ countries."
+          trustSignals={["Enterprise & startup clients", "Measurable outcomes", "NDA on request"]}
+          primaryCta={{ label: "Browse case studies", href: "#case-studies" }}
+          secondaryCta={{ label: "Start a project", href: "/contact" }}
+          stats={[
+            { value: "50+", label: "Projects" },
+            { value: "30+", label: "Clients" },
+            { value: "12+", label: "Countries" },
+            { value: "4-8 wk", label: "Avg. MVP" },
+          ]}
+        />
 
         {/* Featured detailed case studies */}
-        <section className="py-14 lg:py-20 bg-light-primary">
+        <section id="case-studies" className="py-14 lg:py-20 bg-light-primary scroll-mt-20">
           <div className="max-w-[1400px] mx-auto px-6 lg:px-8">
             <ScrollReveal>
               <div className="flex items-end justify-between mb-10">
