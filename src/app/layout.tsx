@@ -1,7 +1,7 @@
 import type { Metadata, Viewport } from "next";
 import { Analytics } from "@vercel/analytics/react";
 import { SpeedInsights } from "@vercel/speed-insights/next";
-import { inter, roboto } from "@/lib/fonts";
+import { montserrat, openSans } from "@/lib/fonts";
 import StructuredData from "@/components/StructuredData";
 import StickyCTA from "@/components/StickyCTA";
 import CookieConsent from "@/components/CookieConsent";
@@ -101,7 +101,7 @@ export default function RootLayout({
     <html
       lang="en"
       data-scroll-behavior="smooth"
-      className={`${inter.variable} ${roboto.variable} h-full`}
+      className={`${montserrat.variable} ${openSans.variable} h-full`}
     >
       <head>
         <StructuredData />

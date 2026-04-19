@@ -1,6 +1,6 @@
 @import "tailwindcss";
 
-/* Roboto + Inter loaded via next/font/google */
+/* Montserrat (headings) + Open Sans (body) loaded via next/font/google */
 
 :root {
   --dark-primary: #000000;
@@ -45,8 +45,8 @@
   --color-card-light: var(--card-light);
   --color-card-light-border: var(--card-light-border);
 
-  --font-heading: var(--font-roboto), "Inter", ui-sans-serif, system-ui, sans-serif;
-  --font-body: var(--font-inter);
+  --font-heading: var(--font-montserrat), "Montserrat", ui-sans-serif, system-ui, sans-serif;
+  --font-body: var(--font-open-sans), "Open Sans", ui-sans-serif, system-ui, sans-serif;
 }
 
 html[data-scroll-behavior="smooth"] {
