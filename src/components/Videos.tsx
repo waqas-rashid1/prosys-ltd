@@ -20,8 +20,11 @@ const videos = [
   },
 ];
 
+type ThumbState = "loading" | "ok" | "failed";
+
 export default function Videos() {
   const [playing, setPlaying] = useState<string | null>(null);
+  const [thumb, setThumb] = useState<Record<string, ThumbState>>({});
 
   return (
     <section className="relative py-20 lg:py-28 bg-dark-primary overflow-hidden">
@@ -41,7 +44,6 @@ export default function Videos() {
       </div>
 
       <div className="relative z-10 max-w-[1400px] mx-auto px-6 lg:px-12">
-        {/* Editorial rail */}
         <div className="flex items-center gap-3 mb-6">
           <span className="text-[10px] text-accent-light/60 uppercase tracking-[0.35em] font-semibold">
             / Watch
@@ -69,82 +71,147 @@ export default function Videos() {
           </div>
         </ScrollReveal>
 
-        {/* Video grid */}
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-5 lg:gap-6">
-          {videos.map((v, i) => (
-            <motion.div
-              key={v.id}
-              initial={{ opacity: 0, y: 24 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, margin: "-50px" }}
-              transition={{ delay: i * 0.12, duration: 0.55 }}
-              className="group relative rounded-lg border border-card-dark-border bg-card-dark overflow-hidden hover:border-accent/40 transition-colors"
-            >
-              <div className="relative aspect-video bg-black overflow-hidden">
-                {playing === v.id ? (
-                  <iframe
-                    src={`https://www.youtube-nocookie.com/embed/${v.id}?autoplay=1&rel=0&modestbranding=1&playsinline=1`}
-                    title={v.title}
-                    className="absolute inset-0 w-full h-full"
-                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                    referrerPolicy="strict-origin-when-cross-origin"
-                    allowFullScreen
+          {videos.map((v, i) => {
+            const thumbState = thumb[v.id] ?? "loading";
+            return (
+              <motion.div
+                key={v.id}
+                initial={{ opacity: 0, y: 24 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true, margin: "-50px" }}
+                transition={{ delay: i * 0.12, duration: 0.55 }}
+                className="group relative rounded-lg border border-card-dark-border bg-card-dark overflow-hidden hover:border-accent/40 transition-colors"
+              >
+                <div className="relative aspect-video overflow-hidden bg-gradient-to-br from-card-dark via-dark-secondary to-dark-primary">
+                  {/* Designed placeholder background (always present, visible when img fails) */}
+                  <div
+                    className="absolute inset-0 opacity-40"
+                    style={{
+                      background:
+                        "radial-gradient(ellipse at center, rgba(12,108,54,0.35) 0%, transparent 70%)",
+                    }}
+                    aria-hidden="true"
                   />
-                ) : (
-                  <button
-                    type="button"
-                    onClick={() => setPlaying(v.id)}
-                    className="absolute inset-0 w-full h-full group/btn cursor-pointer"
-                    aria-label={`Play video: ${v.title}`}
-                  >
-                    {/* YouTube thumbnail — maxresdefault may 404 for non-HD uploads,
-                        so we fall back to hqdefault (always available). */}
-                    {/* eslint-disable-next-line @next/next/no-img-element */}
-                    <img
-                      src={`https://i.ytimg.com/vi/${v.id}/maxresdefault.jpg`}
-                      alt=""
-                      className="absolute inset-0 w-full h-full object-cover opacity-70 group-hover/btn:opacity-90 group-hover/btn:scale-[1.02] transition-all duration-500"
-                      loading="lazy"
-                      onError={(e) => {
-                        const img = e.currentTarget;
-                        if (img.dataset.fallback !== "hq") {
-                          img.dataset.fallback = "hq";
-                          img.src = `https://i.ytimg.com/vi/${v.id}/hqdefault.jpg`;
-                        } else if (img.dataset.fallback !== "mq") {
-                          img.dataset.fallback = "mq";
-                          img.src = `https://i.ytimg.com/vi/${v.id}/mqdefault.jpg`;
-                        }
-                      }}
-                    />
-                    <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/30 to-black/50" />
+                  <div
+                    className="absolute inset-0 opacity-[0.04]"
+                    style={{
+                      backgroundImage:
+                        "linear-gradient(rgba(255,255,255,0.9) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.9) 1px, transparent 1px)",
+                      backgroundSize: "40px 40px",
+                    }}
+                    aria-hidden="true"
+                  />
 
-                    {/* Play button */}
-                    <div className="absolute inset-0 flex items-center justify-center">
-                      <div className="relative">
-                        <div className="absolute inset-0 bg-accent/40 rounded-full blur-xl group-hover/btn:bg-accent/60 transition-colors" />
-                        <div className="relative w-16 h-16 lg:w-20 lg:h-20 rounded-full bg-white flex items-center justify-center shadow-2xl group-hover/btn:scale-110 group-hover/btn:bg-accent group-hover/btn:text-white transition-all duration-300">
-                          <Play size={24} className="ml-1 text-dark-primary group-hover/btn:text-white transition-colors fill-current" />
+                  {playing === v.id ? (
+                    <iframe
+                      src={`https://www.youtube-nocookie.com/embed/${v.id}?autoplay=1&rel=0&modestbranding=1&playsinline=1`}
+                      title={v.title}
+                      className="absolute inset-0 w-full h-full"
+                      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                      referrerPolicy="strict-origin-when-cross-origin"
+                      allowFullScreen
+                    />
+                  ) : (
+                    <button
+                      type="button"
+                      onClick={() => setPlaying(v.id)}
+                      className="absolute inset-0 w-full h-full group/btn cursor-pointer"
+                      aria-label={`Play video: ${v.title}`}
+                    >
+                      {/* YouTube thumbnail — with graceful fallback chain */}
+                      {/* eslint-disable-next-line @next/next/no-img-element */}
+                      <img
+                        src={`https://i.ytimg.com/vi/${v.id}/maxresdefault.jpg`}
+                        alt=""
+                        className={`absolute inset-0 w-full h-full object-cover transition-all duration-500 ${
+                          thumbState === "ok"
+                            ? "opacity-70 group-hover/btn:opacity-90 group-hover/btn:scale-[1.02]"
+                            : "opacity-0"
+                        }`}
+                        loading="lazy"
+                        onLoad={() =>
+                          setThumb((t) => ({ ...t, [v.id]: "ok" }))
+                        }
+                        onError={(e) => {
+                          const img = e.currentTarget;
+                          const step = img.dataset.fallback ?? "";
+                          if (step === "") {
+                            img.dataset.fallback = "hq";
+                            img.src = `https://i.ytimg.com/vi/${v.id}/hqdefault.jpg`;
+                          } else if (step === "hq") {
+                            img.dataset.fallback = "mq";
+                            img.src = `https://i.ytimg.com/vi/${v.id}/mqdefault.jpg`;
+                          } else {
+                            setThumb((t) => ({ ...t, [v.id]: "failed" }));
+                          }
+                        }}
+                      />
+
+                      {/* Gradient overlay — darker when no thumb so text still reads */}
+                      <div
+                        className={`absolute inset-0 transition-opacity duration-500 ${
+                          thumbState === "ok"
+                            ? "bg-gradient-to-t from-black/80 via-black/30 to-black/50"
+                            : "bg-gradient-to-t from-black/70 via-black/20 to-transparent"
+                        }`}
+                      />
+
+                      {/* Play button */}
+                      <div className="absolute inset-0 flex items-center justify-center">
+                        <div className="relative">
+                          <div className="absolute inset-0 bg-accent/40 rounded-full blur-xl group-hover/btn:bg-accent/60 transition-colors" />
+                          <div className="relative w-16 h-16 lg:w-20 lg:h-20 rounded-full bg-white flex items-center justify-center shadow-2xl group-hover/btn:scale-110 group-hover/btn:bg-accent group-hover/btn:text-white transition-all duration-300">
+                            <Play
+                              size={24}
+                              className="ml-1 text-dark-primary group-hover/btn:text-white transition-colors fill-current"
+                            />
+                          </div>
                         </div>
                       </div>
-                    </div>
 
-                    {/* Caption overlay */}
-                    <div className="absolute bottom-0 left-0 right-0 p-5 lg:p-6 text-left">
-                      <span className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full border border-accent/30 bg-accent/10 backdrop-blur-sm mb-3">
-                        <span className="w-1.5 h-1.5 rounded-full bg-accent-light animate-pulse" />
-                        <span className="text-[10px] text-accent-light uppercase tracking-widest font-semibold">
-                          {v.tag}
+                      {/* Caption overlay */}
+                      <div className="absolute bottom-0 left-0 right-0 p-5 lg:p-6 text-left">
+                        <span className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full border border-accent/30 bg-accent/10 backdrop-blur-sm mb-3">
+                          <span className="w-1.5 h-1.5 rounded-full bg-accent-light animate-pulse" />
+                          <span className="text-[10px] text-accent-light uppercase tracking-widest font-semibold">
+                            {v.tag}
+                          </span>
                         </span>
-                      </span>
-                      <h3 className="font-heading text-xl lg:text-2xl font-bold text-white leading-tight mb-1">
-                        {v.title}
-                      </h3>
-                      <p className="text-sm text-white/70">{v.subtitle}</p>
-                    </div>
-                  </button>
-                )}
-              </div>
-            </motion.div>
+                        <h3 className="font-heading text-xl lg:text-2xl font-bold text-white leading-tight mb-1">
+                          {v.title}
+                        </h3>
+                        <p className="text-sm text-white/70">{v.subtitle}</p>
+                      </div>
+
+                      {/* YouTube corner badge */}
+                      <div className="absolute top-4 right-4 z-10 pointer-events-none">
+                        <span className="inline-flex items-center gap-1 px-2 py-1 rounded bg-black/60 backdrop-blur-sm border border-white/10 text-[10px] text-white/90 font-semibold tracking-widest uppercase">
+                          <span className="w-1 h-1 rounded-full bg-red-500" />
+                          YouTube
+                        </span>
+                      </div>
+                    </button>
+                  )}
+                </div>
+              </motion.div>
+            );
+          })}
+        </div>
+
+        {/* Footer strip — direct YouTube links as fallback */}
+        <div className="mt-8 flex flex-wrap items-center justify-center gap-x-6 gap-y-2 text-xs text-white/40">
+          <span className="uppercase tracking-widest">Prefer YouTube?</span>
+          {videos.map((v) => (
+            <a
+              key={v.id}
+              href={`https://youtu.be/${v.id}`}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-white/60 hover:text-accent-light transition-colors uppercase tracking-widest"
+            >
+              Watch &quot;{v.title}&quot; →
+            </a>
           ))}
         </div>
       </div>

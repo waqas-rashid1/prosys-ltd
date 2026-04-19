@@ -6,12 +6,14 @@ const ContentSecurityPolicy = `
   form-action 'self';
   frame-ancestors 'none';
   object-src 'none';
-  script-src 'self' 'unsafe-inline' 'unsafe-eval' https://*.vercel-analytics.com https://*.vercel-insights.com https://www.googletagmanager.com https://www.google-analytics.com;
+  script-src 'self' 'unsafe-inline' 'unsafe-eval' https://*.vercel-analytics.com https://*.vercel-insights.com https://www.googletagmanager.com https://www.google-analytics.com https://www.youtube.com https://www.youtube-nocookie.com https://s.ytimg.com;
   style-src 'self' 'unsafe-inline' https://fonts.googleapis.com;
   img-src 'self' data: blob: https:;
   font-src 'self' data: https://fonts.gstatic.com;
   media-src 'self' https:;
-  connect-src 'self' https://*.vercel-analytics.com https://*.vercel-insights.com https://www.google-analytics.com https://api.resend.com;
+  connect-src 'self' https://*.vercel-analytics.com https://*.vercel-insights.com https://www.google-analytics.com https://api.resend.com https://www.youtube.com https://www.youtube-nocookie.com;
+  frame-src 'self' https://www.youtube.com https://www.youtube-nocookie.com https://youtube.com;
+  child-src 'self' https://www.youtube.com https://www.youtube-nocookie.com;
   manifest-src 'self';
   upgrade-insecure-requests;
 `

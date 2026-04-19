@@ -8,7 +8,10 @@ import {
   CheckCircle2,
   Clock,
   Sparkles,
+  ArrowRight,
 } from "lucide-react";
+import Link from "next/link";
+import { motion } from "framer-motion";
 import { approach } from "@/lib/constants";
 import ScrollReveal from "./ui/ScrollReveal";
 
@@ -17,26 +20,29 @@ const stepMeta = [
     icon: Compass,
     tagline: "Understand the problem",
     duration: "1–2 weeks",
+    accent: "from-emerald-500/20 to-emerald-500/0",
     deliverables: [
       "Product thesis & metrics",
       "User research & personas",
-      "Feasibility audit",
+      "Feasibility & risk audit",
     ],
   },
   {
     icon: Layers,
     tagline: "Plan for scale",
     duration: "1–2 weeks",
+    accent: "from-cyan-500/20 to-cyan-500/0",
     deliverables: [
       "System architecture",
       "Tech stack decisions",
-      "Design system",
+      "Design system & tokens",
     ],
   },
   {
     icon: Code2,
     tagline: "Ship in sprints",
     duration: "4–12 weeks",
+    accent: "from-violet-500/20 to-violet-500/0",
     deliverables: [
       "Two-week cadence",
       "Weekly demos & reviews",
@@ -47,10 +53,11 @@ const stepMeta = [
     icon: Rocket,
     tagline: "Grow post-launch",
     duration: "Ongoing",
+    accent: "from-amber-500/20 to-amber-500/0",
     deliverables: [
-      "Zero-downtime deploy",
+      "Zero-downtime deploys",
       "Observability & SRE",
-      "SEO · AIEO · Analytics",
+      "SEO · AIEO · analytics",
     ],
   },
 ];
@@ -59,18 +66,15 @@ export default function Approach() {
   return (
     <section
       id="approach"
-      className="relative h-screen min-h-[760px] flex flex-col justify-center bg-dark-primary overflow-hidden"
+      className="relative bg-dark-primary overflow-hidden py-20 lg:py-24"
     >
       {/* Decorative layer */}
-      <div
-        className="absolute inset-0 z-0 pointer-events-none"
-        aria-hidden="true"
-      >
+      <div className="absolute inset-0 z-0 pointer-events-none" aria-hidden="true">
         <div
-          className="absolute top-0 left-1/2 -translate-x-1/2 w-[900px] h-[450px] opacity-40 animate-pulse-glow"
+          className="absolute top-0 left-1/2 -translate-x-1/2 w-[1000px] h-[500px] opacity-50 animate-pulse-glow"
           style={{
             background:
-              "radial-gradient(ellipse at center top, rgba(12,108,54,0.5) 0%, transparent 70%)",
+              "radial-gradient(ellipse at center top, rgba(12,108,54,0.45) 0%, transparent 70%)",
           }}
         />
         <div
@@ -88,7 +92,7 @@ export default function Approach() {
           }}
         />
         <div
-          className="absolute inset-0 opacity-[0.025]"
+          className="absolute inset-0 opacity-[0.03]"
           style={{
             backgroundImage:
               "linear-gradient(var(--accent-light) 1px, transparent 1px), linear-gradient(90deg, var(--accent-light) 1px, transparent 1px)",
@@ -97,135 +101,191 @@ export default function Approach() {
         />
       </div>
 
-      <div className="relative z-10 max-w-[1400px] mx-auto px-6 lg:px-12 xl:px-16 w-full py-14 lg:py-16">
-        {/* ── Header (compact) ── */}
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 lg:gap-10 mb-8 lg:mb-10 items-end">
-          <ScrollReveal className="lg:col-span-8">
-            <div className="flex items-center gap-3 mb-4">
-              <span className="font-mono text-[10px] text-white/30 tracking-[0.2em] uppercase">
+      <div className="relative z-10 max-w-[1400px] mx-auto px-6 lg:px-12 xl:px-16 w-full">
+        {/* ── Editorial header ── */}
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 mb-12 lg:mb-16 items-end">
+          <ScrollReveal className="lg:col-span-7">
+            <div className="flex items-center gap-3 mb-5">
+              <span className="font-mono text-[10px] text-white/30 tracking-[0.25em] uppercase">
                 / The Process
               </span>
               <span className="h-px flex-1 bg-gradient-to-r from-white/20 to-transparent max-w-[160px]" />
             </div>
 
-            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full border border-accent/25 bg-accent/10 backdrop-blur-sm mb-4">
-              <Sparkles size={11} className="text-accent-light" />
-              <span className="text-[10px] text-accent-light tracking-[0.18em] font-semibold uppercase">
+            <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full border border-accent/25 bg-accent/10 backdrop-blur-sm mb-5">
+              <Sparkles size={12} className="text-accent-light" />
+              <span className="text-[11px] text-accent-light tracking-[0.18em] font-semibold uppercase">
                 Our Methodology
               </span>
             </div>
 
-            <h2 className="font-heading text-4xl sm:text-5xl md:text-6xl lg:text-[4rem] xl:text-[4.5rem] font-black text-white leading-[0.98] tracking-tight mb-4">
+            <h2 className="font-heading text-4xl sm:text-5xl md:text-6xl lg:text-[4.25rem] xl:text-[5rem] font-black text-white leading-[0.98] tracking-tight mb-5">
               How we{" "}
               <span className="gradient-text relative inline-block">
                 deliver
-                <span className="absolute -bottom-1.5 left-0 right-0 h-[2px] bg-gradient-to-r from-accent via-accent-light to-transparent rounded-full" />
+                <span className="absolute -bottom-1.5 left-0 right-0 h-[3px] bg-gradient-to-r from-accent via-accent-light to-transparent rounded-full" />
               </span>
               .
             </h2>
 
-            <p className="text-sm md:text-base text-text-light-muted leading-relaxed max-w-2xl">
-              Four disciplined phases, one bar of quality — engineered for transparency, speed, and measurable outcomes.
+            <p className="text-base md:text-lg text-text-light-muted leading-relaxed max-w-2xl">
+              Four disciplined phases, one bar of quality — engineered for
+              transparency, speed, and measurable outcomes. No black boxes, no
+              theatre, no filler.
             </p>
           </ScrollReveal>
 
-          {/* Mini-summary card */}
-          <ScrollReveal
-            className="lg:col-span-4 lg:pl-6 lg:border-l lg:border-white/10"
-            delay={0.1}
-          >
-            <div className="flex flex-wrap items-end gap-x-8 gap-y-3">
-              <div>
-                <p className="text-[10px] uppercase tracking-[0.22em] text-white/40 font-semibold mb-1">
+          {/* Mini-summary card — redesigned */}
+          <ScrollReveal className="lg:col-span-5" delay={0.1}>
+            <div className="relative p-5 lg:p-6 rounded-xl border border-card-dark-border bg-gradient-to-br from-card-dark/80 to-dark-secondary/60 backdrop-blur-sm overflow-hidden">
+              <div
+                className="absolute top-0 right-0 w-48 h-48 rounded-full blur-3xl opacity-30"
+                style={{ background: "radial-gradient(circle, rgba(52,211,153,0.4) 0%, transparent 70%)" }}
+                aria-hidden="true"
+              />
+              <div className="relative">
+                <p className="text-[10px] uppercase tracking-[0.25em] text-accent-light/80 font-semibold mb-3">
                   Typical Engagement
                 </p>
-                <p className="font-heading text-2xl lg:text-3xl font-black text-white leading-tight">
-                  6 – 16 weeks
-                </p>
-              </div>
-              <div className="flex gap-6">
-                <div>
-                  <p className="font-heading text-xl lg:text-2xl font-black text-white leading-tight">
-                    4
-                  </p>
-                  <p className="text-[10px] text-white/50 uppercase tracking-widest">
-                    Phases
-                  </p>
-                </div>
-                <div>
-                  <p className="font-heading text-xl lg:text-2xl font-black text-white leading-tight">
-                    100%
-                  </p>
-                  <p className="text-[10px] text-white/50 uppercase tracking-widest">
-                    Transparent
-                  </p>
+                <div className="grid grid-cols-3 gap-4">
+                  <div>
+                    <p className="font-heading text-2xl lg:text-3xl font-black text-white leading-none tracking-tight mb-1.5">
+                      6–16
+                    </p>
+                    <p className="text-[10px] text-white/50 uppercase tracking-widest font-semibold">
+                      Weeks
+                    </p>
+                  </div>
+                  <div className="pl-4 border-l border-white/10">
+                    <p className="font-heading text-2xl lg:text-3xl font-black text-white leading-none tracking-tight mb-1.5">
+                      4
+                    </p>
+                    <p className="text-[10px] text-white/50 uppercase tracking-widest font-semibold">
+                      Phases
+                    </p>
+                  </div>
+                  <div className="pl-4 border-l border-white/10">
+                    <p className="font-heading text-2xl lg:text-3xl font-black text-white leading-none tracking-tight mb-1.5">
+                      100%
+                    </p>
+                    <p className="text-[10px] text-white/50 uppercase tracking-widest font-semibold">
+                      Transparent
+                    </p>
+                  </div>
                 </div>
               </div>
             </div>
           </ScrollReveal>
         </div>
 
-        {/* ── Timeline / Steps (compact single-row cards) ── */}
+        {/* ── Phase cards — richer design ── */}
         <div className="relative">
-          {/* Horizontal connector (aligned with inline icons inside card header) */}
+          {/* Horizontal connector with animated progress */}
           <div
             aria-hidden="true"
-            className="hidden lg:block absolute top-9 left-[8%] right-[8%] h-px bg-gradient-to-r from-transparent via-accent/30 to-transparent"
-          />
+            className="hidden lg:block absolute top-[3.25rem] left-[4%] right-[4%] z-0"
+          >
+            <div className="relative h-px">
+              <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/10 to-transparent" />
+              <motion.div
+                initial={{ scaleX: 0 }}
+                whileInView={{ scaleX: 1 }}
+                viewport={{ once: true, margin: "-100px" }}
+                transition={{ duration: 1.4, ease: "easeOut" }}
+                className="absolute inset-0 bg-gradient-to-r from-accent via-accent-light to-accent origin-left"
+                style={{ boxShadow: "0 0 12px rgba(52,211,153,0.6)" }}
+              />
+            </div>
+          </div>
 
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 lg:gap-5">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5 lg:gap-6 relative z-10">
             {approach.map((item, i) => {
               const meta = stepMeta[i];
               const Icon = meta.icon;
               return (
-                <ScrollReveal key={item.step} delay={i * 0.06}>
-                  <div className="group relative h-full">
-                    <div className="relative bg-card-dark/60 backdrop-blur-sm border border-card-dark-border rounded-xl p-5 lg:p-6 h-full hover:border-accent/30 hover:bg-card-dark/80 transition-all duration-500 overflow-hidden">
-                      {/* Top gradient bar */}
-                      <div className="absolute top-0 left-0 right-0 h-[2px] bg-accent scale-x-0 group-hover:scale-x-100 transition-transform duration-500 origin-left" />
+                <motion.div
+                  key={item.step}
+                  initial={{ opacity: 0, y: 30 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true, margin: "-80px" }}
+                  transition={{ delay: i * 0.1, duration: 0.55 }}
+                  className="group relative"
+                >
+                  {/* Subtle ambient glow on hover */}
+                  <div
+                    className={`absolute -inset-1 rounded-2xl bg-gradient-to-br ${meta.accent} opacity-0 group-hover:opacity-100 blur-2xl transition-opacity duration-700 pointer-events-none`}
+                    aria-hidden="true"
+                  />
 
-                      {/* Card header row: icon + step number + phase marker */}
-                      <div className="flex items-center justify-between mb-4">
-                        <div className="relative w-12 h-12">
-                          <div className="absolute inset-0 rounded-lg border border-accent/20 group-hover:border-accent/60 transition-colors duration-500" />
-                          <div className="absolute inset-1 rounded-md bg-gradient-to-br from-card-dark via-card-dark/80 to-dark-primary border border-card-dark-border group-hover:from-accent/15 group-hover:to-card-dark transition-all duration-500 flex items-center justify-center">
-                            <Icon
-                              size={18}
-                              className="text-accent-light group-hover:scale-110 transition-transform duration-500"
-                              strokeWidth={1.7}
-                            />
-                          </div>
+                  <div className="relative h-full rounded-xl border border-card-dark-border bg-card-dark/80 backdrop-blur-sm overflow-hidden group-hover:border-accent/40 transition-all duration-500">
+                    {/* Top gradient bar */}
+                    <div className="absolute top-0 left-0 right-0 h-[3px] bg-gradient-to-r from-accent via-accent-light to-accent scale-x-0 group-hover:scale-x-100 transition-transform duration-700 origin-left" />
+
+                    {/* Step node — sits on the connector line */}
+                    <div className="relative flex items-center justify-center pt-5">
+                      <div className="relative w-14 h-14">
+                        {/* Rotating frame */}
+                        <div
+                          className="absolute inset-0 rounded-xl border border-accent/30 group-hover:border-accent/70 transition-colors duration-500"
+                          style={{ transform: "rotate(45deg)" }}
+                        />
+                        {/* Inner disc */}
+                        <div className="absolute inset-[5px] rounded-lg bg-gradient-to-br from-dark-primary via-card-dark to-dark-primary border border-card-dark-border group-hover:from-accent/20 group-hover:via-card-dark group-hover:to-dark-primary transition-all duration-500 flex items-center justify-center">
+                          <Icon
+                            size={20}
+                            strokeWidth={1.7}
+                            className="text-accent-light group-hover:scale-110 transition-transform duration-500"
+                          />
                         </div>
-                        <div className="text-right">
-                          <span className="font-heading text-4xl font-black text-white/[0.08] group-hover:text-accent/25 leading-none transition-colors duration-500 block">
-                            {item.step}
-                          </span>
-                          <span className="font-mono text-[9px] text-white/25 tracking-widest">
-                            PHASE/{item.step}
-                          </span>
-                        </div>
+                        {/* Pulsing ring on hover */}
+                        <div className="absolute inset-0 rounded-xl border border-accent/60 opacity-0 group-hover:opacity-100 group-hover:scale-125 transition-all duration-700" />
+                      </div>
+                    </div>
+
+                    {/* Phase number + marker */}
+                    <div className="flex items-center justify-between px-6 pt-4 pb-2">
+                      <span className="font-mono text-[9px] text-white/40 tracking-[0.25em] uppercase">
+                        Phase · {item.step}
+                      </span>
+                      <span className="font-heading text-[10px] text-accent-light/50 tracking-widest uppercase font-bold">
+                        Step {i + 1} of 4
+                      </span>
+                    </div>
+
+                    <div className="px-6 pb-6">
+                      {/* Big number watermark */}
+                      <div className="relative mb-3">
+                        <span
+                          className="absolute -top-2 right-0 font-heading text-6xl font-black text-white/[0.04] group-hover:text-accent/15 leading-none transition-colors duration-500 pointer-events-none"
+                          aria-hidden="true"
+                        >
+                          {item.step}
+                        </span>
+                        <p className="relative text-[10px] uppercase tracking-[0.22em] text-accent-light font-bold mb-2">
+                          {meta.tagline}
+                        </p>
+                        <h3 className="relative font-heading text-lg lg:text-xl font-bold text-white tracking-tight leading-tight">
+                          {item.title}
+                        </h3>
                       </div>
 
-                      <p className="text-[9.5px] uppercase tracking-[0.22em] text-accent-light font-semibold mb-1.5">
-                        {meta.tagline}
-                      </p>
-                      <h3 className="font-heading text-base lg:text-lg font-bold text-white mb-2 tracking-tight leading-tight">
-                        {item.title}
-                      </h3>
-                      <p className="text-text-light-muted text-[12px] leading-[1.55] mb-4 line-clamp-3">
+                      <p className="text-text-light-muted text-[13px] leading-relaxed mb-5 line-clamp-3">
                         {item.description}
                       </p>
 
-                      {/* Deliverables (3 compact items) */}
+                      {/* Deliverables */}
                       <div className="pt-4 border-t border-white/10">
-                        <ul className="space-y-1.5 mb-3">
+                        <p className="text-[9px] uppercase tracking-[0.25em] text-white/40 font-bold mb-3">
+                          Deliverables
+                        </p>
+                        <ul className="space-y-2 mb-4">
                           {meta.deliverables.map((d) => (
                             <li
                               key={d}
-                              className="flex items-start gap-1.5 text-[11.5px] text-text-light-muted leading-snug"
+                              className="flex items-start gap-2 text-[12px] text-text-light-muted leading-snug"
                             >
                               <CheckCircle2
-                                size={10}
+                                size={11}
                                 className="text-accent-light mt-[3px] flex-shrink-0"
                                 strokeWidth={2.4}
                               />
@@ -234,19 +294,66 @@ export default function Approach() {
                           ))}
                         </ul>
 
-                        {/* Duration chip */}
-                        <div className="inline-flex items-center gap-1 px-2 py-0.5 rounded-md bg-white/5 border border-white/10 text-[10px] text-text-light-muted">
-                          <Clock size={9} className="text-accent-light" />
-                          <span className="tracking-wide">{meta.duration}</span>
+                        <div className="flex items-center justify-between">
+                          <div className="inline-flex items-center gap-1.5 px-2 py-1 rounded-md bg-white/5 border border-white/10 text-[10px] text-white/70">
+                            <Clock size={10} className="text-accent-light" />
+                            <span className="tracking-wide font-medium">
+                              {meta.duration}
+                            </span>
+                          </div>
+                          {i < approach.length - 1 && (
+                            <ArrowRight
+                              size={14}
+                              className="text-white/20 group-hover:text-accent-light group-hover:translate-x-1 transition-all duration-500"
+                            />
+                          )}
                         </div>
                       </div>
                     </div>
                   </div>
-                </ScrollReveal>
+                </motion.div>
               );
             })}
           </div>
         </div>
+
+        {/* Bottom CTA strip */}
+        <ScrollReveal delay={0.3}>
+          <div className="mt-12 lg:mt-14 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-5 p-5 lg:p-6 rounded-xl border border-card-dark-border bg-card-dark/60 backdrop-blur-sm">
+            <div className="flex items-center gap-4">
+              <div className="relative w-11 h-11 rounded-lg bg-accent/10 border border-accent/20 flex items-center justify-center flex-shrink-0">
+                <Sparkles size={16} className="text-accent-light" />
+                <div className="absolute inset-0 rounded-lg bg-accent/20 blur-xl opacity-60 -z-10" />
+              </div>
+              <div>
+                <p className="font-heading text-base lg:text-lg font-bold text-white leading-tight">
+                  Want a scoped plan for your project?
+                </p>
+                <p className="text-[13px] text-text-light-muted mt-0.5">
+                  Free 30-minute discovery call · senior engineer, not sales.
+                </p>
+              </div>
+            </div>
+            <div className="flex items-center gap-3 flex-wrap">
+              <Link
+                href="/contact"
+                className="group inline-flex items-center gap-2 px-5 py-3 rounded-md bg-white text-dark-primary hover:bg-accent hover:text-white transition-colors font-semibold text-xs uppercase tracking-widest whitespace-nowrap"
+              >
+                Start a project
+                <ArrowRight
+                  size={13}
+                  className="group-hover:translate-x-1 transition-transform"
+                />
+              </Link>
+              <Link
+                href="/work"
+                className="inline-flex items-center gap-2 px-5 py-3 rounded-md border border-white/20 text-white hover:border-white/50 hover:bg-white/5 transition-colors font-medium text-xs uppercase tracking-widest whitespace-nowrap"
+              >
+                See case studies
+              </Link>
+            </div>
+          </div>
+        </ScrollReveal>
       </div>
     </section>
   );
