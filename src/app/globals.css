@@ -1,6 +1,6 @@
 @import "tailwindcss";
 
-/* Montserrat (headings) + Open Sans (body) loaded via next/font/google */
+/* Manrope (headings) + Open Sans (body) loaded via next/font/google */
 
 :root {
   --dark-primary: #000000;
@@ -45,7 +45,7 @@
   --color-card-light: var(--card-light);
   --color-card-light-border: var(--card-light-border);
 
-  --font-heading: var(--font-montserrat), "Montserrat", ui-sans-serif, system-ui, sans-serif;
+  --font-heading: var(--font-manrope), "Manrope", ui-sans-serif, system-ui, sans-serif;
   --font-body: var(--font-open-sans), "Open Sans", ui-sans-serif, system-ui, sans-serif;
 }
 
@@ -133,7 +133,23 @@ body {
 
 .font-heading {
   font-family: var(--font-heading);
-  letter-spacing: -0.02em;
+  letter-spacing: -0.025em;
+  font-feature-settings: "ss01", "cv11";
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
+}
+
+/* Enterprise display hierarchy — reduces perceived weight on very large
+   headings so the typography feels refined instead of chunky, while keeping
+   smaller headings at their Tailwind-assigned weight. */
+.font-heading.text-5xl,
+.font-heading.text-6xl,
+.font-heading.text-7xl,
+.font-heading.text-8xl,
+h1.font-heading,
+h2.font-heading {
+  letter-spacing: -0.035em;
 }
 
 .gradient-text {
