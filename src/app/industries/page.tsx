@@ -7,7 +7,6 @@ import {
 } from "lucide-react";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
-import FinalCTA from "@/components/FinalCTA";
 import ScrollReveal from "@/components/ui/ScrollReveal";
 import PageHero from "@/components/ui/PageHero";
 import { industries } from "@/lib/constants";
@@ -75,12 +74,6 @@ export default function IndustriesPage() {
             </div>
           </div>
         </section>
-
-        <FinalCTA
-          eyebrow="Don't see your industry?"
-          title="We adapt fast — and ship faster."
-          primary={{ label: "Discuss Your Sector", href: "/contact" }}
-        />
       </main>
       <Footer />
     </>

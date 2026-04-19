@@ -17,7 +17,6 @@ import {
 } from "lucide-react";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
-import FinalCTA from "@/components/FinalCTA";
 import ScrollReveal from "@/components/ui/ScrollReveal";
 import PageHero from "@/components/ui/PageHero";
 import { servicesData } from "@/lib/services-data";
@@ -550,11 +549,6 @@ export default function ServicesPage() {
             </ScrollReveal>
           </div>
         </section>
-
-        <FinalCTA
-          eyebrow="Ready to scope a project?"
-          title="Talk to a senior engineer within one business day."
-        />
       </main>
       <Footer />
     </>

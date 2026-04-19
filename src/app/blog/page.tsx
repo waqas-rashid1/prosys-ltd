@@ -1,7 +1,6 @@
 import type { Metadata } from "next";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
-import FinalCTA from "@/components/FinalCTA";
 import PageHero from "@/components/ui/PageHero";
 import BlogListing from "./BlogListing";
 import { BreadcrumbSchema } from "@/components/schema/PageSchema";
@@ -41,11 +40,6 @@ export default function BlogPage() {
         />
 
         <BlogListing />
-
-        <FinalCTA
-          eyebrow="From reading to building"
-          title="Have a project that needs this level of thinking?"
-        />
       </main>
       <Footer />
     </>
