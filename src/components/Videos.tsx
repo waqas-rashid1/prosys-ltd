@@ -83,10 +83,11 @@ export default function Videos() {
               <div className="relative aspect-video bg-black overflow-hidden">
                 {playing === v.id ? (
                   <iframe
-                    src={`https://www.youtube.com/embed/${v.id}?autoplay=1&rel=0&modestbranding=1`}
+                    src={`https://www.youtube-nocookie.com/embed/${v.id}?autoplay=1&rel=0&modestbranding=1&playsinline=1`}
                     title={v.title}
                     className="absolute inset-0 w-full h-full"
-                    allow="accelerated-sensors; autoplay; encrypted-media; gyroscope; picture-in-picture"
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                    referrerPolicy="strict-origin-when-cross-origin"
                     allowFullScreen
                   />
                 ) : (
@@ -96,13 +97,24 @@ export default function Videos() {
                     className="absolute inset-0 w-full h-full group/btn cursor-pointer"
                     aria-label={`Play video: ${v.title}`}
                   >
-                    {/* YouTube thumbnail */}
+                    {/* YouTube thumbnail — maxresdefault may 404 for non-HD uploads,
+                        so we fall back to hqdefault (always available). */}
                     {/* eslint-disable-next-line @next/next/no-img-element */}
                     <img
                       src={`https://i.ytimg.com/vi/${v.id}/maxresdefault.jpg`}
                       alt=""
                       className="absolute inset-0 w-full h-full object-cover opacity-70 group-hover/btn:opacity-90 group-hover/btn:scale-[1.02] transition-all duration-500"
                       loading="lazy"
+                      onError={(e) => {
+                        const img = e.currentTarget;
+                        if (img.dataset.fallback !== "hq") {
+                          img.dataset.fallback = "hq";
+                          img.src = `https://i.ytimg.com/vi/${v.id}/hqdefault.jpg`;
+                        } else if (img.dataset.fallback !== "mq") {
+                          img.dataset.fallback = "mq";
+                          img.src = `https://i.ytimg.com/vi/${v.id}/mqdefault.jpg`;
+                        }
+                      }}
                     />
                     <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/30 to-black/50" />
 
