@@ -4,6 +4,7 @@ import Link from "next/link";
 import {
   ArrowUp,
   ArrowRight,
+  ArrowUpRight,
   Mail,
   Phone,
   MapPin,
@@ -11,16 +12,42 @@ import {
   Clock,
   ShieldCheck,
   Globe,
+  Send,
 } from "lucide-react";
 import { LinkedInIcon, XIcon, GitHubIcon, YouTubeIcon } from "./ui/SocialIcons";
 import NewsletterForm from "./NewsletterForm";
 import { siteConfig, footerLinks } from "@/lib/constants";
 
-const pillars: { heading: string; key: keyof typeof footerLinks }[] = [
-  { heading: "Product Engineering", key: "productEngineering" },
-  { heading: "AI & Automation", key: "aiAndAutomation" },
-  { heading: "Cloud & Platform", key: "cloudAndPlatform" },
-  { heading: "Growth & Marketing", key: "growthAndMarketing" },
+const pillars: {
+  number: string;
+  heading: string;
+  tagline: string;
+  key: keyof typeof footerLinks;
+}[] = [
+  {
+    number: "01",
+    heading: "Product Engineering",
+    tagline: "Ship production software",
+    key: "productEngineering",
+  },
+  {
+    number: "02",
+    heading: "AI & Automation",
+    tagline: "Outcomes, not demos",
+    key: "aiAndAutomation",
+  },
+  {
+    number: "03",
+    heading: "Cloud & Platform",
+    tagline: "Scale with discipline",
+    key: "cloudAndPlatform",
+  },
+  {
+    number: "04",
+    heading: "Growth & Marketing",
+    tagline: "Pipeline that compounds",
+    key: "growthAndMarketing",
+  },
 ];
 
 const trustPoints = [
@@ -40,21 +67,21 @@ export default function Footer() {
       {/* Decorative layer */}
       <div className="absolute inset-0 z-0 pointer-events-none" aria-hidden="true">
         <div
-          className="absolute top-0 left-1/2 -translate-x-1/2 w-[900px] h-[450px] opacity-40 animate-pulse-glow"
+          className="absolute top-0 left-1/2 -translate-x-1/2 w-[1000px] h-[500px] opacity-50 animate-pulse-glow"
           style={{
             background:
               "radial-gradient(ellipse at center top, rgba(12,108,54,0.55) 0%, transparent 70%)",
           }}
         />
         <div
-          className="absolute bottom-1/4 -left-32 w-[520px] h-[520px] rounded-full blur-[140px] opacity-60"
+          className="absolute top-1/3 -left-40 w-[560px] h-[560px] rounded-full blur-[160px] opacity-50"
           style={{
             background:
-              "radial-gradient(circle, rgba(12,108,54,0.3) 0%, transparent 65%)",
+              "radial-gradient(circle, rgba(12,108,54,0.35) 0%, transparent 65%)",
           }}
         />
         <div
-          className="absolute bottom-0 right-0 w-[620px] h-[620px] rounded-full blur-[180px]"
+          className="absolute bottom-0 right-0 w-[640px] h-[640px] rounded-full blur-[180px]"
           style={{
             background:
               "radial-gradient(circle, rgba(52,211,153,0.14) 0%, transparent 70%)",
@@ -70,23 +97,33 @@ export default function Footer() {
         />
       </div>
 
-      {/* ── Massive CTA block ───────────────────────────────────────── */}
+      {/* ═══════════════ CTA section ═══════════════ */}
       <section className="relative z-10 border-b border-card-dark-border">
-        <div className="max-w-[1400px] mx-auto px-6 lg:px-12 xl:px-16 pt-20 lg:pt-28 pb-16 lg:pb-20">
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-end">
-            <div className="lg:col-span-8">
-              <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full border border-accent/25 bg-accent/10 backdrop-blur-sm mb-8">
+        <div className="max-w-[1400px] mx-auto px-6 lg:px-12 xl:px-16 pt-24 lg:pt-32 pb-20 lg:pb-24">
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-start">
+            {/* Left: headline + CTAs */}
+            <div className="lg:col-span-7">
+              <div className="flex items-center gap-3 mb-8">
+                <span className="font-mono text-[11px] text-white/30 tracking-[0.2em] uppercase">
+                  / Epilogue
+                </span>
+                <span className="h-px flex-1 bg-gradient-to-r from-white/20 to-transparent" />
+              </div>
+
+              <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full border border-accent/30 bg-accent/10 backdrop-blur-sm mb-8">
                 <Sparkles size={12} className="text-accent-light" />
                 <span className="text-[11px] text-accent-light tracking-[0.18em] font-semibold uppercase">
                   Ready to Build?
                 </span>
               </div>
 
-              <h2 className="font-heading text-5xl sm:text-6xl md:text-7xl lg:text-[5.5rem] xl:text-[6rem] font-black text-white leading-[0.98] tracking-tight mb-8">
-                Let&apos;s build something{" "}
+              <h2 className="font-heading text-5xl sm:text-6xl md:text-7xl lg:text-[5.5rem] xl:text-[6.25rem] font-black text-white leading-[0.95] tracking-tight mb-8">
+                Let&apos;s build
+                <br />
+                something{" "}
                 <span className="gradient-text relative inline-block">
                   extraordinary.
-                  <span className="absolute -bottom-2 left-0 right-0 h-[2px] bg-gradient-to-r from-accent via-accent-light to-transparent" />
+                  <span className="absolute -bottom-2 left-0 right-0 h-[3px] bg-gradient-to-r from-accent via-accent-light to-transparent rounded-full" />
                 </span>
               </h2>
 
@@ -97,7 +134,7 @@ export default function Footer() {
               <div className="flex flex-col sm:flex-row gap-3 mb-10">
                 <Link
                   href="/contact"
-                  className="group inline-flex items-center justify-center gap-2 font-semibold rounded-md bg-white text-dark-primary hover:bg-accent hover:text-white px-8 py-4 text-sm uppercase tracking-widest transition-all duration-300"
+                  className="group inline-flex items-center justify-center gap-2 font-semibold rounded-md bg-white text-dark-primary hover:bg-accent hover:text-white px-8 py-4 text-sm uppercase tracking-widest transition-all duration-300 shadow-lg shadow-accent/10 hover:shadow-accent/30"
                 >
                   Start a project
                   <ArrowRight
@@ -109,219 +146,328 @@ export default function Footer() {
                   href="https://cal.com/prosysltd/30min"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="inline-flex items-center justify-center gap-2 font-medium rounded-md border border-white/25 text-white hover:border-white/60 hover:bg-white/5 px-8 py-4 text-sm uppercase tracking-widest transition-all duration-300"
+                  className="group inline-flex items-center justify-center gap-2 font-medium rounded-md border border-white/25 text-white hover:border-accent/60 hover:bg-accent/10 px-8 py-4 text-sm uppercase tracking-widest transition-all duration-300"
                 >
-                  Book a call
+                  Book a 30-min call
+                  <ArrowUpRight
+                    size={14}
+                    className="transition-transform duration-300 group-hover:-translate-y-0.5 group-hover:translate-x-0.5"
+                  />
                 </a>
               </div>
 
-              <div className="flex flex-wrap gap-x-5 gap-y-3 text-sm text-text-light-muted/80">
+              <div className="grid grid-cols-2 md:grid-cols-4 gap-x-4 gap-y-3 pt-8 border-t border-white/10 max-w-2xl">
                 {trustPoints.map((t) => {
                   const Icon = t.icon;
                   return (
-                    <span key={t.label} className="flex items-center gap-2">
-                      <Icon size={13} className="text-accent-light" />
-                      {t.label}
-                    </span>
+                    <div key={t.label} className="flex items-center gap-2">
+                      <span className="w-7 h-7 rounded-md border border-accent/25 bg-accent/10 flex items-center justify-center flex-shrink-0">
+                        <Icon size={12} className="text-accent-light" />
+                      </span>
+                      <span className="text-[12px] text-text-light-muted leading-tight">
+                        {t.label}
+                      </span>
+                    </div>
                   );
                 })}
               </div>
             </div>
 
-            {/* Newsletter card */}
-            <div className="lg:col-span-4">
-              <div className="bg-card-dark/60 backdrop-blur-sm border border-card-dark-border rounded-lg p-7">
-                <p className="text-[11px] uppercase tracking-[0.2em] text-accent-light font-semibold mb-3">
-                  Field Notes
-                </p>
-                <h3 className="font-heading text-xl font-bold text-white mb-2 leading-tight">
-                  Engineering insights, monthly.
-                </h3>
-                <p className="text-text-light-muted text-sm leading-relaxed mb-5">
-                  Architecture patterns, AI in production, and growth tactics. No noise.
-                </p>
-                <NewsletterForm />
+            {/* Right: newsletter card */}
+            <div className="lg:col-span-5 lg:pl-6 xl:pl-10 lg:border-l lg:border-white/10">
+              <div className="relative bg-gradient-to-br from-card-dark/80 via-card-dark/50 to-card-dark/20 backdrop-blur-sm border border-card-dark-border rounded-xl p-8 lg:p-10 overflow-hidden group">
+                {/* Card accent */}
+                <div
+                  className="absolute -top-20 -right-20 w-60 h-60 rounded-full blur-3xl opacity-40 pointer-events-none"
+                  style={{
+                    background:
+                      "radial-gradient(circle, rgba(12,108,54,0.6) 0%, transparent 70%)",
+                  }}
+                />
+                <div className="relative">
+                  <div className="flex items-center justify-between mb-6">
+                    <div className="w-12 h-12 rounded-lg bg-accent/15 border border-accent/30 flex items-center justify-center text-accent-light">
+                      <Send size={18} />
+                    </div>
+                    <span className="text-[10px] uppercase tracking-[0.25em] text-white/40 font-semibold">
+                      Monthly · No spam
+                    </span>
+                  </div>
+
+                  <p className="text-[11px] uppercase tracking-[0.22em] text-accent-light font-semibold mb-3">
+                    Field Notes
+                  </p>
+                  <h3 className="font-heading text-2xl lg:text-3xl font-black text-white mb-3 leading-[1.1] tracking-tight">
+                    Engineering insights, monthly.
+                  </h3>
+                  <p className="text-text-light-muted text-sm leading-relaxed mb-7">
+                    Architecture patterns, AI in production, growth tactics, and real engineering trade-offs — written by senior practitioners.
+                  </p>
+
+                  <NewsletterForm />
+
+                  <div className="flex items-center justify-between gap-4 mt-7 pt-6 border-t border-white/10">
+                    <div className="flex items-center -space-x-2">
+                      {["H", "F", "C", "+"].map((i, idx) => (
+                        <span
+                          key={idx}
+                          className={`w-7 h-7 rounded-full border-2 border-dark-primary flex items-center justify-center text-[10px] font-heading font-black ${
+                            idx === 3
+                              ? "bg-accent/20 border-accent/40 text-accent-light"
+                              : "bg-gradient-to-br from-accent/40 to-accent/10 text-accent-light"
+                          }`}
+                        >
+                          {i}
+                        </span>
+                      ))}
+                    </div>
+                    <span className="text-[11px] text-white/50">
+                      2,400+ engineers subscribed
+                    </span>
+                  </div>
+                </div>
               </div>
             </div>
           </div>
         </div>
       </section>
 
-      {/* ── Mega link grid ──────────────────────────────────────────── */}
+      {/* ═══════════════ Mega link grid ═══════════════ */}
       <section className="relative z-10 border-b border-card-dark-border flex-1">
         <div className="max-w-[1400px] mx-auto px-6 lg:px-12 xl:px-16 py-16 lg:py-20">
-          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-12 gap-10 lg:gap-8">
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-8">
             {/* Brand column */}
-            <div className="col-span-2 md:col-span-3 lg:col-span-3">
-              <Link href="/" className="inline-flex items-baseline gap-2 mb-5">
-                <span className="font-heading text-2xl font-black tracking-tight text-white">
+            <div className="lg:col-span-4 lg:pr-8">
+              <Link href="/" className="inline-flex items-baseline gap-2 mb-6">
+                <span className="font-heading text-3xl font-black tracking-tight text-white">
                   PROSYS
                 </span>
-                <span className="text-white/40 text-[11px] font-medium tracking-[0.2em] border-l border-white/15 pl-2">
+                <span className="text-white/40 text-[11px] font-medium tracking-[0.22em] border-l border-white/15 pl-2">
                   LTD
                 </span>
               </Link>
-              <p className="text-sm text-text-light-muted leading-relaxed mb-6 max-w-xs">
-                Enterprise-grade product engineering, AI, and growth systems — delivered by senior teams.
+              <p className="text-[15px] text-text-light-muted leading-relaxed mb-8 max-w-sm">
+                Enterprise-grade product engineering, applied AI, and growth systems — delivered by senior teams across 12+ countries.
               </p>
 
-              <div className="space-y-3 text-sm mb-7">
-                <a
-                  href={`mailto:${siteConfig.email}`}
-                  className="flex items-center gap-2.5 text-text-light-muted hover:text-accent-light transition-colors group"
-                >
-                  <Mail size={14} className="text-accent-light" />
-                  {siteConfig.email}
-                </a>
-                <a
-                  href={`tel:${siteConfig.phone}`}
-                  className="flex items-center gap-2.5 text-text-light-muted hover:text-accent-light transition-colors"
-                >
-                  <Phone size={14} className="text-accent-light" />
-                  +92 300 123 4567
-                </a>
-                <div className="flex items-start gap-2.5 text-text-light-muted">
-                  <MapPin size={14} className="text-accent-light mt-0.5" />
+              <ul className="space-y-3.5 text-sm mb-8">
+                <li>
+                  <a
+                    href={`mailto:${siteConfig.email}`}
+                    className="group flex items-center gap-3 text-text-light-muted hover:text-white transition-colors"
+                  >
+                    <span className="w-9 h-9 rounded-md border border-card-dark-border flex items-center justify-center text-accent-light group-hover:border-accent/60 group-hover:bg-accent/10 transition-all">
+                      <Mail size={14} />
+                    </span>
+                    {siteConfig.email}
+                  </a>
+                </li>
+                <li>
+                  <a
+                    href={`tel:${siteConfig.phone}`}
+                    className="group flex items-center gap-3 text-text-light-muted hover:text-white transition-colors"
+                  >
+                    <span className="w-9 h-9 rounded-md border border-card-dark-border flex items-center justify-center text-accent-light group-hover:border-accent/60 group-hover:bg-accent/10 transition-all">
+                      <Phone size={14} />
+                    </span>
+                    +92 300 123 4567
+                  </a>
+                </li>
+                <li className="flex items-center gap-3 text-text-light-muted">
+                  <span className="w-9 h-9 rounded-md border border-card-dark-border flex items-center justify-center text-accent-light flex-shrink-0">
+                    <MapPin size={14} />
+                  </span>
                   <span>{siteConfig.address} · Global Delivery</span>
-                </div>
-              </div>
+                </li>
+              </ul>
 
-              <div className="flex items-center gap-2">
-                {[
-                  {
-                    icon: LinkedInIcon,
-                    href: "https://linkedin.com/company/prosysltd",
-                    name: "LinkedIn",
-                  },
-                  {
-                    icon: XIcon,
-                    href: "https://x.com/prosysltd",
-                    name: "X (Twitter)",
-                  },
-                  {
-                    icon: GitHubIcon,
-                    href: "https://github.com/prosysltd",
-                    name: "GitHub",
-                  },
-                  {
-                    icon: YouTubeIcon,
-                    href: "https://youtube.com/@prosysltd",
-                    name: "YouTube",
-                  },
-                ].map((social) => {
-                  const Icon = social.icon;
-                  return (
-                    <a
-                      key={social.name}
-                      href={social.href}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="w-9 h-9 rounded-md border border-card-dark-border flex items-center justify-center text-text-light-muted hover:text-white hover:border-accent hover:bg-accent/10 transition-all duration-300"
-                      aria-label={`Follow on ${social.name}`}
-                    >
-                      <Icon size={15} />
-                    </a>
-                  );
-                })}
+              <div>
+                <p className="text-[10px] uppercase tracking-[0.22em] text-white/40 font-semibold mb-3">
+                  Follow Along
+                </p>
+                <div className="flex items-center gap-2">
+                  {[
+                    {
+                      icon: LinkedInIcon,
+                      href: "https://linkedin.com/company/prosysltd",
+                      name: "LinkedIn",
+                    },
+                    {
+                      icon: XIcon,
+                      href: "https://x.com/prosysltd",
+                      name: "X (Twitter)",
+                    },
+                    {
+                      icon: GitHubIcon,
+                      href: "https://github.com/prosysltd",
+                      name: "GitHub",
+                    },
+                    {
+                      icon: YouTubeIcon,
+                      href: "https://youtube.com/@prosysltd",
+                      name: "YouTube",
+                    },
+                  ].map((social) => {
+                    const Icon = social.icon;
+                    return (
+                      <a
+                        key={social.name}
+                        href={social.href}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="w-10 h-10 rounded-md border border-card-dark-border flex items-center justify-center text-text-light-muted hover:text-white hover:border-accent hover:bg-accent/10 transition-all duration-300"
+                        aria-label={`Follow on ${social.name}`}
+                      >
+                        <Icon size={15} />
+                      </a>
+                    );
+                  })}
+                </div>
               </div>
             </div>
 
-            {/* Capability pillars */}
-            {pillars.map((p) => (
-              <div key={p.key} className="lg:col-span-2">
-                <h4 className="font-heading text-[11px] font-bold text-white tracking-[0.18em] uppercase mb-5 pb-3 border-b border-card-dark-border">
-                  {p.heading}
-                </h4>
-                <ul className="space-y-2.5">
-                  {footerLinks[p.key].map((link) => (
-                    <li key={link.label}>
-                      <Link
-                        href={link.href}
-                        className="text-[13px] text-text-light-muted hover:text-accent-light transition-colors duration-300"
-                      >
-                        {link.label}
-                      </Link>
-                    </li>
-                  ))}
-                </ul>
+            {/* Capability pillars — 4 column grid */}
+            <div className="lg:col-span-8">
+              <div className="flex items-center gap-3 mb-6">
+                <span className="font-mono text-[11px] text-white/30 tracking-[0.2em] uppercase">
+                  / Capabilities
+                </span>
+                <span className="h-px flex-1 bg-gradient-to-r from-white/10 to-transparent" />
               </div>
-            ))}
 
-            {/* Company + Resources stacked */}
-            <div className="lg:col-span-1 space-y-8">
-              <div>
-                <h4 className="font-heading text-[11px] font-bold text-white tracking-[0.18em] uppercase mb-5 pb-3 border-b border-card-dark-border">
+              <div className="grid grid-cols-2 md:grid-cols-4 gap-x-6 gap-y-10">
+                {pillars.map((p) => (
+                  <div key={p.key}>
+                    <div className="flex items-baseline gap-2 mb-4">
+                      <span className="font-mono text-[10px] text-accent-light/60 tracking-widest">
+                        /{p.number}
+                      </span>
+                    </div>
+                    <h4 className="font-heading text-sm font-bold text-white tracking-tight mb-1 leading-tight">
+                      {p.heading}
+                    </h4>
+                    <p className="text-[11px] text-white/40 uppercase tracking-wider mb-5">
+                      {p.tagline}
+                    </p>
+                    <ul className="space-y-2.5">
+                      {footerLinks[p.key].map((link) => (
+                        <li key={link.label}>
+                          <Link
+                            href={link.href}
+                            className="group inline-flex items-center gap-1.5 text-[13px] text-text-light-muted hover:text-accent-light transition-colors duration-200"
+                          >
+                            <span className="w-1 h-1 rounded-full bg-white/20 group-hover:bg-accent-light transition-colors" />
+                            {link.label}
+                          </Link>
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
+                ))}
+              </div>
+            </div>
+          </div>
+
+          {/* Secondary row — Company + Resources as balanced horizontal strips */}
+          <div className="mt-16 pt-10 border-t border-card-dark-border grid grid-cols-1 md:grid-cols-2 gap-x-12 gap-y-10">
+            <div>
+              <div className="flex items-center gap-3 mb-5">
+                <span className="font-mono text-[11px] text-accent-light/60 tracking-widest">
+                  /05
+                </span>
+                <h4 className="font-heading text-sm font-bold text-white tracking-tight">
                   Company
                 </h4>
-                <ul className="space-y-2.5">
-                  {footerLinks.company.map((link) => (
-                    <li key={link.label}>
-                      <Link
-                        href={link.href}
-                        className="text-[13px] text-text-light-muted hover:text-accent-light transition-colors duration-300"
-                      >
-                        {link.label}
-                      </Link>
-                    </li>
-                  ))}
-                </ul>
+                <span className="h-px flex-1 bg-gradient-to-r from-white/10 to-transparent" />
               </div>
+              <ul className="flex flex-wrap gap-x-6 gap-y-3">
+                {footerLinks.company.map((link) => (
+                  <li key={link.label}>
+                    <Link
+                      href={link.href}
+                      className="group inline-flex items-center gap-1.5 text-[13px] text-text-light-muted hover:text-accent-light transition-colors"
+                    >
+                      {link.label}
+                      <ArrowRight
+                        size={11}
+                        className="opacity-0 -translate-x-1 group-hover:opacity-100 group-hover:translate-x-0 transition-all"
+                      />
+                    </Link>
+                  </li>
+                ))}
+              </ul>
+            </div>
 
-              <div>
-                <h4 className="font-heading text-[11px] font-bold text-white tracking-[0.18em] uppercase mb-5 pb-3 border-b border-card-dark-border">
+            <div>
+              <div className="flex items-center gap-3 mb-5">
+                <span className="font-mono text-[11px] text-accent-light/60 tracking-widest">
+                  /06
+                </span>
+                <h4 className="font-heading text-sm font-bold text-white tracking-tight">
                   Resources
                 </h4>
-                <ul className="space-y-2.5">
-                  {footerLinks.resources.map((link) => (
-                    <li key={link.label}>
-                      <Link
-                        href={link.href}
-                        className="text-[13px] text-text-light-muted hover:text-accent-light transition-colors duration-300"
-                      >
-                        {link.label}
-                      </Link>
-                    </li>
-                  ))}
-                </ul>
+                <span className="h-px flex-1 bg-gradient-to-r from-white/10 to-transparent" />
               </div>
+              <ul className="flex flex-wrap gap-x-6 gap-y-3">
+                {footerLinks.resources.map((link) => (
+                  <li key={link.label}>
+                    <Link
+                      href={link.href}
+                      className="group inline-flex items-center gap-1.5 text-[13px] text-text-light-muted hover:text-accent-light transition-colors"
+                    >
+                      {link.label}
+                      <ArrowRight
+                        size={11}
+                        className="opacity-0 -translate-x-1 group-hover:opacity-100 group-hover:translate-x-0 transition-all"
+                      />
+                    </Link>
+                  </li>
+                ))}
+              </ul>
             </div>
           </div>
         </div>
       </section>
 
-      {/* ── Bottom bar ──────────────────────────────────────────────── */}
+      {/* ═══════════════ Bottom bar ═══════════════ */}
       <div className="relative z-10">
-        <div className="max-w-[1400px] mx-auto px-6 lg:px-12 xl:px-16 py-6 flex flex-col sm:flex-row items-center justify-between gap-4">
-          <div className="flex flex-wrap items-center gap-x-5 gap-y-2 text-xs text-text-light-muted/70">
+        <div className="max-w-[1400px] mx-auto px-6 lg:px-12 xl:px-16 py-7 flex flex-col md:flex-row items-center justify-between gap-5">
+          <div className="flex flex-wrap items-center justify-center md:justify-start gap-x-6 gap-y-2 text-xs text-text-light-muted/70">
             <span>
               &copy; {new Date().getFullYear()} {siteConfig.name}. All Rights Reserved.
             </span>
-            {footerLinks.legal.map((link) => (
-              <Link
-                key={link.label}
-                href={link.href}
-                className="hover:text-accent-light transition-colors"
-              >
-                {link.label}
-              </Link>
+            <span className="hidden md:inline text-white/15">·</span>
+            {footerLinks.legal.map((link, i) => (
+              <span key={link.label} className="flex items-center gap-x-6">
+                <Link
+                  href={link.href}
+                  className="hover:text-accent-light transition-colors"
+                >
+                  {link.label}
+                </Link>
+                {i < footerLinks.legal.length - 1 && (
+                  <span className="hidden md:inline text-white/15">·</span>
+                )}
+              </span>
             ))}
-            <Link
-              href="/sitemap.xml"
-              className="hover:text-accent-light transition-colors"
-            >
-              Sitemap
-            </Link>
           </div>
-          <button
-            onClick={scrollToTop}
-            className="group flex items-center gap-2 text-xs text-text-light-muted hover:text-accent-light transition-colors cursor-pointer uppercase tracking-widest"
-            aria-label="Scroll back to top"
-          >
-            Back to top
-            <span className="w-8 h-8 rounded-md border border-card-dark-border flex items-center justify-center group-hover:border-accent group-hover:bg-accent/10 transition-all duration-300">
-              <ArrowUp size={14} />
+
+          <div className="flex items-center gap-5">
+            <span className="hidden sm:flex items-center gap-2 text-[11px] text-white/40 uppercase tracking-[0.2em]">
+              <span className="h-2 w-2 rounded-full bg-accent-light animate-pulse" />
+              Available for new projects
             </span>
-          </button>
+            <button
+              onClick={scrollToTop}
+              className="group flex items-center gap-2 text-xs text-text-light-muted hover:text-accent-light transition-colors cursor-pointer uppercase tracking-widest"
+              aria-label="Scroll back to top"
+            >
+              <span className="hidden sm:inline">Back to top</span>
+              <span className="w-9 h-9 rounded-md border border-card-dark-border flex items-center justify-center group-hover:border-accent group-hover:bg-accent/10 transition-all duration-300">
+                <ArrowUp size={14} />
+              </span>
+            </button>
+          </div>
         </div>
       </div>
     </footer>
