@@ -9,6 +9,7 @@ import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import ScrollReveal from "@/components/ui/ScrollReveal";
 import PageHero from "@/components/ui/PageHero";
+import Testimonials from "@/components/Testimonials";
 import { LinkedInIcon } from "@/components/ui/SocialIcons";
 import { stats } from "@/lib/constants";
 
@@ -265,6 +266,9 @@ export default function AboutPage() {
             </div>
           </div>
         </section>
+
+        {/* Client Stories (moved from home) */}
+        <Testimonials />
 
         {/* Global Presence */}
         <section id="global" className="py-28 lg:py-36 bg-light-primary">

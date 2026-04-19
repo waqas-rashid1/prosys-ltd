@@ -19,6 +19,7 @@ import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import ScrollReveal from "@/components/ui/ScrollReveal";
 import PageHero from "@/components/ui/PageHero";
+import Capabilities from "@/components/Capabilities";
 import { servicesData } from "@/lib/services-data";
 
 export const metadata: Metadata = {
@@ -140,6 +141,9 @@ export default function ServicesPage() {
           secondaryCta={{ label: "Explore all 29", href: "#pillars" }}
           stats={proofPoints.map((p) => ({ value: p.value, label: p.label }))}
         />
+
+        {/* ───────────────────────── How We Deliver (moved from home) ───────────────────────── */}
+        <Capabilities />
 
         {/* ───────────────────────── Delivery Standards Strip ───────────────────────── */}
         <section className="bg-white border-b border-card-light-border">

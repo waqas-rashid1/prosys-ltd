@@ -26,7 +26,7 @@ export default function BlogArticleContent({ slug }: { slug: string }) {
   return (
     <main id="main-content">
       {/* Hero image */}
-      <section className="relative min-h-dvh flex items-end overflow-hidden bg-dark-primary">
+      <section className="relative h-dvh min-h-[640px] flex items-end overflow-hidden bg-dark-primary">
         <div className="absolute inset-0 z-0" aria-hidden="true">
           <Image src={post.image} alt="" fill className="object-cover" priority sizes="100vw" />
           <div className="absolute inset-0 bg-gradient-to-t from-dark-primary via-dark-primary/70 to-dark-primary/30" />

@@ -60,13 +60,12 @@ export default function Hero() {
   const slide = slides[current];
 
   return (
-    <section className="relative min-h-dvh flex items-center overflow-hidden bg-dark-primary">
+    <section className="relative h-dvh min-h-[640px] flex items-center overflow-hidden bg-dark-primary">
       <div className="absolute inset-0 z-0" aria-hidden="true">
         <video autoPlay muted loop playsInline preload="auto" src="/videos/hero.mp4" className="absolute inset-0 w-full h-full object-cover opacity-50" />
         <div className="absolute inset-0 bg-dark-primary/70" />
         <div className="absolute inset-0 bg-gradient-to-r from-dark-primary via-dark-primary/85 to-dark-primary/30" />
         <div className="absolute inset-0 bg-gradient-to-t from-dark-primary via-transparent to-dark-primary/60" />
-        {/* Ambient green glow — matches service detail hero */}
         <div className="absolute top-1/2 right-0 w-[600px] h-[600px] pointer-events-none opacity-70" style={{ background: "radial-gradient(circle, rgba(12,108,54,0.18) 0%, transparent 60%)" }} />
         <div className="absolute bottom-0 left-1/4 w-[400px] h-[400px] pointer-events-none opacity-60" style={{ background: "radial-gradient(circle, rgba(52,211,153,0.1) 0%, transparent 70%)" }} />
       </div>
@@ -78,7 +77,7 @@ export default function Hero() {
         <ChevronRight size={20} />
       </button>
 
-      <div className="relative z-10 max-w-[1400px] mx-auto px-6 lg:px-12 xl:px-16 w-full pt-32 pb-20 lg:pt-40 lg:pb-28">
+      <div className="relative z-10 max-w-[1400px] mx-auto px-6 lg:px-12 xl:px-16 w-full pt-24 pb-24 lg:pt-28 lg:pb-24">
         <AnimatePresence mode="wait">
           <motion.div
             key={current}
@@ -88,29 +87,29 @@ export default function Hero() {
             transition={{ duration: 0.6, ease: [0.25, 0.1, 0.25, 1] }}
             className="max-w-4xl"
           >
-            <p className="text-xs text-accent-light uppercase tracking-[0.25em] font-semibold mb-6">
+            <p className="text-[11px] text-accent-light uppercase tracking-[0.25em] font-semibold mb-4">
               {slide.eyebrow}
             </p>
 
-            <h1 className="font-heading text-4xl leading-[1.05] sm:text-5xl md:text-6xl lg:text-7xl xl:text-[5.5rem] font-black mb-8 text-white tracking-tight">
+            <h1 className="font-heading text-[2.25rem] leading-[1.05] sm:text-5xl md:text-[3.5rem] lg:text-6xl xl:text-[4.25rem] font-black mb-5 text-white tracking-tight">
               {slide.title}{" "}
               <span className="gradient-text">{slide.highlight}</span>
             </h1>
 
-            <p className="max-w-2xl text-base sm:text-lg text-white/60 mb-12 leading-relaxed">
+            <p className="max-w-2xl text-sm sm:text-base lg:text-lg text-white/60 mb-7 leading-relaxed">
               {slide.description}
             </p>
 
-            <div className="flex flex-col sm:flex-row items-start gap-4 mb-16">
+            <div className="flex flex-col sm:flex-row items-start gap-3 mb-8">
               <Link
                 href="/contact"
-                className="inline-flex items-center justify-center font-semibold rounded-md bg-white text-dark-primary hover:bg-accent hover:text-white px-8 py-4 text-sm uppercase tracking-widest transition-all duration-300"
+                className="inline-flex items-center justify-center font-semibold rounded-md bg-white text-dark-primary hover:bg-accent hover:text-white px-7 py-3.5 text-xs uppercase tracking-widest transition-all duration-300"
               >
                 Book a Consultation
               </Link>
               <Link
                 href="/work"
-                className="inline-flex items-center justify-center font-medium rounded-md border border-white/25 text-white hover:border-white/60 px-8 py-4 text-sm uppercase tracking-widest transition-all duration-300"
+                className="inline-flex items-center justify-center font-medium rounded-md border border-white/25 text-white hover:border-white/60 px-7 py-3.5 text-xs uppercase tracking-widest transition-all duration-300"
               >
                 See Our Work
               </Link>
@@ -118,23 +117,21 @@ export default function Hero() {
           </motion.div>
         </AnimatePresence>
 
-        {/* Proof points strip */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.5, duration: 0.6 }}
-          className="flex flex-wrap gap-8 md:gap-16 pt-8 border-t border-white/10 max-w-3xl"
+          className="flex flex-wrap gap-x-10 md:gap-x-14 gap-y-3 pt-6 border-t border-white/10 max-w-3xl"
         >
           {proofPoints.map((p) => (
             <div key={p.label}>
-              <div className="font-heading text-2xl md:text-3xl font-bold text-white mb-1">{p.value}</div>
-              <div className="text-[11px] text-white/40 uppercase tracking-widest">{p.label}</div>
+              <div className="font-heading text-xl md:text-2xl font-bold text-white mb-0.5">{p.value}</div>
+              <div className="text-[10px] text-white/40 uppercase tracking-widest">{p.label}</div>
             </div>
           ))}
         </motion.div>
 
-        {/* Slide indicators — anchored to bottom of hero */}
-        <div className="absolute bottom-8 left-6 lg:left-12 xl:left-16 flex items-center gap-2">
+        <div className="absolute bottom-6 left-6 lg:left-12 xl:left-16 flex items-center gap-2">
           {slides.map((_, i) => (
             <button
               key={i}
@@ -152,7 +149,7 @@ export default function Hero() {
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ delay: 1.5 }}
-        className="absolute bottom-8 right-8 flex flex-col items-center gap-2 text-white/30 z-10"
+        className="absolute bottom-6 right-8 flex flex-col items-center gap-1.5 text-white/30 z-10"
       >
         <span className="text-[10px] tracking-[0.25em] uppercase">Scroll</span>
         <motion.div animate={{ y: [0, 5, 0] }} transition={{ duration: 1.5, repeat: Infinity }}>

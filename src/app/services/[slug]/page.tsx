@@ -85,7 +85,7 @@ export default async function ServicePage({ params }: { params: Promise<{ slug: 
       <Navbar />
       <main id="main-content">
         {/* Cinematic Hero — static image + gradients for performance (home uses video) */}
-        <section className="relative min-h-dvh flex items-center overflow-hidden bg-dark-primary">
+        <section className="relative h-dvh min-h-[640px] flex items-center overflow-hidden bg-dark-primary">
           <div className="absolute inset-0 z-0" aria-hidden="true">
             <Image
               src={heroImage}

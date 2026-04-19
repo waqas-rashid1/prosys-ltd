@@ -1,6 +1,7 @@
 @import "tailwindcss";
 
-/* Manrope (headings) + Open Sans (body) loaded via next/font/google */
+/* Manrope — single typeface for the whole site (headings + body).
+   Loaded via next/font/google. */
 
 :root {
   --dark-primary: #000000;
@@ -46,7 +47,8 @@
   --color-card-light-border: var(--card-light-border);
 
   --font-heading: var(--font-manrope), "Manrope", ui-sans-serif, system-ui, sans-serif;
-  --font-body: var(--font-open-sans), "Open Sans", ui-sans-serif, system-ui, sans-serif;
+  --font-body: var(--font-manrope), "Manrope", ui-sans-serif, system-ui, sans-serif;
+  --font-sans: var(--font-manrope), "Manrope", ui-sans-serif, system-ui, sans-serif;
 }
 
 html[data-scroll-behavior="smooth"] {

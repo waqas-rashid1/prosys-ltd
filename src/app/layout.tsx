@@ -1,7 +1,7 @@
 import type { Metadata, Viewport } from "next";
 import { Analytics } from "@vercel/analytics/react";
 import { SpeedInsights } from "@vercel/speed-insights/next";
-import { manrope, openSans } from "@/lib/fonts";
+import { manrope } from "@/lib/fonts";
 import StructuredData from "@/components/StructuredData";
 import StickyCTA from "@/components/StickyCTA";
 import CookieConsent from "@/components/CookieConsent";
@@ -101,7 +101,7 @@ export default function RootLayout({
     <html
       lang="en"
       data-scroll-behavior="smooth"
-      className={`${manrope.variable} ${openSans.variable} h-full`}
+      className={`${manrope.variable} h-full`}
     >
       <head>
         <StructuredData />

@@ -21,7 +21,7 @@ export default async function ApplyPage({
     <>
       <Navbar />
       <main id="main-content">
-        <section className="relative min-h-dvh flex items-center bg-dark-primary overflow-hidden">
+        <section className="relative h-dvh min-h-[640px] flex items-center bg-dark-primary overflow-hidden">
           <div className="absolute inset-0 z-0 pointer-events-none" aria-hidden="true">
             <div className="absolute top-1/4 -left-20 w-[500px] h-[500px] rounded-full blur-[140px] animate-pulse-glow" style={{ background: "radial-gradient(circle, rgba(12,108,54,0.35) 0%, transparent 65%)" }} />
             <div className="absolute bottom-0 right-0 w-[600px] h-[600px] rounded-full blur-[180px]" style={{ background: "radial-gradient(circle, rgba(52,211,153,0.12) 0%, transparent 70%)" }} />

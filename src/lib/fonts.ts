@@ -1,24 +1,16 @@
-import { Manrope, Open_Sans } from "next/font/google";
+import { Manrope } from "next/font/google";
 
 /**
- * Heading font — Manrope.
- * Modern, enterprise-grade geometric sans. Loads the full weight range
- * (200 – 800) so we can use everything from thin editorial titles to
- * bold display headlines.
+ * Single site-wide typeface — Manrope.
+ *
+ * Modern, enterprise-grade geometric sans used consistently for both
+ * headings and body text. Full weight range (200 – 800) gives us thin
+ * editorial titles, readable body text, and bold display headlines all
+ * from one family — for a unified, premium look.
  */
 export const manrope = Manrope({
   subsets: ["latin"],
   variable: "--font-manrope",
   weight: ["200", "300", "400", "500", "600", "700", "800"],
-  display: "swap",
-});
-
-/**
- * Body font — Open Sans. Neutral, highly legible workhorse.
- */
-export const openSans = Open_Sans({
-  subsets: ["latin"],
-  variable: "--font-open-sans",
-  weight: ["400", "500", "600", "700"],
   display: "swap",
 });

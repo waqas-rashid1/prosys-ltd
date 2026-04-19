@@ -37,7 +37,7 @@ export default function PageHero({
   const isCenter = align === "center";
 
   return (
-    <section className="relative min-h-dvh flex items-center overflow-hidden bg-dark-primary">
+    <section className="relative h-dvh min-h-[640px] flex items-center overflow-hidden bg-dark-primary">
       {/* Background image (optional) */}
       {bgImage && (
         <div className="absolute inset-0 z-0" aria-hidden="true">
@@ -85,7 +85,7 @@ export default function PageHero({
         <div className="absolute top-1/2 right-8 -translate-y-1/2 w-px h-48 bg-gradient-to-b from-transparent via-accent/40 to-transparent hidden lg:block" />
       </div>
 
-      <div className="relative z-10 w-full max-w-[1400px] mx-auto px-6 lg:px-12 xl:px-16 pt-32 pb-20 lg:pt-36 lg:pb-28">
+      <div className="relative z-10 w-full max-w-[1400px] mx-auto px-6 lg:px-12 xl:px-16 pt-24 pb-20 lg:pt-28 lg:pb-24">
         <div className={isCenter ? "text-center" : ""}>
           <div className={isCenter ? "max-w-4xl mx-auto" : "max-w-4xl"}>
             {badge && (
@@ -93,7 +93,7 @@ export default function PageHero({
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.6 }}
-                className={`inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full border border-accent/25 bg-accent/10 backdrop-blur-sm mb-8 ${
+                className={`inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full border border-accent/25 bg-accent/10 backdrop-blur-sm mb-5 ${
                   isCenter ? "" : ""
                 }`}
               >
@@ -108,7 +108,7 @@ export default function PageHero({
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.75, delay: 0.1 }}
-              className="font-heading text-5xl sm:text-6xl md:text-7xl lg:text-[5.5rem] xl:text-[6rem] font-black leading-[1.02] tracking-tight text-white mb-8"
+              className="font-heading text-[2.5rem] sm:text-5xl md:text-6xl lg:text-[4.5rem] xl:text-[5rem] font-black leading-[1.02] tracking-tight text-white mb-5"
             >
               {title}
               {highlight && (
@@ -126,7 +126,7 @@ export default function PageHero({
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.75, delay: 0.25 }}
-              className={`text-base sm:text-lg md:text-xl text-text-light-muted leading-relaxed mb-10 ${
+              className={`text-sm sm:text-base lg:text-lg text-text-light-muted leading-relaxed mb-6 ${
                 isCenter ? "max-w-2xl mx-auto" : "max-w-2xl"
               }`}
             >
@@ -138,7 +138,7 @@ export default function PageHero({
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.6, delay: 0.35 }}
-                className={`flex flex-wrap gap-x-5 gap-y-2.5 mb-10 text-sm text-text-light-muted/80 ${
+                className={`flex flex-wrap gap-x-5 gap-y-2 mb-6 text-xs md:text-sm text-text-light-muted/80 ${
                   isCenter ? "justify-center" : ""
                 }`}
               >
@@ -161,7 +161,7 @@ export default function PageHero({
                 {primaryCta && (
                   <Link
                     href={primaryCta.href}
-                    className="group inline-flex items-center justify-center gap-2 font-semibold rounded-md bg-white text-dark-primary hover:bg-accent hover:text-white px-8 py-4 text-sm uppercase tracking-widest transition-all duration-300"
+                    className="group inline-flex items-center justify-center gap-2 font-semibold rounded-md bg-white text-dark-primary hover:bg-accent hover:text-white px-7 py-3.5 text-xs uppercase tracking-widest transition-all duration-300"
                   >
                     {primaryCta.label}
                     <ArrowRight size={14} className="transition-transform duration-300 group-hover:translate-x-1" />
@@ -170,7 +170,7 @@ export default function PageHero({
                 {secondaryCta && (
                   <Link
                     href={secondaryCta.href}
-                    className="inline-flex items-center justify-center gap-2 font-medium rounded-md border border-white/25 text-white hover:border-white/60 hover:bg-white/5 px-8 py-4 text-sm uppercase tracking-widest transition-all duration-300"
+                    className="inline-flex items-center justify-center gap-2 font-medium rounded-md border border-white/25 text-white hover:border-white/60 hover:bg-white/5 px-7 py-3.5 text-xs uppercase tracking-widest transition-all duration-300"
                   >
                     {secondaryCta.label}
                   </Link>
@@ -185,16 +185,16 @@ export default function PageHero({
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.75, delay: 0.5 }}
-              className={`mt-16 pt-10 border-t border-white/10 grid grid-cols-2 md:grid-cols-4 gap-8 max-w-4xl ${
+              className={`mt-10 pt-6 border-t border-white/10 grid grid-cols-2 md:grid-cols-4 gap-6 max-w-4xl ${
                 isCenter ? "mx-auto" : ""
               }`}
             >
               {stats.map((s) => (
                 <div key={s.label}>
-                  <div className="font-heading text-3xl md:text-4xl font-black text-white mb-1 tracking-tight">
+                  <div className="font-heading text-2xl md:text-3xl font-black text-white mb-0.5 tracking-tight">
                     {s.value}
                   </div>
-                  <div className="text-[11px] text-white/50 uppercase tracking-[0.18em] font-semibold">
+                  <div className="text-[10px] text-white/50 uppercase tracking-[0.18em] font-semibold">
                     {s.label}
                   </div>
                 </div>
@@ -209,7 +209,7 @@ export default function PageHero({
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ delay: 1.4, duration: 0.6 }}
-        className="absolute bottom-6 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 text-white/30 z-10"
+        className="absolute bottom-4 left-1/2 -translate-x-1/2 flex flex-col items-center gap-1.5 text-white/30 z-10"
         aria-hidden="true"
       >
         <span className="text-[10px] tracking-[0.3em] uppercase font-medium">Scroll</span>

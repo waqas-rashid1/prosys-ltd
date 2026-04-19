@@ -63,7 +63,7 @@ export default async function IndustryDetailPage({
       />
       <Navbar />
       <main id="main-content">
-        <section className="relative min-h-dvh flex items-center bg-dark-primary overflow-hidden">
+        <section className="relative h-dvh min-h-[640px] flex items-center bg-dark-primary overflow-hidden">
           <div className="absolute inset-0 z-0" aria-hidden="true">
             <Image src={industry.image} alt="" fill className="object-cover opacity-30" priority sizes="100vw" />
             <div className="absolute inset-0 bg-gradient-to-r from-dark-primary via-dark-primary/90 to-dark-primary/40" />
