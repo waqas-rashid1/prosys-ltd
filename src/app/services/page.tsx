@@ -623,22 +623,16 @@ export default function ServicesPage() {
                     </div>
                   </ScrollReveal>
 
-                  {/* Service cards */}
-                  <div
-                    className={`grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-px rounded-lg overflow-hidden border ${
-                      isDark
-                        ? "bg-card-dark-border border-card-dark-border"
-                        : "bg-card-light-border border-card-light-border"
-                    }`}
-                  >
+                  {/* Service cards — individually rounded, gapped, filled */}
+                  <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 lg:gap-5">
                     {services.map((s, i) => (
                       <ScrollReveal key={s.slug} delay={i * 0.04}>
                         <Link
                           href={`/services/${s.slug}`}
-                          className={`group relative block h-full p-6 lg:p-7 transition-colors duration-300 overflow-hidden ${
+                          className={`group relative flex flex-col h-full p-6 lg:p-7 rounded-xl border overflow-hidden transition-all duration-300 ${
                             isDark
-                              ? "bg-card-dark hover:bg-dark-secondary"
-                              : "bg-white hover:bg-light-primary"
+                              ? "bg-card-dark border-card-dark-border hover:bg-dark-secondary hover:border-white/20"
+                              : "bg-white border-card-light-border hover:border-text-dark/15 hover:shadow-lg hover:-translate-y-0.5"
                           }`}
                         >
                           <span
@@ -676,7 +670,7 @@ export default function ServicesPage() {
                             {s.techStack.slice(0, 3).map((t) => (
                               <span
                                 key={t}
-                                className={`px-2 py-0.5 text-[10px] font-medium rounded-sm border ${
+                                className={`px-2 py-0.5 text-[10px] font-medium rounded-md border ${
                                   isDark
                                     ? "border-card-dark-border bg-dark-primary/60 text-white/60"
                                     : "border-card-light-border bg-light-primary text-text-dark-muted"
@@ -688,8 +682,8 @@ export default function ServicesPage() {
                           </div>
 
                           <div
-                            className={`pt-4 flex items-center justify-between border-t ${
-                              isDark ? "border-white/5" : "border-card-light-border"
+                            className={`mt-auto pt-4 flex items-center justify-between border-t ${
+                              isDark ? "border-white/10" : "border-card-light-border"
                             }`}
                           >
                             <span className={`text-[11px] ${a.text} font-semibold uppercase tracking-widest`}>
@@ -703,6 +697,76 @@ export default function ServicesPage() {
                         </Link>
                       </ScrollReveal>
                     ))}
+
+                    {/* Pillar-CTA filler card — fills the dead grid slot and drives conversion */}
+                    <ScrollReveal delay={services.length * 0.04}>
+                      <Link
+                        href="/contact"
+                        className={`group relative flex flex-col h-full p-6 lg:p-7 rounded-xl border overflow-hidden transition-all duration-300 ${
+                          isDark
+                            ? `${a.bg} ${a.border} hover:bg-card-dark hover:border-white/20`
+                            : `${a.bg} ${a.border} hover:bg-white hover:shadow-lg hover:-translate-y-0.5`
+                        }`}
+                      >
+                        <div
+                          className={`absolute -inset-1 rounded-2xl bg-gradient-to-br ${a.glow} opacity-70 group-hover:opacity-100 blur-2xl transition-opacity duration-700 pointer-events-none`}
+                          aria-hidden="true"
+                        />
+
+                        <div className="relative flex flex-col h-full">
+                          <div className="flex items-center justify-between mb-5">
+                            <span className={`text-[10px] font-mono tracking-[0.2em] uppercase ${a.text} opacity-80 font-semibold`}>
+                              TALK TO US
+                            </span>
+                            <div
+                              className={`w-8 h-8 rounded-md flex items-center justify-center ${
+                                isDark ? "bg-white/5 border border-white/10" : "bg-white border border-card-light-border"
+                              } group-hover:bg-accent group-hover:border-accent transition-all duration-300`}
+                            >
+                              <ArrowUpRight
+                                size={14}
+                                className={`${a.text} group-hover:text-white group-hover:-translate-y-0.5 group-hover:translate-x-0.5 transition-all duration-300`}
+                              />
+                            </div>
+                          </div>
+
+                          <div className="relative w-12 h-12 rounded-lg bg-white/10 border border-white/10 flex items-center justify-center mb-5 backdrop-blur-sm">
+                            <Sparkles size={18} className={a.text} />
+                          </div>
+
+                          <h3
+                            className={`font-heading text-lg lg:text-xl font-bold mb-2 leading-tight tracking-tight ${
+                              isDark ? "text-white" : "text-text-dark"
+                            }`}
+                          >
+                            Not sure where to start?
+                          </h3>
+                          <p
+                            className={`text-sm leading-relaxed mb-5 ${
+                              isDark ? "text-text-light-muted" : "text-text-dark-muted"
+                            }`}
+                          >
+                            Free 30-minute consult with a senior engineer on the{" "}
+                            <span className={`font-semibold ${a.text}`}>{pillar.title}</span> team.
+                            We&apos;ll scope the problem, not sell a service.
+                          </p>
+
+                          <div
+                            className={`mt-auto pt-4 flex items-center justify-between border-t ${
+                              isDark ? "border-white/10" : "border-card-light-border/80"
+                            }`}
+                          >
+                            <span className={`text-[11px] ${a.text} font-semibold uppercase tracking-widest`}>
+                              Book a call
+                            </span>
+                            <ArrowRight
+                              size={12}
+                              className={`${a.text} group-hover:translate-x-1 transition-transform duration-300`}
+                            />
+                          </div>
+                        </div>
+                      </Link>
+                    </ScrollReveal>
                   </div>
                 </div>
               </section>
@@ -749,19 +813,19 @@ export default function ServicesPage() {
               </div>
             </ScrollReveal>
 
-            {/* 6-step timeline */}
+            {/* 6-step timeline — each step is its own rounded card */}
             <div className="relative mb-16 lg:mb-20">
               <div
                 aria-hidden="true"
-                className="hidden lg:block absolute top-6 left-[4%] right-[4%] h-px bg-gradient-to-r from-transparent via-accent/30 to-transparent"
+                className="hidden lg:block absolute top-[2.5rem] left-[4%] right-[4%] h-px bg-gradient-to-r from-transparent via-accent/30 to-transparent"
               />
 
-              <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-px bg-card-light-border border border-card-light-border rounded-lg overflow-hidden">
+              <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-3 lg:gap-4">
                 {engagementSteps.map((s, i) => (
                   <ScrollReveal key={s.num} delay={i * 0.06}>
-                    <div className="group relative bg-white hover:bg-light-primary p-5 h-full transition-colors duration-300">
+                    <div className="group relative h-full bg-white border border-card-light-border rounded-xl p-5 hover:border-accent/30 hover:shadow-md transition-all duration-300">
                       <div className="flex items-center justify-between mb-4">
-                        <div className="relative w-10 h-10 rounded-full bg-white border border-accent/30 flex items-center justify-center font-mono text-[11px] font-bold text-accent">
+                        <div className="relative w-10 h-10 rounded-full bg-white border border-accent/30 flex items-center justify-center font-mono text-[11px] font-bold text-accent shadow-sm">
                           {s.num}
                         </div>
                         {i < engagementSteps.length - 1 && (
@@ -825,30 +889,26 @@ export default function ServicesPage() {
                   </div>
 
                   <div className="lg:col-span-7">
-                    <div className="grid grid-cols-1 gap-px bg-card-light-border rounded-lg overflow-hidden border border-card-light-border">
+                    <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
                       {problemMatches.map((item) => {
                         const ItemIcon = item.icon;
                         return (
                           <div
                             key={item.label}
-                            className="group flex items-start gap-4 bg-white hover:bg-light-primary p-5 transition-colors duration-300"
+                            className="group flex items-start gap-4 bg-white border border-card-light-border rounded-xl p-5 hover:border-accent/30 hover:shadow-md transition-all duration-300"
                           >
                             <div className="w-10 h-10 rounded-md bg-accent/10 border border-accent/20 text-accent flex items-center justify-center flex-shrink-0 group-hover:bg-accent group-hover:text-white group-hover:border-accent transition-all duration-300">
                               <ItemIcon size={16} />
                             </div>
                             <div className="flex-grow">
-                              <p className="text-sm font-semibold text-text-dark mb-1">
+                              <p className="text-sm font-semibold text-text-dark mb-1 leading-tight">
                                 &ldquo;{item.label}&rdquo;
                               </p>
-                              <p className="text-xs text-text-dark-muted flex items-center gap-1.5">
-                                <CheckCircle2 size={11} className="text-accent flex-shrink-0" />
-                                {item.route}
+                              <p className="text-xs text-text-dark-muted flex items-start gap-1.5 leading-snug">
+                                <CheckCircle2 size={11} className="text-accent flex-shrink-0 mt-0.5" />
+                                <span>{item.route}</span>
                               </p>
                             </div>
-                            <ArrowRight
-                              size={14}
-                              className="text-text-dark-muted/30 group-hover:text-accent group-hover:translate-x-1 transition-all duration-300 flex-shrink-0 mt-1"
-                            />
                           </div>
                         );
                       })}

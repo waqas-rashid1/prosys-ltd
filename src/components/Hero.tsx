@@ -62,10 +62,10 @@ export default function Hero() {
   return (
     <section className="relative h-dvh min-h-[640px] flex items-center overflow-hidden bg-dark-primary">
       <div className="absolute inset-0 z-0" aria-hidden="true">
-        <video autoPlay muted loop playsInline preload="auto" src="/videos/hero.mp4" className="absolute inset-0 w-full h-full object-cover opacity-50" />
-        <div className="absolute inset-0 bg-dark-primary/70" />
-        <div className="absolute inset-0 bg-gradient-to-r from-dark-primary via-dark-primary/85 to-dark-primary/30" />
-        <div className="absolute inset-0 bg-gradient-to-t from-dark-primary via-transparent to-dark-primary/60" />
+        <video autoPlay muted loop playsInline preload="auto" src="/videos/hero.mp4" className="absolute inset-0 w-full h-full object-cover opacity-75" />
+        <div className="absolute inset-0 bg-dark-primary/45" />
+        <div className="absolute inset-0 bg-gradient-to-r from-dark-primary via-dark-primary/75 to-transparent" />
+        <div className="absolute inset-0 bg-gradient-to-t from-dark-primary via-transparent to-dark-primary/40" />
         <div className="absolute top-1/2 right-0 w-[600px] h-[600px] pointer-events-none opacity-70" style={{ background: "radial-gradient(circle, rgba(12,108,54,0.18) 0%, transparent 60%)" }} />
         <div className="absolute bottom-0 left-1/4 w-[400px] h-[400px] pointer-events-none opacity-60" style={{ background: "radial-gradient(circle, rgba(52,211,153,0.1) 0%, transparent 70%)" }} />
       </div>
