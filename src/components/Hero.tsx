@@ -60,7 +60,7 @@ export default function Hero() {
   const slide = slides[current];
 
   return (
-    <section className="relative min-h-screen flex items-center overflow-hidden bg-dark-primary">
+    <section className="relative min-h-dvh flex items-center overflow-hidden bg-dark-primary">
       <div className="absolute inset-0 z-0" aria-hidden="true">
         <video autoPlay muted loop playsInline preload="auto" src="/videos/hero.mp4" className="absolute inset-0 w-full h-full object-cover opacity-50" />
         <div className="absolute inset-0 bg-dark-primary/70" />

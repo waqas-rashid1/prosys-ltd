@@ -37,7 +37,7 @@ export default function PageHero({
   const isCenter = align === "center";
 
   return (
-    <section className="relative min-h-screen flex items-center overflow-hidden bg-dark-primary">
+    <section className="relative min-h-dvh flex items-center overflow-hidden bg-dark-primary">
       {/* Background image (optional) */}
       {bgImage && (
         <div className="absolute inset-0 z-0" aria-hidden="true">
