@@ -25,24 +25,39 @@ type ThumbState = "loading" | "ok" | "failed";
 interface VideosProps {
   /** Hide the internal section heading (use when a PageHero is already rendered above). */
   hideHeader?: boolean;
+  /** Visual theme for the section. Defaults to `dark` to match the home-page look. */
+  variant?: "dark" | "light";
 }
 
-export default function Videos({ hideHeader = false }: VideosProps) {
+export default function Videos({ hideHeader = false, variant = "dark" }: VideosProps) {
   const [playing, setPlaying] = useState<string | null>(null);
   const [thumb, setThumb] = useState<Record<string, ThumbState>>({});
 
+  const isLight = variant === "light";
+
   return (
-    <section className="relative py-20 lg:py-28 bg-dark-primary overflow-hidden">
+    <section
+      className={`relative py-20 lg:py-28 overflow-hidden ${
+        isLight ? "bg-light-primary" : "bg-dark-primary"
+      }`}
+    >
       <div className="absolute inset-0 pointer-events-none" aria-hidden="true">
         <div
-          className="absolute top-0 left-1/2 -translate-x-1/2 w-[900px] h-[500px] rounded-full blur-3xl opacity-40"
-          style={{ background: "radial-gradient(ellipse, rgba(12,108,54,0.2) 0%, transparent 60%)" }}
+          className={`absolute top-0 left-1/2 -translate-x-1/2 w-[900px] h-[500px] rounded-full blur-3xl ${
+            isLight ? "opacity-20" : "opacity-40"
+          }`}
+          style={{
+            background: isLight
+              ? "radial-gradient(ellipse, rgba(12,108,54,0.14) 0%, transparent 60%)"
+              : "radial-gradient(ellipse, rgba(12,108,54,0.2) 0%, transparent 60%)",
+          }}
         />
         <div
-          className="absolute inset-0 opacity-[0.025]"
+          className={`absolute inset-0 ${isLight ? "opacity-[0.04]" : "opacity-[0.025]"}`}
           style={{
-            backgroundImage:
-              "linear-gradient(rgba(255,255,255,0.8) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.8) 1px, transparent 1px)",
+            backgroundImage: isLight
+              ? "linear-gradient(rgba(15,23,42,0.6) 1px, transparent 1px), linear-gradient(90deg, rgba(15,23,42,0.6) 1px, transparent 1px)"
+              : "linear-gradient(rgba(255,255,255,0.8) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.8) 1px, transparent 1px)",
             backgroundSize: "80px 80px",
           }}
         />
@@ -52,25 +67,54 @@ export default function Videos({ hideHeader = false }: VideosProps) {
         {!hideHeader && (
           <>
             <div className="flex items-center gap-3 mb-6">
-              <span className="text-[10px] text-accent-light/60 uppercase tracking-[0.35em] font-semibold">
+              <span
+                className={`text-[10px] uppercase tracking-[0.35em] font-semibold ${
+                  isLight ? "text-accent/70" : "text-accent-light/60"
+                }`}
+              >
                 / Watch
               </span>
-              <span className="h-px flex-1 max-w-[160px] bg-gradient-to-r from-accent-light/40 to-transparent" />
+              <span
+                className={`h-px flex-1 max-w-[160px] bg-gradient-to-r to-transparent ${
+                  isLight ? "from-accent/30" : "from-accent-light/40"
+                }`}
+              />
             </div>
 
             <ScrollReveal>
               <div className="flex flex-col lg:flex-row lg:items-end lg:justify-between gap-6 mb-12">
                 <div className="max-w-3xl">
-                  <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full border border-accent/25 bg-accent/5 mb-5">
-                    <Sparkles size={12} className="text-accent-light" />
-                    <span className="text-[11px] text-accent-light tracking-widest uppercase font-semibold">
+                  <div
+                    className={`inline-flex items-center gap-2 px-3 py-1.5 rounded-full border mb-5 ${
+                      isLight
+                        ? "border-accent/30 bg-accent/10"
+                        : "border-accent/25 bg-accent/5"
+                    }`}
+                  >
+                    <Sparkles
+                      size={12}
+                      className={isLight ? "text-accent" : "text-accent-light"}
+                    />
+                    <span
+                      className={`text-[11px] tracking-widest uppercase font-semibold ${
+                        isLight ? "text-accent" : "text-accent-light"
+                      }`}
+                    >
                       See us in action
                     </span>
                   </div>
-                  <h2 className="font-heading text-4xl md:text-5xl lg:text-[3.5rem] xl:text-6xl font-black text-white leading-[1.02] tracking-tight mb-5">
+                  <h2
+                    className={`font-heading text-4xl md:text-5xl lg:text-[3.5rem] xl:text-6xl font-black leading-[1.02] tracking-tight mb-5 ${
+                      isLight ? "text-text-dark" : "text-white"
+                    }`}
+                  >
                     Inside the <span className="gradient-text">engine room.</span>
                   </h2>
-                  <p className="text-base md:text-lg text-text-light-muted leading-relaxed max-w-2xl">
+                  <p
+                    className={`text-base md:text-lg leading-relaxed max-w-2xl ${
+                      isLight ? "text-text-dark-muted" : "text-text-light-muted"
+                    }`}
+                  >
                     Watch how we approach hard problems — from architecture calls and sprint
                     planning to shipping production AI, in our own words.
                   </p>
@@ -90,7 +134,11 @@ export default function Videos({ hideHeader = false }: VideosProps) {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true, margin: "-50px" }}
                 transition={{ delay: i * 0.12, duration: 0.55 }}
-                className="group relative rounded-lg border border-card-dark-border bg-card-dark overflow-hidden hover:border-accent/40 transition-colors"
+                className={`group relative rounded-lg border overflow-hidden hover:border-accent/40 transition-colors ${
+                  isLight
+                    ? "border-card-light-border bg-white shadow-[0_12px_30px_rgba(15,23,42,0.06)]"
+                    : "border-card-dark-border bg-card-dark"
+                }`}
               >
                 <div className="relative aspect-video overflow-hidden bg-gradient-to-br from-card-dark via-dark-secondary to-dark-primary">
                   {/* Designed placeholder background (always present, visible when img fails) */}
@@ -209,7 +257,11 @@ export default function Videos({ hideHeader = false }: VideosProps) {
         </div>
 
         {/* Footer strip — direct YouTube links as fallback */}
-        <div className="mt-8 flex flex-wrap items-center justify-center gap-x-6 gap-y-2 text-xs text-white/40">
+        <div
+          className={`mt-8 flex flex-wrap items-center justify-center gap-x-6 gap-y-2 text-xs ${
+            isLight ? "text-text-dark-muted/70" : "text-white/40"
+          }`}
+        >
           <span className="uppercase tracking-widest">Prefer YouTube?</span>
           {videos.map((v) => (
             <a
@@ -217,7 +269,11 @@ export default function Videos({ hideHeader = false }: VideosProps) {
               href={`https://youtu.be/${v.id}`}
               target="_blank"
               rel="noopener noreferrer"
-              className="text-white/60 hover:text-accent-light transition-colors uppercase tracking-widest"
+              className={`transition-colors uppercase tracking-widest ${
+                isLight
+                  ? "text-text-dark-muted hover:text-accent"
+                  : "text-white/60 hover:text-accent-light"
+              }`}
             >
               Watch &quot;{v.title}&quot; →
             </a>

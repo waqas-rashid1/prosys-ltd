@@ -40,7 +40,7 @@ export default function WebinarsPage() {
         />
 
         <section id="sessions" className="scroll-mt-20">
-          <Videos hideHeader />
+          <Videos hideHeader variant="light" />
         </section>
 
         <FinalCTA />
