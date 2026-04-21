@@ -202,9 +202,9 @@ export default function Services() {
         </ScrollReveal>
 
         {/* Desktop: 4-column cards */}
-        <div className="hidden lg:grid lg:grid-cols-4 gap-5">
+        <div className="hidden lg:grid lg:grid-cols-4 gap-5 items-start">
           {serviceCategories.map((cat, i) => (
-            <ScrollReveal key={cat.title} delay={i * 0.1}>
+            <ScrollReveal key={cat.title} delay={i * 0.1} className="h-full">
               <ServiceCard cat={cat} index={i} />
             </ScrollReveal>
           ))}
