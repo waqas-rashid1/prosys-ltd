@@ -107,7 +107,7 @@ function ServiceCard({ cat, index }: { cat: typeof serviceCategories[0]; index: 
 
   return (
     <motion.div
-      className="group relative rounded-lg border border-card-light-border bg-white overflow-hidden h-full flex flex-col cursor-pointer"
+      className="group relative rounded-lg border border-card-light-border bg-white overflow-hidden flex flex-col cursor-pointer self-start"
       onMouseEnter={() => setHovered(true)}
       onMouseLeave={() => setHovered(false)}
       whileHover={{ y: -6, boxShadow: "0 30px 60px rgba(0,0,0,0.08)" }}
@@ -204,7 +204,7 @@ export default function Services() {
         {/* Desktop: 4-column cards */}
         <div className="hidden lg:grid lg:grid-cols-4 gap-5 items-start">
           {serviceCategories.map((cat, i) => (
-            <ScrollReveal key={cat.title} delay={i * 0.1} className="h-full">
+            <ScrollReveal key={cat.title} delay={i * 0.1} className="self-start">
               <ServiceCard cat={cat} index={i} />
             </ScrollReveal>
           ))}
