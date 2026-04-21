@@ -8,7 +8,7 @@ import About from "@/components/About";
 // import Testimonials from "@/components/Testimonials"; // moved to /about
 import Industries from "@/components/Industries";
 import Approach from "@/components/Approach";
-import Videos from "@/components/Videos";
+// Videos section moved to dedicated /webinars page
 import Insights from "@/components/Insights";
 import Partners from "@/components/Partners";
 import Footer from "@/components/Footer";
@@ -23,7 +23,6 @@ export default function Home() {
         <About />
         <Industries />
         <Approach />
-        <Videos />
         <Insights />
         <Partners />
       </main>

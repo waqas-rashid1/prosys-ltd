@@ -22,7 +22,12 @@ const videos = [
 
 type ThumbState = "loading" | "ok" | "failed";
 
-export default function Videos() {
+interface VideosProps {
+  /** Hide the internal section heading (use when a PageHero is already rendered above). */
+  hideHeader?: boolean;
+}
+
+export default function Videos({ hideHeader = false }: VideosProps) {
   const [playing, setPlaying] = useState<string | null>(null);
   const [thumb, setThumb] = useState<Record<string, ThumbState>>({});
 
@@ -44,32 +49,36 @@ export default function Videos() {
       </div>
 
       <div className="relative z-10 max-w-[1400px] mx-auto px-6 lg:px-12">
-        <div className="flex items-center gap-3 mb-6">
-          <span className="text-[10px] text-accent-light/60 uppercase tracking-[0.35em] font-semibold">
-            / Watch
-          </span>
-          <span className="h-px flex-1 max-w-[160px] bg-gradient-to-r from-accent-light/40 to-transparent" />
-        </div>
-
-        <ScrollReveal>
-          <div className="flex flex-col lg:flex-row lg:items-end lg:justify-between gap-6 mb-12">
-            <div className="max-w-3xl">
-              <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full border border-accent/25 bg-accent/5 mb-5">
-                <Sparkles size={12} className="text-accent-light" />
-                <span className="text-[11px] text-accent-light tracking-widest uppercase font-semibold">
-                  See us in action
-                </span>
-              </div>
-              <h2 className="font-heading text-4xl md:text-5xl lg:text-[3.5rem] xl:text-6xl font-black text-white leading-[1.02] tracking-tight mb-5">
-                Inside the <span className="gradient-text">engine room.</span>
-              </h2>
-              <p className="text-base md:text-lg text-text-light-muted leading-relaxed max-w-2xl">
-                Watch how we approach hard problems — from architecture calls and sprint
-                planning to shipping production AI, in our own words.
-              </p>
+        {!hideHeader && (
+          <>
+            <div className="flex items-center gap-3 mb-6">
+              <span className="text-[10px] text-accent-light/60 uppercase tracking-[0.35em] font-semibold">
+                / Watch
+              </span>
+              <span className="h-px flex-1 max-w-[160px] bg-gradient-to-r from-accent-light/40 to-transparent" />
             </div>
-          </div>
-        </ScrollReveal>
+
+            <ScrollReveal>
+              <div className="flex flex-col lg:flex-row lg:items-end lg:justify-between gap-6 mb-12">
+                <div className="max-w-3xl">
+                  <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full border border-accent/25 bg-accent/5 mb-5">
+                    <Sparkles size={12} className="text-accent-light" />
+                    <span className="text-[11px] text-accent-light tracking-widest uppercase font-semibold">
+                      See us in action
+                    </span>
+                  </div>
+                  <h2 className="font-heading text-4xl md:text-5xl lg:text-[3.5rem] xl:text-6xl font-black text-white leading-[1.02] tracking-tight mb-5">
+                    Inside the <span className="gradient-text">engine room.</span>
+                  </h2>
+                  <p className="text-base md:text-lg text-text-light-muted leading-relaxed max-w-2xl">
+                    Watch how we approach hard problems — from architecture calls and sprint
+                    planning to shipping production AI, in our own words.
+                  </p>
+                </div>
+              </div>
+            </ScrollReveal>
+          </>
+        )}
 
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-5 lg:gap-6">
           {videos.map((v, i) => {

@@ -70,6 +70,7 @@ const aboutMega = {
     { label: "Our Leadership", href: "/about#leadership" },
     { label: "Our Journey", href: "/about#timeline" },
     { label: "Global Presence", href: "/about#global" },
+    { label: "Webinars", href: "/webinars" },
     { label: "Careers", href: "/careers" },
   ],
   right: [

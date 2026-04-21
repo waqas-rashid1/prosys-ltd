@@ -480,6 +480,7 @@ export const footerLinks = {
   ],
   resources: [
     { label: "Insights & Blog", href: "/blog" },
+    { label: "Webinars", href: "/webinars" },
     { label: "Industries", href: "/industries" },
     { label: "FAQ", href: "/faq" },
     { label: "All Services", href: "/services" },
