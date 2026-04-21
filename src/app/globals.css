@@ -57,6 +57,7 @@ html[data-scroll-behavior="smooth"] {
 
 body {
   font-family: var(--font-body), ui-sans-serif, system-ui, sans-serif;
+  font-weight: 400;
   background: var(--dark-primary);
   color: var(--text-light);
   overflow-x: hidden;
@@ -133,26 +134,37 @@ body {
   animation: marquee-reverse 35s linear infinite;
 }
 
+/* ------------------------------------------------------------------
+   Typography system — single typeface (Manrope), single refined weight.
+   One visual rhythm across hero, section headings, card titles and body.
+   Overrides any Tailwind font-weight utility applied alongside
+   `.font-heading` to keep the site visually unified.
+   ------------------------------------------------------------------ */
 .font-heading {
   font-family: var(--font-heading);
-  letter-spacing: -0.025em;
+  font-weight: 500 !important;
+  letter-spacing: -0.02em;
   font-feature-settings: "ss01", "cv11";
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-rendering: optimizeLegibility;
 }
 
-/* Enterprise display hierarchy — reduces perceived weight on very large
-   headings so the typography feels refined instead of chunky, while keeping
-   smaller headings at their Tailwind-assigned weight. */
+/* Large display / hero headings — lighter, editorial weight with
+   tighter tracking for a premium enterprise feel. */
+.font-heading.text-3xl,
+.font-heading.text-4xl,
 .font-heading.text-5xl,
 .font-heading.text-6xl,
 .font-heading.text-7xl,
 .font-heading.text-8xl,
+.font-heading.text-9xl,
 h1.font-heading,
 h2.font-heading {
+  font-weight: 400 !important;
   letter-spacing: -0.035em;
 }
+
 
 .gradient-text {
   color: var(--accent-light);
