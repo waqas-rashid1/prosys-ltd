@@ -434,7 +434,7 @@ export default function Footer() {
         <div className="max-w-[1400px] mx-auto px-6 lg:px-12 xl:px-16 py-7 flex flex-col md:flex-row items-center justify-between gap-5">
           <div className="flex flex-wrap items-center justify-center md:justify-start gap-x-6 gap-y-2 text-xs text-text-light-muted/70">
             <span>
-              &copy; {new Date().getFullYear()} {siteConfig.name}. All Rights Reserved.
+              &copy; 2024&ndash;{new Date().getFullYear()} {siteConfig.name}. All Rights Reserved.
             </span>
             <span className="hidden md:inline text-white/15">·</span>
             {footerLinks.legal.map((link, i) => (

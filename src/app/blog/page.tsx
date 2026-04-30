@@ -10,6 +10,20 @@ export const metadata: Metadata = {
   title: "Blog & Insights",
   description:
     "Insights, guides, and thought leadership from PROSYS LTD on AI development, SaaS engineering, SEO, AIEO, and modern software architecture.",
+  alternates: { canonical: "/blog" },
+  openGraph: {
+    title: "Blog & Insights — PROSYS LTD",
+    description:
+      "Insights, guides, and thought leadership from PROSYS LTD on AI development, SaaS engineering, SEO, AIEO, and modern software architecture.",
+    url: "/blog",
+    type: "website",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Blog & Insights — PROSYS LTD",
+    description:
+      "Insights, guides, and thought leadership from PROSYS LTD on AI development, SaaS engineering, SEO, AIEO, and modern software architecture.",
+  },
 };
 
 export default function BlogPage() {

@@ -55,7 +55,18 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
   return {
     title: `${service.title} Services`,
     description: service.description,
-    openGraph: { title: `${service.title} | PROSYS LTD`, description: service.description },
+    alternates: { canonical: `/services/${service.slug}` },
+    openGraph: {
+      title: `${service.title} | PROSYS LTD`,
+      description: service.description,
+      url: `/services/${service.slug}`,
+      type: "website",
+    },
+    twitter: {
+      card: "summary_large_image",
+      title: `${service.title} | PROSYS LTD`,
+      description: service.description,
+    },
   };
 }
 

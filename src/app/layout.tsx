@@ -60,12 +60,12 @@ export const metadata: Metadata = {
     },
   },
   alternates: {
-    canonical: SITE_URL,
+    canonical: "/",
   },
   openGraph: {
     type: "website",
     locale: "en_US",
-    url: SITE_URL,
+    url: "/",
     siteName: "PROSYS LTD",
     title: "PROSYS LTD | Architecting scalable systems, end-to-end.",
     description:
@@ -89,7 +89,6 @@ export const viewport: Viewport = {
   colorScheme: "dark",
   width: "device-width",
   initialScale: 1,
-  maximumScale: 5,
 };
 
 export default function RootLayout({
@@ -110,7 +109,7 @@ export default function RootLayout({
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="" />
       </head>
-      <body className="min-h-full antialiased">
+      <body className="min-h-full antialiased" suppressHydrationWarning>
         <a
           href="#main-content"
           className="sr-only focus:not-sr-only focus:fixed focus:top-4 focus:left-4 focus:z-[100] focus:px-4 focus:py-2 focus:rounded-md focus:bg-accent focus:text-white focus:text-sm focus:font-semibold"

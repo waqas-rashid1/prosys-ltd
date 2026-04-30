@@ -21,15 +21,21 @@ export async function generateMetadata({
   return {
     title: post.title,
     description: post.excerpt,
+    alternates: { canonical: `/blog/${post.slug}` },
     openGraph: {
       title: `${post.title} | PROSYS LTD Blog`,
       description: post.excerpt,
+      url: `/blog/${post.slug}`,
+      type: "article",
+      publishedTime: post.date,
+      authors: post.author ? [post.author.name] : undefined,
       images: [post.image],
     },
     twitter: {
       card: "summary_large_image",
       title: post.title,
       description: post.excerpt,
+      images: [post.image],
     },
   };
 }

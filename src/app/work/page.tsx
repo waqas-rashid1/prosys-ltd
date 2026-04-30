@@ -11,6 +11,18 @@ import { caseStudies } from "@/lib/constants";
 export const metadata: Metadata = {
   title: "Our Work",
   description: "Explore PROSYS LTD's portfolio — SaaS platforms, AI integrations, MVPs, web applications, and digital transformation projects.",
+  alternates: { canonical: "/work" },
+  openGraph: {
+    title: "Our Work — PROSYS LTD",
+    description: "Explore PROSYS LTD's portfolio — SaaS platforms, AI integrations, MVPs, web applications, and digital transformation projects.",
+    url: "/work",
+    type: "website",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Our Work — PROSYS LTD",
+    description: "Explore PROSYS LTD's portfolio — SaaS platforms, AI integrations, MVPs, web applications, and digital transformation projects.",
+  },
 };
 
 // Additional (summary-only) engagements we can show alongside full case studies.

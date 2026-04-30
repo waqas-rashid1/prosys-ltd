@@ -4,10 +4,13 @@ import { ArrowLeft } from "lucide-react";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import ApplyForm from "./ApplyForm";
+import { isValidRole } from "@/lib/careers-data";
 
 export const metadata: Metadata = {
   title: "Apply for a Role",
   description: "Apply to join PROSYS LTD. Submit your application and a member of our talent team will get back to you within 5 business days.",
+  alternates: { canonical: "/careers/apply" },
+  robots: { index: false, follow: true },
 };
 
 export default async function ApplyPage({
@@ -15,7 +18,9 @@ export default async function ApplyPage({
 }: {
   searchParams: Promise<{ role?: string }>;
 }) {
-  const { role } = await searchParams;
+  const { role: rawRole } = await searchParams;
+  const roleIsValid = isValidRole(rawRole);
+  const role = roleIsValid ? rawRole : undefined;
 
   return (
     <>
@@ -60,6 +65,16 @@ export default async function ApplyPage({
 
         <section className="py-14 lg:py-20 bg-light-primary">
           <div className="max-w-[900px] mx-auto px-6 lg:px-8">
+            {!roleIsValid && (
+              <div className="mb-6 p-5 rounded-md border border-amber-200 bg-amber-50 text-amber-900 text-sm">
+                <p className="font-semibold mb-1">That role is no longer open.</p>
+                <p>
+                  We couldn&apos;t match the role you came from to one of our currently open positions. Browse all{" "}
+                  <Link href="/careers#roles" className="underline font-semibold">open roles</Link>{" "}
+                  or submit a general application below and our talent team will get back to you.
+                </p>
+              </div>
+            )}
             <div className="bg-white border border-card-light-border p-8 md:p-10 rounded-md">
               <ApplyForm defaultRole={role} />
             </div>

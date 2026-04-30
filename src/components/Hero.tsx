@@ -4,6 +4,7 @@ import { useState, useEffect, useCallback } from "react";
 import Link from "next/link";
 import { motion, AnimatePresence } from "framer-motion";
 import { ChevronDown, ChevronLeft, ChevronRight } from "lucide-react";
+import { heroProofPoints } from "@/lib/constants";
 
 const slides = [
   {
@@ -29,11 +30,7 @@ const slides = [
   },
 ];
 
-const proofPoints = [
-  { value: "50+", label: "Projects Shipped" },
-  { value: "12+", label: "Countries Served" },
-  { value: "4-8", label: "Weeks to MVP" },
-];
+const proofPoints = heroProofPoints;
 
 export default function Hero() {
   const [current, setCurrent] = useState(0);

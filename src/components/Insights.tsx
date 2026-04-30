@@ -2,10 +2,12 @@
 
 import Link from "next/link";
 import { ArrowRight, Calendar } from "lucide-react";
-import { insights } from "@/lib/constants";
+import { blogPosts } from "@/lib/blog-data";
 import ScrollReveal from "./ui/ScrollReveal";
 
 export default function Insights() {
+  const featured = blogPosts.slice(0, 3);
+
   return (
     <section id="insights" className="py-14 lg:py-20 bg-light-primary">
       <div className="max-w-[1400px] mx-auto px-6 lg:px-8">
@@ -26,27 +28,27 @@ export default function Insights() {
         </ScrollReveal>
 
         <div className="grid grid-cols-1 md:grid-cols-3 gap-px bg-card-light-border border border-card-light-border">
-          {insights.map((insight, i) => (
-            <ScrollReveal key={insight.title} delay={i * 0.08}>
-              <Link href="/blog" className="block group">
+          {featured.map((post, i) => (
+            <ScrollReveal key={post.slug} delay={i * 0.08}>
+              <Link href={`/blog/${post.slug}`} className="block group">
                 <div className="bg-white p-8 hover:bg-light-primary transition-colors duration-400 h-full flex flex-col">
                   <div className="flex items-center gap-3 mb-5">
                     <span className="text-[11px] font-semibold text-accent uppercase tracking-wider">
-                      {insight.category}
+                      {post.category}
                     </span>
                     <span className="h-px flex-grow bg-card-light-border" />
                     <span className="flex items-center gap-1.5 text-text-dark-muted text-xs">
                       <Calendar size={11} />
-                      {insight.date}
+                      {post.date}
                     </span>
                   </div>
 
                   <h3 className="font-heading text-lg font-bold text-text-dark mb-3 group-hover:text-accent transition-colors duration-300 leading-snug">
-                    {insight.title}
+                    {post.title}
                   </h3>
 
                   <p className="text-text-dark-muted text-sm leading-relaxed flex-grow">
-                    {insight.excerpt}
+                    {post.excerpt}
                   </p>
 
                   <div className="mt-6 pt-5 border-t border-card-light-border">

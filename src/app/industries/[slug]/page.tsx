@@ -31,7 +31,16 @@ export async function generateMetadata({
   return {
     title: `${industry.title} Software Development`,
     description: industry.description,
+    alternates: { canonical: `/industries/${industry.slug}` },
     openGraph: {
+      title: `${industry.title} Software Solutions | PROSYS LTD`,
+      description: industry.description,
+      url: `/industries/${industry.slug}`,
+      type: "website",
+      images: [industry.image],
+    },
+    twitter: {
+      card: "summary_large_image",
       title: `${industry.title} Software Solutions | PROSYS LTD`,
       description: industry.description,
       images: [industry.image],

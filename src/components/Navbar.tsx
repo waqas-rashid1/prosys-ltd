@@ -179,6 +179,7 @@ export default function Navbar() {
                     >
                       <Link
                         href={link.href}
+                        aria-current={pathname === link.href ? "page" : undefined}
                         className={`flex items-center gap-1 px-4 py-2 text-sm tracking-wide transition-colors duration-300 rounded-lg hover:bg-white/5 ${
                           pathname === link.href || megaOpen ? "text-accent-light" : "text-text-light-muted hover:text-accent-light"
                         }`}
@@ -194,6 +195,7 @@ export default function Navbar() {
                     <div key={link.href} className="relative" onMouseEnter={handleAboutEnter} onMouseLeave={handleAboutLeave}>
                       <Link
                         href={link.href}
+                        aria-current={pathname === link.href ? "page" : undefined}
                         className={`flex items-center gap-1 px-4 py-2 text-sm tracking-wide transition-colors duration-300 rounded-lg hover:bg-white/5 ${
                           pathname === link.href || aboutOpen ? "text-accent-light" : "text-text-light-muted hover:text-accent-light"
                         }`}
@@ -214,6 +216,7 @@ export default function Navbar() {
                     >
                       <Link
                         href={link.href}
+                        aria-current={pathname === link.href ? "page" : undefined}
                         className={`flex items-center gap-1 px-4 py-2 text-sm tracking-wide transition-colors duration-300 rounded-lg hover:bg-white/5 ${
                           pathname === link.href || industriesOpen ? "text-accent-light" : "text-text-light-muted hover:text-accent-light"
                         }`}
@@ -228,6 +231,7 @@ export default function Navbar() {
                   <Link
                     key={link.href}
                     href={link.href}
+                    aria-current={pathname === link.href ? "page" : undefined}
                     className={`px-4 py-2 text-sm tracking-wide transition-colors duration-300 rounded-lg hover:bg-white/5 ${
                       pathname === link.href ? "text-accent-light" : "text-text-light-muted hover:text-accent-light"
                     }`}
@@ -240,11 +244,12 @@ export default function Navbar() {
                 type="button"
                 onClick={() => window.dispatchEvent(new CustomEvent("prosys:open-cmdk"))}
                 className="ml-2 hidden xl:inline-flex items-center gap-2 px-3 py-2 rounded-md border border-card-dark-border bg-card-dark/50 hover:border-white/20 hover:bg-white/5 text-text-light-muted hover:text-white transition-all duration-300 cursor-pointer text-xs"
-                aria-label="Open quick search (Command+K)"
+                aria-label="Open quick search (Ctrl+K or Command+K)"
+                title="Quick search (Ctrl+K / ⌘K)"
               >
                 <Search size={12} />
                 <span>Quick search</span>
-                <kbd className="px-1.5 py-0.5 text-[9px] font-mono border border-card-dark-border rounded bg-dark-primary/50 ml-2">⌘K</kbd>
+                <kbd className="px-1.5 py-0.5 text-[9px] font-mono border border-card-dark-border rounded bg-dark-primary/50 ml-2">⌘K / Ctrl+K</kbd>
               </button>
               <Link
                 href="/contact"
@@ -518,6 +523,7 @@ export default function Navbar() {
                 >
                   <Link
                     href={link.href}
+                    aria-current={pathname === link.href ? "page" : undefined}
                     className={`font-heading text-2xl transition-colors ${
                       pathname === link.href ? "text-accent-light" : "text-text-light hover:text-accent-light"
                     }`}

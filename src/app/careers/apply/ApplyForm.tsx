@@ -1,29 +1,74 @@
 "use client";
 
 import { useState } from "react";
-import { Send, CheckCircle2, Loader2, AlertCircle } from "lucide-react";
+import { Send, CheckCircle2, Loader2, AlertCircle, Upload } from "lucide-react";
 import Button from "@/components/ui/Button";
+import { openRoleTitles, GENERAL_APPLICATION } from "@/lib/careers-data";
 
 type Status = "idle" | "submitting" | "success" | "error";
+
+const MAX_CV_BYTES = 5 * 1024 * 1024;
+const ALLOWED_CV_TYPES = [
+  "application/pdf",
+  "application/msword",
+  "application/vnd.openxmlformats-officedocument.wordprocessingml.document",
+];
 
 export default function ApplyForm({ defaultRole }: { defaultRole?: string }) {
   const [status, setStatus] = useState<Status>("idle");
   const [errorMsg, setErrorMsg] = useState("");
+  const [cvFileName, setCvFileName] = useState<string | null>(null);
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     if (status === "submitting") return;
 
     const fd = new FormData(e.currentTarget);
+
+    if ((fd.get("website") || "").toString().trim()) {
+      setStatus("success");
+      return;
+    }
+
+    const consent = fd.get("consent");
+    if (!consent) {
+      setStatus("error");
+      setErrorMsg("Please confirm you agree to the privacy policy.");
+      return;
+    }
+
+    const cv = fd.get("cv") as File | null;
+    if (cv && cv.size > 0) {
+      if (cv.size > MAX_CV_BYTES) {
+        setStatus("error");
+        setErrorMsg("CV is too large. Maximum size is 5 MB.");
+        return;
+      }
+      if (!ALLOWED_CV_TYPES.includes(cv.type)) {
+        setStatus("error");
+        setErrorMsg("CV must be a PDF or Word document.");
+        return;
+      }
+    }
+
+    const role = (fd.get("role") || "").toString().trim();
+    const validRoles = [...openRoleTitles, GENERAL_APPLICATION];
+    if (role && !validRoles.includes(role)) {
+      setStatus("error");
+      setErrorMsg("Please select a role from the list.");
+      return;
+    }
+
     const payload = {
       intent: "career-application",
       name: (fd.get("name") || "").toString().trim(),
       email: (fd.get("email") || "").toString().trim(),
-      role: (fd.get("role") || "").toString().trim(),
+      role,
       experience: (fd.get("experience") || "").toString(),
       portfolio: (fd.get("portfolio") || "").toString().trim(),
       linkedin: (fd.get("linkedin") || "").toString().trim(),
       message: (fd.get("message") || "").toString().trim(),
+      cvFileName: cv && cv.size > 0 ? cv.name : "",
       company: "Career Application",
     };
 
@@ -69,7 +114,14 @@ export default function ApplyForm({ defaultRole }: { defaultRole?: string }) {
   }
 
   return (
-    <form className="space-y-6" onSubmit={handleSubmit} noValidate>
+    <form className="space-y-6" onSubmit={handleSubmit} noValidate encType="multipart/form-data">
+      <div aria-hidden="true" className="absolute -left-[9999px] w-px h-px overflow-hidden">
+        <label htmlFor="website">Website</label>
+        <input
+          type="text" id="website" name="website" tabIndex={-1} autoComplete="off"
+        />
+      </div>
+
       <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
         <div>
           <label htmlFor="name" className="block text-sm font-medium text-text-dark mb-2">
@@ -98,12 +150,17 @@ export default function ApplyForm({ defaultRole }: { defaultRole?: string }) {
           <label htmlFor="role" className="block text-sm font-medium text-text-dark mb-2">
             Applying for <span className="text-accent">*</span>
           </label>
-          <input
-            type="text" id="role" name="role" required
+          <select
+            id="role" name="role" required
             defaultValue={defaultRole || ""}
-            placeholder="e.g. Senior Full-Stack Engineer"
             className="w-full px-4 py-3 rounded-md border border-card-light-border bg-light-primary text-text-dark focus:outline-none focus:border-accent transition-all"
-          />
+          >
+            <option value="" disabled>Select a role</option>
+            {openRoleTitles.map((r) => (
+              <option key={r} value={r}>{r}</option>
+            ))}
+            <option value={GENERAL_APPLICATION}>{GENERAL_APPLICATION}</option>
+          </select>
         </div>
         <div>
           <label htmlFor="experience" className="block text-sm font-medium text-text-dark mb-2">
@@ -147,6 +204,31 @@ export default function ApplyForm({ defaultRole }: { defaultRole?: string }) {
       </div>
 
       <div>
+        <label htmlFor="cv" className="block text-sm font-medium text-text-dark mb-2">
+          CV / Resume
+          <span className="text-text-dark-muted font-normal ml-2 text-xs">PDF or DOCX, up to 5 MB</span>
+        </label>
+        <label
+          htmlFor="cv"
+          className="flex items-center justify-between gap-3 px-4 py-3 rounded-md border border-dashed border-card-light-border bg-light-primary text-text-dark hover:border-accent hover:bg-accent/5 cursor-pointer transition-all"
+        >
+          <span className="flex items-center gap-2 text-sm text-text-dark-muted">
+            <Upload size={16} className="text-accent" />
+            {cvFileName || "Click to upload your CV"}
+          </span>
+          {cvFileName && (
+            <span className="text-xs text-accent font-semibold">Selected</span>
+          )}
+        </label>
+        <input
+          type="file" id="cv" name="cv"
+          accept=".pdf,.doc,.docx,application/pdf,application/msword,application/vnd.openxmlformats-officedocument.wordprocessingml.document"
+          onChange={(e) => setCvFileName(e.target.files?.[0]?.name || null)}
+          className="sr-only"
+        />
+      </div>
+
+      <div>
         <label htmlFor="message" className="block text-sm font-medium text-text-dark mb-2">
           Cover Message <span className="text-accent">*</span>
         </label>
@@ -157,8 +239,20 @@ export default function ApplyForm({ defaultRole }: { defaultRole?: string }) {
         />
       </div>
 
+      <label className="flex items-start gap-3 cursor-pointer text-sm text-text-dark-muted">
+        <input
+          type="checkbox" name="consent" required
+          className="mt-1 h-4 w-4 rounded border-card-light-border text-accent focus:ring-accent cursor-pointer"
+        />
+        <span>
+          I agree to PROSYS LTD&apos;s{" "}
+          <a href="/privacy" className="text-accent hover:underline">privacy policy</a>{" "}
+          and consent to my data being processed for recruitment purposes.
+        </span>
+      </label>
+
       {status === "error" && errorMsg && (
-        <div className="flex items-start gap-3 p-4 rounded-md bg-red-50 border border-red-200 text-red-700">
+        <div className="flex items-start gap-3 p-4 rounded-md bg-red-50 border border-red-200 text-red-700" role="alert">
           <AlertCircle size={18} className="flex-shrink-0 mt-0.5" />
           <p className="text-sm">{errorMsg}</p>
         </div>
@@ -166,8 +260,7 @@ export default function ApplyForm({ defaultRole }: { defaultRole?: string }) {
 
       <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4 pt-2">
         <p className="text-xs text-text-dark-muted">
-          By submitting, you agree to our{" "}
-          <a href="/privacy" className="text-accent hover:underline">privacy policy</a>.
+          We respond to every application within 5 business days.
         </p>
         <Button type="submit" size="lg" className="gap-2 shrink-0" disabled={status === "submitting"}>
           {status === "submitting" ? (

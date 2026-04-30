@@ -9,6 +9,7 @@ import ScrollReveal from "@/components/ui/ScrollReveal";
 export const metadata: Metadata = {
   title: "Cookie Policy",
   description: "PROSYS LTD's cookie policy — how we use cookies and similar technologies on our website.",
+  alternates: { canonical: "/cookie-policy" },
 };
 
 const cookieTypes = [

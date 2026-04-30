@@ -26,7 +26,16 @@ export async function generateMetadata({
   return {
     title: `${study.title} — Case Study`,
     description: study.description,
+    alternates: { canonical: `/work/${study.slug}` },
     openGraph: {
+      title: `${study.title} | PROSYS LTD Case Study`,
+      description: study.description,
+      url: `/work/${study.slug}`,
+      type: "article",
+      images: [study.image],
+    },
+    twitter: {
+      card: "summary_large_image",
       title: `${study.title} | PROSYS LTD Case Study`,
       description: study.description,
       images: [study.image],

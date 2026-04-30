@@ -17,6 +17,7 @@ export const navLinks = [
   { label: "Work", href: "/work" },
   { label: "Industries", href: "/industries" },
   { label: "Careers", href: "/careers" },
+  { label: "FAQ", href: "/faq" },
 ];
 
 export const services = [
@@ -97,6 +98,12 @@ export const stats = [
   { value: 30, suffix: "+", label: "Global Clients" },
   { value: 15, suffix: "+", label: "Team Members" },
   { value: 99, suffix: "%", label: "Client Satisfaction" },
+];
+
+export const heroProofPoints = [
+  { value: "50+", label: "Projects Shipped" },
+  { value: "12+", label: "Countries Served" },
+  { value: "4\u20138", label: "Weeks to MVP" },
 ];
 
 export const caseStudies = [

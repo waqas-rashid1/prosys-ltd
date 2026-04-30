@@ -24,6 +24,20 @@ export const metadata: Metadata = {
   title: "All Services — Product Engineering, AI, Cloud & Growth",
   description:
     "Explore PROSYS LTD's four service pillars: Product Engineering, AI & Automation, Cloud & Platform, and Growth & Marketing. 29 deep capabilities, one delivery standard.",
+  alternates: { canonical: "/services" },
+  openGraph: {
+    title: "Services — PROSYS LTD",
+    description:
+      "Explore PROSYS LTD's four service pillars: Product Engineering, AI & Automation, Cloud & Platform, and Growth & Marketing.",
+    url: "/services",
+    type: "website",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Services — PROSYS LTD",
+    description:
+      "Explore PROSYS LTD's four service pillars: Product Engineering, AI & Automation, Cloud & Platform, and Growth & Marketing.",
+  },
 };
 
 type PillarAccent = "emerald" | "cyan" | "violet" | "amber";
@@ -65,7 +79,7 @@ const pillars: {
     ],
     outcomes: [
       "Investor-ready MVPs in 4–8 weeks",
-      "SOC2-aligned SaaS platforms",
+      "SOC 2-aligned SaaS platforms",
       "Legacy modernization without downtime",
     ],
   },
@@ -122,7 +136,7 @@ const pillars: {
     ],
     outcomes: [
       "Zero-downtime cloud migrations",
-      "SOC2-aligned infrastructure",
+      "SOC 2-aligned infrastructure",
       "24/7 observability & incident response",
     ],
   },
@@ -314,7 +328,7 @@ export default function ServicesPage() {
           trustSignals={[
             "Senior engineers only",
             "Fixed-scope, fixed-price",
-            "SOC2-aligned",
+            "SOC 2-aligned",
             "24-hour response SLA",
           ]}
           primaryCta={{ label: "Book a consultation", href: "/contact" }}

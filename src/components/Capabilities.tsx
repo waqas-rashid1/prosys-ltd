@@ -23,7 +23,7 @@ const capabilities = [
   {
     num: "03",
     icon: Clock,
-    label: "4-week delivery cycles",
+    label: "Two-week sprints",
     desc: "Two-week sprints with continuous delivery. Demo, feedback, iterate — a predictable, reliable pace.",
     tag: "Cadence",
   },
@@ -85,9 +85,9 @@ export default function Capabilities() {
             </div>
 
             <h2 className="font-heading text-4xl md:text-5xl lg:text-[4rem] xl:text-[4.5rem] font-black text-white leading-[0.98] tracking-tight mb-6">
-              Enterprise
+              Enterprise{" "}
               <br />
-              discipline.
+              discipline.{" "}
               <br />
               <span className="gradient-text">Startup velocity.</span>
             </h2>

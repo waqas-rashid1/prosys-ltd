@@ -22,6 +22,19 @@ export default function ContactForm() {
     if (status === "submitting") return;
 
     const fd = new FormData(e.currentTarget);
+
+    if ((fd.get("website") || "").toString().trim()) {
+      setStatus("success");
+      return;
+    }
+
+    const consent = fd.get("consent");
+    if (!consent) {
+      setStatus("error");
+      setErrorMsg("Please confirm you agree to the privacy policy.");
+      return;
+    }
+
     const payload = {
       intent,
       name: (fd.get("name") || "").toString().trim(),
@@ -85,6 +98,13 @@ export default function ContactForm() {
 
   return (
     <form className="space-y-7" onSubmit={handleSubmit} noValidate>
+      <div aria-hidden="true" className="absolute -left-[9999px] w-px h-px overflow-hidden">
+        <label htmlFor="website-hp">Website</label>
+        <input
+          type="text" id="website-hp" name="website" tabIndex={-1} autoComplete="off"
+        />
+      </div>
+
       {/* Intent routing */}
       <div>
         <label className="block text-[11px] uppercase tracking-widest font-semibold text-text-dark-muted mb-3">
@@ -243,8 +263,8 @@ export default function ContactForm() {
         <label htmlFor="budget" className="block text-sm font-medium text-text-dark mb-2">
           Estimated Budget (USD)
         </label>
-        <div className="grid grid-cols-2 md:grid-cols-5 gap-2">
-          {["< $10K", "$10K – $25K", "$25K – $75K", "$75K – $250K", "$250K+"].map((b) => (
+        <div className="grid grid-cols-2 md:grid-cols-4 gap-2">
+          {["$10K – $25K", "$25K – $75K", "$75K – $250K", "$250K+"].map((b) => (
             <label key={b} className="cursor-pointer">
               <input type="radio" name="budget" value={b} className="peer sr-only" />
               <span className="block text-center py-2.5 px-2 text-xs font-medium border border-card-light-border bg-white rounded-md hover:border-accent/40 peer-checked:border-accent peer-checked:bg-accent/5 peer-checked:text-accent transition-all">
@@ -266,6 +286,18 @@ export default function ContactForm() {
         />
       </div>
 
+      <label className="flex items-start gap-3 cursor-pointer text-sm text-text-dark-muted">
+        <input
+          type="checkbox" name="consent" required
+          className="mt-1 h-4 w-4 rounded border-card-light-border text-accent focus:ring-accent cursor-pointer"
+        />
+        <span>
+          I agree to PROSYS LTD&apos;s{" "}
+          <a href="/privacy" className="text-accent hover:underline">privacy policy</a>{" "}
+          and consent to my data being processed for this enquiry.
+        </span>
+      </label>
+
       {status === "error" && errorMsg && (
         <div className="flex items-start gap-3 p-4 rounded-md bg-red-50 border border-red-200 text-red-700" role="alert">
           <AlertCircle size={18} className="flex-shrink-0 mt-0.5" />
@@ -275,7 +307,7 @@ export default function ContactForm() {
 
       <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4 pt-2">
         <p className="text-xs text-text-dark-muted">
-          By submitting, you agree to our <a href="/privacy" className="text-accent hover:underline">privacy policy</a>. We respond within 24 hours.
+          We respond within 24 hours.
         </p>
         <Button type="submit" size="lg" className="gap-2 shrink-0" disabled={status === "submitting"}>
           {status === "submitting" ? (

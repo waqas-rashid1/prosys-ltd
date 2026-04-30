@@ -22,6 +22,7 @@ const ContentSecurityPolicy = `
   .trim();
 
 const nextConfig: NextConfig = {
+  allowedDevOrigins: ["10.10.38.147", "localhost", "127.0.0.1"],
   async headers() {
     return [
       {
@@ -30,7 +31,6 @@ const nextConfig: NextConfig = {
           { key: "Content-Security-Policy", value: ContentSecurityPolicy },
           { key: "X-Frame-Options", value: "DENY" },
           { key: "X-Content-Type-Options", value: "nosniff" },
-          { key: "X-XSS-Protection", value: "1; mode=block" },
           { key: "Referrer-Policy", value: "strict-origin-when-cross-origin" },
           {
             key: "Permissions-Policy",

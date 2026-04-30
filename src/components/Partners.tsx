@@ -20,7 +20,7 @@ export default function Partners() {
       <div className="max-w-[1400px] mx-auto px-6 lg:px-8">
         <ScrollReveal>
           <p className="text-center text-xs text-text-light-muted/40 tracking-[0.2em] uppercase font-medium mb-12">
-            Technology & Strategic Partners
+            Technology Stack
           </p>
           <div className="flex flex-wrap justify-center items-center gap-x-12 lg:gap-x-16 gap-y-8">
             {partners.map((p) => (

@@ -73,7 +73,10 @@ export default function BlogListing() {
                       <div className="flex items-center gap-4">
                         {featured.author && (
                           <div className="flex items-center gap-2">
-                            <div className="w-7 h-7 rounded-full bg-gradient-to-br from-accent/50 to-accent/10 border border-accent/30 flex items-center justify-center text-accent-light font-heading font-bold text-xs">
+                            <div
+                              aria-hidden="true"
+                              className="w-7 h-7 rounded-full bg-gradient-to-br from-accent/50 to-accent/10 border border-accent/30 flex items-center justify-center text-accent-light font-heading font-bold text-xs"
+                            >
                               {featured.author.initial}
                             </div>
                             <span className="text-xs text-white/70">{featured.author.name}</span>
@@ -131,7 +134,10 @@ export default function BlogListing() {
                         <div className="mt-5 pt-5 border-t border-card-light-border flex items-center justify-between">
                           {post.author && (
                             <div className="flex items-center gap-2">
-                              <div className="w-6 h-6 rounded-full bg-gradient-to-br from-accent/40 to-accent/10 border border-accent/20 flex items-center justify-center text-accent font-heading font-bold text-[10px]">
+                              <div
+                                aria-hidden="true"
+                                className="w-6 h-6 rounded-full bg-gradient-to-br from-accent/40 to-accent/10 border border-accent/20 flex items-center justify-center text-accent font-heading font-bold text-[10px]"
+                              >
                                 {post.author.initial}
                               </div>
                               <span className="text-[11px] text-text-dark-muted">{post.author.name}</span>

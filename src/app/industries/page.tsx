@@ -14,6 +14,18 @@ import { industries } from "@/lib/constants";
 export const metadata: Metadata = {
   title: "Industries",
   description: "PROSYS LTD serves FinTech, HealthTech, E-Commerce, EdTech, Real Estate, Logistics, Media, and SaaS startups with tailored software solutions.",
+  alternates: { canonical: "/industries" },
+  openGraph: {
+    title: "Industries — PROSYS LTD",
+    description: "PROSYS LTD serves FinTech, HealthTech, E-Commerce, EdTech, Real Estate, Logistics, Media, and SaaS startups with tailored software solutions.",
+    url: "/industries",
+    type: "website",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Industries — PROSYS LTD",
+    description: "PROSYS LTD serves FinTech, HealthTech, E-Commerce, EdTech, Real Estate, Logistics, Media, and SaaS startups with tailored software solutions.",
+  },
 };
 
 const iconMap: Record<string, React.ElementType> = {
@@ -30,7 +42,7 @@ export default function IndustriesPage() {
           title="Domain expertise that"
           highlight="delivers."
           description="We understand the unique challenges, regulations, and opportunities within each sector we serve — from FinTech and HealthTech to Logistics and SaaS."
-          trustSignals={["HIPAA · PCI-DSS · GDPR", "SOC2-aligned", "Multi-region delivery"]}
+          trustSignals={["HIPAA · PCI-DSS · GDPR", "SOC 2-aligned", "Multi-region delivery"]}
           primaryCta={{ label: "Explore industries", href: "#industries-grid" }}
           secondaryCta={{ label: "Discuss your sector", href: "/contact" }}
           stats={[

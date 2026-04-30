@@ -13,6 +13,18 @@ import PageHero from "@/components/ui/PageHero";
 export const metadata: Metadata = {
   title: "Careers",
   description: "Join PROSYS LTD — we're hiring engineers, designers, and growth specialists. Remote-friendly, high-impact work, competitive compensation.",
+  alternates: { canonical: "/careers" },
+  openGraph: {
+    title: "Careers — PROSYS LTD",
+    description: "Join PROSYS LTD — we're hiring engineers, designers, and growth specialists. Remote-friendly, high-impact work, competitive compensation.",
+    url: "/careers",
+    type: "website",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Careers — PROSYS LTD",
+    description: "Join PROSYS LTD — we're hiring engineers, designers, and growth specialists. Remote-friendly, high-impact work, competitive compensation.",
+  },
 };
 
 const perks = [

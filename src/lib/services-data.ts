@@ -182,7 +182,7 @@ export const servicesData: ServiceDetail[] = [
       "Post-MVP support: we stay as your technical partner through growth",
     ],
     metrics: [
-      { value: "4-8", label: "Weeks to Launch" },
+      { value: "4–8", label: "Weeks to Launch" },
       { value: "25+", label: "MVPs Shipped" },
       { value: "80%", label: "Funded After MVP" },
       { value: "$0", label: "Rewrites Needed" },

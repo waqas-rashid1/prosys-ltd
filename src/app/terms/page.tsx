@@ -8,6 +8,7 @@ import ScrollReveal from "@/components/ui/ScrollReveal";
 export const metadata: Metadata = {
   title: "Terms & Conditions",
   description: "PROSYS LTD's terms and conditions governing the use of our website and services.",
+  alternates: { canonical: "/terms" },
 };
 
 const sections = [

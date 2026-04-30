@@ -11,6 +11,20 @@ export const metadata: Metadata = {
   title: "FAQ",
   description:
     "Frequently asked questions about PROSYS LTD's services, process, technologies, pricing, and how we work with startups and enterprises worldwide.",
+  alternates: { canonical: "/faq" },
+  openGraph: {
+    title: "FAQ — PROSYS LTD",
+    description:
+      "Frequently asked questions about PROSYS LTD's services, process, technologies, pricing, and how we work with startups and enterprises worldwide.",
+    url: "/faq",
+    type: "website",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "FAQ — PROSYS LTD",
+    description:
+      "Frequently asked questions about PROSYS LTD's services, process, technologies, pricing, and how we work with startups and enterprises worldwide.",
+  },
 };
 
 export default function FAQPage() {

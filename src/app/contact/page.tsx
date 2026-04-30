@@ -10,6 +10,18 @@ import { siteConfig } from "@/lib/constants";
 export const metadata: Metadata = {
   title: "Contact Us",
   description: "Get in touch with PROSYS LTD. Whether you need a quote, have a project idea, or want to discuss a partnership.",
+  alternates: { canonical: "/contact" },
+  openGraph: {
+    title: "Contact PROSYS LTD",
+    description: "Get in touch with PROSYS LTD. Whether you need a quote, have a project idea, or want to discuss a partnership.",
+    url: "/contact",
+    type: "website",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Contact PROSYS LTD",
+    description: "Get in touch with PROSYS LTD. Whether you need a quote, have a project idea, or want to discuss a partnership.",
+  },
 };
 
 const contactMethods = [
@@ -141,7 +153,7 @@ export default function ContactPage() {
                     <h3 className="font-heading text-sm font-bold text-text-dark mb-4 uppercase tracking-wider">Trusted signals</h3>
                     <ul className="space-y-2.5 text-sm text-text-dark-muted">
                       <li className="flex items-center gap-2"><span className="h-1 w-1 rounded-full bg-accent" /> NDA signed on request</li>
-                      <li className="flex items-center gap-2"><span className="h-1 w-1 rounded-full bg-accent" /> ISO / SOC2 aligned processes</li>
+                      <li className="flex items-center gap-2"><span className="h-1 w-1 rounded-full bg-accent" /> ISO / SOC 2 aligned processes</li>
                       <li className="flex items-center gap-2"><span className="h-1 w-1 rounded-full bg-accent" /> 12+ countries served</li>
                       <li className="flex items-center gap-2"><span className="h-1 w-1 rounded-full bg-accent" /> Senior engineers only — no juniors</li>
                     </ul>

@@ -17,6 +17,20 @@ export const metadata: Metadata = {
   title: "About Us",
   description:
     "Learn about PROSYS LTD — a software development company with a senior team building enterprise-quality AI, SaaS, and web solutions at startup speed.",
+  alternates: { canonical: "/about" },
+  openGraph: {
+    title: "About PROSYS LTD",
+    description:
+      "Learn about PROSYS LTD — a software development company with a senior team building enterprise-quality AI, SaaS, and web solutions at startup speed.",
+    url: "/about",
+    type: "website",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "About PROSYS LTD",
+    description:
+      "Learn about PROSYS LTD — a software development company with a senior team building enterprise-quality AI, SaaS, and web solutions at startup speed.",
+  },
 };
 
 const values = [
@@ -87,41 +101,24 @@ export default function AboutPage() {
           stats={stats.map((s) => ({ value: `${s.value}${s.suffix}`, label: s.label }))}
         />
 
-        {/* Mission + Stats side by side */}
+        {/* Mission */}
         <section className="py-28 lg:py-36 bg-light-primary">
           <div className="max-w-[1400px] mx-auto px-6 lg:px-8">
-            <div className="grid grid-cols-1 lg:grid-cols-12 gap-16">
-              <div className="lg:col-span-7">
-                <ScrollReveal>
-                  <p className="text-xs text-accent uppercase tracking-[0.2em] font-medium mb-4">Our Mission</p>
-                  <h2 className="font-heading text-3xl md:text-4xl font-bold text-text-dark mb-8 leading-tight">
-                    Bridge the gap between ambition and execution.
-                  </h2>
-                  <div className="space-y-6 text-text-dark-muted text-lg leading-relaxed">
-                    <p>
-                      Too many companies get stuck between agencies that overpromise and freelancers that underdeliver. We built PROSYS to be the third option — a team of senior engineers who operate like your in-house technology department, without the overhead.
-                    </p>
-                    <p>
-                      We don&apos;t just write code. We architect systems, design experiences, optimize for search engines (including AI search engines), and drive measurable growth. From concept to scale — we handle the full lifecycle so you can focus on your business.
-                    </p>
-                  </div>
-                </ScrollReveal>
-              </div>
-
-              <div className="lg:col-span-5">
-                <ScrollReveal delay={0.15}>
-                  <div className="grid grid-cols-2 gap-px bg-card-light-border border border-card-light-border">
-                    {stats.map((stat) => (
-                      <div key={stat.label} className="bg-white p-6 text-center">
-                        <div className="font-heading text-3xl md:text-4xl font-bold text-text-dark mb-1">
-                          {stat.value}{stat.suffix}
-                        </div>
-                        <div className="text-xs text-text-dark-muted uppercase tracking-widest">{stat.label}</div>
-                      </div>
-                    ))}
-                  </div>
-                </ScrollReveal>
-              </div>
+            <div className="max-w-3xl">
+              <ScrollReveal>
+                <p className="text-xs text-accent uppercase tracking-[0.2em] font-medium mb-4">Our Mission</p>
+                <h2 className="font-heading text-3xl md:text-4xl font-bold text-text-dark mb-8 leading-tight">
+                  Bridge the gap between ambition and execution.
+                </h2>
+                <div className="space-y-6 text-text-dark-muted text-lg leading-relaxed">
+                  <p>
+                    Too many companies get stuck between agencies that overpromise and freelancers that underdeliver. We built PROSYS to be the third option — a team of senior engineers who operate like your in-house technology department, without the overhead.
+                  </p>
+                  <p>
+                    We don&apos;t just write code. We architect systems, design experiences, optimize for search engines (including AI search engines), and drive measurable growth. From concept to scale — we handle the full lifecycle so you can focus on your business.
+                  </p>
+                </div>
+              </ScrollReveal>
             </div>
           </div>
         </section>
@@ -277,8 +274,9 @@ export default function AboutPage() {
               <ScrollReveal>
                 <p className="text-xs text-accent uppercase tracking-[0.2em] font-medium mb-4">Reach</p>
                 <h2 className="font-heading text-3xl md:text-4xl font-bold text-text-dark mb-6 leading-tight">
-                  Global Delivery,
-                  <br />Local Expertise.
+                  Global Delivery,{" "}
+                  <br />
+                  Local Expertise.
                 </h2>
                 <p className="text-text-dark-muted text-lg leading-relaxed mb-8">
                   Headquartered in Lahore, Pakistan with clients across North America, Europe, the Middle East, and Asia-Pacific. We operate in your timezone and speak your language.

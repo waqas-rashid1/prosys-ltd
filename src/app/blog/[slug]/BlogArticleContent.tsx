@@ -48,7 +48,10 @@ export default function BlogArticleContent({ slug }: { slug: string }) {
             )}
             {author && (
               <div className="mt-8 flex items-center gap-3">
-                <div className="w-11 h-11 rounded-full bg-gradient-to-br from-accent/40 to-accent/10 border border-accent/30 flex items-center justify-center text-accent-light font-heading font-black">
+                <div
+                  aria-hidden="true"
+                  className="w-11 h-11 rounded-full bg-gradient-to-br from-accent/40 to-accent/10 border border-accent/30 flex items-center justify-center text-accent-light font-heading font-black"
+                >
                   {author.initial}
                 </div>
                 <div>
@@ -104,7 +107,10 @@ export default function BlogArticleContent({ slug }: { slug: string }) {
               {author && (
                 <div className="mt-14 pt-8 border-t border-card-light-border">
                   <div className="flex items-start gap-5 p-6 bg-light-primary rounded-md border border-card-light-border">
-                    <div className="w-14 h-14 rounded-md gradient-bg flex items-center justify-center text-white font-heading font-black text-xl flex-shrink-0">
+                    <div
+                      aria-hidden="true"
+                      className="w-14 h-14 rounded-md gradient-bg flex items-center justify-center text-white font-heading font-black text-xl flex-shrink-0"
+                    >
                       {author.initial}
                     </div>
                     <div className="flex-grow">

@@ -61,7 +61,7 @@ export default function About() {
             </div>
 
             <h2 className="font-heading text-4xl md:text-5xl lg:text-6xl xl:text-[4.5rem] font-black text-white mb-6 leading-[1.02] tracking-tight">
-              Small team.
+              Small team.{" "}
               <br />
               <span className="gradient-text">Heavy output.</span>
             </h2>
@@ -96,17 +96,22 @@ export default function About() {
             </div>
 
             {/* Certifications row */}
-            <div className="flex flex-wrap items-center gap-2 mb-8 pt-6 border-t border-card-dark-border">
-              <span className="text-[10px] text-white/40 uppercase tracking-widest font-semibold mr-2">Certified</span>
-              {certifications.map((cert) => (
-                <div
-                  key={cert.label}
-                  className="flex items-center gap-1.5 px-2.5 py-1.5 rounded-md bg-card-dark/60 border border-card-dark-border hover:border-accent/30 transition-colors"
-                >
-                  <Image src={cert.logo} alt={cert.label} width={12} height={12} className="w-3 h-3 opacity-60" />
-                  <span className="text-[10px] text-text-light-muted font-medium whitespace-nowrap">{cert.label}</span>
-                </div>
-              ))}
+            <div className="pt-6 border-t border-card-dark-border mb-8">
+              <div className="flex flex-wrap items-center gap-2 mb-3">
+                <span className="text-[10px] text-white/40 uppercase tracking-widest font-semibold mr-2">Aligned With</span>
+                {certifications.map((cert) => (
+                  <div
+                    key={cert.label}
+                    className="flex items-center gap-1.5 px-2.5 py-1.5 rounded-md bg-card-dark/60 border border-card-dark-border hover:border-accent/30 transition-colors"
+                  >
+                    <Image src={cert.logo} alt={cert.label} width={12} height={12} className="w-3 h-3 opacity-60" />
+                    <span className="text-[10px] text-text-light-muted font-medium whitespace-nowrap">{cert.label}</span>
+                  </div>
+                ))}
+              </div>
+              <p className="text-[10px] text-white/40 leading-relaxed max-w-2xl">
+                Our processes are aligned to these standards and partner programs. Full certification audits are in progress &mdash; references and audit documentation available on request.
+              </p>
             </div>
 
             {/* CTAs */}
