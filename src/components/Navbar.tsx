@@ -144,14 +144,20 @@ export default function Navbar() {
         <div className="max-w-[1400px] mx-auto px-6 lg:px-8">
           <div className="flex items-center justify-between h-20">
             <Link href="/" className="flex items-center group" aria-label="PROSYS LTD - Home">
-              <Image
-                src="/logo.png"
-                alt="PROSYS LTD"
-                width={500}
-                height={500}
-                priority
-                className="h-12 w-auto transition-opacity duration-300 group-hover:opacity-80"
-              />
+              {/* The source PNG is a 500x500 canvas with ~75% transparent padding
+                  around a small centered wordmark. We render the image oversized
+                  inside an overflow-hidden, flex-centered wrapper so the empty
+                  padding is cropped out and the wordmark fills the slot. */}
+              <div className="relative h-14 w-48 overflow-hidden flex items-center justify-center">
+                <Image
+                  src="/logo.png"
+                  alt="PROSYS LTD"
+                  width={500}
+                  height={500}
+                  priority
+                  className="h-48 w-48 max-w-none object-contain transition-opacity duration-300 group-hover:opacity-80"
+                />
+              </div>
             </Link>
 
             {/* Desktop Nav */}

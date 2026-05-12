@@ -232,13 +232,15 @@ export default function Footer() {
             {/* Brand column */}
             <div className="lg:col-span-4 lg:pr-8">
               <Link href="/" className="inline-flex items-center mb-6 group" aria-label="PROSYS LTD - Home">
-                <Image
-                  src="/logo.png"
-                  alt="PROSYS LTD"
-                  width={500}
-                  height={500}
-                  className="h-14 w-auto transition-opacity duration-300 group-hover:opacity-80"
-                />
+                <div className="relative h-16 w-56 overflow-hidden flex items-center justify-center">
+                  <Image
+                    src="/logo.png"
+                    alt="PROSYS LTD"
+                    width={500}
+                    height={500}
+                    className="h-56 w-56 max-w-none object-contain transition-opacity duration-300 group-hover:opacity-80"
+                  />
+                </div>
               </Link>
               <p className="text-[15px] text-text-light-muted leading-relaxed mb-8 max-w-sm">
                 Enterprise-grade product engineering, applied AI, and growth systems — delivered across five industry verticals and four continents.
