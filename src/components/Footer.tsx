@@ -232,13 +232,13 @@ export default function Footer() {
             {/* Brand column */}
             <div className="lg:col-span-4 lg:pr-8">
               <Link href="/" className="inline-flex items-center mb-6 group" aria-label="PROSYS LTD - Home">
-                <div className="relative h-14 w-52 overflow-hidden flex items-center justify-center">
+                <div className="relative h-14 w-56 overflow-hidden flex items-center justify-center">
                   <Image
                     src="/logo.png"
                     alt="PROSYS LTD"
                     width={500}
                     height={500}
-                    className="h-80 w-80 max-w-none object-contain transition-opacity duration-300 group-hover:opacity-80"
+                    className="h-[28rem] w-[28rem] max-w-none object-contain transition-opacity duration-300 group-hover:opacity-80"
                   />
                 </div>
               </Link>

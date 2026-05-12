@@ -144,19 +144,19 @@ export default function Navbar() {
         <div className="max-w-[1400px] mx-auto px-6 lg:px-8">
           <div className="flex items-center justify-between h-20">
             <Link href="/" className="flex items-center group" aria-label="PROSYS LTD - Home">
-              {/* The source PNG is a 500x500 canvas with ~75% transparent padding
-                  around a small centered wordmark. We render the image oversized
-                  inside an overflow-hidden, flex-centered wrapper so the empty
-                  padding is cropped out and the wordmark fills the slot. The
+              {/* The source PNG is a 500x500 canvas with significant transparent
+                  padding around a centered wordmark. We render the image
+                  oversized inside an overflow-hidden, flex-centered wrapper so
+                  the padding is cropped and the wordmark fills the slot. The
                   ratio (image_size / wrapper_size) controls the visual zoom. */}
-              <div className="relative h-12 w-44 overflow-hidden flex items-center justify-center">
+              <div className="relative h-12 w-48 overflow-hidden flex items-center justify-center">
                 <Image
                   src="/logo.png"
                   alt="PROSYS LTD"
                   width={500}
                   height={500}
                   priority
-                  className="h-72 w-72 max-w-none object-contain transition-opacity duration-300 group-hover:opacity-80"
+                  className="h-96 w-96 max-w-none object-contain transition-opacity duration-300 group-hover:opacity-80"
                 />
               </div>
             </Link>
