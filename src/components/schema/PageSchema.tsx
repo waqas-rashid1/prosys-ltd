@@ -111,7 +111,7 @@ export function ArticleSchema({
     publisher: {
       "@type": "Organization",
       name: siteConfig.name,
-      logo: { "@type": "ImageObject", url: `${SITE_URL}/logo.png` },
+      logo: { "@type": "ImageObject", url: `${SITE_URL}/logo.svg` },
     },
     articleSection: category,
     mainEntityOfPage: `${SITE_URL}/blog/${slug}`,

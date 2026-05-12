@@ -1,14 +1,1 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 220 44" role="img" aria-label="PROSYS LTD">
-  <text x="0" y="34"
-        font-family="ui-sans-serif, system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif"
-        font-size="34"
-        font-weight="900"
-        fill="#ffffff"
-        letter-spacing="-0.5">PROSYS</text>
-  <text x="158" y="17"
-        font-family="ui-sans-serif, system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif"
-        font-size="11"
-        font-weight="700"
-        fill="#67E8F9"
-        letter-spacing="2.5">LTD</text>
-</svg>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 50"><rect width="200" height="50" fill="#000"/><text x="10" y="35" font-family="system-ui,-apple-system,sans-serif" font-size="28" font-weight="800"><tspan fill="#0C6C36">PRO</tspan><tspan fill="#fff">SYS</tspan></text><text x="148" y="35" font-family="system-ui" font-size="12" fill="#666" font-weight="500">LTD</text></svg>
