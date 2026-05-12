@@ -1,7 +1,6 @@
 "use client";
 
 import Link from "next/link";
-import Image from "next/image";
 import {
   ArrowUp,
   ArrowRight,
@@ -232,15 +231,14 @@ export default function Footer() {
             {/* Brand column */}
             <div className="lg:col-span-4 lg:pr-8">
               <Link href="/" className="inline-flex items-center mb-6 group" aria-label="PROSYS LTD - Home">
-                <div className="relative h-14 w-56 overflow-hidden flex items-center justify-center">
-                  <Image
-                    src="/logo.png"
-                    alt="PROSYS LTD"
-                    width={500}
-                    height={500}
-                    className="h-[28rem] w-[28rem] max-w-none object-contain transition-opacity duration-300 group-hover:opacity-80"
-                  />
-                </div>
+                {/* eslint-disable-next-line @next/next/no-img-element */}
+                <img
+                  src="/logo.svg"
+                  alt="PROSYS LTD"
+                  width={220}
+                  height={44}
+                  className="h-10 w-auto transition-opacity duration-300 group-hover:opacity-80"
+                />
               </Link>
               <p className="text-[15px] text-text-light-muted leading-relaxed mb-8 max-w-sm">
                 Enterprise-grade product engineering, applied AI, and growth systems — delivered across five industry verticals and four continents.
