@@ -15,7 +15,7 @@ function OrganizationSchema() {
     "@type": "Organization",
     name: siteConfig.name,
     url: siteConfig.url,
-    logo: `${siteConfig.url}/logo.svg`,
+    logo: `${siteConfig.url}/logo.png`,
     description: siteConfig.description,
     foundingDate: siteConfig.founded,
     address: {

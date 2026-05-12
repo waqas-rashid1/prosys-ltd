@@ -3,6 +3,7 @@
 import { useState, useEffect, useRef } from "react";
 import { usePathname } from "next/navigation";
 import Link from "next/link";
+import Image from "next/image";
 import { motion, AnimatePresence } from "framer-motion";
 import { Menu, X, ChevronDown, ArrowRight, Search } from "lucide-react";
 import { navLinks } from "@/lib/constants";
@@ -142,11 +143,15 @@ export default function Navbar() {
       >
         <div className="max-w-[1400px] mx-auto px-6 lg:px-8">
           <div className="flex items-center justify-between h-20">
-            <Link href="/" className="flex items-center gap-2 group">
-              <span className="font-heading text-2xl font-black tracking-tight text-text-light group-hover:text-accent-light transition-colors duration-300">
-                PROSYS
-              </span>
-              <span className="text-text-light-muted/70 text-[11px] font-medium tracking-[0.2em] hidden sm:inline border-l border-white/15 pl-2">LTD</span>
+            <Link href="/" className="flex items-center group" aria-label="PROSYS LTD - Home">
+              <Image
+                src="/logo.png"
+                alt="PROSYS LTD"
+                width={500}
+                height={500}
+                priority
+                className="h-12 w-auto transition-opacity duration-300 group-hover:opacity-80"
+              />
             </Link>
 
             {/* Desktop Nav */}

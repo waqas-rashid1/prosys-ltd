@@ -1,6 +1,7 @@
 "use client";
 
 import Link from "next/link";
+import Image from "next/image";
 import {
   ArrowUp,
   ArrowRight,
@@ -230,13 +231,14 @@ export default function Footer() {
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-8">
             {/* Brand column */}
             <div className="lg:col-span-4 lg:pr-8">
-              <Link href="/" className="inline-flex items-baseline gap-2 mb-6">
-                <span className="font-heading text-3xl font-black tracking-tight text-white">
-                  PROSYS
-                </span>
-                <span className="text-white/40 text-[11px] font-medium tracking-[0.22em] border-l border-white/15 pl-2">
-                  LTD
-                </span>
+              <Link href="/" className="inline-flex items-center mb-6 group" aria-label="PROSYS LTD - Home">
+                <Image
+                  src="/logo.png"
+                  alt="PROSYS LTD"
+                  width={500}
+                  height={500}
+                  className="h-14 w-auto transition-opacity duration-300 group-hover:opacity-80"
+                />
               </Link>
               <p className="text-[15px] text-text-light-muted leading-relaxed mb-8 max-w-sm">
                 Enterprise-grade product engineering, applied AI, and growth systems — delivered across five industry verticals and four continents.
