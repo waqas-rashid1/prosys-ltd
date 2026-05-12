@@ -147,15 +147,16 @@ export default function Navbar() {
               {/* The source PNG is a 500x500 canvas with ~75% transparent padding
                   around a small centered wordmark. We render the image oversized
                   inside an overflow-hidden, flex-centered wrapper so the empty
-                  padding is cropped out and the wordmark fills the slot. */}
-              <div className="relative h-14 w-48 overflow-hidden flex items-center justify-center">
+                  padding is cropped out and the wordmark fills the slot. The
+                  ratio (image_size / wrapper_size) controls the visual zoom. */}
+              <div className="relative h-12 w-44 overflow-hidden flex items-center justify-center">
                 <Image
                   src="/logo.png"
                   alt="PROSYS LTD"
                   width={500}
                   height={500}
                   priority
-                  className="h-48 w-48 max-w-none object-contain transition-opacity duration-300 group-hover:opacity-80"
+                  className="h-72 w-72 max-w-none object-contain transition-opacity duration-300 group-hover:opacity-80"
                 />
               </div>
             </Link>
