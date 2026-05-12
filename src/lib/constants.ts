@@ -1,11 +1,14 @@
 export const siteConfig = {
   name: "PROSYS LTD",
-  tagline: "We Build What Others Only Plan",
+  tagline: "Engineering for production.",
   description:
-    "PROSYS LTD is a full-spectrum software development company specializing in AI development, SaaS platforms, MVP engineering, web and mobile applications, and growth-driven digital marketing.",
+    "PROSYS LTD is an engineering practice delivering SaaS platforms, AI systems, cloud infrastructure, and growth programs for funded startups and mid-market enterprises. Production-focused, end-to-end accountable.",
   url: "https://prosysltd.com",
   email: "hello@prosysltd.com",
-  phone: "+923001234567",
+  // E.164 format for tel: links and WhatsApp deep links.
+  phone: "+923348076605",
+  // Human-readable variant for display in copy and the contact strip.
+  phoneDisplay: "+92 334 807 6605",
   address: "Lahore, Pakistan",
   founded: "2024",
 };
@@ -21,89 +24,124 @@ export const navLinks = [
 ];
 
 export const services = [
+  // Pillar 1 — Product Engineering
   {
     icon: "Code2",
     slug: "web-development",
     title: "Web Development",
     description:
-      "High-performance websites and web applications built with Next.js, React, and modern frameworks — engineered for speed, scalability, and conversion.",
-  },
-  {
-    icon: "Cpu",
-    slug: "software-development",
-    title: "Software Development",
-    description:
-      "Enterprise-grade custom software solutions from architecture to deployment. We build systems that handle complexity and scale with your business.",
-  },
-  {
-    icon: "BrainCircuit",
-    slug: "ai-development",
-    title: "AI Development",
-    description:
-      "Custom AI/ML models, LLM integrations, intelligent chatbots, and AI-powered automation systems that give your business a competitive edge.",
+      "Marketing sites and web applications engineered on Next.js, React, and TypeScript. Sub-second load times, WCAG-compliant by default, with editorial workflows your team can operate independently.",
   },
   {
     icon: "Rocket",
     slug: "mvp-development",
     title: "MVP Development",
     description:
-      "Validate your startup idea fast. We design, build, and ship investor-ready MVPs in weeks — not months — with lean, scalable architecture.",
+      "First production release in 6–12 weeks. Defensible architecture, reviewable code, and a system in operation from day one — engineered to absorb growth without rework.",
   },
   {
     icon: "Cloud",
     slug: "saas-development",
     title: "SaaS Development",
     description:
-      "End-to-end SaaS platform engineering — multi-tenant architecture, billing systems, dashboards, APIs, and infrastructure built for recurring revenue.",
+      "Multi-tenant platforms with Stripe billing, role-based access, and the operational infrastructure enterprise customers expect. Engineered to scale through your first thousand tenants without re-architecture.",
+  },
+  {
+    icon: "Cpu",
+    slug: "software-development",
+    title: "Custom Software",
+    description:
+      "Internal tools, B2B portals, and back-office systems designed around operational workflow — not procurement requirements. Measured by adoption, not feature count.",
+  },
+
+  // Pillar 2 — AI & Automation
+  {
+    icon: "BrainCircuit",
+    slug: "ai-development",
+    title: "AI Development",
+    description:
+      "LLM integrations, custom models, conversational interfaces, and RAG systems. Evaluation harnesses, cost ceilings, and fallback logic engineered before the system reaches production.",
   },
   {
     icon: "Bot",
     slug: "ai-automations",
     title: "AI Automations",
     description:
-      "Automate repetitive workflows with AI agents, custom GPTs, n8n/Make integrations, and intelligent process automation that saves hours daily.",
+      "AI agents and workflow automation built on n8n, Make, and custom orchestration. We replace manual spreadsheet workflows with auditable, observable production systems.",
   },
+  {
+    icon: "Sparkles",
+    slug: "generative-ai",
+    title: "Generative AI",
+    description:
+      "Image, text, and code generation embedded into product workflows. Model selection, prompt architecture, and safety guardrails engineered against the use case — not the latest benchmark.",
+  },
+
+  // Pillar 3 — Cloud & Infrastructure
+  {
+    icon: "CloudCog",
+    slug: "cloud-operations",
+    title: "Cloud Migration & Ops",
+    description:
+      "Migrate from legacy infrastructure to AWS or GCP with zero downtime. We've executed the complex modernization patterns — strangler fig, blue-green, dual-write — so the migration is engineering, not exploration.",
+  },
+  {
+    icon: "Settings",
+    slug: "managed-services",
+    title: "Managed Services",
+    description:
+      "Monthly retainers covering monitoring, patching, on-call response, and the steady-state engineering work most internal teams under-resource. Tiered SLAs, transparent reporting, predictable spend.",
+  },
+  {
+    icon: "ShieldCheck",
+    slug: "security",
+    title: "Security",
+    description:
+      "Security audits, penetration testing, and SOC 2 evidence pipelines. We identify exploitable risk, prioritize by business impact, and engineer the remediation against documented control objectives.",
+  },
+
+  // Pillar 4 — Growth & Marketing
   {
     icon: "Search",
     slug: "seo",
     title: "SEO",
     description:
-      "Data-driven on-page and technical SEO that ranks. Site architecture, Core Web Vitals optimization, content strategy, and measurable organic growth.",
+      "Technical SEO, content cluster architecture, and Core Web Vitals optimization. Programs measured by ranking, traffic, and pipeline contribution — not by audit page count.",
   },
   {
     icon: "Sparkles",
     slug: "aieo",
     title: "AIEO",
     description:
-      "AI Engine Optimization — we structure your digital presence to rank on ChatGPT, Gemini, Perplexity, and AI-powered search engines. The next frontier of visibility.",
+      "AI Engine Optimization — engineering brand visibility across ChatGPT, Gemini, Claude, and Perplexity. Structured data, citation architecture, and content formats that AI retrieval systems prioritize.",
   },
   {
     icon: "Megaphone",
     slug: "digital-marketing",
     title: "Digital Marketing",
     description:
-      "Full-funnel digital marketing: paid ads, social media strategy, email marketing, content marketing, and analytics-driven campaign optimization.",
+      "Paid acquisition, lifecycle marketing, content, and analytics — instrumented end-to-end against product data so channel ROI is measured, not estimated.",
   },
   {
     icon: "Palette",
     slug: "graphics-branding",
     title: "Graphics & Branding",
     description:
-      "Brand identity design, UI/UX design systems, pitch decks, social media assets, and visual storytelling that makes your brand unforgettable.",
+      "Brand identity, design systems, investor materials, and content assets. Visual work delivered on engineering timelines — production-ready files, system documentation, and Figma libraries your team can extend.",
   },
 ];
 
 export const stats = [
-  { value: 50, suffix: "+", label: "Projects Delivered" },
-  { value: 30, suffix: "+", label: "Global Clients" },
-  { value: 15, suffix: "+", label: "Team Members" },
-  { value: 99, suffix: "%", label: "Client Satisfaction" },
+  { value: 50, suffix: "+", label: "Engagements delivered" },
+  { value: 12, suffix: "+", label: "Industries served" },
+  { value: 15, suffix: "+", label: "Engineers" },
+  { value: 99, suffix: "%", label: "Engagement retention" },
 ];
 
 export const heroProofPoints = [
-  { value: "50+", label: "Projects Shipped" },
-  { value: "12+", label: "Countries Served" },
-  { value: "4\u20138", label: "Weeks to MVP" },
+  { value: "50+", label: "Engagements delivered" },
+  { value: "5", label: "Industry verticals" },
+  { value: "Production", label: "in 6\u201312 weeks" },
 ];
 
 export const caseStudies = [
@@ -116,15 +154,15 @@ export const caseStudies = [
     year: "2025",
     image: "/images/case-saas.jpg",
     description:
-      "Built a multi-tenant SaaS analytics platform with real-time data visualization, custom reporting engine, and AI-driven insights for a US-based fintech startup.",
+      "Multi-tenant SaaS analytics platform with real-time data visualization, custom reporting engine, and LLM-powered insight generation — delivered for a Series A FinTech.",
     tags: ["Next.js", "Python", "OpenAI", "AWS"],
     metric: "10x faster reporting",
     challenge:
-      "Legacy SQL reporting stack was producing weekly reports after 2-3 day compute cycles. Team was hand-writing dashboards in Excel for investor updates.",
+      "Legacy SQL reporting stack required 2–3 day compute cycles for weekly reports. Investor-facing dashboards were being hand-assembled in Excel, with no real-time view into platform metrics.",
     approach:
       "Designed a real-time multi-tenant OLAP layer with materialized views in Postgres, an embedded analytics surface in Next.js, and an LLM-powered natural language query layer for self-serve insights.",
     outcome:
-      "Reports that took 2-3 days now complete in under 2 seconds. The client raised a $12M Series B with investor dashboards powered by the platform.",
+      "Reports that previously required 2–3 days now complete in under 2 seconds. The client closed a $12M Series B with investor dashboards running directly on the platform.",
     timeline: "12 weeks",
     teamSize: "4 engineers + 1 designer",
   },
@@ -137,15 +175,15 @@ export const caseStudies = [
     year: "2025",
     image: "/images/case-health.jpg",
     description:
-      "Designed and shipped an investor-ready MVP in 6 weeks — patient scheduling, telehealth integration, and HIPAA-compliant data handling.",
+      "Designed and delivered a production telehealth pilot in 6 weeks — patient scheduling, telehealth integration, and HIPAA-eligible architecture.",
     tags: ["React", "Node.js", "PostgreSQL", "Stripe"],
     metric: "Seed round funded",
     challenge:
-      "Founder had a 12-week runway before their pilot partnership with a regional clinic. No MVP, no engineering team, and a hard deadline.",
+      "Sponsor had a 12-week runway before their pilot partnership with a regional clinic. No production system, no engineering team, and a hard deadline.",
     approach:
-      "Embedded a senior full-stack pair with the founder. Shipped in 2-week cycles: scheduling, telehealth video (Twilio), clinician portal, HIPAA-aligned audit trails.",
+      "Embedded a full-stack engineering pair with the sponsor. Delivered on a fixed iteration cadence: scheduling, telehealth video (Twilio), clinician portal, HIPAA-eligible audit trails.",
     outcome:
-      "MVP shipped in 6 weeks. The clinic pilot converted to paid in month 2, which unlocked a $1.8M seed round led by a digital health fund.",
+      "Production pilot live in 6 weeks. The clinic engagement converted to paid in month 2, which unlocked a $1.8M seed round led by a digital health fund.",
     timeline: "6 weeks",
     teamSize: "2 engineers + 1 product",
   },
@@ -158,15 +196,15 @@ export const caseStudies = [
     year: "2025",
     image: "/images/case-automation.jpg",
     description:
-      "Automated order processing, inventory sync, and customer support with AI agents — reducing manual work by 80% for a D2C brand.",
+      "Order processing, inventory synchronization, and customer support automated through AI agents — reducing manual operational work by 80% for a D2C brand.",
     tags: ["n8n", "GPT-4", "Shopify API", "Slack"],
     metric: "80% time saved",
     challenge:
-      "Operations team of 6 spent 30+ hours/week on order triage, inventory reconciliation across channels, and Tier-1 customer support tickets.",
+      "Operations team of six absorbed 30+ hours per week across order triage, inventory reconciliation between channels, and Tier-1 customer support tickets — with no path to scale.",
     approach:
-      "Shipped 12 production n8n workflows with GPT-4 classification, Shopify + 3PL integrations, and a guardrailed AI support agent with human escalation.",
+      "Delivered twelve production n8n workflows with GPT-4 classification, Shopify and 3PL integrations, and a guardrailed AI support agent with human escalation paths.",
     outcome:
-      "80% of ops workflow is now automated. The team reallocated 24 hours/week to growth experiments, and CSAT rose 11 points thanks to faster response times.",
+      "80% of operational workflow is now automated. The team reallocated 24 hours per week to growth initiatives, and CSAT rose by 11 points on faster response times.",
     timeline: "5 weeks",
     teamSize: "1 engineer + 1 ops specialist",
   },
@@ -183,11 +221,11 @@ export const caseStudies = [
     tags: ["Next.js", "Sanity", "Vercel", "Tailwind"],
     metric: "300% traffic increase",
     challenge:
-      "Legacy WordPress site was slow (8s LCP), unrankable for core keywords, and required a developer to change copy. Google was deprioritizing them.",
+      "Legacy WordPress site was slow (8s LCP), unrankable for core keywords, and required engineering involvement for routine copy changes. Google rankings were deteriorating quarter over quarter.",
     approach:
-      "Migrated to Next.js App Router with Sanity CMS, English + Arabic locales, structured data, and a programmatic SEO layer for 40+ service pages.",
+      "Migrated to Next.js App Router with Sanity CMS, English and Arabic locales, structured data, and a programmatic SEO layer covering 40+ service pages.",
     outcome:
-      "Organic traffic up 300% in 6 months, LCP under 1s, and the marketing team now ships copy changes without engineering.",
+      "Organic traffic increased 300% in six months. LCP reduced to under 1 second. The marketing team now publishes copy changes independently of engineering.",
     timeline: "8 weeks",
     teamSize: "2 engineers + 1 SEO strategist",
   },
@@ -196,23 +234,23 @@ export const caseStudies = [
 export const insights = [
   {
     category: "AI & Innovation",
-    title: "Why Every Startup Needs an AI Strategy in 2026",
+    title: "Operational AI: From Proof of Concept to Production Reliability",
     excerpt:
-      "AI is no longer optional. Discover how early-stage companies are leveraging AI to ship faster, reduce costs, and outperform funded competitors.",
+      "Most enterprise AI initiatives stall after the proof of concept. The discipline required to operate AI in production — evaluation harnesses, fallback strategies, cost governance — explained from delivered engagements.",
     date: "Mar 28, 2026",
   },
   {
     category: "Development",
-    title: "MVP to Scale: The Architecture Decisions That Matter Most",
+    title: "Architecture Decisions That Determine Whether Your Platform Scales",
     excerpt:
-      "The technical choices you make at the MVP stage determine whether your product can scale. Here's our framework for building right from day one.",
+      "Technology choices made during initial build define the cost and feasibility of scaling. A framework for evaluating architecture decisions against three-year operability — drawn from production engagements.",
     date: "Mar 15, 2026",
   },
   {
     category: "SEO & AIEO",
-    title: "AIEO: How to Rank Your Brand on AI Search Engines",
+    title: "AIEO: Engineering Brand Visibility Across AI Retrieval Systems",
     excerpt:
-      "Google is no longer the only search engine. Learn how to optimize your digital presence for ChatGPT, Gemini, Perplexity, and AI-powered discovery.",
+      "Search behaviour now spans Google, ChatGPT, Gemini, and Perplexity. Structured data, citation architecture, and content formats that AI retrieval systems prioritize — with measurement methodology.",
     date: "Feb 22, 2026",
   },
 ];
@@ -224,8 +262,8 @@ export const industries = [
     title: "FinTech",
     image: "/images/industry-fintech.jpg",
     description:
-      "Secure, compliant platforms for payments, lending, trading, and financial analytics with bank-grade security standards.",
-    compliance: ["PCI DSS aligned", "SOC 2 Type II aware", "KYC/AML ready", "Data residency controls"],
+      "Payments, lending, and trading platforms engineered for bank-grade scrutiny. KYC workflows, immutable audit trails, and the regulatory infrastructure that survives a Big Four review.",
+    compliance: ["PCI-DSS scope minimization", "SOC 2 Type II controls", "KYC/AML workflows", "Data residency controls"],
     capabilities: ["Payment rails & wallets", "Lending & credit decisioning", "Trading & brokerage UX", "Analytics & reporting"],
     tech: ["Stripe", "Plaid", "PostgreSQL", "Kafka", "AWS"],
   },
@@ -235,8 +273,8 @@ export const industries = [
     title: "HealthTech",
     image: "/images/industry-health.jpg",
     description:
-      "HIPAA-aligned applications for telehealth, patient management, clinical workflows, and health data analytics.",
-    compliance: ["HIPAA aligned", "GDPR aware", "HL7 FHIR interop", "Encrypted PHI at rest & transit"],
+      "Telehealth video, patient portals, and clinical tooling. We engineer HIPAA-eligible architecture — BAA-ready cloud, encrypted PHI in transit and at rest, and full audit trails — built for the workloads regulators actually scrutinize.",
+    compliance: ["HIPAA-eligible architecture", "GDPR data subject workflows", "HL7 FHIR interoperability", "Encrypted PHI in transit & at rest"],
     capabilities: ["Telehealth & video", "Patient portals", "Clinical workflow automation", "Claims & billing"],
     tech: ["Twilio", "FHIR", "PostgreSQL", "AWS HIPAA stack"],
   },
@@ -246,8 +284,8 @@ export const industries = [
     title: "E-Commerce & D2C",
     image: "/images/industry-ecom.jpg",
     description:
-      "Headless commerce, inventory systems, AI-powered recommendations, and omnichannel experiences that drive revenue.",
-    compliance: ["PCI DSS scope minimization", "GDPR/CCPA consent", "Cookie compliance"],
+      "Headless storefronts, inventory synchronization, and recommendation engines. We migrate brands off slow Shopify themes onto performance-optimized platforms — measured in conversion lift and Core Web Vitals.",
+    compliance: ["PCI-DSS scope minimization", "GDPR/CCPA consent management", "Cookie compliance"],
     capabilities: ["Headless storefronts", "Inventory & OMS", "Personalization & CRO", "Loyalty & subscriptions"],
     tech: ["Shopify", "Next.js", "Algolia", "Klaviyo", "Stripe"],
   },
@@ -257,21 +295,10 @@ export const industries = [
     title: "EdTech",
     image: "/images/case-automation.jpg",
     description:
-      "Learning management systems, AI tutors, assessment platforms, and interactive content delivery for modern education.",
-    compliance: ["FERPA aware", "COPPA for K-12", "WCAG 2.1 AA accessible"],
+      "LMS platforms, AI tutors, and assessment engines. Engineered for the operational edge cases real institutions face: high-concurrency assessment windows, accessibility requirements, and SIS integrations.",
+    compliance: ["FERPA-aligned data handling", "COPPA compliance for K-12", "WCAG 2.1 AA accessibility"],
     capabilities: ["LMS platforms", "AI tutors & grading", "Assessment engines", "Gamified learning"],
     tech: ["Next.js", "LangChain", "OpenAI", "PostgreSQL"],
-  },
-  {
-    slug: "real-estate",
-    icon: "Building2",
-    title: "Real Estate",
-    image: "/images/case-web.jpg",
-    description:
-      "Property listing platforms, CRM systems, virtual tours, and AI-powered valuation tools for the real estate industry.",
-    compliance: ["Fair housing compliance", "RETS/MLS integration", "GDPR-aware lead handling"],
-    capabilities: ["Listings & search", "Agent CRM", "Virtual tours", "AVM valuation models"],
-    tech: ["Next.js", "Mapbox", "Elasticsearch", "Python ML"],
   },
   {
     slug: "saas-startups",
@@ -279,32 +306,10 @@ export const industries = [
     title: "Startups & SaaS",
     image: "/images/case-saas.jpg",
     description:
-      "From zero-to-one MVPs to scale-ready SaaS platforms — we are the technical co-founder startups wish they had.",
-    compliance: ["SOC 2 readiness", "GDPR-aware multi-tenancy", "Row-level security"],
+      "Multi-tenant SaaS platforms engineered for scale. Row-level isolation, SSO, billing infrastructure, and the audit trails enterprise procurement teams actually ask about.",
+    compliance: ["SOC 2 Type II evidence pipeline", "GDPR-compliant multi-tenancy", "Row-level security"],
     capabilities: ["MVP engineering", "Multi-tenant architecture", "Billing & subscriptions", "Admin & ops tooling"],
     tech: ["Next.js", "Stripe", "PostgreSQL", "Vercel"],
-  },
-  {
-    slug: "logistics",
-    icon: "Truck",
-    title: "LogisTech & Supply Chain",
-    image: "/images/service-bps.jpg",
-    description:
-      "Fleet, warehouse, and last-mile platforms with real-time tracking, route optimization, and carrier integrations.",
-    compliance: ["GDPR aware", "Customs/trade data handling", "Driver data protection"],
-    capabilities: ["Fleet & TMS", "Warehouse management", "Route optimization", "Carrier integrations"],
-    tech: ["Kafka", "PostGIS", "Mapbox", "AWS"],
-  },
-  {
-    slug: "media",
-    icon: "PlaySquare",
-    title: "Media & Entertainment",
-    image: "/images/service-digital.jpg",
-    description:
-      "OTT platforms, content CMS, audience analytics, and AI-powered personalization for modern media brands.",
-    compliance: ["DRM integration", "GDPR audience consent", "Age-gating & safety"],
-    capabilities: ["OTT & streaming", "Headless CMS", "Recommendations", "Ad & subscription monetization"],
-    tech: ["Next.js", "Contentful", "AWS Media Services"],
   },
 ];
 
@@ -313,25 +318,25 @@ export const approach = [
     step: "01",
     title: "Discovery & Strategy",
     description:
-      "We dive deep into your business goals, target users, market landscape, and technical requirements. No cookie-cutter solutions — we build a strategy tailored to your vision.",
+      "We map business goals, user needs, and the technical constraints in scope. The output is a written recommendation: scope, exclusions, architecture rationale, and the cost-benefit case behind each decision.",
   },
   {
     step: "02",
     title: "Architecture & Design",
     description:
-      "Our architects design scalable, future-proof systems while our designers craft pixel-perfect interfaces. Every decision is made with growth and performance in mind.",
+      "Architecture and UI in parallel. We commit to a stack we can defend in writing, design components against it, and deliver a clickable prototype before development begins.",
   },
   {
     step: "03",
-    title: "Agile Development",
+    title: "Iterative Delivery",
     description:
-      "Two-week sprints with continuous delivery. You see progress in real-time with regular demos, transparent communication, and iterative refinement until perfection.",
+      "Reviewable releases on a fixed cadence. A live staging environment available throughout the engagement. Scope risks are surfaced the moment they emerge — not at the month-end invoice.",
   },
   {
     step: "04",
-    title: "Launch & Growth",
+    title: "Launch & Operations",
     description:
-      "We don't disappear after deployment. From go-live support to SEO, AIEO, performance monitoring, and feature evolution — we grow with you.",
+      "We stay on past go-live. Most engagements continue for at least six months post-launch — that's when production behavior surfaces, observability matures, and SEO/AIEO programs start compounding.",
   },
 ];
 
@@ -358,32 +363,32 @@ export const faq = [
   {
     question: "What services does PROSYS LTD offer?",
     answer:
-      "PROSYS LTD offers a full spectrum of digital services including web development, software development, AI development, MVP development, SaaS development, AI automations, SEO, AIEO (AI Engine Optimization), digital marketing, and graphics & branding. We are primarily a development-focused company with deep expertise in building scalable, production-ready software.",
+      "PROSYS LTD delivers a full spectrum of engineering and growth services across four pillars: Product Engineering (web, SaaS, custom platforms), AI & Automation (LLM systems, applied AI, intelligent workflow automation), Cloud & Infrastructure (cloud operations, managed services, security), and Growth & Marketing (technical SEO, AIEO, performance marketing, design). We operate as an embedded engineering practice — engineering-led, production-focused, end-to-end.",
   },
   {
     question: "What is AIEO and why does it matter?",
     answer:
-      "AIEO stands for AI Engine Optimization — it's the practice of structuring your digital presence to be discoverable and recommended by AI-powered search engines like ChatGPT, Google Gemini, Perplexity, and Claude. As more users rely on AI for answers instead of traditional search, AIEO ensures your brand appears in AI-generated responses. PROSYS LTD is among the first companies to offer dedicated AIEO services.",
+      "AI Engine Optimization (AIEO) is the discipline of engineering brand visibility within AI-powered retrieval systems — ChatGPT, Google Gemini, Claude, and Perplexity. As query volume migrates from traditional search to AI assistants, AIEO determines which brands surface in generated responses. PROSYS LTD operates a dedicated AIEO practice with established methodology, structured data implementation, and citation tracking.",
   },
   {
-    question: "How fast can you build an MVP?",
+    question: "What is the typical time to a first production release?",
     answer:
-      "We typically deliver investor-ready MVPs in 4-8 weeks depending on complexity. Our lean development process focuses on core features that validate your business hypothesis, with architecture designed to scale when you're ready to grow.",
+      "First production releases typically go live in 6–12 weeks, depending on regulatory scope, integration surface, and required uptime guarantees. Our engagement model invests in upfront discovery and architecture so the build phase is predictable — not a discovery exercise disguised as an estimate.",
   },
   {
     question: "Do you work with startups or only enterprise clients?",
     answer:
-      "We work with both. Our sweet spot is ambitious startups that need a strong technical partner and mid-market companies looking to modernize or build new digital products. We bring enterprise-level engineering quality to startup-speed delivery.",
+      "We engage with both. Our active portfolio includes funded startups (seed through Series C) and mid-market enterprise teams modernizing or building new platforms. Either way, the engineering bar, the documentation standard, and the operational maturity stay the same.",
   },
   {
     question: "What technologies do you specialize in?",
     answer:
-      "Our core stack includes React, Next.js, TypeScript, Node.js, Python, PostgreSQL, MongoDB, and AWS. For AI development, we work with OpenAI, LangChain, custom ML models, and automation platforms like n8n. We choose the right tool for each project — never a one-size-fits-all approach.",
+      "Our core stack covers React, Next.js, TypeScript, Node.js, Python, PostgreSQL, MongoDB, and AWS. AI engagements use OpenAI, Anthropic, LangChain, and custom model deployments, with automation platforms including n8n and Make. Technology selection is driven by engagement requirements — operability, integration surface, and long-term maintainability.",
   },
   {
     question: "How does your SEO service work?",
     answer:
-      "Our SEO service covers technical SEO (site speed, Core Web Vitals, crawlability), on-page optimization (content structure, schema markup, keyword strategy), and off-page authority building. We focus on measurable organic growth with transparent reporting and data-driven decisions.",
+      "Our SEO practice covers technical SEO (site speed, Core Web Vitals, crawlability, indexation), on-page architecture (content structure, schema markup, internal linking, keyword strategy), and off-page authority development. Programs are measured against organic traffic, ranking position, and pipeline contribution — with transparent monthly reporting.",
   },
   {
     question: "Where is PROSYS LTD based?",
@@ -393,47 +398,47 @@ export const faq = [
   {
     question: "How do you handle project communication?",
     answer:
-      "We operate with full transparency. You get a dedicated project manager, access to our project board (Linear/Jira), regular video standups, and async updates via Slack. You're never in the dark about progress, blockers, or timelines.",
+      "Every engagement runs against a transparent operating model: a dedicated delivery lead, shared access to the project board (Linear or Jira), regular synchronous reviews, and asynchronous updates in your communication channel. Progress, blockers, and timeline status are visible at all times.",
   },
   {
     question: "What is your pricing model?",
     answer:
-      "We offer three primary pricing models: (1) Fixed-price for well-scoped projects, (2) Monthly retainer for ongoing engagements (common for dedicated teams and product partners), and (3) Time & materials for exploratory/evolving work. Typical MVP budgets start around $25K; enterprise engagements range from $75K to $500K+. Every proposal includes a fixed ceiling, payment milestones, and a change-management process.",
+      "We operate three engagement models: (1) Fixed-price for well-scoped engagements, (2) Monthly retainer for ongoing dedicated-team partnerships, and (3) Time & materials for exploratory or evolving work. Pilot engagements typically begin at $25K; enterprise engagements range from $75K to $500K+. Every proposal includes a fixed ceiling, milestone-based payment terms, and a documented change-management process.",
   },
   {
     question: "Who owns the code and IP?",
     answer:
-      "You do. Upon final payment, 100% of the intellectual property — source code, design assets, documentation, and deployment infrastructure — is transferred to your organization. We retain no rights beyond the right to list the project as a portfolio reference (and only with your written consent).",
+      "The client. Upon final payment, full intellectual property — source code, design assets, documentation, and deployment infrastructure — is transferred to your organization. PROSYS retains no usage rights, and references to the engagement appear publicly only with your written consent.",
   },
   {
     question: "Will you sign an NDA before we share details?",
     answer:
-      "Yes — on request, before any substantive scoping conversation. We use a mutual NDA by default and can work with your template instead. Expect turnaround within 24 hours.",
+      "Yes — on request, before any substantive scoping conversation. A mutual NDA template is available, or we engage under your standard form. Turnaround within 24 hours.",
   },
   {
     question: "How many revision rounds are included?",
     answer:
-      "Design work typically includes 2–3 structured revision rounds at each stage (exploration, direction, refinement). Engineering follows continuous-delivery, so changes are handled in-sprint via our change-management workflow. We never nickel-and-dime — if a change is small, it usually ships the same week.",
+      "Design work includes 2–3 structured revision rounds at each stage (exploration, direction, refinement). Engineering follows continuous delivery — changes are handled within the active iteration via our documented change-management workflow. Material scope changes go through a written impact assessment; minor adjustments typically ship the same week.",
   },
   {
     question: "Do you provide ongoing support and maintenance after launch?",
     answer:
-      "Yes. Post-launch, we offer monthly care plans covering monitoring, bug fixes, dependency updates, security patches, minor features, and performance tuning. SLAs are tiered (standard, priority, enterprise) with defined response times. Many clients stay with us for 2+ years after initial launch.",
+      "Yes. Post-launch operations are covered by monthly retainers across monitoring, dependency and security patching, on-call response, incremental feature work, and performance tuning. SLAs are tiered — standard, priority, enterprise — with defined response and resolution times. Most engagements continue under a managed services agreement for 2+ years.",
   },
   {
     question: "What does your typical engagement look like?",
     answer:
-      "Week 1 is Discovery & Scoping — we map goals, constraints, users, and success metrics. Week 2 is Architecture & Design — we draft the system architecture and core UI. From Week 3 onward we run 2-week sprints with demos every Friday, deployable increments to staging, and a live project board you can track at any time. Go-live is followed by a 30-day stabilization window and an ongoing care plan if needed.",
+      "Week 1 is Discovery & Scoping — goals, constraints, users, success metrics, and risk profile mapped. Week 2 is Architecture & Design — system architecture, interface design, and integration map approved. From Week 3 onward we deliver on a fixed iteration cadence — reviewable releases to staging at each checkpoint, stakeholder demos with formal approval gates, and a live project board you can audit at any time. Go-live is followed by a 30-day stabilization window and an ongoing operations plan as needed.",
   },
   {
     question: "Can you work in our timezone?",
     answer:
-      "Yes. Our delivery model assumes 4+ hours of overlap with your timezone. For North American clients we commonly overlap 9am–1pm PKT ≈ 11pm–3am ET in compressed collaboration windows. Daily async video + written updates fill the rest.",
+      "Yes. The delivery model is built around 4+ hours of synchronous overlap with your timezone. North American engagements typically run an early-morning collaboration window with the rest of the day covered by structured asynchronous updates. EMEA and APAC engagements run during business-hour overlap.",
   },
   {
     question: "Do you work with existing teams or only build from scratch?",
     answer:
-      "Both. We frequently embed engineers and designers into existing product teams via a Staff Augmentation model — code reviews, sprint participation, and on-call rotations included. We also build greenfield products end-to-end. The engagement model is flexible.",
+      "Both. We frequently embed engineers and designers into existing product organizations via a Staff Augmentation model — code reviews, iteration participation, and on-call rotations included. We also deliver greenfield platforms end-to-end. The engagement model is shaped to your operating environment.",
   },
 ];
 
@@ -451,31 +456,25 @@ export const techPartners = [
 export const footerLinks = {
   productEngineering: [
     { label: "Web Development", href: "/services/web-development" },
-    { label: "Software Development", href: "/services/software-development" },
-    { label: "SaaS Development", href: "/services/saas-development" },
     { label: "MVP Development", href: "/services/mvp-development" },
-    { label: "Business Applications", href: "/services/business-applications" },
+    { label: "SaaS Development", href: "/services/saas-development" },
+    { label: "Custom Software", href: "/services/software-development" },
   ],
   aiAndAutomation: [
     { label: "AI Development", href: "/services/ai-development" },
+    { label: "AI Automations", href: "/services/ai-automations" },
     { label: "Generative AI", href: "/services/generative-ai" },
-    { label: "Advanced Analytics", href: "/services/advanced-analytics" },
-    { label: "Data Modernization", href: "/services/data-modernization" },
-    { label: "Connected Intelligence", href: "/services/connected-intelligence" },
   ],
   cloudAndPlatform: [
-    { label: "Cloud Migration", href: "/services/cloud-operations" },
-    { label: "Cloud App Development", href: "/services/cloud-app-development" },
+    { label: "Cloud Migration & Ops", href: "/services/cloud-operations" },
     { label: "Managed Services", href: "/services/managed-services" },
     { label: "Security", href: "/services/security" },
-    { label: "Digital Infrastructure", href: "/services/digital-infrastructure" },
   ],
   growthAndMarketing: [
     { label: "SEO", href: "/services/seo" },
     { label: "AIEO", href: "/services/aieo" },
     { label: "Digital Marketing", href: "/services/digital-marketing" },
     { label: "Graphics & Branding", href: "/services/graphics-branding" },
-    { label: "Digital Commerce", href: "/services/digital-commerce" },
   ],
   company: [
     { label: "About Us", href: "/about" },

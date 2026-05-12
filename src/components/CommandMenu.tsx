@@ -26,7 +26,7 @@ const staticItems: Item[] = [
   { label: "Careers", href: "/careers", group: "Navigate", icon: Users },
   { label: "Insights & Blog", href: "/blog", group: "Navigate", icon: Book },
   { label: "Contact", href: "/contact", group: "Actions", icon: Mail, description: "Start a conversation" },
-  { label: "Book a Consultation", href: "/contact?intent=book-call", group: "Actions", icon: Phone, description: "30-min call with a senior engineer" },
+  { label: "Book a Consultation", href: "/contact?intent=book-call", group: "Actions", icon: Phone, description: "30-min working session with the engagement lead" },
   { label: "Request a Proposal", href: "/contact?intent=proposal", group: "Actions", icon: FileText, description: "Get a scoped project estimate" },
 ];
 
@@ -100,15 +100,27 @@ export default function CommandMenu() {
     };
   }, [open]);
 
+  // Reset internal state when the menu closes. Synchronizing local state to
+  // an external trigger (the open prop pattern) is the documented exception
+  // to the set-state-in-effect rule.
+  const wasOpen = useRef(false);
   useEffect(() => {
-    if (open) setTimeout(() => inputRef.current?.focus(), 50);
-    else {
+    if (open) {
+      setTimeout(() => inputRef.current?.focus(), 50);
+    } else if (wasOpen.current) {
+      // eslint-disable-next-line react-hooks/set-state-in-effect
       setQuery("");
       setActiveIndex(0);
     }
+    wasOpen.current = open;
   }, [open]);
 
+  // Reset the highlighted item when the search query changes.
+  const lastQuery = useRef(query);
   useEffect(() => {
+    if (lastQuery.current === query) return;
+    lastQuery.current = query;
+    // eslint-disable-next-line react-hooks/set-state-in-effect
     setActiveIndex(0);
   }, [query]);
 
@@ -161,7 +173,7 @@ export default function CommandMenu() {
                 value={query}
                 onChange={(e) => setQuery(e.target.value)}
                 placeholder="Search services, pages, or actions…"
-                className="flex-1 bg-transparent outline-none text-white placeholder:text-text-light-muted/50 text-sm"
+                className="flex-1 bg-transparent outline-none text-white placeholder:text-text-light-muted/70 text-sm"
                 aria-label="Command menu search"
               />
               <kbd className="hidden sm:inline-flex items-center px-2 py-1 text-[10px] text-text-light-muted border border-card-dark-border rounded font-mono">
@@ -193,11 +205,7 @@ export default function CommandMenu() {
                             setOpen(false);
                           }}
                           onMouseEnter={() => setActiveIndex(flatIdx)}
-                          className={`w-full flex items-center gap-3 px-5 py-2.5 text-left transition-colors cursor-pointer ${
-                            active
-                              ? "bg-accent/10 text-white"
-                              : "text-text-light hover:bg-white/5"
-                          }`}
+                          className={`w-full flex items-center gap-3 px-5 py-2.5 text-left transition-colors cursor-pointer ${ active ? "bg-accent/10 text-white" : "text-text-light hover:bg-white/5" }`}
                         >
                           <Icon
                             size={16}

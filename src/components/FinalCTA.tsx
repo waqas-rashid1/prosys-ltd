@@ -3,6 +3,7 @@
 import Link from "next/link";
 import { ArrowRight } from "lucide-react";
 import ScrollReveal from "./ui/ScrollReveal";
+import MagneticButton from "./ui/MagneticButton";
 
 type Props = {
   eyebrow?: string;
@@ -28,7 +29,7 @@ export default function FinalCTA({
         className="absolute inset-0 pointer-events-none opacity-50"
         style={{
           background:
-            "radial-gradient(ellipse 500px 180px at 70% 50%, rgba(12,108,54,0.18) 0%, transparent 70%)",
+            "radial-gradient(ellipse 500px 180px at 70% 50%, rgba(6,182,212,0.18) 0%, transparent 70%)",
         }}
       />
 
@@ -44,16 +45,18 @@ export default function FinalCTA({
               </h2>
             </div>
             <div className="lg:col-span-5 flex flex-col sm:flex-row gap-3 lg:justify-end">
-              <Link
-                href={primary.href}
-                className="group inline-flex items-center justify-center gap-2 bg-white text-dark-primary hover:bg-accent hover:text-white font-semibold px-7 py-4 rounded-md text-sm uppercase tracking-widest transition-all duration-300"
-              >
-                {primary.label}
-                <ArrowRight
-                  size={14}
-                  className="transition-transform duration-300 group-hover:translate-x-0.5"
-                />
-              </Link>
+              <MagneticButton strength={6}>
+                <Link
+                  href={primary.href}
+                  className="group inline-flex items-center justify-center gap-2 bg-white text-dark-primary hover:bg-accent hover:text-white font-semibold px-7 py-4 rounded-md text-sm uppercase tracking-widest transition-colors duration-200"
+                >
+                  {primary.label}
+                  <ArrowRight
+                    size={14}
+                    className="transition-transform duration-300 group-hover:translate-x-0.5"
+                  />
+                </Link>
+              </MagneticButton>
               <Link
                 href={secondary.href}
                 className="inline-flex items-center justify-center gap-2 border border-white/20 text-white hover:border-white/60 font-medium px-7 py-4 rounded-md text-sm uppercase tracking-widest transition-all duration-300"

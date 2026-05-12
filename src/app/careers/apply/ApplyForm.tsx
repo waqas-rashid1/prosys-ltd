@@ -1,23 +1,25 @@
 "use client";
 
 import { useState } from "react";
-import { Send, CheckCircle2, Loader2, AlertCircle, Upload } from "lucide-react";
+import { Send, CheckCircle2, Loader2, AlertCircle, FileText } from "lucide-react";
 import Button from "@/components/ui/Button";
 import { openRoleTitles, GENERAL_APPLICATION } from "@/lib/careers-data";
 
 type Status = "idle" | "submitting" | "success" | "error";
 
-const MAX_CV_BYTES = 5 * 1024 * 1024;
-const ALLOWED_CV_TYPES = [
-  "application/pdf",
-  "application/msword",
-  "application/vnd.openxmlformats-officedocument.wordprocessingml.document",
-];
+function looksLikeUrl(value: string) {
+  if (!value) return true; // optional
+  try {
+    const u = new URL(value);
+    return u.protocol === "http:" || u.protocol === "https:";
+  } catch {
+    return false;
+  }
+}
 
 export default function ApplyForm({ defaultRole }: { defaultRole?: string }) {
   const [status, setStatus] = useState<Status>("idle");
   const [errorMsg, setErrorMsg] = useState("");
-  const [cvFileName, setCvFileName] = useState<string | null>(null);
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
@@ -37,25 +39,18 @@ export default function ApplyForm({ defaultRole }: { defaultRole?: string }) {
       return;
     }
 
-    const cv = fd.get("cv") as File | null;
-    if (cv && cv.size > 0) {
-      if (cv.size > MAX_CV_BYTES) {
-        setStatus("error");
-        setErrorMsg("CV is too large. Maximum size is 5 MB.");
-        return;
-      }
-      if (!ALLOWED_CV_TYPES.includes(cv.type)) {
-        setStatus("error");
-        setErrorMsg("CV must be a PDF or Word document.");
-        return;
-      }
-    }
-
     const role = (fd.get("role") || "").toString().trim();
     const validRoles = [...openRoleTitles, GENERAL_APPLICATION];
     if (role && !validRoles.includes(role)) {
       setStatus("error");
       setErrorMsg("Please select a role from the list.");
+      return;
+    }
+
+    const cvUrl = (fd.get("cvUrl") || "").toString().trim();
+    if (cvUrl && !looksLikeUrl(cvUrl)) {
+      setStatus("error");
+      setErrorMsg("Please paste a valid CV link (e.g. Google Drive, Dropbox, or LinkedIn).");
       return;
     }
 
@@ -68,8 +63,10 @@ export default function ApplyForm({ defaultRole }: { defaultRole?: string }) {
       portfolio: (fd.get("portfolio") || "").toString().trim(),
       linkedin: (fd.get("linkedin") || "").toString().trim(),
       message: (fd.get("message") || "").toString().trim(),
-      cvFileName: cv && cv.size > 0 ? cv.name : "",
+      cvUrl,
       company: "Career Application",
+      consent: true,
+      website: (fd.get("website") || "").toString(),
     };
 
     if (!payload.name || !payload.email || !payload.role || !payload.message) {
@@ -114,7 +111,7 @@ export default function ApplyForm({ defaultRole }: { defaultRole?: string }) {
   }
 
   return (
-    <form className="space-y-6" onSubmit={handleSubmit} noValidate encType="multipart/form-data">
+    <form className="space-y-6" onSubmit={handleSubmit} noValidate>
       <div aria-hidden="true" className="absolute -left-[9999px] w-px h-px overflow-hidden">
         <label htmlFor="website">Website</label>
         <input
@@ -204,28 +201,25 @@ export default function ApplyForm({ defaultRole }: { defaultRole?: string }) {
       </div>
 
       <div>
-        <label htmlFor="cv" className="block text-sm font-medium text-text-dark mb-2">
-          CV / Resume
-          <span className="text-text-dark-muted font-normal ml-2 text-xs">PDF or DOCX, up to 5 MB</span>
-        </label>
-        <label
-          htmlFor="cv"
-          className="flex items-center justify-between gap-3 px-4 py-3 rounded-md border border-dashed border-card-light-border bg-light-primary text-text-dark hover:border-accent hover:bg-accent/5 cursor-pointer transition-all"
-        >
-          <span className="flex items-center gap-2 text-sm text-text-dark-muted">
-            <Upload size={16} className="text-accent" />
-            {cvFileName || "Click to upload your CV"}
+        <label htmlFor="cvUrl" className="block text-sm font-medium text-text-dark mb-2">
+          CV / Resume Link
+          <span className="text-text-dark-muted font-normal ml-2 text-xs">
+            Google Drive, Dropbox, Notion, or LinkedIn — set sharing to &ldquo;Anyone with the link&rdquo;
           </span>
-          {cvFileName && (
-            <span className="text-xs text-accent font-semibold">Selected</span>
-          )}
         </label>
-        <input
-          type="file" id="cv" name="cv"
-          accept=".pdf,.doc,.docx,application/pdf,application/msword,application/vnd.openxmlformats-officedocument.wordprocessingml.document"
-          onChange={(e) => setCvFileName(e.target.files?.[0]?.name || null)}
-          className="sr-only"
-        />
+        <div className="relative">
+          <FileText
+            size={16}
+            className="absolute left-3.5 top-1/2 -translate-y-1/2 text-accent pointer-events-none"
+          />
+          <input
+            type="url"
+            id="cvUrl"
+            name="cvUrl"
+            placeholder="https://drive.google.com/…"
+            className="w-full pl-10 pr-4 py-3 rounded-md border border-card-light-border bg-light-primary text-text-dark placeholder:text-text-dark-muted/70 focus:outline-none focus:border-accent transition-all"
+          />
+        </div>
       </div>
 
       <div>

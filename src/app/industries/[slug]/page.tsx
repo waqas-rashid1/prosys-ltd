@@ -9,6 +9,7 @@ import {
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import ScrollReveal from "@/components/ui/ScrollReveal";
+import DarkSectionFx from "@/components/ui/DarkSectionFx";
 import { industries, caseStudies } from "@/lib/constants";
 import { BreadcrumbSchema } from "@/components/schema/PageSchema";
 
@@ -77,7 +78,7 @@ export default async function IndustryDetailPage({
             <Image src={industry.image} alt="" fill className="object-cover opacity-30" priority sizes="100vw" />
             <div className="absolute inset-0 bg-gradient-to-r from-dark-primary via-dark-primary/90 to-dark-primary/40" />
             <div className="absolute inset-0 bg-gradient-to-b from-dark-primary/60 via-transparent to-dark-primary" />
-            <div className="absolute top-1/3 left-1/4 w-[520px] h-[520px] rounded-full blur-[140px] opacity-60" style={{ background: "radial-gradient(circle, rgba(12,108,54,0.3) 0%, transparent 65%)" }} />
+            <div className="absolute top-1/3 left-1/4 w-[520px] h-[520px] rounded-full blur-[140px] opacity-60" style={{ background: "radial-gradient(circle, rgba(6,182,212,0.3) 0%, transparent 65%)" }} />
           </div>
           <div className="relative z-10 w-full max-w-[1400px] mx-auto px-6 lg:px-12 pt-32 pb-20 lg:pt-36 lg:pb-28">
             <Link href="/industries" className="inline-flex items-center gap-2 text-white/50 text-sm hover:text-white transition-colors mb-10">
@@ -174,7 +175,7 @@ export default async function IndustryDetailPage({
           <div className="max-w-[1400px] mx-auto px-6 lg:px-8">
             <ScrollReveal>
               <p className="text-xs text-accent uppercase tracking-[0.2em] font-medium mb-3">Relevant Work</p>
-              <h2 className="font-heading text-2xl md:text-3xl font-bold text-text-dark mb-10">Case studies in {industry.title}-adjacent sectors</h2>
+              <h2 className="font-heading text-2xl md:text-3xl font-bold text-text-dark mb-10">Case studies in <span className="gradient-text">{industry.title}-adjacent sectors.</span></h2>
             </ScrollReveal>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
               {relevantStudies.map((cs) => (
@@ -196,15 +197,16 @@ export default async function IndustryDetailPage({
         </section>
 
         {/* Sector-specific CTA */}
-        <section className="py-14 lg:py-20 bg-dark-primary">
-          <div className="max-w-[1400px] mx-auto px-6 lg:px-12">
+        <section className="relative py-14 lg:py-20 bg-dark-primary overflow-hidden">
+          <DarkSectionFx variant="default" />
+          <div className="relative z-10 max-w-[1400px] mx-auto px-6 lg:px-12">
             <div className="max-w-3xl">
               <p className="text-xs text-accent-light uppercase tracking-[0.2em] font-medium mb-4">Ready to build in {industry.title}?</p>
               <h2 className="font-heading text-3xl md:text-4xl lg:text-5xl font-bold text-text-light mb-6 leading-tight">
-                Let&apos;s scope your {industry.title} platform.
+                Let&apos;s scope your {industry.title} <span className="gradient-text">platform.</span>
               </h2>
               <p className="text-text-light-muted text-lg mb-8 leading-relaxed">
-                Senior engineers, regulated-industry experience, and a process tuned for high-stakes delivery.
+                Regulated-industry experience and an engineering process tuned for high-stakes delivery.
               </p>
               <Link href="/contact" className="inline-flex items-center gap-2 gradient-bg text-white hover:shadow-lg hover:shadow-accent/20 px-8 py-3.5 text-sm uppercase tracking-widest rounded-md font-medium transition-all">
                 Book a Call <ArrowRight size={14} />

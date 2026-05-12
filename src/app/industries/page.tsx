@@ -42,14 +42,16 @@ export default function IndustriesPage() {
           title="Domain expertise that"
           highlight="delivers."
           description="We understand the unique challenges, regulations, and opportunities within each sector we serve — from FinTech and HealthTech to Logistics and SaaS."
-          trustSignals={["HIPAA · PCI-DSS · GDPR", "SOC 2-aligned", "Multi-region delivery"]}
+          bgImage="/images/industry-fintech.jpg"
+          bgImageOpacity={0.22}
+          trustSignals={["Domain-specialized practices", "Engineered to SOC 2 controls", "Multi-region delivery"]}
           primaryCta={{ label: "Explore industries", href: "#industries-grid" }}
           secondaryCta={{ label: "Discuss your sector", href: "/contact" }}
           stats={[
-            { value: `${industries.length}`, label: "Core Sectors" },
-            { value: "12+", label: "Countries" },
-            { value: "30+", label: "Active Clients" },
-            { value: "50+", label: "Engagements" },
+            { value: `${industries.length}`, label: "Core sectors" },
+            { value: "5", label: "Industry verticals" },
+            { value: "30+", label: "Active enterprise clients" },
+            { value: "50+", label: "Engagements delivered" },
           ]}
         />
 
@@ -83,6 +85,56 @@ export default function IndustriesPage() {
                   </ScrollReveal>
                 );
               })}
+
+              {/* In-grid CTA tile — fills the trailing empty cell created
+                  by 5 industries in a 3-column grid. Mirrors the size and
+                  shape of the other tiles so the row reads as complete,
+                  while a faint accent wash + dashed icon plate signals
+                  "this is a prompt, not a missing card". */}
+              <ScrollReveal delay={industries.length * 0.05}>
+                <Link
+                  href="/contact?intent=new-project"
+                  className="group flex flex-col h-full bg-gradient-to-br from-accent/5 via-white to-white relative overflow-hidden hover:from-accent/10 transition-colors"
+                >
+                  <div className="relative h-44 overflow-hidden bg-light-secondary flex items-center justify-center">
+                    <div
+                      aria-hidden="true"
+                      className="absolute inset-0 opacity-[0.06]"
+                      style={{
+                        backgroundImage:
+                          "linear-gradient(rgba(6,182,212,0.6) 1px, transparent 1px), linear-gradient(90deg, rgba(6,182,212,0.6) 1px, transparent 1px)",
+                        backgroundSize: "24px 24px",
+                      }}
+                    />
+                    <div className="relative w-14 h-14 rounded-md border-2 border-dashed border-accent/40 bg-white flex items-center justify-center text-accent group-hover:border-accent group-hover:bg-accent/5 transition-all">
+                      <Briefcase size={20} />
+                    </div>
+                  </div>
+                  <div className="p-6 flex-1 flex flex-col">
+                    <p className="text-[11px] uppercase tracking-widest font-semibold text-accent mb-2">
+                      Don&apos;t see your sector?
+                    </p>
+                    <h3 className="font-heading text-lg font-bold text-text-dark mb-2">
+                      We work across adjacent verticals too.
+                    </h3>
+                    <p className="text-text-dark-muted text-sm leading-relaxed mb-4 flex-1">
+                      Real estate, logistics, media, climate, manufacturing — if the operational shape rhymes with what we ship today, the playbook ports over. Tell us about your domain.
+                    </p>
+                    <div className="flex items-center justify-between pt-4 border-t border-card-light-border">
+                      <span className="text-[11px] text-text-dark-muted">
+                        Discovery call · 30 min
+                      </span>
+                      <span className="inline-flex items-center gap-1.5 text-xs font-semibold text-accent">
+                        Start a conversation
+                        <ArrowRight
+                          size={12}
+                          className="group-hover:translate-x-0.5 transition-transform"
+                        />
+                      </span>
+                    </div>
+                  </div>
+                </Link>
+              </ScrollReveal>
             </div>
           </div>
         </section>

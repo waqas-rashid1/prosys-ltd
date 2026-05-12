@@ -4,25 +4,25 @@ import { useState, useEffect } from "react";
 import Link from "next/link";
 import { motion, AnimatePresence } from "framer-motion";
 import { X } from "lucide-react";
+import { getConsent, setConsent } from "./ConsentGate";
 
 export default function CookieConsent() {
   const [visible, setVisible] = useState(false);
 
   useEffect(() => {
-    const consent = localStorage.getItem("cookie-consent");
-    if (!consent) {
+    if (!getConsent()) {
       const timer = setTimeout(() => setVisible(true), 2000);
       return () => clearTimeout(timer);
     }
   }, []);
 
   const accept = () => {
-    localStorage.setItem("cookie-consent", "accepted");
+    setConsent("accepted");
     setVisible(false);
   };
 
   const decline = () => {
-    localStorage.setItem("cookie-consent", "declined");
+    setConsent("declined");
     setVisible(false);
   };
 
@@ -35,19 +35,20 @@ export default function CookieConsent() {
           exit={{ opacity: 0, y: 40 }}
           className="fixed bottom-0 left-0 right-0 z-50 p-4 sm:p-6"
         >
-          <div className="max-w-3xl mx-auto bg-dark-secondary border border-card-dark-border rounded-lg p-5 sm:p-6 shadow-2xl shadow-black/40 glass-effect">
+          <div className="max-w-3xl mx-auto bg-dark-secondary border border-card-dark-border p-5 sm:p-6 shadow-2xl shadow-black/40 glass-effect">
             <div className="flex items-start gap-4">
               <div className="flex-grow">
                 <h3 className="font-heading text-base font-bold text-text-light mb-1">
                   We use cookies
                 </h3>
                 <p className="text-text-light-muted text-sm leading-relaxed">
-                  We use cookies to improve your experience and analyze site traffic.
-                  Read our{" "}
+                  Analytics cookies help us understand how the site is used. They
+                  load only after you accept. Choose &ldquo;Necessary only&rdquo;
+                  to opt out — you can change this in our{" "}
                   <Link href="/cookie-policy" className="text-accent-light hover:underline">
                     Cookie Policy
-                  </Link>{" "}
-                  for details.
+                  </Link>
+                  .
                 </p>
                 <div className="flex flex-wrap gap-3 mt-4">
                   <button

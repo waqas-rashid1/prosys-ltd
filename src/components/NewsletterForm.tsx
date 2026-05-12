@@ -57,7 +57,12 @@ export default function NewsletterForm() {
 
   return (
     <form onSubmit={handleSubmit} className="flex flex-col w-full lg:w-auto gap-2 shrink-0">
-      <div className="flex gap-2">
+      {/* Email row.
+          On mobile (<sm) we stack the input and the Subscribe button
+          vertically so each fills the available width and gets a
+          generous tap area. From sm+ they sit side-by-side as
+          intended. */}
+      <div className="flex flex-col sm:flex-row gap-2">
         <label htmlFor="newsletter-email" className="sr-only">Email address</label>
         <div className="flex-grow lg:w-72 relative">
           <input
@@ -68,16 +73,14 @@ export default function NewsletterForm() {
             onChange={(e) => { setEmail(e.target.value); if (status === "error") setStatus("idle"); }}
             required
             placeholder="your@email.com"
-            className={`w-full px-4 py-3 rounded-md border ${
-              status === "error" ? "border-red-400/60" : "border-card-dark-border"
-            } bg-dark-primary text-text-light placeholder:text-text-light-muted/50 focus:outline-none focus:border-accent focus:ring-1 focus:ring-accent/20 transition-all text-sm`}
+            className={`w-full px-4 py-3 rounded-md border ${ status === "error" ? "border-red-400/60" : "border-card-dark-border" } bg-dark-primary text-text-light placeholder:text-text-light-muted/70 focus:outline-none focus:border-accent focus:ring-1 focus:ring-accent/20 transition-all text-sm`}
             disabled={status === "submitting"}
           />
         </div>
         <button
           type="submit"
           disabled={status === "submitting"}
-          className="bg-white text-dark-primary hover:bg-accent hover:text-white px-5 py-3 rounded-md font-semibold text-sm transition-all duration-300 cursor-pointer flex items-center gap-2 flex-shrink-0 disabled:opacity-60 disabled:cursor-not-allowed"
+          className="bg-white text-dark-primary hover:bg-accent hover:text-white active:bg-accent active:text-white px-5 py-3 rounded-md font-semibold text-sm transition-all duration-300 cursor-pointer flex items-center justify-center gap-2 flex-shrink-0 disabled:opacity-60 disabled:cursor-not-allowed"
         >
           {status === "submitting" ? (
             <>
@@ -93,12 +96,12 @@ export default function NewsletterForm() {
         </button>
       </div>
 
-      <label className="flex items-start gap-2 text-[11px] text-text-light-muted/70 leading-snug cursor-pointer select-none max-w-md">
+      <label className="flex items-start gap-2.5 text-[11px] text-text-light-muted/70 leading-snug cursor-pointer select-none max-w-md py-1">
         <input
           type="checkbox"
           checked={consent}
           onChange={(e) => { setConsent(e.target.checked); if (status === "error") setStatus("idle"); }}
-          className="mt-0.5 accent-accent-light h-3.5 w-3.5 flex-shrink-0 cursor-pointer"
+          className="mt-0.5 accent-accent-light h-4 w-4 flex-shrink-0 cursor-pointer"
           aria-describedby="newsletter-consent"
         />
         <span id="newsletter-consent">

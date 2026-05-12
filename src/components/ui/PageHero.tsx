@@ -19,6 +19,15 @@ export interface PageHeroProps {
   secondaryCta?: { label: string; href: string };
   /** Small marks shown just under the description as trust signals */
   trustSignals?: string[];
+  /**
+   * Hero size:
+   * - "marketing" (default) — full-viewport hero for sales/landing pages
+   *   (about, services, work, industries, contact, careers).
+   * - "compact" — ~55vh hero for utility/legal pages where the user came
+   *   for content, not narrative (blog, webinars, faq, privacy, terms,
+   *   cookie, careers/apply). Hides the scroll indicator.
+   */
+  size?: "marketing" | "compact";
 }
 
 export default function PageHero({
@@ -33,11 +42,15 @@ export default function PageHero({
   primaryCta,
   secondaryCta,
   trustSignals,
+  size = "marketing",
 }: PageHeroProps) {
   const isCenter = align === "center";
+  const isCompact = size === "compact";
 
   return (
-    <section className="relative h-dvh min-h-[640px] flex items-center overflow-hidden bg-dark-primary">
+    <section
+      className={`relative flex items-center overflow-hidden bg-dark-primary ${ isCompact ? "min-h-[55vh] py-24 lg:py-28" : "h-dvh min-h-[640px]" }`}
+    >
       {/* Background image (optional) */}
       {bgImage && (
         <div className="absolute inset-0 z-0" aria-hidden="true">
@@ -59,15 +72,15 @@ export default function PageHero({
       <div className="absolute inset-0 z-0 pointer-events-none" aria-hidden="true">
         <div
           className="absolute top-1/4 -left-20 w-[520px] h-[520px] rounded-full blur-[140px] animate-pulse-glow"
-          style={{ background: "radial-gradient(circle, rgba(12,108,54,0.35) 0%, transparent 65%)" }}
+          style={{ background: "radial-gradient(circle, rgba(6,182,212,0.35) 0%, transparent 65%)" }}
         />
         <div
           className="absolute bottom-0 right-0 w-[620px] h-[620px] rounded-full blur-[180px]"
-          style={{ background: "radial-gradient(circle, rgba(52,211,153,0.14) 0%, transparent 70%)" }}
+          style={{ background: "radial-gradient(circle, rgba(103,232,249,0.14) 0%, transparent 70%)" }}
         />
         <div
           className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[400px] opacity-20"
-          style={{ background: "radial-gradient(ellipse, rgba(12,108,54,0.25) 0%, transparent 70%)" }}
+          style={{ background: "radial-gradient(ellipse, rgba(6,182,212,0.25) 0%, transparent 70%)" }}
         />
 
         {/* Subtle grid */}
@@ -93,9 +106,7 @@ export default function PageHero({
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.6 }}
-                className={`inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full border border-accent/25 bg-accent/10 backdrop-blur-sm mb-5 ${
-                  isCenter ? "" : ""
-                }`}
+                className={`inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full border border-accent/25 bg-accent/10 backdrop-blur-sm mb-5 ${ isCenter ? "" : "" }`}
               >
                 <Sparkles size={12} className="text-accent-light" />
                 <span className="text-[11px] text-accent-light tracking-[0.18em] font-semibold uppercase">
@@ -114,9 +125,8 @@ export default function PageHero({
               {highlight && (
                 <>
                   {" "}
-                  <span className="gradient-text relative inline-block">
+                  <span className="headline-highlight">
                     {highlight}
-                    <span className="absolute -bottom-2 left-0 right-0 h-[2px] bg-gradient-to-r from-accent via-accent-light to-transparent" />
                   </span>
                 </>
               )}
@@ -126,9 +136,7 @@ export default function PageHero({
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.75, delay: 0.25 }}
-              className={`text-sm sm:text-base lg:text-lg text-text-light-muted leading-relaxed mb-6 ${
-                isCenter ? "max-w-2xl mx-auto" : "max-w-2xl"
-              }`}
+              className={`text-sm sm:text-base lg:text-lg text-text-light-muted leading-relaxed mb-6 ${ isCenter ? "max-w-2xl mx-auto" : "max-w-2xl" }`}
             >
               {description}
             </motion.p>
@@ -138,9 +146,7 @@ export default function PageHero({
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.6, delay: 0.35 }}
-                className={`flex flex-wrap gap-x-5 gap-y-2 mb-6 text-xs md:text-sm text-text-light-muted/80 ${
-                  isCenter ? "justify-center" : ""
-                }`}
+                className={`flex flex-wrap gap-x-5 gap-y-2 mb-6 text-xs md:text-sm text-text-light-muted/80 ${ isCenter ? "justify-center" : "" }`}
               >
                 {trustSignals.map((t) => (
                   <span key={t} className="flex items-center gap-2">
@@ -185,9 +191,7 @@ export default function PageHero({
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.75, delay: 0.5 }}
-              className={`mt-10 pt-6 border-t border-white/10 grid grid-cols-2 md:grid-cols-4 gap-6 max-w-4xl ${
-                isCenter ? "mx-auto" : ""
-              }`}
+              className={`mt-10 pt-6 border-t border-white/10 grid grid-cols-2 md:grid-cols-4 gap-6 max-w-4xl ${ isCenter ? "mx-auto" : "" }`}
             >
               {stats.map((s) => (
                 <div key={s.label}>
@@ -204,19 +208,21 @@ export default function PageHero({
         </div>
       </div>
 
-      {/* Scroll indicator */}
-      <motion.div
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        transition={{ delay: 1.4, duration: 0.6 }}
-        className="absolute bottom-4 left-1/2 -translate-x-1/2 flex flex-col items-center gap-1.5 text-white/30 z-10"
-        aria-hidden="true"
-      >
-        <span className="text-[10px] tracking-[0.3em] uppercase font-medium">Scroll</span>
-        <motion.div animate={{ y: [0, 6, 0] }} transition={{ duration: 1.6, repeat: Infinity }}>
-          <ChevronDown size={16} />
+      {/* Scroll indicator — only on the full-viewport marketing hero */}
+      {!isCompact && (
+        <motion.div
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ delay: 1.4, duration: 0.6 }}
+          className="absolute bottom-4 left-1/2 -translate-x-1/2 flex flex-col items-center gap-1.5 text-white/30 z-10"
+          aria-hidden="true"
+        >
+          <span className="text-[10px] tracking-[0.3em] uppercase font-medium">Scroll</span>
+          <motion.div animate={{ y: [0, 6, 0] }} transition={{ duration: 1.6, repeat: Infinity }}>
+            <ChevronDown size={16} />
+          </motion.div>
         </motion.div>
-      </motion.div>
+      )}
     </section>
   );
 }

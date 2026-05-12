@@ -4,7 +4,6 @@ import Footer from "@/components/Footer";
 import PageHero from "@/components/ui/PageHero";
 import BlogListing from "./BlogListing";
 import { BreadcrumbSchema } from "@/components/schema/PageSchema";
-import { blogPosts } from "@/lib/blog-data";
 
 export const metadata: Metadata = {
   title: "Blog & Insights",
@@ -38,19 +37,14 @@ export default function BlogPage() {
       <Navbar />
       <main id="main-content">
         <PageHero
+          size="compact"
           badge="Blog & Insights"
           title="Perspectives on building"
           highlight="what matters."
           description="Deep dives on AI, SaaS architecture, SEO, AIEO, and the engineering decisions that separate products that scale from products that break."
-          trustSignals={["Written by senior engineers", "Field-tested playbooks", "No fluff, ever"]}
+          trustSignals={["Written by practitioners", "Field-tested playbooks", "Production-grounded analysis"]}
           primaryCta={{ label: "Read the latest", href: "#articles" }}
           secondaryCta={{ label: "Subscribe", href: "#newsletter" }}
-          stats={[
-            { value: `${blogPosts.length}`, label: "Articles" },
-            { value: `${new Set(blogPosts.map((p) => p.category)).size}`, label: "Categories" },
-            { value: "Weekly", label: "Cadence" },
-            { value: "Senior", label: "Authors" },
-          ]}
         />
 
         <BlogListing />

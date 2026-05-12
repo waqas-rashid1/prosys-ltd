@@ -11,9 +11,9 @@ const ContentSecurityPolicy = `
   img-src 'self' data: blob: https:;
   font-src 'self' data: https://fonts.gstatic.com;
   media-src 'self' https:;
-  connect-src 'self' https://*.vercel-analytics.com https://*.vercel-insights.com https://www.google-analytics.com https://api.resend.com https://www.youtube.com https://www.youtube-nocookie.com;
-  frame-src 'self' https://www.youtube.com https://www.youtube-nocookie.com https://youtube.com;
-  child-src 'self' https://www.youtube.com https://www.youtube-nocookie.com;
+  connect-src 'self' https://*.vercel-analytics.com https://*.vercel-insights.com https://www.google-analytics.com https://api.resend.com https://www.youtube.com https://www.youtube-nocookie.com https://www.google.com https://maps.google.com https://maps.googleapis.com;
+  frame-src 'self' https://www.youtube.com https://www.youtube-nocookie.com https://youtube.com https://www.google.com https://maps.google.com;
+  child-src 'self' https://www.youtube.com https://www.youtube-nocookie.com https://www.google.com https://maps.google.com;
   manifest-src 'self';
   upgrade-insecure-requests;
 `

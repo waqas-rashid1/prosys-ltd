@@ -18,17 +18,13 @@ export default function SectionHeading({
   return (
     <ScrollReveal className={`mb-16 ${center ? "text-center" : ""}`}>
       <h2
-        className={`font-heading text-3xl md:text-4xl lg:text-5xl font-bold mb-4 ${
-          light ? "text-text-dark" : "text-text-light"
-        }`}
+        className={`font-heading text-3xl md:text-4xl lg:text-5xl font-bold mb-4 ${ light ? "text-text-dark" : "text-text-light" }`}
       >
         {title}
       </h2>
       {subtitle && (
         <p
-          className={`max-w-2xl text-lg ${center ? "mx-auto" : ""} ${
-            light ? "text-text-dark-muted" : "text-text-light-muted"
-          }`}
+          className={`max-w-2xl text-lg ${center ? "mx-auto" : ""} ${ light ? "text-text-dark-muted" : "text-text-light-muted" }`}
         >
           {subtitle}
         </p>

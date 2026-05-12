@@ -5,22 +5,22 @@
 
 :root {
   --dark-primary: #000000;
-  --dark-secondary: #0a0a0a;
+  --dark-secondary: #07070a;
   --light-primary: #f8fafc;
   --light-secondary: #ffffff;
 
-  --accent: #0C6C36;
-  --accent-hover: #0F8C46;
-  --accent-deep: #0F5132;
-  --accent-light: #34d399;
+  --accent: #06B6D4;
+  --accent-hover: #22D3EE;
+  --accent-deep: #0E7490;
+  --accent-light: #67E8F9;
 
   --text-light: #f1f5f9;
   --text-light-muted: #b8c5d9;
   --text-dark: #0f172a;
   --text-dark-muted: #404a5b;
 
-  --card-dark: #0d1a14;
-  --card-dark-border: #1a2e24;
+  --card-dark: #131318;
+  --card-dark-border: #23232a;
   --card-light: #ffffff;
   --card-light-border: #e2e8f0;
 }
@@ -55,24 +55,35 @@ html[data-scroll-behavior="smooth"] {
   scroll-behavior: smooth;
 }
 
+/* Horizontal-scroll guard lives on <html> so that descendants using
+   position: sticky still calculate their offset parent correctly. */
+html {
+  overflow-x: clip;
+}
+
 body {
   font-family: var(--font-body), ui-sans-serif, system-ui, sans-serif;
   font-weight: 400;
   background: var(--dark-primary);
   color: var(--text-light);
-  overflow-x: hidden;
+}
+
+/* When the skip link jumps focus into <main>, account for the fixed
+   navbar so the focused element isn't hidden underneath it. */
+#main-content {
+  scroll-margin-top: 96px;
 }
 
 .bg-dark-primary {
-  background: radial-gradient(ellipse 80% 60% at 50% 100%, #041a0e 0%, #000000 100%);
+  background: radial-gradient(ellipse 80% 60% at 50% 100%, #0e0e12 0%, #000000 100%);
 }
 
 .bg-dark-secondary {
-  background: radial-gradient(ellipse 70% 50% at 30% 80%, #051a0f 0%, #0a0a0a 100%);
+  background: radial-gradient(ellipse 70% 50% at 30% 80%, #131318 0%, #07070a 100%);
 }
 
 .bg-card-dark {
-  background: linear-gradient(145deg, #0d1a14 0%, #0a0f0c 100%);
+  background: linear-gradient(145deg, #131318 0%, #08080b 100%);
 }
 
 ::selection {
@@ -118,7 +129,7 @@ body {
 }
 
 .animate-marquee {
-  animation: marquee 30s linear infinite;
+  animation: marquee 60s linear infinite;
 }
 
 @keyframes marquee-reverse {
@@ -131,7 +142,7 @@ body {
 }
 
 .animate-marquee-reverse {
-  animation: marquee-reverse 35s linear infinite;
+  animation: marquee-reverse 70s linear infinite;
 }
 
 /* ------------------------------------------------------------------
@@ -166,13 +177,123 @@ h2.font-heading {
 }
 
 
+/* Cyan accent — context-aware.
+   On dark sections we want the bright/light cyan so it pops against
+   the near-black background. On light sections that same light cyan
+   washes out and reads as a faded grey-blue. We promote to the deeper
+   brand cyan (--accent) so the headline split actually reads as cyan
+   on white surfaces. */
 .gradient-text {
   color: var(--accent-light);
   -webkit-text-fill-color: var(--accent-light);
 }
 
+/* When the parent section uses any of the light surface backgrounds,
+   switch to the brand cyan so headlines, eyebrow accents, and CTA
+   highlights remain clearly cyan rather than washed-out pastel. */
+.bg-light-primary .gradient-text,
+.bg-light-secondary .gradient-text,
+.bg-white .gradient-text {
+  color: var(--accent);
+  -webkit-text-fill-color: var(--accent);
+}
+
+/* Same context-aware promotion for utility classes that use the pale
+   --accent-light variable. On dark surfaces these stay bright cyan
+   (perfect contrast). On light surfaces we promote to the brand cyan
+   so eyebrows, small accents, and inline highlights remain readable
+   instead of washing out into pale grey-blue. */
+.bg-light-primary .text-accent-light,
+.bg-light-secondary .text-accent-light,
+.bg-white .text-accent-light {
+  color: var(--accent) !important;
+}
+
+.bg-light-primary .border-accent-light,
+.bg-light-secondary .border-accent-light,
+.bg-white .border-accent-light {
+  border-color: var(--accent) !important;
+}
+
+/* Headline accent underline — DISABLED site-wide.
+   The .headline-highlight class is still applied in JSX for forward
+   compatibility, but it currently renders no visual underline. The
+   highlighted phrase keeps its cyan colour via .gradient-text on its
+   own; the underline stroke was removed per design feedback.
+
+   To restore the underline, uncomment the block below. */
+.headline-highlight {
+  /* intentionally empty — class kept for JSX compatibility */
+}
+
+/*
+.headline-highlight {
+  position: relative;
+  display: inline;
+  background-image: linear-gradient(
+    to right,
+    var(--accent) 0%,
+    var(--accent-light) 55%,
+    transparent 100%
+  );
+  background-repeat: no-repeat;
+  background-size: 100% 2px;
+  background-position: 0 calc(100% + 0.32em);
+  padding-bottom: 0.45em;
+  -webkit-box-decoration-break: clone;
+  box-decoration-break: clone;
+}
+*/
+
 .gradient-bg {
   background: var(--accent);
+}
+
+/* ------------------------------------------------------------------
+   Hero CTA: animated cyan conic-gradient border ring.
+   Pure CSS, GPU-friendly. Rotates slowly behind the button so the
+   primary call-to-action quietly advertises itself without pulsing
+   or flashing. Subtle in light contexts, very visible against dark.
+   ------------------------------------------------------------------ */
+@property --cta-angle {
+  syntax: "<angle>";
+  inherits: false;
+  initial-value: 0deg;
+}
+
+.hero-cta-glow {
+  position: relative;
+}
+
+/* Soft cyan halo that sits behind the button. No mask trick — a single
+   blurred radial that intensifies on hover. Avoids the negative-inset
+   "ring gap" the conic-mask approach used to create around the edges. */
+.hero-cta-glow::before {
+  content: "";
+  position: absolute;
+  inset: -10px;
+  border-radius: inherit;
+  background: radial-gradient(
+    closest-side,
+    color-mix(in srgb, var(--accent) 30%, transparent),
+    transparent 72%
+  );
+  filter: blur(14px);
+  opacity: 0.55;
+  transition: opacity 250ms ease-out, filter 250ms ease-out;
+  pointer-events: none;
+  z-index: -1;
+}
+
+.hero-cta-glow:hover::before {
+  opacity: 1;
+  filter: blur(18px);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .hero-cta-glow::before {
+    transition: none;
+  }
 }
 
 .glass-effect {

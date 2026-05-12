@@ -16,35 +16,63 @@ const cookieTypes = [
   {
     icon: Settings,
     title: "Strictly Necessary",
-    description: "Required for the website to function. These cookies enable core functionality like session management and security. They cannot be disabled.",
-    examples: "Session ID, CSRF token, cookie consent preference",
+    description:
+      "Required for the website to function — for example, remembering whether you have responded to our cookie banner. These do not require your consent and cannot be disabled.",
+    examples: "prosys_consent (your cookie choice, stored in localStorage)",
   },
   {
     icon: BarChart3,
     title: "Analytics",
-    description: "Help us understand how visitors interact with our website by collecting anonymous usage data. We use this to improve the site experience.",
-    examples: "Google Analytics, Vercel Analytics",
+    description:
+      "Loaded only after you click \"Accept\" in our cookie banner. They give us anonymous, aggregated traffic data so we can improve the site. They do not identify you personally.",
+    examples: "Vercel Analytics, Vercel Speed Insights",
   },
   {
     icon: Target,
-    title: "Marketing",
-    description: "Used to track visitors across websites for advertising purposes. We currently do not use marketing cookies but may in the future.",
-    examples: "Currently not in use",
+    title: "Marketing / Advertising",
+    description:
+      "We do not use any third-party advertising, retargeting, or social-media tracking cookies on this website. If that ever changes, we will update this page and re-prompt for consent before loading them.",
+    examples: "None in use",
   },
   {
     icon: Cookie,
     title: "Functional",
-    description: "Enhance your experience through personalization features like remembering your preferences, language, and region settings.",
-    examples: "Theme preference, language selection",
+    description:
+      "Light-touch preferences stored in your browser to remember non-essential choices, such as your dismissal of one-time prompts. No personal data is collected.",
+    examples: "UI dismiss flags (localStorage)",
   },
 ];
 
 const generalSections = [
-  { title: "What Are Cookies?", content: "Cookies are small text files stored on your device when you visit a website. They help the website remember your preferences, understand how you use the site, and improve your experience." },
-  { title: "Managing Cookies", content: "You can control and delete cookies through your browser settings. Most browsers allow you to block or delete cookies. However, disabling necessary cookies may affect website functionality." },
-  { title: "Cookie Consent", content: "When you first visit our website, we ask for your consent to use non-essential cookies. You can change your preferences at any time by clearing your browser cookies and revisiting the site." },
-  { title: "Updates to This Policy", content: "We may update this Cookie Policy from time to time. Any changes will be posted on this page with an updated effective date." },
-  { title: "Contact", content: "If you have questions about our use of cookies, please contact us at hello@prosysltd.com." },
+  {
+    title: "What Are Cookies?",
+    content:
+      "Cookies are small text files (or comparable storage like localStorage) saved on your device when you visit a website. They let the site remember your choices, understand traffic patterns, and protect against abuse.",
+  },
+  {
+    title: "Your Choice",
+    content:
+      "On your first visit you will see a cookie banner with \"Accept\" and \"Decline\" options. Analytics is only loaded if you accept. Declining means we will not load Vercel Analytics or Speed Insights at all on your visit.",
+  },
+  {
+    title: "Changing Your Choice",
+    content:
+      "You can change your decision at any time by clicking the \"Cookies\" link in the footer (if available) or by clearing prosys_consent from your browser's site data, which will re-trigger the banner on your next visit.",
+  },
+  {
+    title: "Browser Controls",
+    content:
+      "All major browsers let you block, delete, or be notified about cookies via their settings. Note that blocking strictly-necessary cookies will break basic functionality of this and other websites.",
+  },
+  {
+    title: "Updates",
+    content:
+      "We may update this Cookie Policy when our use of cookies changes or applicable law requires. Material changes will be flagged at the top of this page with a new effective date.",
+  },
+  {
+    title: "Contact",
+    content: "If you have questions about our use of cookies, contact us at hello@prosysltd.com.",
+  },
 ];
 
 export default function CookiePolicyPage() {
@@ -53,6 +81,7 @@ export default function CookiePolicyPage() {
       <Navbar />
       <main id="main-content">
         <PageHero
+          size="compact"
           badge="Legal"
           title="Cookie"
           highlight="Policy"
@@ -60,11 +89,11 @@ export default function CookiePolicyPage() {
         />
 
         {/* Cookie types as cards */}
-        <section className="py-28 lg:py-36 bg-light-primary">
+        <section className="py-20 lg:py-28 bg-light-primary">
           <div className="max-w-[1400px] mx-auto px-6 lg:px-8">
             <ScrollReveal>
               <h2 className="font-heading text-3xl md:text-4xl font-bold text-text-dark mb-10 text-center">
-                Types of Cookies We Use
+                Types of <span className="gradient-text">cookies we use.</span>
               </h2>
             </ScrollReveal>
 
@@ -73,7 +102,7 @@ export default function CookiePolicyPage() {
                 const Icon = type.icon;
                 return (
                   <ScrollReveal key={type.title} delay={i * 0.08}>
-                    <div className="group p-6 rounded-lg border border-card-light-border bg-white hover:shadow-lg hover:border-accent/20 transition-all duration-300 h-full">
+                    <div className="group p-6 border border-card-light-border bg-white hover:shadow-lg hover:border-accent/20 transition-all duration-300 h-full">
                       <div className="w-11 h-11 rounded-md bg-accent/10 text-accent flex items-center justify-center mb-4 group-hover:bg-accent group-hover:text-white transition-all duration-300">
                         <Icon size={20} />
                       </div>
@@ -96,7 +125,7 @@ export default function CookiePolicyPage() {
             <div className="max-w-[1000px] mx-auto space-y-6">
               {generalSections.map((s, i) => (
                 <ScrollReveal key={s.title} delay={i * 0.05}>
-                  <div className="p-6 md:p-8 rounded-lg border border-card-light-border bg-white">
+                  <div className="p-6 md:p-8 border border-card-light-border bg-white">
                     <h2 className="font-heading text-lg font-bold text-text-dark mb-3">
                       {s.title}
                     </h2>

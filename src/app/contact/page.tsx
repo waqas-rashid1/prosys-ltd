@@ -26,9 +26,9 @@ export const metadata: Metadata = {
 
 const contactMethods = [
   { icon: Mail, label: "Email", value: siteConfig.email, desc: "Response within 24 hours" },
-  { icon: Phone, label: "Phone", value: "+92 300 123 4567", desc: "Mon-Fri 9am to 6pm PKT" },
+  { icon: Phone, label: "Phone", value: siteConfig.phoneDisplay, desc: "Mon-Fri 9am to 6pm PKT" },
   { icon: MapPin, label: "Office", value: "Lahore, Pakistan", desc: "Headquarters" },
-  { icon: Globe, label: "Global", value: "12+ countries served", desc: "Remote delivery worldwide" },
+  { icon: Globe, label: "Global", value: "Distributed delivery", desc: "Clients across 4 continents" },
 ];
 
 export default function ContactPage() {
@@ -41,22 +41,22 @@ export default function ContactPage() {
           badge="Get in Touch"
           title="Let's build"
           highlight="together."
-          description="Have a project in mind? Need a technical partner? Senior consultants review every submission and respond within 24 hours."
+          description="Scoping a new build, evaluating a partner, or reviewing an existing platform — engagements lead reviews every inbound and responds within 24 business hours."
           bgImage="/images/contact-hero.jpg"
           bgImageOpacity={0.18}
-          trustSignals={["24-hour response SLA", "NDA on request", "Global delivery", "Senior engineers only"]}
+          trustSignals={["24-hour response SLA", "NDA on request", "Distributed delivery model", "Direct engagement lead"]}
           primaryCta={{ label: "Send a brief", href: "#contact-form" }}
           secondaryCta={{ label: "Book a call", href: "https://cal.com/prosysltd/30min" }}
           stats={[
-            { value: "<24h", label: "Response Time" },
-            { value: "12+", label: "Countries" },
-            { value: "50+", label: "Projects" },
-            { value: "99%", label: "Satisfaction" },
+            { value: "<24h", label: "Response time" },
+            { value: "5", label: "Industry verticals" },
+            { value: "50+", label: "Engagements delivered" },
+            { value: "99%", label: "Engagement retention" },
           ]}
         />
 
         {/* Contact methods strip */}
-        <section className="py-10 bg-white border-b border-card-light-border">
+        <section className="py-14 lg:py-20 bg-white border-b border-card-light-border">
           <div className="max-w-[1400px] mx-auto px-6 lg:px-8">
             <div className="grid grid-cols-2 lg:grid-cols-4 gap-6">
               {contactMethods.map((m) => {
@@ -84,8 +84,8 @@ export default function ContactPage() {
               <ScrollReveal className="lg:col-span-7">
                 <div className="bg-white border border-card-light-border p-8 md:p-10 rounded-md">
                   <p className="text-[11px] uppercase tracking-widest font-semibold text-accent mb-2">Qualified Lead Form</p>
-                  <h2 className="font-heading text-2xl md:text-3xl font-bold text-text-dark mb-2">Tell us about your project.</h2>
-                  <p className="text-text-dark-muted mb-8 text-sm">Senior consultants review every submission. Expect a tailored response — not a form letter.</p>
+                  <h2 className="font-heading text-2xl md:text-3xl font-bold text-text-dark mb-2">Tell us about <span className="gradient-text">your project.</span></h2>
+                  <p className="text-text-dark-muted mb-8 text-sm">Engagement leads review every submission. You will receive a written, scoped response — not a form letter.</p>
                   <ContactForm />
                 </div>
               </ScrollReveal>
@@ -93,12 +93,12 @@ export default function ContactPage() {
               <ScrollReveal delay={0.15} className="lg:col-span-5">
                 <div className="space-y-6 lg:sticky lg:top-28">
                   <div className="relative overflow-hidden rounded-md p-8 text-white bg-dark-primary border border-card-dark-border">
-                    <div className="absolute inset-0 pointer-events-none opacity-40" style={{ background: "radial-gradient(circle at 100% 0%, rgba(12,108,54,0.4) 0%, transparent 60%)" }} />
+                    <div className="absolute inset-0 pointer-events-none opacity-40" style={{ background: "radial-gradient(circle at 100% 0%, rgba(6,182,212,0.4) 0%, transparent 60%)" }} />
                     <div className="relative">
                       <p className="text-[11px] uppercase tracking-widest text-accent-light font-semibold mb-3">Prefer to talk?</p>
                       <h3 className="font-heading text-2xl font-bold mb-3 leading-tight">Book a 30-min consultation.</h3>
                       <p className="text-white/70 text-sm leading-relaxed mb-5">
-                        Skip the form. Jump on a call with a senior engineer or strategist. We&apos;ll scope the opportunity and suggest an approach — no commitment.
+                        Bypass the form. Schedule a working session with the engagement lead — scope the opportunity, review architectural options, walk away with a written recommendation. No commitment.
                       </p>
                       <div className="space-y-2.5">
                         <a
@@ -153,9 +153,9 @@ export default function ContactPage() {
                     <h3 className="font-heading text-sm font-bold text-text-dark mb-4 uppercase tracking-wider">Trusted signals</h3>
                     <ul className="space-y-2.5 text-sm text-text-dark-muted">
                       <li className="flex items-center gap-2"><span className="h-1 w-1 rounded-full bg-accent" /> NDA signed on request</li>
-                      <li className="flex items-center gap-2"><span className="h-1 w-1 rounded-full bg-accent" /> ISO / SOC 2 aligned processes</li>
-                      <li className="flex items-center gap-2"><span className="h-1 w-1 rounded-full bg-accent" /> 12+ countries served</li>
-                      <li className="flex items-center gap-2"><span className="h-1 w-1 rounded-full bg-accent" /> Senior engineers only — no juniors</li>
+                      <li className="flex items-center gap-2"><span className="h-1 w-1 rounded-full bg-accent" /> Engineered to ISO 27001 & SOC 2 control objectives</li>
+                      <li className="flex items-center gap-2"><span className="h-1 w-1 rounded-full bg-accent" /> 5 industry verticals served</li>
+                      <li className="flex items-center gap-2"><span className="h-1 w-1 rounded-full bg-accent" /> Engagement lead, named and accountable</li>
                     </ul>
                   </div>
 
@@ -166,13 +166,21 @@ export default function ContactPage() {
                       Gulberg III, Lahore 54660<br />
                       Punjab, Pakistan
                     </address>
-                    <div className="relative h-44 rounded-sm overflow-hidden border border-card-light-border">
+                    <div className="relative h-44 rounded-sm overflow-hidden border border-card-light-border bg-light-secondary">
+                      {/* Keyless Google Maps embed.
+                          Uses the supported maps/embed?pb=... format —
+                          this is the URL that Google's own Share dialog
+                          generates and the only one that renders
+                          reliably in iframes without an API key. The
+                          old maps?q=...&output=embed format is now
+                          frequently blocked by Google's own headers. */}
                       <iframe
                         title="PROSYS LTD Headquarters, Lahore"
-                        src="https://www.google.com/maps?q=Gulberg%20III%2C%20Lahore%2C%20Pakistan&output=embed"
-                        className="absolute inset-0 w-full h-full"
+                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d27199.79842244892!2d74.32953819726562!3d31.51202249999999!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x39190486d34087fd%3A0xb16f2a18a5d9e25c!2sGulberg%20III%2C%20Lahore%2C%20Pakistan!5e0!3m2!1sen!2s!4v1714600000000!5m2!1sen!2s"
+                        className="absolute inset-0 w-full h-full border-0"
                         loading="lazy"
                         referrerPolicy="no-referrer-when-downgrade"
+                        allow="fullscreen"
                       />
                     </div>
                     <a

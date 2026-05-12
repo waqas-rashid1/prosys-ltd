@@ -1,32 +1,33 @@
 "use client";
 
-import { useState, useEffect, useCallback } from "react";
+import { useState, useEffect, useCallback, useRef } from "react";
 import Link from "next/link";
-import { motion, AnimatePresence } from "framer-motion";
+import { motion, AnimatePresence, useReducedMotion } from "framer-motion";
 import { ChevronDown, ChevronLeft, ChevronRight } from "lucide-react";
 import { heroProofPoints } from "@/lib/constants";
+import MagneticButton from "./ui/MagneticButton";
 
 const slides = [
   {
-    eyebrow: "Enterprise Product Engineering",
-    title: "Architecting scalable systems for",
-    highlight: "complex environments.",
+    eyebrow: "Product Engineering",
+    title: "Software engineered",
+    highlight: "for production.",
     description:
-      "Enterprise-grade software for mid-market teams and funded startups — shipping production-ready platforms in weeks, not quarters.",
+      "Platforms built for the load they actually carry, not the slide deck. SaaS, web applications, and custom systems that perform under production conditions and stay maintainable through scale.",
   },
   {
     eyebrow: "AI & Automation",
-    title: "Production AI that drives",
-    highlight: "measurable outcomes.",
+    title: "AI engineered",
+    highlight: "for production.",
     description:
-      "Custom AI systems, LLM integrations, and intelligent automation — engineered for reliability, cost efficiency, and real business impact.",
+      "Most AI initiatives stall after the proof of concept. We engineer the operational layer — evaluation harnesses, fallback models, cost ceilings, and observability — that turns a prototype into a system the business can rely on.",
   },
   {
-    eyebrow: "Digital Growth Engineering",
-    title: "Visibility on every engine —",
-    highlight: "including AI.",
+    eyebrow: "SEO & AIEO",
+    title: "Discoverable on Google.",
+    highlight: "Cited by ChatGPT.",
     description:
-      "Technical SEO, AIEO, and full-funnel growth systems that compound organic reach across Google, ChatGPT, Gemini, and Perplexity.",
+      "Search behaviour now spans Google, ChatGPT, Gemini, and Perplexity. Technical SEO and AI Engine Optimization programs that move rankings in both — backed by structured data, content architecture, and Core Web Vitals work.",
   },
 ];
 
@@ -35,6 +36,9 @@ const proofPoints = heroProofPoints;
 export default function Hero() {
   const [current, setCurrent] = useState(0);
   const [isAutoPlaying, setIsAutoPlaying] = useState(true);
+  const [inView, setInView] = useState(true);
+  const sectionRef = useRef<HTMLElement | null>(null);
+  const prefersReducedMotion = useReducedMotion();
 
   const goTo = useCallback((index: number) => {
     setCurrent(index);
@@ -48,29 +52,64 @@ export default function Hero() {
 
   const next = useCallback(() => setCurrent((c) => (c + 1) % slides.length), []);
 
+  // Pause the auto-advance once the user scrolls past the hero. Saves CPU
+  // and prevents the active slide from changing while the user is reading
+  // something else on the page.
   useEffect(() => {
-    if (!isAutoPlaying) return;
+    const el = sectionRef.current;
+    if (!el || typeof IntersectionObserver === "undefined") return;
+    const observer = new IntersectionObserver(
+      (entries) => setInView(entries.some((e) => e.isIntersecting)),
+      { threshold: 0.1 }
+    );
+    observer.observe(el);
+    return () => observer.disconnect();
+  }, []);
+
+  useEffect(() => {
+    if (!isAutoPlaying || prefersReducedMotion || !inView) return;
     const timer = setInterval(next, 6000);
     return () => clearInterval(timer);
-  }, [isAutoPlaying, next]);
+  }, [isAutoPlaying, next, prefersReducedMotion, inView]);
 
   const slide = slides[current];
 
   return (
-    <section className="relative h-dvh min-h-[640px] flex items-center overflow-hidden bg-dark-primary">
+    <section ref={sectionRef} className="relative h-dvh min-h-[640px] flex items-center overflow-hidden bg-dark-primary">
       <div className="absolute inset-0 z-0" aria-hidden="true">
-        <video autoPlay muted loop playsInline preload="auto" src="/videos/hero.mp4" className="absolute inset-0 w-full h-full object-cover opacity-75" />
+        {/* Hero globe video — the only foreground asset. The section's
+            bg-dark-primary acts as the placeholder until the video has
+            buffered its first frame. No <img>/poster fallback, so there
+            is nothing to "swap from" and no fade transition that could
+            re-trigger on the loop boundary. */}
+        {!prefersReducedMotion && (
+          <video
+            autoPlay
+            muted
+            loop
+            playsInline
+            preload="metadata"
+            src="/videos/hero.mp4"
+            className="absolute inset-0 w-full h-full object-cover opacity-75"
+          />
+        )}
         <div className="absolute inset-0 bg-dark-primary/45" />
         <div className="absolute inset-0 bg-gradient-to-r from-dark-primary via-dark-primary/75 to-transparent" />
         <div className="absolute inset-0 bg-gradient-to-t from-dark-primary via-transparent to-dark-primary/40" />
-        <div className="absolute top-1/2 right-0 w-[600px] h-[600px] pointer-events-none opacity-70" style={{ background: "radial-gradient(circle, rgba(12,108,54,0.18) 0%, transparent 60%)" }} />
-        <div className="absolute bottom-0 left-1/4 w-[400px] h-[400px] pointer-events-none opacity-60" style={{ background: "radial-gradient(circle, rgba(52,211,153,0.1) 0%, transparent 70%)" }} />
+        <div className="absolute top-1/2 right-0 w-[600px] h-[600px] pointer-events-none opacity-70" style={{ background: "radial-gradient(circle, rgba(6,182,212,0.18) 0%, transparent 60%)" }} />
+        <div className="absolute bottom-0 left-1/4 w-[400px] h-[400px] pointer-events-none opacity-60" style={{ background: "radial-gradient(circle, rgba(103,232,249,0.1) 0%, transparent 70%)" }} />
       </div>
 
-      <button onClick={prev} className="absolute left-4 md:left-8 top-1/2 -translate-y-1/2 z-20 w-10 h-10 border border-white/10 bg-black/20 glass-effect flex items-center justify-center text-white/50 hover:text-white hover:border-white/30 transition-all duration-300 cursor-pointer" aria-label="Previous slide">
+      {/* Slide arrows.
+          Desktop (md+): vertically centred at the screen edges, the
+          classic carousel position. Mobile (<md): hidden — they were
+          sitting directly over the hero h1 and intercepting taps. The
+          dot indicators at the bottom remain reachable via the larger
+          touch targets defined below. */}
+      <button onClick={prev} className="hidden md:flex absolute md:left-8 top-1/2 -translate-y-1/2 z-20 w-10 h-10 border border-white/10 bg-black/20 glass-effect items-center justify-center text-white/50 hover:text-white hover:border-white/30 transition-all duration-300 cursor-pointer" aria-label="Previous slide">
         <ChevronLeft size={20} />
       </button>
-      <button onClick={() => { next(); setIsAutoPlaying(false); }} className="absolute right-4 md:right-8 top-1/2 -translate-y-1/2 z-20 w-10 h-10 border border-white/10 bg-black/20 glass-effect flex items-center justify-center text-white/50 hover:text-white hover:border-white/30 transition-all duration-300 cursor-pointer" aria-label="Next slide">
+      <button onClick={() => { next(); setIsAutoPlaying(false); }} className="hidden md:flex absolute md:right-8 top-1/2 -translate-y-1/2 z-20 w-10 h-10 border border-white/10 bg-black/20 glass-effect items-center justify-center text-white/50 hover:text-white hover:border-white/30 transition-all duration-300 cursor-pointer" aria-label="Next slide">
         <ChevronRight size={20} />
       </button>
 
@@ -98,17 +137,19 @@ export default function Hero() {
             </p>
 
             <div className="flex flex-col sm:flex-row items-start gap-3 mb-8">
-              <Link
-                href="/contact"
-                className="inline-flex items-center justify-center font-semibold rounded-md bg-white text-dark-primary hover:bg-accent hover:text-white px-7 py-3.5 text-xs uppercase tracking-widest transition-all duration-300"
-              >
-                Book a Consultation
-              </Link>
+              <MagneticButton strength={4}>
+                <Link
+                  href="/contact"
+                  className="hero-cta-glow relative inline-flex items-center justify-center font-semibold rounded-md bg-white text-dark-primary hover:bg-accent hover:text-white px-7 py-3.5 text-xs uppercase tracking-widest transition-colors duration-200"
+                >
+                  Request a Discovery Call
+                </Link>
+              </MagneticButton>
               <Link
                 href="/work"
-                className="inline-flex items-center justify-center font-medium rounded-md border border-white/25 text-white hover:border-white/60 px-7 py-3.5 text-xs uppercase tracking-widest transition-all duration-300"
+                className="inline-flex items-center justify-center font-medium rounded-md border border-white/25 text-white hover:border-white/60 px-7 py-3.5 text-xs uppercase tracking-widest transition-colors duration-200"
               >
-                See Our Work
+                View case studies
               </Link>
             </div>
           </motion.div>
@@ -118,7 +159,7 @@ export default function Hero() {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.5, duration: 0.6 }}
-          className="flex flex-wrap gap-x-10 md:gap-x-14 gap-y-3 pt-6 border-t border-white/10 max-w-3xl"
+          className="flex flex-wrap gap-x-6 sm:gap-x-10 md:gap-x-14 gap-y-3 pt-6 border-t border-white/10 max-w-3xl"
         >
           {proofPoints.map((p) => (
             <div key={p.label}>
@@ -128,25 +169,35 @@ export default function Hero() {
           ))}
         </motion.div>
 
-        <div className="absolute bottom-6 left-6 lg:left-12 xl:left-16 flex items-center gap-2">
+        {/* Slide indicators.
+            The visible bar is still a slim 2px line so the desktop
+            aesthetic is preserved, but the <button> hit-box is padded
+            out to ~44px tall on mobile so it's an actual touch target
+            rather than a 2-pixel sliver no thumb can hit. */}
+        <div className="absolute bottom-4 md:bottom-6 left-6 lg:left-12 xl:left-16 flex items-center gap-2">
           {slides.map((_, i) => (
             <button
               key={i}
               onClick={() => goTo(i)}
-              className={`h-[2px] transition-all duration-500 cursor-pointer ${
-                i === current ? "w-10 bg-accent-light" : "w-5 bg-white/20 hover:bg-white/40"
-              }`}
+              className="group py-3 cursor-pointer"
               aria-label={`Slide ${i + 1}`}
-            />
+            >
+              <span
+                className={`block h-[2px] transition-all duration-500 ${ i === current ? "w-10 bg-accent-light" : "w-5 bg-white/20 group-hover:bg-white/40" }`}
+              />
+            </button>
           ))}
         </div>
       </div>
 
+      {/* "Scroll" indicator — hidden on mobile, where the page already
+          obviously continues below the fold and the indicator just
+          competes for attention with the slide dots. */}
       <motion.div
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ delay: 1.5 }}
-        className="absolute bottom-6 right-8 flex flex-col items-center gap-1.5 text-white/30 z-10"
+        className="hidden md:flex absolute bottom-6 right-8 flex-col items-center gap-1.5 text-white/30 z-10"
       >
         <span className="text-[10px] tracking-[0.25em] uppercase">Scroll</span>
         <motion.div animate={{ y: [0, 5, 0] }} transition={{ duration: 1.5, repeat: Infinity }}>

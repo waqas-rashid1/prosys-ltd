@@ -47,6 +47,8 @@ export default function ContactForm() {
       timeline: (fd.get("timeline") || "").toString(),
       budget: (fd.get("budget") || "").toString(),
       message: (fd.get("message") || "").toString().trim(),
+      consent: true,
+      website: (fd.get("website") || "").toString(),
     };
 
     if (!payload.name || !payload.email || !payload.message) {
@@ -84,7 +86,7 @@ export default function ContactForm() {
         </div>
         <h3 className="font-heading text-2xl font-bold text-text-dark mb-3">Message received.</h3>
         <p className="text-text-dark-muted max-w-md mx-auto mb-6">
-          A senior consultant will reach out within 24 business hours with next steps tailored to your project.
+          The engagement lead will respond within 24 business hours with scoped next steps for your build.
         </p>
         <button
           onClick={() => setStatus("idle")}
@@ -119,11 +121,7 @@ export default function ContactForm() {
                 key={opt.id}
                 type="button"
                 onClick={() => setIntent(opt.id)}
-                className={`text-left p-3.5 rounded-md border transition-all duration-200 cursor-pointer ${
-                  active
-                    ? "border-accent bg-accent/5"
-                    : "border-card-light-border bg-white hover:border-accent/40"
-                }`}
+                className={`text-left p-3.5 rounded-md border transition-all duration-200 cursor-pointer ${ active ? "border-accent bg-accent/5" : "border-card-light-border bg-white hover:border-accent/40" }`}
               >
                 <Icon size={16} className={`mb-2 ${active ? "text-accent" : "text-text-dark-muted"}`} />
                 <p className={`text-sm font-semibold ${active ? "text-accent" : "text-text-dark"}`}>
@@ -144,7 +142,7 @@ export default function ContactForm() {
           <input
             type="text" id="name" name="name" required autoComplete="name"
             placeholder="Jane Doe"
-            className="w-full px-4 py-3 rounded-md border border-card-light-border bg-light-primary text-text-dark placeholder:text-text-dark-muted/50 focus:outline-none focus:border-accent focus:ring-1 focus:ring-accent/20 transition-all"
+            className="w-full px-4 py-3 rounded-md border border-card-light-border bg-light-primary text-text-dark placeholder:text-text-dark-muted/70 focus:outline-none focus:border-accent focus:ring-1 focus:ring-accent/20 transition-all"
           />
         </div>
         <div>
@@ -154,7 +152,7 @@ export default function ContactForm() {
           <input
             type="email" id="email" name="email" required autoComplete="email"
             placeholder="jane@company.com"
-            className="w-full px-4 py-3 rounded-md border border-card-light-border bg-light-primary text-text-dark placeholder:text-text-dark-muted/50 focus:outline-none focus:border-accent focus:ring-1 focus:ring-accent/20 transition-all"
+            className="w-full px-4 py-3 rounded-md border border-card-light-border bg-light-primary text-text-dark placeholder:text-text-dark-muted/70 focus:outline-none focus:border-accent focus:ring-1 focus:ring-accent/20 transition-all"
           />
         </div>
       </div>
@@ -167,7 +165,7 @@ export default function ContactForm() {
           <input
             type="text" id="company" name="company" required autoComplete="organization"
             placeholder="Acme Inc."
-            className="w-full px-4 py-3 rounded-md border border-card-light-border bg-light-primary text-text-dark placeholder:text-text-dark-muted/50 focus:outline-none focus:border-accent focus:ring-1 focus:ring-accent/20 transition-all"
+            className="w-full px-4 py-3 rounded-md border border-card-light-border bg-light-primary text-text-dark placeholder:text-text-dark-muted/70 focus:outline-none focus:border-accent focus:ring-1 focus:ring-accent/20 transition-all"
           />
         </div>
         <div>
@@ -177,7 +175,7 @@ export default function ContactForm() {
           <input
             type="text" id="role" name="role" autoComplete="organization-title"
             placeholder="CTO, Founder, Product Lead…"
-            className="w-full px-4 py-3 rounded-md border border-card-light-border bg-light-primary text-text-dark placeholder:text-text-dark-muted/50 focus:outline-none focus:border-accent focus:ring-1 focus:ring-accent/20 transition-all"
+            className="w-full px-4 py-3 rounded-md border border-card-light-border bg-light-primary text-text-dark placeholder:text-text-dark-muted/70 focus:outline-none focus:border-accent focus:ring-1 focus:ring-accent/20 transition-all"
           />
         </div>
       </div>
@@ -267,7 +265,7 @@ export default function ContactForm() {
           {["$10K – $25K", "$25K – $75K", "$75K – $250K", "$250K+"].map((b) => (
             <label key={b} className="cursor-pointer">
               <input type="radio" name="budget" value={b} className="peer sr-only" />
-              <span className="block text-center py-2.5 px-2 text-xs font-medium border border-card-light-border bg-white rounded-md hover:border-accent/40 peer-checked:border-accent peer-checked:bg-accent/5 peer-checked:text-accent transition-all">
+              <span className="block text-center py-2.5 px-2 text-xs font-semibold text-text-dark border border-card-light-border bg-white rounded-md hover:border-accent/40 peer-checked:border-accent peer-checked:bg-accent/5 peer-checked:text-accent transition-all">
                 {b}
               </span>
             </label>
@@ -282,7 +280,7 @@ export default function ContactForm() {
         <textarea
           id="message" name="message" required rows={5} maxLength={5000}
           placeholder="Briefly describe your project, challenges, or goals. The more context you share, the sharper our response."
-          className="w-full px-4 py-3 rounded-md border border-card-light-border bg-light-primary text-text-dark placeholder:text-text-dark-muted/50 focus:outline-none focus:border-accent focus:ring-1 focus:ring-accent/20 transition-all resize-none"
+          className="w-full px-4 py-3 rounded-md border border-card-light-border bg-light-primary text-text-dark placeholder:text-text-dark-muted/70 focus:outline-none focus:border-accent focus:ring-1 focus:ring-accent/20 transition-all resize-none"
         />
       </div>
 

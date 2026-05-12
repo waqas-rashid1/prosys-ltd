@@ -11,6 +11,7 @@ import {
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import ScrollReveal from "@/components/ui/ScrollReveal";
+import DarkSectionFx from "@/components/ui/DarkSectionFx";
 import ServiceTechStack from "@/components/ServiceTechStack";
 import {
   BreadcrumbSchema,
@@ -110,8 +111,8 @@ export default async function ServicePage({ params }: { params: Promise<{ slug: 
             <div className="absolute inset-0 bg-gradient-to-r from-dark-primary via-dark-primary/85 to-dark-primary/30" />
             <div className="absolute inset-0 bg-gradient-to-t from-dark-primary via-transparent to-dark-primary/60" />
             {/* Ambient green glow */}
-            <div className="absolute top-1/2 right-0 w-[600px] h-[600px] pointer-events-none opacity-70" style={{ background: "radial-gradient(circle, rgba(12,108,54,0.18) 0%, transparent 60%)" }} />
-            <div className="absolute bottom-0 left-1/4 w-[400px] h-[400px] pointer-events-none opacity-60" style={{ background: "radial-gradient(circle, rgba(52,211,153,0.1) 0%, transparent 70%)" }} />
+            <div className="absolute top-1/2 right-0 w-[600px] h-[600px] pointer-events-none opacity-70" style={{ background: "radial-gradient(circle, rgba(6,182,212,0.18) 0%, transparent 60%)" }} />
+            <div className="absolute bottom-0 left-1/4 w-[400px] h-[400px] pointer-events-none opacity-60" style={{ background: "radial-gradient(circle, rgba(103,232,249,0.1) 0%, transparent 70%)" }} />
           </div>
 
           <div className="relative z-10 max-w-[1400px] mx-auto px-6 lg:px-12 xl:px-16 w-full pt-32 pb-20 lg:pt-40 lg:pb-28">
@@ -184,7 +185,7 @@ export default async function ServicePage({ params }: { params: Promise<{ slug: 
                 <ScrollReveal>
                   <p className="text-xs text-accent uppercase tracking-[0.2em] font-medium mb-4">Overview</p>
                   <h2 className="font-heading text-3xl md:text-4xl font-bold text-text-dark mb-8 leading-tight">
-                    What We Deliver
+                    What we <span className="gradient-text">deliver.</span>
                   </h2>
                   <div className="text-text-dark-muted text-lg leading-[1.8] space-y-5">
                     <p>{service.what}</p>
@@ -209,14 +210,15 @@ export default async function ServicePage({ params }: { params: Promise<{ slug: 
         </section>
 
         {/* Engagement Promise */}
-        <section className="py-16 bg-dark-primary">
-          <div className="max-w-[1400px] mx-auto px-6 lg:px-8">
+        <section className="relative py-14 lg:py-20 bg-dark-primary overflow-hidden">
+          <DarkSectionFx variant="soft" />
+          <div className="relative z-10 max-w-[1400px] mx-auto px-6 lg:px-8">
             <div className="grid grid-cols-2 lg:grid-cols-4 gap-px bg-card-dark-border">
               {[
-                { icon: Target, label: "Outcome-Focused", desc: "Every deliverable tied to business goals" },
-                { icon: Shield, label: "Enterprise Security", desc: "SOC 2 practices, encrypted by default" },
-                { icon: Clock, label: "On-Time Delivery", desc: "Sprint-based with transparent timelines" },
-                { icon: Zap, label: "Production-Ready", desc: "Tested, documented, deployed code" },
+                { icon: Target, label: "Outcome-Focused", desc: "Every deliverable tied to a business outcome" },
+                { icon: Shield, label: "Enterprise Security", desc: "Built to SOC 2 control objectives, encrypted by default" },
+                { icon: Clock, label: "Predictable Delivery", desc: "Iterative releases with transparent reporting" },
+                { icon: Zap, label: "Production-Grade", desc: "Tested, documented, deployed to production" },
               ].map((item) => {
                 const ItemIcon = item.icon;
                 return (
@@ -236,7 +238,7 @@ export default async function ServicePage({ params }: { params: Promise<{ slug: 
           <div className="max-w-[1400px] mx-auto px-6 lg:px-8">
             <ScrollReveal>
               <p className="text-xs text-accent uppercase tracking-[0.2em] font-medium mb-4">Methodology</p>
-              <h2 className="font-heading text-3xl md:text-4xl font-bold text-text-dark mb-14">How We Deliver</h2>
+              <h2 className="font-heading text-3xl md:text-4xl font-bold text-text-dark mb-14">How we <span className="gradient-text">deliver.</span></h2>
             </ScrollReveal>
 
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-px bg-card-light-border border border-card-light-border">
@@ -265,7 +267,7 @@ export default async function ServicePage({ params }: { params: Promise<{ slug: 
               <ScrollReveal className="lg:col-span-5">
                 <p className="text-xs text-accent uppercase tracking-[0.2em] font-medium mb-4">Business Outcomes</p>
                 <h3 className="font-heading text-3xl md:text-4xl font-bold text-text-dark mb-5 leading-tight">
-                  What you get with every engagement.
+                  What you get with <span className="gradient-text">every engagement.</span>
                 </h3>
                 <p className="text-text-dark-muted leading-relaxed">
                   Beyond the deliverable — measurable business impact, clean handoffs, and a partnership built to scale with you.
@@ -287,8 +289,9 @@ export default async function ServicePage({ params }: { params: Promise<{ slug: 
         </section>
 
         {/* Case Study - full width */}
-        <section className="py-14 lg:py-20 bg-dark-secondary border-y border-card-dark-border">
-          <div className="max-w-[1400px] mx-auto px-6 lg:px-8">
+        <section className="relative py-14 lg:py-20 bg-dark-secondary border-y border-card-dark-border overflow-hidden">
+          <DarkSectionFx variant="split" />
+          <div className="relative z-10 max-w-[1400px] mx-auto px-6 lg:px-8">
             <ScrollReveal>
               <p className="text-xs text-accent-light uppercase tracking-[0.2em] font-medium mb-4">Case Study</p>
               <div className="grid grid-cols-1 lg:grid-cols-12 gap-0 border border-card-dark-border bg-card-dark overflow-hidden rounded-md">
@@ -328,7 +331,7 @@ export default async function ServicePage({ params }: { params: Promise<{ slug: 
           <div className="max-w-[900px] mx-auto px-6 lg:px-8">
             <ScrollReveal>
               <p className="text-xs text-accent uppercase tracking-[0.2em] font-medium mb-4">FAQ</p>
-              <h2 className="font-heading text-3xl md:text-4xl font-bold text-text-dark mb-10">Common Questions</h2>
+              <h2 className="font-heading text-3xl md:text-4xl font-bold text-text-dark mb-10">Common <span className="gradient-text">questions.</span></h2>
             </ScrollReveal>
             <div className="divide-y divide-card-light-border border-y border-card-light-border">
               {service.faq.map((item, i) => (
@@ -344,8 +347,9 @@ export default async function ServicePage({ params }: { params: Promise<{ slug: 
         </section>
 
         {/* Other Services */}
-        <section className="py-16 bg-dark-primary border-t border-card-dark-border">
-          <div className="max-w-[1400px] mx-auto px-6 lg:px-8">
+        <section className="relative py-14 lg:py-20 bg-dark-primary border-t border-card-dark-border overflow-hidden">
+          <DarkSectionFx variant="soft" />
+          <div className="relative z-10 max-w-[1400px] mx-auto px-6 lg:px-8">
             <div className="flex items-center justify-between mb-6">
               <p className="text-xs text-text-light-muted/40 uppercase tracking-[0.2em] font-medium">Other Services</p>
               <Link href="/services" className="text-accent-light text-xs font-medium hover:underline flex items-center gap-1">

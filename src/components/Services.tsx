@@ -5,58 +5,53 @@ import Link from "next/link";
 import { motion, AnimatePresence } from "framer-motion";
 import { ArrowRight, Plus, Minus } from "lucide-react";
 import ScrollReveal from "./ui/ScrollReveal";
+import SpotlightCard from "./ui/SpotlightCard";
 
 const serviceCategories = [
   {
     number: "01",
     title: "Product Engineering",
-    subtitle: "Ship production-ready software",
-    description: "Web, SaaS, and custom platforms engineered to scale — built by senior teams with delivery-first discipline.",
+    subtitle: "Engineered for production",
+    description: "Web platforms, SaaS applications, and custom systems — from sub-second marketing sites to multi-tenant products with billing, admin, and audit infrastructure built in.",
     items: [
       { label: "Web Development", slug: "web-development" },
-      { label: "Software Development", slug: "software-development" },
-      { label: "SaaS Development", slug: "saas-development" },
       { label: "MVP Development", slug: "mvp-development" },
-      { label: "Business Applications", slug: "business-applications" },
+      { label: "SaaS Development", slug: "saas-development" },
+      { label: "Custom Software", slug: "software-development" },
     ],
   },
   {
     number: "02",
     title: "AI & Automation",
-    subtitle: "Outcomes, not demos",
-    description: "Applied AI, LLM systems, and intelligent automation engineered for reliability and measurable ROI.",
+    subtitle: "AI that operates reliably",
+    description: "Production AI systems with evaluation harnesses, fallback models, cost ceilings, and routing logic — so behaviour stays predictable and economics stay defensible at scale.",
     items: [
       { label: "AI Development", slug: "ai-development" },
+      { label: "AI Automations", slug: "ai-automations" },
       { label: "Generative AI", slug: "generative-ai" },
-      { label: "Advanced Analytics", slug: "advanced-analytics" },
-      { label: "Data Modernization", slug: "data-modernization" },
-      { label: "Connected Intelligence", slug: "connected-intelligence" },
     ],
   },
   {
     number: "03",
-    title: "Cloud & Platform",
-    subtitle: "Infrastructure that scales",
-    description: "Cloud-native architecture, migrations, and managed operations on AWS, GCP, and Azure with SRE discipline.",
+    title: "Cloud & Infrastructure",
+    subtitle: "Infrastructure engineered for scale",
+    description: "AWS and GCP architectures designed to absorb 10x traffic spikes, with our on-call engineering team owning incident response. Infrastructure-as-code, observability, and security built in.",
     items: [
-      { label: "Cloud Operations & Migration", slug: "cloud-operations" },
-      { label: "Cloud App Development", slug: "cloud-app-development" },
+      { label: "Cloud Migration & Ops", slug: "cloud-operations" },
       { label: "Managed Services", slug: "managed-services" },
       { label: "Security", slug: "security" },
-      { label: "Digital Infrastructure", slug: "digital-infrastructure" },
     ],
   },
   {
     number: "04",
     title: "Growth & Marketing",
-    subtitle: "Compounding pipeline",
-    description: "Technical SEO, AIEO, and full-funnel growth systems that drive qualified traffic and conversions.",
+    subtitle: "Discoverable on Google. Cited by ChatGPT.",
+    description: "Technical SEO, content architecture, and AI Engine Optimization programs that move rankings on Google, Perplexity, and ChatGPT — measured by traffic, citations, and pipeline.",
     items: [
       { label: "SEO", slug: "seo" },
       { label: "AIEO (AI Engine Optimization)", slug: "aieo" },
       { label: "Digital Marketing", slug: "digital-marketing" },
       { label: "Graphics & Branding", slug: "graphics-branding" },
-      { label: "Digital Commerce", slug: "digital-commerce" },
     ],
   },
 ];
@@ -106,8 +101,12 @@ function ServiceCard({ cat, index }: { cat: typeof serviceCategories[0]; index: 
   const [hovered, setHovered] = useState(false);
 
   return (
+    <SpotlightCard
+      variant="light"
+      className="group border border-card-light-border bg-white overflow-hidden flex flex-col cursor-pointer self-start"
+    >
     <motion.div
-      className="group relative rounded-lg border border-card-light-border bg-white overflow-hidden flex flex-col cursor-pointer self-start"
+      className="relative flex flex-col"
       onMouseEnter={() => setHovered(true)}
       onMouseLeave={() => setHovered(false)}
       whileHover={{ y: -6, boxShadow: "0 30px 60px rgba(0,0,0,0.08)" }}
@@ -169,6 +168,7 @@ function ServiceCard({ cat, index }: { cat: typeof serviceCategories[0]; index: 
         </div>
       </div>
     </motion.div>
+    </SpotlightCard>
   );
 }
 
@@ -188,14 +188,14 @@ export default function Services() {
                 Four pillars. <br />One delivery standard.
               </h2>
               <p className="text-base md:text-lg text-text-dark-muted leading-relaxed">
-                We combine strategic engineering, applied AI, cloud-native architecture, and growth systems — delivered by senior teams that own outcomes end-to-end.
+                Engineering, AI, infrastructure, and growth. One team, one set of delivery standards, one accountable point of contact. Choose the pillar — or describe the outcome and we&apos;ll scope the engagement.
               </p>
             </div>
             <Link
               href="/services"
               className="inline-flex items-center gap-2 px-6 py-3 rounded-md border border-text-dark/10 text-text-dark text-sm font-medium hover:border-accent hover:text-accent transition-all duration-300 self-start md:self-auto shrink-0"
             >
-              View all 29 services
+              View all 14 services
               <ArrowRight size={14} />
             </Link>
           </div>
@@ -214,7 +214,7 @@ export default function Services() {
         <div className="lg:hidden space-y-4">
           {serviceCategories.map((cat, i) => (
             <ScrollReveal key={cat.title} delay={i * 0.08}>
-              <div className="rounded-lg border border-card-light-border bg-white overflow-hidden">
+              <div className="border border-card-light-border bg-white overflow-hidden">
                 <button
                   onClick={() => setExpandedIndex(expandedIndex === i ? null : i)}
                   className="w-full flex items-center justify-between p-6 cursor-pointer"

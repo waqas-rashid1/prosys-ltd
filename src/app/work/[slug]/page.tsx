@@ -73,7 +73,7 @@ export default async function CaseStudyDetailPage({
             <Image src={study.image} alt="" fill className="object-cover opacity-30" sizes="100vw" priority />
             <div className="absolute inset-0 bg-gradient-to-r from-dark-primary via-dark-primary/90 to-dark-primary/40" />
             <div className="absolute inset-0 bg-gradient-to-b from-dark-primary/60 via-transparent to-dark-primary" />
-            <div className="absolute top-1/3 left-1/4 w-[500px] h-[500px] rounded-full blur-[140px] opacity-60" style={{ background: "radial-gradient(circle, rgba(12,108,54,0.3) 0%, transparent 65%)" }} />
+            <div className="absolute top-1/3 left-1/4 w-[500px] h-[500px] rounded-full blur-[140px] opacity-60" style={{ background: "radial-gradient(circle, rgba(6,182,212,0.3) 0%, transparent 65%)" }} />
           </div>
           <div className="relative z-10 w-full max-w-[1400px] mx-auto px-6 lg:px-12 pt-32 pb-20 lg:pt-36 lg:pb-28">
             <Link href="/work" className="inline-flex items-center gap-2 text-white/50 text-sm hover:text-white transition-colors mb-10">

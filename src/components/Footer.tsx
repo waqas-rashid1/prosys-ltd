@@ -16,6 +16,7 @@ import {
 } from "lucide-react";
 import { LinkedInIcon, XIcon, GitHubIcon, YouTubeIcon } from "./ui/SocialIcons";
 import NewsletterForm from "./NewsletterForm";
+import MagneticButton from "./ui/MagneticButton";
 import { siteConfig, footerLinks } from "@/lib/constants";
 
 const pillars: {
@@ -53,8 +54,8 @@ const pillars: {
 const trustPoints = [
   { icon: Clock, label: "24-hour response" },
   { icon: ShieldCheck, label: "NDA on request" },
-  { icon: Globe, label: "12+ countries served" },
-  { icon: Sparkles, label: "Senior engineers only" },
+  { icon: Globe, label: "5 industry verticals" },
+  { icon: Sparkles, label: "Engineered for production" },
 ];
 
 export default function Footer() {
@@ -63,28 +64,28 @@ export default function Footer() {
   };
 
   return (
-    <footer className="relative min-h-screen flex flex-col bg-dark-primary border-t border-card-dark-border overflow-hidden">
+    <footer className="relative flex flex-col bg-dark-primary border-t border-card-dark-border overflow-hidden">
       {/* Decorative layer */}
       <div className="absolute inset-0 z-0 pointer-events-none" aria-hidden="true">
         <div
           className="absolute top-0 left-1/2 -translate-x-1/2 w-[1000px] h-[500px] opacity-50 animate-pulse-glow"
           style={{
             background:
-              "radial-gradient(ellipse at center top, rgba(12,108,54,0.55) 0%, transparent 70%)",
+              "radial-gradient(ellipse at center top, rgba(6,182,212,0.55) 0%, transparent 70%)",
           }}
         />
         <div
           className="absolute top-1/3 -left-40 w-[560px] h-[560px] rounded-full blur-[160px] opacity-50"
           style={{
             background:
-              "radial-gradient(circle, rgba(12,108,54,0.35) 0%, transparent 65%)",
+              "radial-gradient(circle, rgba(6,182,212,0.35) 0%, transparent 65%)",
           }}
         />
         <div
           className="absolute bottom-0 right-0 w-[640px] h-[640px] rounded-full blur-[180px]"
           style={{
             background:
-              "radial-gradient(circle, rgba(52,211,153,0.14) 0%, transparent 70%)",
+              "radial-gradient(circle, rgba(103,232,249,0.14) 0%, transparent 70%)",
           }}
         />
         <div
@@ -110,38 +111,32 @@ export default function Footer() {
                 <span className="h-px flex-1 bg-gradient-to-r from-white/20 to-transparent" />
               </div>
 
-              <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full border border-accent/30 bg-accent/10 backdrop-blur-sm mb-8">
-                <Sparkles size={12} className="text-accent-light" />
-                <span className="text-[11px] text-accent-light tracking-[0.18em] font-semibold uppercase">
-                  Ready to Build?
-                </span>
-              </div>
-
               <h2 className="font-heading text-5xl sm:text-6xl md:text-7xl lg:text-[5.5rem] xl:text-[6.25rem] font-black text-white leading-[0.95] tracking-tight mb-8">
                 Let&apos;s build
                 <br />
-                something{" "}
-                <span className="gradient-text relative inline-block">
-                  extraordinary.
-                  <span className="absolute -bottom-2 left-0 right-0 h-[3px] bg-gradient-to-r from-accent via-accent-light to-transparent rounded-full" />
+                the{" "}
+                <span className="headline-highlight">
+                  next thing.
                 </span>
               </h2>
 
               <p className="text-base sm:text-lg md:text-xl text-text-light-muted leading-relaxed max-w-2xl mb-10">
-                From first conversation to production-ready launch — we bring senior engineering, applied AI, and growth discipline to every engagement.
+                We&apos;ve put production releases live in eight weeks and full SaaS platforms in twelve. Describe the outcome you need — we&apos;ll tell you, on the call, whether we&apos;re the right team.
               </p>
 
               <div className="flex flex-col sm:flex-row gap-3 mb-10">
-                <Link
-                  href="/contact"
-                  className="group inline-flex items-center justify-center gap-2 font-semibold rounded-md bg-white text-dark-primary hover:bg-accent hover:text-white px-8 py-4 text-sm uppercase tracking-widest transition-all duration-300 shadow-lg shadow-accent/10 hover:shadow-accent/30"
-                >
-                  Start a project
-                  <ArrowRight
-                    size={14}
-                    className="transition-transform duration-300 group-hover:translate-x-1"
-                  />
-                </Link>
+                <MagneticButton strength={6}>
+                  <Link
+                    href="/contact"
+                    className="group inline-flex items-center justify-center gap-2 font-semibold rounded-md bg-white text-dark-primary hover:bg-accent hover:text-white px-8 py-4 text-sm uppercase tracking-widest transition-colors duration-200 shadow-lg shadow-accent/10 hover:shadow-accent/30"
+                  >
+                    Start an engagement
+                    <ArrowRight
+                      size={14}
+                      className="transition-transform duration-300 group-hover:translate-x-1"
+                    />
+                  </Link>
+                </MagneticButton>
                 <a
                   href="https://cal.com/prosysltd/30min"
                   target="_blank"
@@ -175,18 +170,18 @@ export default function Footer() {
 
             {/* Right: newsletter card */}
             <div className="lg:col-span-5 lg:pl-6 xl:pl-10 lg:border-l lg:border-white/10">
-              <div className="relative bg-gradient-to-br from-card-dark/80 via-card-dark/50 to-card-dark/20 backdrop-blur-sm border border-card-dark-border rounded-xl p-8 lg:p-10 overflow-hidden group">
+              <div className="relative bg-gradient-to-br from-card-dark/80 via-card-dark/50 to-card-dark/20 backdrop-blur-sm border border-card-dark-border p-8 lg:p-10 overflow-hidden group">
                 {/* Card accent */}
                 <div
                   className="absolute -top-20 -right-20 w-60 h-60 rounded-full blur-3xl opacity-40 pointer-events-none"
                   style={{
                     background:
-                      "radial-gradient(circle, rgba(12,108,54,0.6) 0%, transparent 70%)",
+                      "radial-gradient(circle, rgba(6,182,212,0.6) 0%, transparent 70%)",
                   }}
                 />
                 <div className="relative">
                   <div className="flex items-center justify-between mb-6">
-                    <div className="w-12 h-12 rounded-lg bg-accent/15 border border-accent/30 flex items-center justify-center text-accent-light">
+                    <div className="w-12 h-12 bg-accent/15 border border-accent/30 flex items-center justify-center text-accent-light">
                       <Send size={18} />
                     </div>
                     <span className="text-[10px] uppercase tracking-[0.25em] text-white/40 font-semibold">
@@ -198,31 +193,28 @@ export default function Footer() {
                     Field Notes
                   </p>
                   <h3 className="font-heading text-2xl lg:text-3xl font-black text-white mb-3 leading-[1.1] tracking-tight">
-                    Engineering insights, monthly.
+                    What we shipped. What broke. What&apos;s next.
                   </h3>
                   <p className="text-text-light-muted text-sm leading-relaxed mb-7">
-                    Architecture patterns, AI in production, growth tactics, and real engineering trade-offs — written by senior practitioners.
+                    One email a month. Architecture decisions we made (and regretted), AI features that worked in production, and SEO tactics that still rank. Written by the engineers actually doing the work.
                   </p>
 
                   <NewsletterForm />
 
                   <div className="flex items-center justify-between gap-4 mt-7 pt-6 border-t border-white/10">
                     <div className="flex items-center -space-x-2">
-                      {["H", "F", "C", "+"].map((i, idx) => (
+                      {["F", "W", "U", "O", "S"].map((i, idx) => (
                         <span
                           key={idx}
-                          className={`w-7 h-7 rounded-full border-2 border-dark-primary flex items-center justify-center text-[10px] font-heading font-black ${
-                            idx === 3
-                              ? "bg-accent/20 border-accent/40 text-accent-light"
-                              : "bg-gradient-to-br from-accent/40 to-accent/10 text-accent-light"
-                          }`}
+                          className="w-7 h-7 rounded-full border-2 border-dark-primary flex items-center justify-center text-[10px] font-heading font-black bg-gradient-to-br from-accent/40 to-accent/10 text-accent-light"
+                          aria-hidden="true"
                         >
                           {i}
                         </span>
                       ))}
                     </div>
                     <span className="text-[11px] text-white/50">
-                      2,400+ engineers subscribed
+                      Written by the team
                     </span>
                   </div>
                 </div>
@@ -247,7 +239,7 @@ export default function Footer() {
                 </span>
               </Link>
               <p className="text-[15px] text-text-light-muted leading-relaxed mb-8 max-w-sm">
-                Enterprise-grade product engineering, applied AI, and growth systems — delivered by senior teams across 12+ countries.
+                Enterprise-grade product engineering, applied AI, and growth systems — delivered across five industry verticals and four continents.
               </p>
 
               <ul className="space-y-3.5 text-sm mb-8">
@@ -270,7 +262,7 @@ export default function Footer() {
                     <span className="w-9 h-9 rounded-md border border-card-dark-border flex items-center justify-center text-accent-light group-hover:border-accent/60 group-hover:bg-accent/10 transition-all">
                       <Phone size={14} />
                     </span>
-                    +92 300 123 4567
+                    {siteConfig.phoneDisplay}
                   </a>
                 </li>
                 <li className="flex items-center gap-3 text-text-light-muted">

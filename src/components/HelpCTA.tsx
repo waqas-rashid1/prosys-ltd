@@ -2,11 +2,12 @@
 
 import Link from "next/link";
 import ScrollReveal from "./ui/ScrollReveal";
+import DarkSectionFx from "./ui/DarkSectionFx";
 
 export default function HelpCTA() {
   return (
     <section className="relative py-14 lg:py-20 bg-dark-primary overflow-hidden">
-      <div className="absolute bottom-0 right-0 w-[60%] h-[60%] bg-accent/[0.06] blur-[200px] rounded-full translate-x-1/4 translate-y-1/4" />
+      <DarkSectionFx variant="default" />
 
       <div className="relative z-10 max-w-[1400px] mx-auto px-6 lg:px-8">
         <ScrollReveal>
@@ -15,10 +16,10 @@ export default function HelpCTA() {
               Start the conversation
             </p>
             <h2 className="font-heading text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-black text-white mb-8 leading-[1.05] tracking-tight">
-              Talk to a senior engineer — <span className="gradient-text">not a sales rep.</span>
+              Engineering conversations, <span className="gradient-text">not sales calls.</span>
             </h2>
             <p className="text-text-light-muted text-base md:text-lg mb-12 leading-relaxed max-w-2xl">
-              30 minutes. Real architectural advice. A scoped approach with timeline and pricing. Whether you&apos;re validating an idea or scaling a platform — we respond within one business day.
+              A 30-minute working session with the engagement lead. Architectural review, scope assessment, written recommendation with timeline and pricing. Response within one business day — whether you are validating a build or scaling a platform.
             </p>
             <div className="flex flex-col sm:flex-row gap-3">
               <Link
@@ -37,10 +38,10 @@ export default function HelpCTA() {
 
             <div className="mt-12 pt-8 border-t border-white/10 grid grid-cols-2 md:grid-cols-4 gap-6 max-w-2xl">
               {[
-                { v: "<24h", l: "Response time" },
-                { v: "Senior", l: "Engineers only" },
+                { v: "<24h", l: "Response SLA" },
+                { v: "50+", l: "Engagements delivered" },
                 { v: "NDA", l: "On request" },
-                { v: "Global", l: "12+ countries" },
+                { v: "5", l: "Industry verticals" },
               ].map((s) => (
                 <div key={s.l}>
                   <div className="font-heading text-xl font-bold text-white mb-0.5">{s.v}</div>

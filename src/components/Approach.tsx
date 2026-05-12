@@ -18,46 +18,46 @@ import ScrollReveal from "./ui/ScrollReveal";
 const stepMeta = [
   {
     icon: Compass,
-    tagline: "Understand the problem",
+    tagline: "Define the problem before the solution",
     duration: "1–2 weeks",
     accent: "from-emerald-500/20 to-emerald-500/0",
     deliverables: [
-      "Product thesis & metrics",
+      "Product thesis & success metrics",
       "User research & personas",
-      "Feasibility & risk audit",
+      "Feasibility & risk assessment",
     ],
   },
   {
     icon: Layers,
-    tagline: "Plan for scale",
+    tagline: "Architecture that survives scale",
     duration: "1–2 weeks",
     accent: "from-cyan-500/20 to-cyan-500/0",
     deliverables: [
       "System architecture",
-      "Tech stack decisions",
-      "Design system & tokens",
+      "Technology selection & rationale",
+      "Design system & component library",
     ],
   },
   {
     icon: Code2,
-    tagline: "Ship in sprints",
+    tagline: "Reviewable releases at every checkpoint",
     duration: "4–12 weeks",
     accent: "from-violet-500/20 to-violet-500/0",
     deliverables: [
-      "Two-week cadence",
-      "Weekly demos & reviews",
-      "Automated CI/CD",
+      "Fixed iteration cadence",
+      "Stakeholder demos & approval gates",
+      "Automated CI/CD pipelines",
     ],
   },
   {
     icon: Rocket,
-    tagline: "Grow post-launch",
+    tagline: "Operational ownership beyond go-live",
     duration: "Ongoing",
     accent: "from-amber-500/20 to-amber-500/0",
     deliverables: [
-      "Zero-downtime deploys",
-      "Observability & SRE",
-      "SEO · AIEO · analytics",
+      "Zero-downtime deployments",
+      "Observability & on-call rotation",
+      "SEO · AIEO · analytics programs",
     ],
   },
 ];
@@ -66,7 +66,7 @@ export default function Approach() {
   return (
     <section
       id="approach"
-      className="relative bg-dark-primary overflow-hidden py-20 lg:py-24"
+      className="relative bg-dark-primary overflow-hidden py-14 lg:py-20"
     >
       {/* Decorative layer */}
       <div className="absolute inset-0 z-0 pointer-events-none" aria-hidden="true">
@@ -74,21 +74,21 @@ export default function Approach() {
           className="absolute top-0 left-1/2 -translate-x-1/2 w-[1000px] h-[500px] opacity-50 animate-pulse-glow"
           style={{
             background:
-              "radial-gradient(ellipse at center top, rgba(12,108,54,0.45) 0%, transparent 70%)",
+              "radial-gradient(ellipse at center top, rgba(6,182,212,0.45) 0%, transparent 70%)",
           }}
         />
         <div
           className="absolute bottom-0 right-0 w-[520px] h-[520px] rounded-full blur-[140px] opacity-40"
           style={{
             background:
-              "radial-gradient(circle, rgba(52,211,153,0.18) 0%, transparent 70%)",
+              "radial-gradient(circle, rgba(103,232,249,0.18) 0%, transparent 70%)",
           }}
         />
         <div
           className="absolute top-1/3 -left-32 w-[480px] h-[480px] rounded-full blur-[140px] opacity-40"
           style={{
             background:
-              "radial-gradient(circle, rgba(12,108,54,0.3) 0%, transparent 65%)",
+              "radial-gradient(circle, rgba(6,182,212,0.3) 0%, transparent 65%)",
           }}
         />
         <div
@@ -112,40 +112,30 @@ export default function Approach() {
               <span className="h-px flex-1 bg-gradient-to-r from-white/20 to-transparent max-w-[160px]" />
             </div>
 
-            <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full border border-accent/25 bg-accent/10 backdrop-blur-sm mb-5">
-              <Sparkles size={12} className="text-accent-light" />
-              <span className="text-[11px] text-accent-light tracking-[0.18em] font-semibold uppercase">
-                Our Methodology
-              </span>
-            </div>
-
             <h2 className="font-heading text-4xl sm:text-5xl md:text-6xl lg:text-[4.25rem] xl:text-[5rem] font-black text-white leading-[0.98] tracking-tight mb-5">
               How we{" "}
-              <span className="gradient-text relative inline-block">
-                deliver
-                <span className="absolute -bottom-1.5 left-0 right-0 h-[3px] bg-gradient-to-r from-accent via-accent-light to-transparent rounded-full" />
-              </span>
+              <span className="headline-highlight">deliver</span>
               .
             </h2>
 
             <p className="text-base md:text-lg text-text-light-muted leading-relaxed max-w-2xl">
-              Four disciplined phases, one bar of quality — engineered for
-              transparency, speed, and measurable outcomes. No black boxes, no
-              theatre, no filler.
+              Four phases, applied consistently across engagements. Scope, deliverables,
+              and commercials are defined before the build begins — no mystery
+              deliverables, no surprise invoices.
             </p>
           </ScrollReveal>
 
           {/* Mini-summary card — redesigned */}
           <ScrollReveal className="lg:col-span-5" delay={0.1}>
-            <div className="relative p-5 lg:p-6 rounded-xl border border-card-dark-border bg-gradient-to-br from-card-dark/80 to-dark-secondary/60 backdrop-blur-sm overflow-hidden">
+            <div className="relative p-5 lg:p-6 border border-card-dark-border bg-gradient-to-br from-card-dark/80 to-dark-secondary/60 backdrop-blur-sm overflow-hidden">
               <div
                 className="absolute top-0 right-0 w-48 h-48 rounded-full blur-3xl opacity-30"
-                style={{ background: "radial-gradient(circle, rgba(52,211,153,0.4) 0%, transparent 70%)" }}
+                style={{ background: "radial-gradient(circle, rgba(103,232,249,0.4) 0%, transparent 70%)" }}
                 aria-hidden="true"
               />
               <div className="relative">
                 <p className="text-[10px] uppercase tracking-[0.25em] text-accent-light/80 font-semibold mb-3">
-                  Typical Engagement
+                  Engagement Profile
                 </p>
                 <div className="grid grid-cols-3 gap-4">
                   <div>
@@ -166,10 +156,10 @@ export default function Approach() {
                   </div>
                   <div className="pl-4 border-l border-white/10">
                     <p className="font-heading text-2xl lg:text-3xl font-black text-white leading-none tracking-tight mb-1.5">
-                      100%
+                      50+
                     </p>
                     <p className="text-[10px] text-white/50 uppercase tracking-widest font-semibold">
-                      Transparent
+                      Engagements
                     </p>
                   </div>
                 </div>
@@ -193,7 +183,7 @@ export default function Approach() {
                 viewport={{ once: true, margin: "-100px" }}
                 transition={{ duration: 1.4, ease: "easeOut" }}
                 className="absolute inset-0 bg-gradient-to-r from-accent via-accent-light to-accent origin-left"
-                style={{ boxShadow: "0 0 12px rgba(52,211,153,0.6)" }}
+                style={{ boxShadow: "0 0 12px rgba(103,232,249,0.6)" }}
               />
             </div>
           </div>
@@ -213,11 +203,11 @@ export default function Approach() {
                 >
                   {/* Subtle ambient glow on hover */}
                   <div
-                    className={`absolute -inset-1 rounded-2xl bg-gradient-to-br ${meta.accent} opacity-0 group-hover:opacity-100 blur-2xl transition-opacity duration-700 pointer-events-none`}
+                    className={`absolute -inset-1 bg-gradient-to-br ${meta.accent} opacity-0 group-hover:opacity-100 blur-2xl transition-opacity duration-700 pointer-events-none`}
                     aria-hidden="true"
                   />
 
-                  <div className="relative h-full rounded-xl border border-card-dark-border bg-card-dark/80 backdrop-blur-sm overflow-hidden group-hover:border-accent/40 transition-all duration-500">
+                  <div className="relative h-full border border-card-dark-border bg-card-dark/80 backdrop-blur-sm overflow-hidden group-hover:border-accent/40 transition-all duration-500">
                     {/* Top gradient bar */}
                     <div className="absolute top-0 left-0 right-0 h-[3px] bg-gradient-to-r from-accent via-accent-light to-accent scale-x-0 group-hover:scale-x-100 transition-transform duration-700 origin-left" />
 
@@ -226,11 +216,11 @@ export default function Approach() {
                       <div className="relative w-14 h-14">
                         {/* Rotating frame */}
                         <div
-                          className="absolute inset-0 rounded-xl border border-accent/30 group-hover:border-accent/70 transition-colors duration-500"
+                          className="absolute inset-0 border border-accent/30 group-hover:border-accent/70 transition-colors duration-500"
                           style={{ transform: "rotate(45deg)" }}
                         />
                         {/* Inner disc */}
-                        <div className="absolute inset-[5px] rounded-lg bg-gradient-to-br from-dark-primary via-card-dark to-dark-primary border border-card-dark-border group-hover:from-accent/20 group-hover:via-card-dark group-hover:to-dark-primary transition-all duration-500 flex items-center justify-center">
+                        <div className="absolute inset-[5px] bg-gradient-to-br from-dark-primary via-card-dark to-dark-primary border border-card-dark-border group-hover:from-accent/20 group-hover:via-card-dark group-hover:to-dark-primary transition-all duration-500 flex items-center justify-center">
                           <Icon
                             size={20}
                             strokeWidth={1.7}
@@ -238,7 +228,7 @@ export default function Approach() {
                           />
                         </div>
                         {/* Pulsing ring on hover */}
-                        <div className="absolute inset-0 rounded-xl border border-accent/60 opacity-0 group-hover:opacity-100 group-hover:scale-125 transition-all duration-700" />
+                        <div className="absolute inset-0 border border-accent/60 opacity-0 group-hover:opacity-100 group-hover:scale-125 transition-all duration-700" />
                       </div>
                     </div>
 
@@ -319,18 +309,18 @@ export default function Approach() {
 
         {/* Bottom CTA strip */}
         <ScrollReveal delay={0.3}>
-          <div className="mt-12 lg:mt-14 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-5 p-5 lg:p-6 rounded-xl border border-card-dark-border bg-card-dark/60 backdrop-blur-sm">
+          <div className="mt-12 lg:mt-14 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-5 p-5 lg:p-6 border border-card-dark-border bg-card-dark/60 backdrop-blur-sm">
             <div className="flex items-center gap-4">
-              <div className="relative w-11 h-11 rounded-lg bg-accent/10 border border-accent/20 flex items-center justify-center flex-shrink-0">
+              <div className="relative w-11 h-11 bg-accent/10 border border-accent/20 flex items-center justify-center flex-shrink-0">
                 <Sparkles size={16} className="text-accent-light" />
-                <div className="absolute inset-0 rounded-lg bg-accent/20 blur-xl opacity-60 -z-10" />
+                <div className="absolute inset-0 bg-accent/20 blur-xl opacity-60 -z-10" />
               </div>
               <div>
                 <p className="font-heading text-base lg:text-lg font-bold text-white leading-tight">
-                  Want a scoped plan for your project?
+                  Need a scoped plan for your engagement?
                 </p>
                 <p className="text-[13px] text-text-light-muted mt-0.5">
-                  Free 30-minute discovery call · senior engineer, not sales.
+                  Complimentary 30-minute discovery call with a delivery lead.
                 </p>
               </div>
             </div>
@@ -339,7 +329,7 @@ export default function Approach() {
                 href="/contact"
                 className="group inline-flex items-center gap-2 px-5 py-3 rounded-md bg-white text-dark-primary hover:bg-accent hover:text-white transition-colors font-semibold text-xs uppercase tracking-widest whitespace-nowrap"
               >
-                Start a project
+                Start an engagement
                 <ArrowRight
                   size={13}
                   className="group-hover:translate-x-1 transition-transform"

@@ -1,6 +1,14 @@
 import { siteConfig, faq } from "@/lib/constants";
 import { servicesData } from "@/lib/services-data";
 
+// ──────────────────────────────────────────────────────────────────────
+// Structured-data strategy:
+// - Site-wide (in <head> via the root layout): Organization + WebSite
+// - Page-scoped (rendered on the matching page only): FAQPage on /faq,
+//   ItemList of services on /services. This avoids duplicate FAQPage
+//   markup across every page (a Google rich-results penalty).
+// ──────────────────────────────────────────────────────────────────────
+
 function OrganizationSchema() {
   const schema = {
     "@context": "https://schema.org",
@@ -48,7 +56,8 @@ function OrganizationSchema() {
   );
 }
 
-function ServiceSchema() {
+/** Render only on /services. */
+export function ServiceItemListSchema() {
   const schema = {
     "@context": "https://schema.org",
     "@type": "ItemList",
@@ -76,7 +85,8 @@ function ServiceSchema() {
   );
 }
 
-function FAQSchema() {
+/** Render only on /faq. Per-service FAQ pages should use ServiceFAQSchema instead. */
+export function GlobalFAQSchema() {
   const schema = {
     "@context": "https://schema.org",
     "@type": "FAQPage",
@@ -123,8 +133,6 @@ export default function StructuredData() {
   return (
     <>
       <OrganizationSchema />
-      <ServiceSchema />
-      <FAQSchema />
       <WebSiteSchema />
     </>
   );

@@ -1,12 +1,6 @@
 export const openRoleTitles = [
   "Senior Full-Stack Engineer",
   "AI/ML Engineer",
-  "Frontend Engineer",
-  "UI/UX Designer",
-  "SEO & Content Strategist",
-  "DevOps Engineer",
-  "Business Development Manager",
-  "Project Manager",
 ];
 
 export const GENERAL_APPLICATION = "Open application / not sure";

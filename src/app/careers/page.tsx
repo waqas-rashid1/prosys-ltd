@@ -9,6 +9,7 @@ import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import ScrollReveal from "@/components/ui/ScrollReveal";
 import PageHero from "@/components/ui/PageHero";
+import DarkSectionFx from "@/components/ui/DarkSectionFx";
 
 export const metadata: Metadata = {
   title: "Careers",
@@ -77,133 +78,13 @@ const openRoles = [
     ],
     process: "CV screen → Live coding + ML review → 2 interviews → Offer",
   },
-  {
-    title: "Frontend Engineer",
-    dept: "Engineering",
-    type: "Full-time",
-    location: "Remote / Lahore",
-    experience: "2+ years",
-    salary: "PKR 220K – 380K / month",
-    tags: ["React", "TypeScript"],
-    responsibilities: [
-      "Build pixel-perfect, accessible UIs in Next.js + Tailwind",
-      "Own component library quality bar",
-      "Collaborate tightly with design",
-    ],
-    requirements: [
-      "2+ years React/TypeScript in production",
-      "Strong CSS + responsive/accessibility fundamentals",
-      "Obsessive about UX polish",
-    ],
-    process: "CV screen → Take-home → 2 interviews → Offer",
-  },
-  {
-    title: "UI/UX Designer",
-    dept: "Design",
-    type: "Full-time",
-    location: "Remote",
-    experience: "3+ years",
-    salary: "PKR 250K – 450K / month",
-    tags: ["Figma", "Design Systems"],
-    responsibilities: [
-      "Own product design from discovery to ship",
-      "Build and maintain design systems",
-      "Partner with engineering on component primitives",
-    ],
-    requirements: [
-      "3+ years shipping B2B/SaaS product design",
-      "Figma + design system proficiency",
-      "Portfolio showing system thinking, not just pretty pixels",
-    ],
-    process: "Portfolio review → Design exercise → 2 interviews → Offer",
-  },
-  {
-    title: "SEO & Content Strategist",
-    dept: "Growth",
-    type: "Full-time",
-    location: "Remote",
-    experience: "3+ years",
-    salary: "PKR 220K – 380K / month",
-    tags: ["SEO", "Content"],
-    responsibilities: [
-      "Own technical + on-page SEO strategy for clients",
-      "Build content clusters that rank and convert",
-      "Drive AIEO (AI search) playbooks",
-    ],
-    requirements: [
-      "3+ years shipping measurable SEO growth",
-      "Proficient with GSC, Ahrefs, SEMrush, Screaming Frog",
-      "Strong writing + editorial instincts",
-    ],
-    process: "CV screen → SEO audit exercise → 2 interviews → Offer",
-  },
-  {
-    title: "DevOps Engineer",
-    dept: "Engineering",
-    type: "Full-time",
-    location: "Remote",
-    experience: "4+ years",
-    salary: "PKR 320K – 520K / month",
-    tags: ["AWS", "Docker", "Terraform"],
-    responsibilities: [
-      "Own infra-as-code across AWS/GCP",
-      "Harden CI/CD, observability, and incident response",
-      "Drive cost + reliability engineering",
-    ],
-    requirements: [
-      "4+ years SRE/DevOps in production",
-      "AWS + Terraform + Kubernetes proficient",
-      "Strong security instincts",
-    ],
-    process: "CV screen → Systems design interview → 2 interviews → Offer",
-  },
-  {
-    title: "Business Development Manager",
-    dept: "Sales",
-    type: "Full-time",
-    location: "Lahore",
-    experience: "4+ years",
-    salary: "PKR 250K – 400K / month + commission",
-    tags: ["B2B", "SaaS"],
-    responsibilities: [
-      "Own outbound pipeline for mid-market + enterprise",
-      "Qualify and scope inbound leads",
-      "Partner with delivery on proposals and SOWs",
-    ],
-    requirements: [
-      "4+ years B2B SaaS / services sales",
-      "Comfortable selling technical engagements",
-      "Polished written + verbal communication",
-    ],
-    process: "CV screen → Role-play call → 2 interviews → Offer",
-  },
-  {
-    title: "Project Manager",
-    dept: "Operations",
-    type: "Full-time",
-    location: "Remote / Lahore",
-    experience: "3+ years",
-    salary: "PKR 220K – 380K / month",
-    tags: ["Agile", "Scrum"],
-    responsibilities: [
-      "Own delivery across 3–5 concurrent client engagements",
-      "Keep scope, timeline, and margin healthy",
-      "Be the single throat to choke for clients",
-    ],
-    requirements: [
-      "3+ years managing software delivery",
-      "Fluent with Linear/Jira + async ops",
-      "Cool under pressure",
-    ],
-    process: "CV screen → Case exercise → 2 interviews → Offer",
-  },
 ];
 
 const employeeVoices = [
   {
     quote:
-      "I've shipped more production code in 12 months at PROSYS than in the 3 years at my last company. Senior people, high trust, no meetings-theater.",
-    role: "Frontend Engineer",
+      "Twelve months here delivered more shipped production code than three years at my previous company. Experienced peers, high trust, and a delivery culture that respects engineering time.",
+    role: "Senior Full-Stack Engineer",
     tenure: "1.5 yrs",
   },
   {
@@ -211,12 +92,6 @@ const employeeVoices = [
       "The learning budget is real. I took a paid week off to do a system-design intensive and the team covered my sprints. No other place I've worked does that.",
     role: "AI/ML Engineer",
     tenure: "2 yrs",
-  },
-  {
-    quote:
-      "Design is treated like product here, not decoration. I own problems, not pixels. Everyone from engineering to leadership actually cares about UX.",
-    role: "Product Designer",
-    tenure: "10 mo",
   },
 ];
 
@@ -230,10 +105,10 @@ export default function CareersPage() {
           badge="We're Hiring"
           title="Invest in your career,"
           highlight="grow with us."
-          description="Join a team that ships real products for real clients. High-impact work, senior talent, and a culture that celebrates craft."
+          description="Join a team delivering production-grade platforms for funded startups and mid-market enterprises. Substantive engineering work, experienced peers, and a culture organized around craft."
           bgImage="/images/careers-hero.jpg"
           bgImageOpacity={0.25}
-          trustSignals={["Remote-friendly", "Senior talent", "Equity for senior roles", "25 days PTO"]}
+          trustSignals={["Distributed work model", "Experienced peers", "Equity for senior roles", "25 days PTO"]}
           primaryCta={{ label: "View open roles", href: "#roles" }}
           secondaryCta={{ label: "Submit a general CV", href: "/careers/apply" }}
           stats={[
@@ -260,7 +135,7 @@ export default function CareersPage() {
           <div className="max-w-[1400px] mx-auto px-6 lg:px-8">
             <ScrollReveal>
               <p className="text-xs text-accent uppercase tracking-[0.2em] font-medium mb-4">Benefits</p>
-              <h2 className="font-heading text-3xl md:text-4xl font-bold text-text-dark mb-12">Why PROSYS?</h2>
+              <h2 className="font-heading text-3xl md:text-4xl font-bold text-text-dark mb-12">Why <span className="gradient-text">PROSYS.</span></h2>
             </ScrollReveal>
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-px bg-card-light-border border border-card-light-border">
               {perks.map((perk, i) => {
@@ -286,9 +161,9 @@ export default function CareersPage() {
           <div className="max-w-[1400px] mx-auto px-6 lg:px-8">
             <ScrollReveal>
               <p className="text-xs text-accent uppercase tracking-[0.2em] font-medium mb-4">Voices From The Team</p>
-              <h2 className="font-heading text-3xl md:text-4xl font-bold text-text-dark mb-12">What it&apos;s like to work here</h2>
+              <h2 className="font-heading text-3xl md:text-4xl font-bold text-text-dark mb-12">What it&apos;s like to <span className="gradient-text">work here.</span></h2>
             </ScrollReveal>
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-5xl">
               {employeeVoices.map((v, i) => (
                 <ScrollReveal key={i} delay={i * 0.08}>
                   <div className="bg-light-primary border border-card-light-border rounded-md p-7 h-full flex flex-col">
@@ -306,11 +181,12 @@ export default function CareersPage() {
         </section>
 
         {/* Open Roles with salary + details */}
-        <section id="roles" className="py-14 lg:py-20 bg-dark-primary scroll-mt-20">
-          <div className="max-w-[1400px] mx-auto px-6 lg:px-8">
+        <section id="roles" className="relative py-14 lg:py-20 bg-dark-primary scroll-mt-20 overflow-hidden">
+          <DarkSectionFx variant="default" />
+          <div className="relative z-10 max-w-[1400px] mx-auto px-6 lg:px-8">
             <ScrollReveal>
               <p className="text-xs text-accent-light uppercase tracking-[0.2em] font-medium mb-4">Open Positions</p>
-              <h2 className="font-heading text-3xl md:text-4xl font-bold text-text-light mb-4">Join the Team</h2>
+              <h2 className="font-heading text-3xl md:text-4xl font-bold text-text-light mb-4">Join the <span className="gradient-text">team.</span></h2>
               <p className="text-text-light-muted mb-10">
                 {openRoles.length} open roles across {new Set(openRoles.map(r => r.dept)).size} departments · Salary ranges transparent
               </p>
@@ -392,7 +268,7 @@ export default function CareersPage() {
             <ScrollReveal>
               <div className="max-w-2xl">
                 <h2 className="font-heading text-3xl md:text-4xl lg:text-5xl font-bold text-text-dark mb-6 leading-tight">
-                  Don&apos;t see the role you&apos;re looking for?
+                  Don&apos;t see the role <span className="gradient-text">you&apos;re looking for?</span>
                 </h2>
                 <p className="text-text-dark-muted text-lg mb-8">We&apos;re always open to talking to great people. Send us your CV and tell us how you&apos;d contribute.</p>
                 <Link href="/careers/apply" className="inline-flex items-center justify-center gap-2 font-medium rounded-md gradient-bg text-white hover:shadow-lg hover:shadow-accent/20 px-8 py-3.5 text-sm uppercase tracking-widest transition-all duration-300">

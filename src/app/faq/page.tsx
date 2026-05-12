@@ -4,8 +4,8 @@ import Footer from "@/components/Footer";
 import PageHero from "@/components/ui/PageHero";
 import FAQ from "@/components/FAQ";
 import CTABanner from "@/components/ui/CTABanner";
-import { ServiceFAQSchema, BreadcrumbSchema } from "@/components/schema/PageSchema";
-import { faq } from "@/lib/constants";
+import { BreadcrumbSchema } from "@/components/schema/PageSchema";
+import { GlobalFAQSchema } from "@/components/StructuredData";
 
 export const metadata: Metadata = {
   title: "FAQ",
@@ -28,11 +28,9 @@ export const metadata: Metadata = {
 };
 
 export default function FAQPage() {
-  const faqSchemaItems = faq.map((f) => ({ q: f.question, a: f.answer }));
-
   return (
     <>
-      <ServiceFAQSchema faq={faqSchemaItems} />
+      <GlobalFAQSchema />
       <BreadcrumbSchema
         crumbs={[
           { label: "Home", path: "/" },
@@ -42,10 +40,11 @@ export default function FAQPage() {
       <Navbar />
       <main id="main-content">
         <PageHero
+          size="compact"
           badge="FAQ"
-          title="Got"
-          highlight="Questions?"
-          description="Everything you need to know about working with PROSYS LTD — scope, pricing, IP ownership, process, and more."
+          title="Frequently"
+          highlight="asked questions."
+          description="Engagement scope, pricing models, intellectual property ownership, delivery process, and operational standards — answered directly."
         />
 
         <div className="bg-dark-secondary">
@@ -53,9 +52,9 @@ export default function FAQPage() {
         </div>
 
         <CTABanner
-          title="Still Have"
-          highlight="Questions?"
-          description="No problem. Reach out and we'll get back to you within 24 hours."
+          title="Question not"
+          highlight="answered here?"
+          description="The engagement lead reviews every inbound. Response within 24 business hours."
           buttonText="Contact Us"
           dark={false}
         />

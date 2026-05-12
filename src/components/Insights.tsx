@@ -4,6 +4,7 @@ import Link from "next/link";
 import { ArrowRight, Calendar } from "lucide-react";
 import { blogPosts } from "@/lib/blog-data";
 import ScrollReveal from "./ui/ScrollReveal";
+import SpotlightCard from "./ui/SpotlightCard";
 
 export default function Insights() {
   const featured = blogPosts.slice(0, 3);
@@ -13,16 +14,24 @@ export default function Insights() {
       <div className="max-w-[1400px] mx-auto px-6 lg:px-8">
         <ScrollReveal>
           <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-6 mb-14">
-            <div>
-              <h2 className="font-heading text-4xl md:text-5xl lg:text-6xl font-bold text-text-dark leading-tight">
-                Latest Insights
+            <div className="max-w-2xl">
+              <p className="text-[11px] text-accent uppercase tracking-[0.25em] font-semibold mb-4">
+                Field Notes
+              </p>
+              <h2 className="font-heading text-4xl md:text-5xl lg:text-6xl font-black text-text-dark leading-[1.05] tracking-tight mb-5">
+                Insights from{" "}
+                <span className="gradient-text">delivered engagements.</span>
               </h2>
-              <p className="text-text-dark-muted text-lg mt-3 max-w-xl">
-                Perspectives on technology, strategy, and digital transformation.
+              <p className="text-base md:text-lg text-text-dark-muted leading-relaxed">
+                Architecture decisions, AI patterns, and growth playbooks — written by the engineers actually doing the work.
               </p>
             </div>
-            <Link href="/blog" className="inline-flex items-center gap-2 text-accent font-medium hover:gap-3 transition-all duration-300">
-              View All <ArrowRight size={16} />
+            <Link
+              href="/blog"
+              className="inline-flex items-center gap-2 px-6 py-3 rounded-md border border-text-dark/10 text-text-dark text-sm font-medium hover:border-accent hover:text-accent transition-all duration-300 self-start md:self-auto shrink-0"
+            >
+              Read all articles
+              <ArrowRight size={14} />
             </Link>
           </div>
         </ScrollReveal>
@@ -30,7 +39,8 @@ export default function Insights() {
         <div className="grid grid-cols-1 md:grid-cols-3 gap-px bg-card-light-border border border-card-light-border">
           {featured.map((post, i) => (
             <ScrollReveal key={post.slug} delay={i * 0.08}>
-              <Link href={`/blog/${post.slug}`} className="block group">
+              <SpotlightCard variant="light" className="h-full">
+              <Link href={`/blog/${post.slug}`} className="block group h-full">
                 <div className="bg-white p-8 hover:bg-light-primary transition-colors duration-400 h-full flex flex-col">
                   <div className="flex items-center gap-3 mb-5">
                     <span className="text-[11px] font-semibold text-accent uppercase tracking-wider">
@@ -58,6 +68,7 @@ export default function Insights() {
                   </div>
                 </div>
               </Link>
+              </SpotlightCard>
             </ScrollReveal>
           ))}
         </div>

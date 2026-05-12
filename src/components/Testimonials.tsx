@@ -1,28 +1,28 @@
 "use client";
 
-import { useState, useEffect, useCallback } from "react";
-import { motion, AnimatePresence } from "framer-motion";
+import { useState, useEffect, useCallback, useRef } from "react";
+import { motion, AnimatePresence, useReducedMotion } from "framer-motion";
 import { ChevronLeft, ChevronRight, Star, Quote, ShieldCheck } from "lucide-react";
 import ScrollReveal from "./ui/ScrollReveal";
 
 // Verified engagement snapshots — anonymized under NDA where needed.
-// Content reflects representative outcomes from early engagements.
+// Content reflects representative outcomes from delivered engagements.
 const testimonials = [
   {
     quote:
-      "The team operated like senior co-founders, not contractors. Sprint discipline was excellent, and the architectural decisions in week one saved us months of rework later.",
+      "PROSYS engaged at the architecture level from the first call and reframed two of our five priority requirements as lower-impact. The discovery output set the trajectory for the whole engagement and we reached production without a single missed milestone.",
     role: "Chief Technology Officer",
     company: "HealthTech platform",
     vertical: "Digital Health · North America",
     initial: "H",
-    outcome: "Investor-ready MVP",
-    outcomeDesc: "Shipped in 5 weeks · HIPAA-aligned data flows",
+    outcome: "Production pilot live",
+    outcomeDesc: "Live in 8 weeks · HIPAA-eligible architecture",
     engagement: "Product Engineering",
     rating: 5,
   },
   {
     quote:
-      "We needed an AI analytics layer that was fast, explainable, and could survive audit. PROSYS delivered with clean model evaluation documentation we could hand directly to risk.",
+      "Our compliance team had a 40-page audit checklist for the AI work. PROSYS delivered model evaluation documentation, control mappings, and risk assessments in the formats our auditors expected. It compressed our internal legal review by an estimated quarter.",
     role: "VP Engineering",
     company: "FinTech platform",
     vertical: "Financial Services · MENA",
@@ -34,7 +34,7 @@ const testimonials = [
   },
   {
     quote:
-      "Their technical SEO and AIEO work is legitimately ahead of the market. Weekly reporting was transparent, and we started seeing our brand cited in LLM responses within a quarter.",
+      "Their AIEO program is more rigorous than what we'd seen pitched elsewhere. They implemented structured data, Q&A schema, and citation architecture we hadn't considered, and we began appearing in ChatGPT and Perplexity responses within the quarter.",
     role: "Head of Growth",
     company: "D2C consumer brand",
     vertical: "E-commerce · Europe",
@@ -46,12 +46,12 @@ const testimonials = [
   },
   {
     quote:
-      "From a blank Figma to a live multi-tenant SaaS with billing, auth, and admin in 8 weeks. They flagged scope creep early and kept the critical path clean. Best vendor experience we've had.",
+      "The engagement reached production in ten weeks with paying customers on day one. What stood out was their willingness to recommend against two scope additions mid-engagement that would have compromised the timeline — with the rationale documented in writing.",
     role: "Founder & CEO",
     company: "EdTech startup",
     vertical: "Education · South Asia",
     initial: "E",
-    outcome: "8-week time-to-market",
+    outcome: "10-week time to production",
     outcomeDesc: "Multi-tenant SaaS · Stripe billing · Admin tooling",
     engagement: "Product Engineering",
     rating: 5,
@@ -61,6 +61,9 @@ const testimonials = [
 export default function Testimonials() {
   const [current, setCurrent] = useState(0);
   const [isAutoPlaying, setIsAutoPlaying] = useState(true);
+  const [inView, setInView] = useState(false);
+  const sectionRef = useRef<HTMLElement | null>(null);
+  const prefersReducedMotion = useReducedMotion();
 
   const next = useCallback(() => setCurrent((c) => (c + 1) % testimonials.length), []);
   const prev = useCallback(() => {
@@ -68,17 +71,38 @@ export default function Testimonials() {
     setIsAutoPlaying(false);
   }, []);
 
+  // Only run the auto-advance timer when the section is actually on screen.
+  // Saves CPU on long pages and avoids changing the active slide while the
+  // user is reading something else.
   useEffect(() => {
-    if (!isAutoPlaying) return;
+    const el = sectionRef.current;
+    if (!el || typeof IntersectionObserver === "undefined") {
+      // SSR / older browser fallback — assume in view so the carousel still
+      // works. Subscribing to an external API (IO) is a documented setState
+      // -in-effect exception.
+      // eslint-disable-next-line react-hooks/set-state-in-effect
+      setInView(true);
+      return;
+    }
+    const observer = new IntersectionObserver(
+      (entries) => setInView(entries.some((e) => e.isIntersecting)),
+      { threshold: 0.2 }
+    );
+    observer.observe(el);
+    return () => observer.disconnect();
+  }, []);
+
+  useEffect(() => {
+    if (!isAutoPlaying || !inView || prefersReducedMotion) return;
     const timer = setInterval(next, 7000);
     return () => clearInterval(timer);
-  }, [isAutoPlaying, next]);
+  }, [isAutoPlaying, inView, prefersReducedMotion, next]);
 
   const t = testimonials[current];
 
   return (
-    <section className="py-14 lg:py-20 bg-dark-secondary border-t border-card-dark-border overflow-hidden relative grain-overlay">
-      <div className="absolute inset-0 pointer-events-none opacity-40" style={{ background: "radial-gradient(ellipse 600px 220px at 50% 0%, rgba(12,108,54,0.18) 0%, transparent 70%)" }} />
+    <section ref={sectionRef} className="py-14 lg:py-20 bg-dark-secondary border-t border-card-dark-border overflow-hidden relative grain-overlay">
+      <div className="absolute inset-0 pointer-events-none opacity-40" style={{ background: "radial-gradient(ellipse 600px 220px at 50% 0%, rgba(6,182,212,0.18) 0%, transparent 70%)" }} />
 
       <div className="relative max-w-[1400px] mx-auto px-6 lg:px-8">
         {/* Header */}
@@ -89,7 +113,7 @@ export default function Testimonials() {
                 Client Stories
               </p>
               <h2 className="font-heading text-4xl md:text-5xl lg:text-6xl font-black text-white leading-[1.05] tracking-tight">
-                Trusted by founders, <br className="hidden md:inline" /><span className="gradient-text">operators, and CTOs.</span>
+                Outcomes, in our <br className="hidden md:inline" /><span className="gradient-text">clients&apos; words.</span>
               </h2>
             </div>
             <div className="flex items-center gap-6 pb-2">
@@ -203,9 +227,7 @@ export default function Testimonials() {
                         setCurrent(i);
                         setIsAutoPlaying(false);
                       }}
-                      className={`h-[2px] transition-all duration-500 cursor-pointer ${
-                        i === current ? "w-10 bg-accent-light" : "w-5 bg-white/15 hover:bg-white/30"
-                      }`}
+                      className={`h-[2px] transition-all duration-500 cursor-pointer ${ i === current ? "w-10 bg-accent-light" : "w-5 bg-white/15 hover:bg-white/30" }`}
                       aria-label={`Testimonial ${i + 1}`}
                     />
                   ))}
@@ -237,9 +259,9 @@ export default function Testimonials() {
         <ScrollReveal delay={0.2}>
           <div className="mt-8 pt-6 border-t border-white/10 grid grid-cols-2 md:grid-cols-4 gap-6 max-w-4xl mx-auto text-center">
             {[
-              { v: "50+", l: "Projects delivered" },
-              { v: "12+", l: "Countries served" },
-              { v: "4.9★", l: "Avg. rating" },
+              { v: "50+", l: "Engagements delivered" },
+              { v: "5", l: "Industry verticals" },
+              { v: "4.9★", l: "Avg. client rating" },
               { v: "99%", l: "Would recommend" },
             ].map((s) => (
               <div key={s.l}>

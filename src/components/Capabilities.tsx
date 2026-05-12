@@ -1,6 +1,6 @@
 "use client";
 
-import { ShieldCheck, Users, Clock, Code2, GitBranch, Lock, Sparkles, ArrowRight } from "lucide-react";
+import { ShieldCheck, Users, Clock, Code2, GitBranch, Lock, ArrowRight } from "lucide-react";
 import Link from "next/link";
 import { motion } from "framer-motion";
 import ScrollReveal from "./ui/ScrollReveal";
@@ -9,43 +9,43 @@ const capabilities = [
   {
     num: "01",
     icon: ShieldCheck,
-    label: "ISO / SOC 2 aligned",
-    desc: "Security-aligned processes modeled on ISO 27001 and SOC 2. Formal certification on our roadmap.",
+    label: "Security-first by design",
+    desc: "Engineering practices modeled on ISO 27001 and SOC 2 control objectives — least-privilege access, encrypted data flows, and an audit-ready evidence pipeline. Formal certification is on our roadmap; control documentation available on request.",
     tag: "Compliance",
   },
   {
     num: "02",
     icon: Users,
-    label: "Senior engineers only",
-    desc: "No junior hand-offs. Every engagement is staffed by experienced product engineers with shipped work.",
+    label: "Experienced staffing",
+    desc: "Engagements are staffed for the technical risk profile, with deep production experience across regulated and high-traffic systems. One accountable team, end-to-end.",
     tag: "Talent",
   },
   {
     num: "03",
     icon: Clock,
-    label: "Two-week sprints",
-    desc: "Two-week sprints with continuous delivery. Demo, feedback, iterate — a predictable, reliable pace.",
+    label: "Predictable cadence",
+    desc: "Reviewable releases on a fixed schedule, in a live staging environment available throughout the engagement. Working software at every checkpoint.",
     tag: "Cadence",
   },
   {
     num: "04",
     icon: Code2,
-    label: "Modern engineering stack",
-    desc: "TypeScript, Next.js, Python, Go, AWS, GCP, and battle-tested open-source foundations end-to-end.",
+    label: "Production-proven stack",
+    desc: "TypeScript, Next.js, Python, Go, PostgreSQL, AWS, GCP. Technology selection prioritizes long-term operability over novelty.",
     tag: "Stack",
   },
   {
     num: "05",
     icon: GitBranch,
-    label: "GitFlow + IaC",
-    desc: "Trunk-based workflows, infrastructure as code, automated CI/CD, and observability by default.",
+    label: "Operational from day one",
+    desc: "Infrastructure as code, CI/CD pipelines, error tracking, and on-call alerting — provisioned before the first production user.",
     tag: "Ops",
   },
   {
     num: "06",
     icon: Lock,
-    label: "NDA ready",
-    desc: "NDA + MSA signed pre-engagement. Confidentiality is standard — never an upsell, never an afterthought.",
+    label: "Commercial readiness",
+    desc: "Mutual NDAs returned within 24 hours. Standard MSA template available, or engagement under your contract terms. No charge for legal preliminaries.",
     tag: "Trust",
   },
 ];
@@ -53,21 +53,21 @@ const capabilities = [
 const proof = [
   { value: "99%", label: "On-time delivery" },
   { value: "<24h", label: "Response SLA" },
-  { value: "100%", label: "Senior-staffed" },
-  { value: "50+", label: "Shipped products" },
+  { value: "5", label: "Industry verticals" },
+  { value: "50+", label: "Engagements delivered" },
 ];
 
 export default function Capabilities() {
   return (
-    <section className="relative min-h-dvh flex items-center bg-dark-secondary border-y border-card-dark-border overflow-hidden">
+    <section className="relative flex items-center bg-dark-secondary border-y border-card-dark-border overflow-hidden">
       {/* Ambient layers */}
       <div className="absolute inset-0 pointer-events-none" aria-hidden="true">
-        <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[900px] h-[500px] rounded-full blur-3xl opacity-40" style={{ background: "radial-gradient(ellipse, rgba(12,108,54,0.18) 0%, transparent 60%)" }} />
-        <div className="absolute bottom-0 left-1/4 w-[500px] h-[400px] rounded-full blur-3xl opacity-30" style={{ background: "radial-gradient(circle, rgba(52,211,153,0.12) 0%, transparent 70%)" }} />
+        <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[900px] h-[500px] rounded-full blur-3xl opacity-40" style={{ background: "radial-gradient(ellipse, rgba(6,182,212,0.18) 0%, transparent 60%)" }} />
+        <div className="absolute bottom-0 left-1/4 w-[500px] h-[400px] rounded-full blur-3xl opacity-30" style={{ background: "radial-gradient(circle, rgba(103,232,249,0.12) 0%, transparent 70%)" }} />
         <div className="absolute inset-0 opacity-[0.025]" style={{ backgroundImage: "linear-gradient(rgba(255,255,255,0.8) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.8) 1px, transparent 1px)", backgroundSize: "80px 80px" }} />
       </div>
 
-      <div className="relative z-10 max-w-[1400px] mx-auto px-6 lg:px-12 w-full py-20 lg:py-16">
+      <div className="relative z-10 max-w-[1400px] mx-auto px-6 lg:px-12 w-full py-14 lg:py-20">
         {/* Editorial rail */}
         <div className="flex items-center gap-3 mb-6 lg:mb-8">
           <span className="text-[10px] text-accent-light/60 uppercase tracking-[0.35em] font-semibold">/ How We Deliver</span>
@@ -77,13 +77,6 @@ export default function Capabilities() {
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-start">
           {/* Left — intro column */}
           <ScrollReveal className="lg:col-span-5 lg:sticky lg:top-28">
-            <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full border border-accent/25 bg-accent/5 mb-5">
-              <Sparkles size={12} className="text-accent-light" />
-              <span className="text-[11px] text-accent-light tracking-widest uppercase font-semibold">
-                Delivery Framework
-              </span>
-            </div>
-
             <h2 className="font-heading text-4xl md:text-5xl lg:text-[4rem] xl:text-[4.5rem] font-black text-white leading-[0.98] tracking-tight mb-6">
               Enterprise{" "}
               <br />
@@ -93,13 +86,13 @@ export default function Capabilities() {
             </h2>
 
             <p className="text-base md:text-lg text-text-light-muted leading-relaxed mb-8 max-w-xl">
-              Every engagement runs on a documented delivery framework —
-              compliance-aligned, senior-staffed, and optimized for measurable
-              outcomes over busy activity.
+              Every engagement follows the same operating model: a written scope, a
+              fixed delivery cadence, and reviewable working software at every checkpoint.
+              Commercials, deliverables, and change processes are documented upfront.
             </p>
 
             {/* Proof strip */}
-            <div className="grid grid-cols-2 gap-px bg-card-dark-border rounded-lg overflow-hidden border border-card-dark-border mb-8">
+            <div className="grid grid-cols-2 gap-px bg-card-dark-border overflow-hidden border border-card-dark-border mb-8">
               {proof.map((p) => (
                 <div key={p.label} className="bg-dark-secondary p-4">
                   <div className="font-heading text-2xl md:text-3xl font-black text-white leading-none mb-1.5 tracking-tight">
@@ -123,7 +116,7 @@ export default function Capabilities() {
 
           {/* Right — capability grid */}
           <div className="lg:col-span-7">
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-px bg-card-dark-border rounded-lg overflow-hidden border border-card-dark-border">
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-px bg-card-dark-border overflow-hidden border border-card-dark-border">
               {capabilities.map((cap, i) => {
                 const Icon = cap.icon;
                 return (
@@ -176,9 +169,9 @@ export default function Capabilities() {
               whileInView={{ opacity: 1 }}
               viewport={{ once: true }}
               transition={{ delay: 0.4 }}
-              className="mt-6 flex flex-wrap items-center justify-center gap-x-6 gap-y-2 px-4 py-3 rounded-lg bg-card-dark/40 border border-card-dark-border"
+              className="mt-6 flex flex-wrap items-center justify-center gap-x-6 gap-y-2 px-4 py-3 bg-card-dark/40 border border-card-dark-border"
             >
-              <span className="text-[10px] text-white/40 uppercase tracking-[0.2em] font-semibold">Operating standards:</span>
+              <span className="text-[10px] text-white/40 uppercase tracking-[0.2em] font-semibold">Modeled on:</span>
               {["ISO 27001", "SOC 2 Type II", "GDPR", "OWASP ASVS", "WCAG 2.2 AA"].map((s) => (
                 <span key={s} className="text-[10px] text-white/60 font-medium tracking-wide">{s}</span>
               ))}

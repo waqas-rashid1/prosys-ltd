@@ -37,11 +37,7 @@ export default function BlogListing() {
                     <button
                       key={cat}
                       onClick={() => setActiveCategory(cat)}
-                      className={`px-3.5 py-1.5 text-xs font-semibold uppercase tracking-wider rounded-sm border transition-all cursor-pointer ${
-                        activeCategory === cat
-                          ? "bg-accent border-accent text-white"
-                          : "bg-white border-card-light-border text-text-dark-muted hover:border-accent/50 hover:text-accent"
-                      }`}
+                      className={`px-3.5 py-1.5 text-xs font-semibold uppercase tracking-wider rounded-sm border transition-all cursor-pointer ${ activeCategory === cat ? "bg-accent border-accent text-white" : "bg-white border-card-light-border text-text-dark-muted hover:border-accent/50 hover:text-accent" }`}
                       aria-pressed={activeCategory === cat}
                     >
                       {cat}
@@ -103,7 +99,7 @@ export default function BlogListing() {
               {activeCategory === "All" ? "Latest" : activeCategory}
             </p>
             <h2 className="font-heading text-3xl md:text-4xl font-bold text-text-dark mb-14">
-              {activeCategory === "All" ? "All Articles" : `${activeCategory} Articles`}
+              {activeCategory === "All" ? (<>All <span className="gradient-text">articles.</span></>) : (<>{activeCategory} <span className="gradient-text">articles.</span></>)}
             </h2>
           </ScrollReveal>
 

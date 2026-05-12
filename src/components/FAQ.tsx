@@ -6,6 +6,7 @@ import { ChevronDown } from "lucide-react";
 import { faq } from "@/lib/constants";
 import SectionHeading from "./ui/SectionHeading";
 import ScrollReveal from "./ui/ScrollReveal";
+import DarkSectionFx from "./ui/DarkSectionFx";
 
 function FAQItem({
   question,
@@ -71,8 +72,9 @@ export default function FAQ() {
   const [openIndex, setOpenIndex] = useState<number | null>(0);
 
   return (
-    <section id="faq" className="py-14 lg:py-20 bg-dark-secondary">
-      <div className="max-w-[1400px] mx-auto px-6 lg:px-8">
+    <section id="faq" className="relative py-14 lg:py-20 bg-dark-secondary overflow-hidden">
+      <DarkSectionFx variant="soft" />
+      <div className="relative z-10 max-w-[1400px] mx-auto px-6 lg:px-8">
         <SectionHeading
           title="Frequently Asked Questions"
           subtitle="Everything you need to know about working with PROSYS LTD."

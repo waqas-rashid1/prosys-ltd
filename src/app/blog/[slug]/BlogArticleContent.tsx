@@ -6,6 +6,7 @@ import { Calendar, Clock, ArrowLeft, ArrowRight } from "lucide-react";
 import { motion } from "framer-motion";
 import ScrollReveal from "@/components/ui/ScrollReveal";
 import ShareButtons from "@/components/ui/ShareButtons";
+import DarkSectionFx from "@/components/ui/DarkSectionFx";
 import { LinkedInIcon } from "@/components/ui/SocialIcons";
 import { blogPosts } from "@/lib/blog-data";
 import { siteConfig } from "@/lib/constants";
@@ -163,7 +164,7 @@ export default function BlogArticleContent({ slug }: { slug: string }) {
         <div className="max-w-[1400px] mx-auto px-6 lg:px-8">
           <ScrollReveal>
             <p className="text-xs text-accent uppercase tracking-[0.2em] font-medium mb-4">Keep Reading</p>
-            <h2 className="font-heading text-2xl md:text-3xl font-bold text-text-dark mb-10">Related Articles</h2>
+            <h2 className="font-heading text-2xl md:text-3xl font-bold text-text-dark mb-10">Related <span className="gradient-text">articles.</span></h2>
           </ScrollReveal>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-px bg-card-light-border border border-card-light-border">
             {relatedPosts.map((related, i) => (
@@ -187,8 +188,9 @@ export default function BlogArticleContent({ slug }: { slug: string }) {
       </section>
 
       {/* CTA */}
-      <section className="py-14 lg:py-20 bg-dark-primary">
-        <div className="max-w-[1400px] mx-auto px-6 lg:px-12">
+      <section className="relative py-14 lg:py-20 bg-dark-primary overflow-hidden">
+        <DarkSectionFx variant="default" />
+        <div className="relative z-10 max-w-[1400px] mx-auto px-6 lg:px-12">
           <ScrollReveal>
             <div className="max-w-2xl">
               <p className="text-xs text-accent-light uppercase tracking-[0.2em] font-medium mb-4">Work With Us</p>

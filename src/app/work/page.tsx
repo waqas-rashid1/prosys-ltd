@@ -6,22 +6,23 @@ import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import ScrollReveal from "@/components/ui/ScrollReveal";
 import PageHero from "@/components/ui/PageHero";
+import DarkSectionFx from "@/components/ui/DarkSectionFx";
 import { caseStudies } from "@/lib/constants";
 
 export const metadata: Metadata = {
   title: "Our Work",
-  description: "Explore PROSYS LTD's portfolio — SaaS platforms, AI integrations, MVPs, web applications, and digital transformation projects.",
+  description: "PROSYS LTD engagements — SaaS platforms, applied AI systems, production pilots, and enterprise platform modernization.",
   alternates: { canonical: "/work" },
   openGraph: {
     title: "Our Work — PROSYS LTD",
-    description: "Explore PROSYS LTD's portfolio — SaaS platforms, AI integrations, MVPs, web applications, and digital transformation projects.",
+    description: "PROSYS LTD engagements — SaaS platforms, applied AI systems, production pilots, and enterprise platform modernization.",
     url: "/work",
     type: "website",
   },
   twitter: {
     card: "summary_large_image",
     title: "Our Work — PROSYS LTD",
-    description: "Explore PROSYS LTD's portfolio — SaaS platforms, AI integrations, MVPs, web applications, and digital transformation projects.",
+    description: "PROSYS LTD engagements — SaaS platforms, applied AI systems, production pilots, and enterprise platform modernization.",
   },
 };
 
@@ -76,17 +77,19 @@ export default function WorkPage() {
       <main id="main-content">
         <PageHero
           badge="Portfolio"
-          title="Work that"
-          highlight="speaks."
-          description="Real projects. Real outcomes. Here's a selection of work we've delivered for startups, scale-ups, and enterprises across 12+ countries."
+          title="Engagements,"
+          highlight="documented."
+          description="A selection of production engagements delivered for funded startups, scale-ups, and mid-market enterprises across five industry verticals — measured by outcome, not output."
+          bgImage="/images/case-saas.jpg"
+          bgImageOpacity={0.22}
           trustSignals={["Enterprise & startup clients", "Measurable outcomes", "NDA on request"]}
           primaryCta={{ label: "Browse case studies", href: "#case-studies" }}
-          secondaryCta={{ label: "Start a project", href: "/contact" }}
+          secondaryCta={{ label: "Start an engagement", href: "/contact" }}
           stats={[
-            { value: "50+", label: "Projects" },
-            { value: "30+", label: "Clients" },
-            { value: "12+", label: "Countries" },
-            { value: "4-8 wk", label: "Avg. MVP" },
+            { value: "50+", label: "Engagements" },
+            { value: "30+", label: "Enterprise clients" },
+            { value: "5", label: "Verticals" },
+            { value: "6–12 wk", label: "Avg. to production" },
           ]}
         />
 
@@ -97,7 +100,7 @@ export default function WorkPage() {
               <div className="flex items-end justify-between mb-10">
                 <div>
                   <p className="text-xs text-accent uppercase tracking-[0.2em] font-medium mb-3">In-depth Case Studies</p>
-                  <h2 className="font-heading text-3xl md:text-4xl font-bold text-text-dark">Read the full story</h2>
+                  <h2 className="font-heading text-3xl md:text-4xl font-bold text-text-dark">Engagement <span className="gradient-text">deep-dives.</span></h2>
                 </div>
                 <p className="text-sm text-text-dark-muted hidden md:block">{caseStudies.length} deep-dives</p>
               </div>
@@ -179,12 +182,13 @@ export default function WorkPage() {
         </section>
 
         {/* CTA (fixed self-reference) */}
-        <section className="py-20 bg-dark-primary">
-          <div className="max-w-[1400px] mx-auto px-6 lg:px-12">
+        <section className="relative py-14 lg:py-20 bg-dark-primary overflow-hidden">
+          <DarkSectionFx variant="default" />
+          <div className="relative z-10 max-w-[1400px] mx-auto px-6 lg:px-12">
             <div className="max-w-3xl">
-              <p className="text-xs text-accent-light uppercase tracking-[0.2em] font-medium mb-4">Have a project in mind?</p>
+              <p className="text-xs text-accent-light uppercase tracking-[0.2em] font-medium mb-4">Considering an engagement?</p>
               <h2 className="font-heading text-3xl md:text-4xl lg:text-5xl font-bold text-text-light mb-6 leading-tight">
-                Let&apos;s discuss how we can bring your idea to life.
+                Open a conversation with the <span className="gradient-text">engagement lead.</span>
               </h2>
               <div className="flex flex-wrap gap-4">
                 <Link href="/contact" className="inline-flex items-center justify-center gap-2 font-medium rounded-md gradient-bg text-white hover:shadow-lg hover:shadow-accent/20 px-8 py-3.5 text-sm uppercase tracking-widest transition-all duration-300">

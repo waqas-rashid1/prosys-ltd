@@ -17,7 +17,7 @@ export default async function OGImage() {
           justifyContent: "space-between",
           padding: "80px",
           background:
-            "radial-gradient(circle at 20% 20%, rgba(12,108,54,0.35) 0%, transparent 45%), radial-gradient(circle at 80% 80%, rgba(12,108,54,0.22) 0%, transparent 50%), #000000",
+            "radial-gradient(circle at 20% 20%, rgba(6,182,212,0.35) 0%, transparent 45%), radial-gradient(circle at 80% 80%, rgba(6,182,212,0.22) 0%, transparent 50%), #000000",
           fontFamily: "system-ui, -apple-system, Segoe UI, Roboto, sans-serif",
           color: "white",
           position: "relative",
@@ -72,7 +72,7 @@ export default async function OGImage() {
               fontSize: 16,
               textTransform: "uppercase",
               letterSpacing: "0.25em",
-              color: "#34d399",
+              color: "#67E8F9",
               fontWeight: 600,
             }}
           >
@@ -95,7 +95,7 @@ export default async function OGImage() {
               fontWeight: 900,
               lineHeight: 1.02,
               letterSpacing: "-0.03em",
-              color: "#34d399",
+              color: "#67E8F9",
             }}
           >
             systems, end-to-end.
@@ -125,12 +125,12 @@ export default async function OGImage() {
                   letterSpacing: "0.15em",
                 }}
               >
-                Projects shipped
+                Engagements delivered
               </div>
             </div>
             <div style={{ display: "flex", flexDirection: "column" }}>
               <div style={{ fontSize: 28, fontWeight: 800, color: "white" }}>
-                12+
+                5
               </div>
               <div
                 style={{
@@ -140,12 +140,12 @@ export default async function OGImage() {
                   letterSpacing: "0.15em",
                 }}
               >
-                Countries served
+                Industry verticals
               </div>
             </div>
             <div style={{ display: "flex", flexDirection: "column" }}>
               <div style={{ fontSize: 28, fontWeight: 800, color: "white" }}>
-                4-8w
+                6–12w
               </div>
               <div
                 style={{
@@ -155,7 +155,7 @@ export default async function OGImage() {
                   letterSpacing: "0.15em",
                 }}
               >
-                To MVP
+                To production
               </div>
             </div>
           </div>

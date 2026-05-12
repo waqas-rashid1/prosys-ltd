@@ -2,43 +2,163 @@
 
 import Image from "next/image";
 import ScrollReveal from "./ui/ScrollReveal";
+import DarkSectionFx from "./ui/DarkSectionFx";
 
-const partners = [
+/**
+ * Partners — moving technology stack marquee.
+ *
+ * Two rows scroll in opposite directions across the section. Each row's
+ * markup is duplicated end-to-end so the CSS keyframes (translateX 0 →
+ * -50%) creates a perfectly seamless loop. The whole thing pauses on
+ * hover so visitors can read individual logos.
+ *
+ * Logos chosen to cover the full delivery surface — frontend, backend,
+ * cloud, AI/ML, data, devops, and tooling — so the marquee reads as a
+ * credible enterprise stack, not a curated handful.
+ */
+
+type Tech = { name: string; logo: string };
+
+const ROW_ONE: Tech[] = [
   { name: "React", logo: "/logos/react.svg" },
   { name: "Next.js", logo: "/logos/nextjs.svg" },
-  { name: "AWS", logo: "/logos/aws-partner.svg" },
+  { name: "TypeScript", logo: "/logos/typescript.svg" },
+  { name: "Node.js", logo: "/logos/nodejs.svg" },
+  { name: "Python", logo: "/logos/python.svg" },
+  { name: "Rust", logo: "/logos/rust.svg" },
+  { name: "TailwindCSS", logo: "/logos/tailwindcss.svg" },
+  { name: "GraphQL", logo: "/logos/graphql.svg" },
+  { name: "Prisma", logo: "/logos/prisma.svg" },
+  { name: "PostgreSQL", logo: "/logos/postgresql.svg" },
+  { name: "MongoDB", logo: "/logos/mongodb.svg" },
+  { name: "Redis", logo: "/logos/redis.svg" },
+  { name: "AWS", logo: "/logos/aws.svg" },
   { name: "Google Cloud", logo: "/logos/google-cloud.svg" },
+  { name: "Azure", logo: "/logos/azure.svg" },
   { name: "Vercel", logo: "/logos/vercel.svg" },
-  { name: "OpenAI", logo: "/logos/openai.svg" },
   { name: "Docker", logo: "/logos/docker.svg" },
-  { name: "Stripe", logo: "/logos/stripe.svg" },
+  { name: "Kubernetes", logo: "/logos/kubernetes.svg" },
+  { name: "Terraform", logo: "/logos/terraform.svg" },
+  { name: "GitHub Actions", logo: "/logos/github-actions.svg" },
 ];
+
+const ROW_TWO: Tech[] = [
+  { name: "OpenAI", logo: "/logos/openai.svg" },
+  { name: "Claude", logo: "/logos/claude.svg" },
+  { name: "Gemini", logo: "/logos/gemini.svg" },
+  { name: "LangChain", logo: "/logos/langchain.svg" },
+  { name: "Hugging Face", logo: "/logos/huggingface.svg" },
+  { name: "Pinecone", logo: "/logos/pinecone.svg" },
+  { name: "TensorFlow", logo: "/logos/tensorflow.svg" },
+  { name: "scikit-learn", logo: "/logos/scikit-learn.svg" },
+  { name: "FastAPI", logo: "/logos/fastapi.svg" },
+  { name: "Snowflake", logo: "/logos/snowflake.svg" },
+  { name: "Databricks", logo: "/logos/databricks.svg" },
+  { name: "Apache Kafka", logo: "/logos/kafka.svg" },
+  { name: "Apache Airflow", logo: "/logos/airflow.svg" },
+  { name: "Stripe", logo: "/logos/stripe.svg" },
+  { name: "Twilio", logo: "/logos/twilio.svg" },
+  { name: "Supabase", logo: "/logos/supabase.svg" },
+  { name: "Sanity", logo: "/logos/sanity.svg" },
+  { name: "Figma", logo: "/logos/figma.svg" },
+  { name: "n8n", logo: "/logos/n8n.svg" },
+  { name: "Datadog", logo: "/logos/datadog.svg" },
+];
+
+function TechChip({ tech }: { tech: Tech }) {
+  return (
+    <div className="group flex items-center gap-3 px-5 py-3 mx-3 border border-card-dark-border bg-card-dark/60 backdrop-blur-sm hover:border-accent/40 hover:bg-card-dark transition-colors duration-300 whitespace-nowrap">
+      <Image
+        src={tech.logo}
+        alt=""
+        width={22}
+        height={22}
+        className="w-[22px] h-[22px] object-contain opacity-60 group-hover:opacity-100 transition-opacity duration-300"
+      />
+      <span className="text-[13px] font-medium text-text-light-muted/70 group-hover:text-accent-light transition-colors duration-300 tracking-wide">
+        {tech.name}
+      </span>
+    </div>
+  );
+}
+
+function MarqueeRow({
+  techs,
+  direction = "left",
+}: {
+  techs: Tech[];
+  direction?: "left" | "right";
+}) {
+  // Duplicate the list end-to-end so translateX(-50%) lands on a frame
+  // identical to translateX(0) — that's what creates the seamless loop.
+  const animationClass =
+    direction === "left" ? "animate-marquee" : "animate-marquee-reverse";
+
+  return (
+    <div className="relative overflow-hidden">
+      <div
+        className={`flex w-max ${animationClass} group-hover:[animation-play-state:paused]`}
+      >
+        {[...techs, ...techs].map((tech, i) => (
+          <TechChip key={`${tech.name}-${i}`} tech={tech} />
+        ))}
+      </div>
+    </div>
+  );
+}
 
 export default function Partners() {
   return (
-    <section id="partners" className="py-14 lg:py-20 bg-dark-secondary border-t border-card-dark-border">
-      <div className="max-w-[1400px] mx-auto px-6 lg:px-8">
-        <ScrollReveal>
-          <p className="text-center text-xs text-text-light-muted/40 tracking-[0.2em] uppercase font-medium mb-12">
-            Technology Stack
-          </p>
-          <div className="flex flex-wrap justify-center items-center gap-x-12 lg:gap-x-16 gap-y-8">
-            {partners.map((p) => (
-              <div key={p.name} className="group flex items-center gap-3">
-                <Image
-                  src={p.logo}
-                  alt={p.name}
-                  width={24}
-                  height={24}
-                  className="w-6 h-6 object-contain opacity-30 group-hover:opacity-70 transition-opacity duration-400"
-                />
-                <span className="text-sm text-text-light-muted/30 font-medium group-hover:text-text-light-muted/70 transition-colors duration-400">
-                  {p.name}
-                </span>
+    <section
+      id="partners"
+      className="relative py-14 lg:py-20 bg-dark-secondary border-t border-card-dark-border overflow-hidden"
+    >
+      <DarkSectionFx variant="soft" />
+
+      <div className="relative z-10">
+        <div className="max-w-[1400px] mx-auto px-6 lg:px-8 mb-10">
+          <ScrollReveal>
+            <div className="flex items-center gap-3 mb-4">
+              <span className="text-[10px] text-accent-light/60 uppercase tracking-[0.35em] font-semibold">
+                / Technology
+              </span>
+              <span className="h-px flex-1 max-w-[160px] bg-gradient-to-r from-accent-light/40 to-transparent" />
+            </div>
+            <div className="flex flex-col lg:flex-row lg:items-end lg:justify-between gap-4">
+              <div>
+                <h2 className="font-heading text-3xl md:text-4xl lg:text-5xl font-bold text-white leading-tight">
+                  The stack we ship{" "}
+                  <span className="gradient-text">in production.</span>
+                </h2>
+                <p className="text-text-light-muted text-base md:text-lg leading-relaxed max-w-2xl mt-3">
+                  A pragmatic toolkit, chosen for long-term operability over
+                  novelty. We standardize on what teams can actually run at 3am
+                  on a Saturday.
+                </p>
               </div>
-            ))}
+              <p className="text-sm text-text-light-muted hidden lg:block">
+                {ROW_ONE.length + ROW_TWO.length}+ technologies in active use
+              </p>
+            </div>
+          </ScrollReveal>
+        </div>
+
+        {/* Marquee — full-bleed, with edge fade masks so logos scroll into
+            and out of view rather than popping at the section edges. */}
+        <div
+          className="relative group"
+          style={{
+            WebkitMaskImage:
+              "linear-gradient(to right, transparent 0%, black 6%, black 94%, transparent 100%)",
+            maskImage:
+              "linear-gradient(to right, transparent 0%, black 6%, black 94%, transparent 100%)",
+          }}
+        >
+          <div className="space-y-3">
+            <MarqueeRow techs={ROW_ONE} direction="left" />
+            <MarqueeRow techs={ROW_TWO} direction="right" />
           </div>
-        </ScrollReveal>
+        </div>
       </div>
     </section>
   );

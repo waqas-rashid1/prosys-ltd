@@ -26,19 +26,19 @@ export default async function ApplyPage({
     <>
       <Navbar />
       <main id="main-content">
-        <section className="relative h-dvh min-h-[640px] flex items-center bg-dark-primary overflow-hidden">
+        <section className="relative min-h-[55vh] flex items-center bg-dark-primary overflow-hidden py-24 lg:py-28">
           <div className="absolute inset-0 z-0 pointer-events-none" aria-hidden="true">
-            <div className="absolute top-1/4 -left-20 w-[500px] h-[500px] rounded-full blur-[140px] animate-pulse-glow" style={{ background: "radial-gradient(circle, rgba(12,108,54,0.35) 0%, transparent 65%)" }} />
-            <div className="absolute bottom-0 right-0 w-[600px] h-[600px] rounded-full blur-[180px]" style={{ background: "radial-gradient(circle, rgba(52,211,153,0.12) 0%, transparent 70%)" }} />
+            <div className="absolute top-1/4 -left-20 w-[500px] h-[500px] rounded-full blur-[140px] animate-pulse-glow" style={{ background: "radial-gradient(circle, rgba(6,182,212,0.35) 0%, transparent 65%)" }} />
+            <div className="absolute bottom-0 right-0 w-[600px] h-[600px] rounded-full blur-[180px]" style={{ background: "radial-gradient(circle, rgba(103,232,249,0.12) 0%, transparent 70%)" }} />
             <div className="absolute inset-0 opacity-[0.025]" style={{ backgroundImage: "linear-gradient(var(--accent-light) 1px, transparent 1px), linear-gradient(90deg, var(--accent-light) 1px, transparent 1px)", backgroundSize: "90px 90px" }} />
           </div>
-          <div className="relative z-10 w-full max-w-[1100px] mx-auto px-6 lg:px-8 pt-32 pb-16">
-            <Link href="/careers" className="inline-flex items-center gap-2 text-white/50 text-sm hover:text-white transition-colors mb-8">
+          <div className="relative z-10 w-full max-w-[1100px] mx-auto px-6 lg:px-8">
+            <Link href="/careers" className="inline-flex items-center gap-2 text-white/50 text-sm hover:text-white transition-colors mb-6">
               <ArrowLeft size={14} /> Back to all roles
             </Link>
             <div className="max-w-3xl">
-              <p className="text-[11px] text-accent-light uppercase tracking-[0.2em] font-semibold mb-5">Application</p>
-              <h1 className="font-heading text-5xl md:text-6xl lg:text-7xl font-black text-white leading-[1.04] tracking-tight mb-6">
+              <p className="text-[11px] text-accent-light uppercase tracking-[0.2em] font-semibold mb-4">Application</p>
+              <h1 className="font-heading text-4xl md:text-5xl lg:text-6xl font-black text-white leading-[1.04] tracking-tight mb-5">
                 {role ? (
                   <>
                     Apply:{" "}
@@ -51,7 +51,7 @@ export default async function ApplyPage({
                   </>
                 )}
               </h1>
-              <p className="text-lg text-text-light-muted leading-relaxed max-w-2xl mb-8">
+              <p className="text-base lg:text-lg text-text-light-muted leading-relaxed max-w-2xl mb-6">
                 Tell us about yourself. We read every application. Expect to hear back within 5 business days.
               </p>
               <div className="flex flex-wrap gap-x-5 gap-y-2.5 text-sm text-text-light-muted/80">

@@ -10,6 +10,11 @@ type Props = {
   className?: string;
 };
 
+function getPrefersReducedMotion(): boolean {
+  if (typeof window === "undefined") return false;
+  return window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+}
+
 export default function AnimatedCounter({
   value,
   duration = 2000,
@@ -18,16 +23,15 @@ export default function AnimatedCounter({
   className = "",
 }: Props) {
   const ref = useRef<HTMLSpanElement>(null);
-  const [count, setCount] = useState(0);
+  // Initial state honors reduced-motion synchronously to avoid the
+  // setState-in-effect anti-pattern. SSR renders 0 (matches motion path);
+  // first client render either jumps to value (reduced) or animates from 0.
+  const [count, setCount] = useState(() => (getPrefersReducedMotion() ? value : 0));
   const hasAnimated = useRef(false);
 
   useEffect(() => {
-    const prefersReduced =
-      typeof window !== "undefined" &&
-      window.matchMedia("(prefers-reduced-motion: reduce)").matches;
-
-    if (prefersReduced) {
-      setCount(value);
+    if (getPrefersReducedMotion()) {
+      hasAnimated.current = true;
       return;
     }
 

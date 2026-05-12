@@ -1,24 +1,18 @@
 "use client";
 
-import Image from "next/image";
 import Link from "next/link";
 import { motion } from "framer-motion";
-import { ArrowRight, Sparkles, Target, Users, Rocket } from "lucide-react";
+import { ArrowRight, Target, Users, Rocket } from "lucide-react";
 import ScrollReveal from "./ui/ScrollReveal";
+import SpotlightCard from "./ui/SpotlightCard";
 
-const certifications = [
-  { logo: "/logos/iso.svg", label: "ISO 9001" },
-  { logo: "/logos/iso.svg", label: "ISO 27001" },
-  { logo: "/logos/aws-partner.svg", label: "AWS Partner" },
-  { logo: "/logos/google-cloud.svg", label: "Google Cloud" },
-  { logo: "/logos/clutch.svg", label: "Clutch Top Dev" },
-  { logo: "/logos/goodfirms.svg", label: "GoodFirms" },
-];
+// `certifications` and the corresponding badge row are commented out in the
+// JSX below until formal audits complete. Re-enable both when ready.
 
 const pillars = [
-  { icon: Target, label: "Outcome-led", desc: "Scoped to measurable business impact, not vague deliverables." },
-  { icon: Users, label: "Senior-only", desc: "Every project staffed by engineers with shipped, scaled products." },
-  { icon: Rocket, label: "Velocity", desc: "Two-week sprints. Production code. No theatrics, no filler." },
+  { icon: Target, label: "Outcomes over output", desc: "Engagements are scoped to a business result, with success metrics agreed upfront. Tradeoffs are surfaced at week one, not at handover." },
+  { icon: Users, label: "End-to-end ownership", desc: "The engineer scoping the engagement is the engineer delivering it. One accountable team across discovery, build, and operations." },
+  { icon: Rocket, label: "Predictable cadence", desc: "Reviewable releases on a fixed schedule, in a live staging environment available throughout the engagement. Incremental delivery, transparent progress." },
 ];
 
 const orbitTags = [
@@ -34,12 +28,12 @@ export default function About() {
   return (
     <section
       id="about"
-      className="relative min-h-dvh flex items-center bg-dark-secondary overflow-hidden py-24 lg:py-0"
+      className="relative flex items-center bg-dark-secondary overflow-hidden py-20 lg:py-28"
     >
       {/* Ambient background */}
       <div className="absolute inset-0 pointer-events-none" aria-hidden="true">
-        <div className="absolute top-0 left-1/4 w-[600px] h-[600px] rounded-full blur-3xl opacity-[0.08]" style={{ background: "radial-gradient(circle, rgba(52,211,153,0.5) 0%, transparent 70%)" }} />
-        <div className="absolute bottom-0 right-1/4 w-[500px] h-[500px] rounded-full blur-3xl opacity-[0.06]" style={{ background: "radial-gradient(circle, rgba(12,108,54,0.6) 0%, transparent 70%)" }} />
+        <div className="absolute top-0 left-1/4 w-[600px] h-[600px] rounded-full blur-3xl opacity-[0.08]" style={{ background: "radial-gradient(circle, rgba(103,232,249,0.5) 0%, transparent 70%)" }} />
+        <div className="absolute bottom-0 right-1/4 w-[500px] h-[500px] rounded-full blur-3xl opacity-[0.06]" style={{ background: "radial-gradient(circle, rgba(6,182,212,0.6) 0%, transparent 70%)" }} />
         <div className="absolute inset-0 opacity-[0.025]" style={{ backgroundImage: "linear-gradient(rgba(255,255,255,0.8) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.8) 1px, transparent 1px)", backgroundSize: "60px 60px" }} />
       </div>
 
@@ -53,27 +47,22 @@ export default function About() {
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-16 items-center">
           {/* Left column — copy */}
           <ScrollReveal className="lg:col-span-7">
-            <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full border border-accent/25 bg-accent/5 mb-6">
-              <Sparkles size={12} className="text-accent-light" />
-              <span className="text-[11px] text-accent-light tracking-widest uppercase font-semibold">
-                About Prosys Ltd
-              </span>
-            </div>
-
             <h2 className="font-heading text-4xl md:text-5xl lg:text-6xl xl:text-[4.5rem] font-black text-white mb-6 leading-[1.02] tracking-tight">
-              Small team.{" "}
+              Engineering practice.{" "}
               <br />
-              <span className="gradient-text">Heavy output.</span>
+              <span className="gradient-text">Production focus.</span>
             </h2>
 
             <p className="text-base md:text-lg text-text-light-muted leading-relaxed mb-5 max-w-2xl">
-              PROSYS LTD is a software development studio built by engineers who&apos;ve
-              shipped products that scale. We&apos;re lean, senior-only, and unreasonably
-              focused — delivering enterprise-grade software at startup speed.
+              PROSYS LTD is an engineering practice. The team scoping your engagement is
+              the team delivering it — one accountable group from discovery through
+              operations, without the relay layers and diluted ownership of larger firms.
             </p>
             <p className="text-sm md:text-base text-text-light-muted/80 leading-relaxed mb-8 max-w-2xl">
-              From AI-powered platforms to SaaS products and growth systems, we own the
-              full lifecycle: strategy, design, engineering, deployment, and iteration.
+              The practice operates across strategy, design, engineering, and post-launch
+              operations — including the operational responsibilities most providers segment
+              or decline to own. AI systems, SaaS platforms, regulated workloads, all under
+              one delivery standard.
             </p>
 
             {/* Three pillars */}
@@ -81,21 +70,23 @@ export default function About() {
               {pillars.map((p) => {
                 const Icon = p.icon;
                 return (
-                  <div
+                  <SpotlightCard
                     key={p.label}
-                    className="group p-4 rounded-lg bg-card-dark/50 border border-card-dark-border hover:border-accent/40 transition-colors"
+                    variant="dark"
+                    className="group p-4 bg-card-dark/50 border border-card-dark-border hover:border-accent/40 transition-colors"
                   >
                     <div className="w-9 h-9 rounded-md bg-accent/10 border border-accent/20 flex items-center justify-center text-accent-light mb-3 group-hover:bg-accent group-hover:text-white transition-colors">
                       <Icon size={15} />
                     </div>
                     <div className="font-heading text-sm font-bold text-white mb-1">{p.label}</div>
                     <div className="text-[11px] text-text-light-muted/80 leading-snug">{p.desc}</div>
-                  </div>
+                  </SpotlightCard>
                 );
               })}
             </div>
 
-            {/* Certifications row */}
+            {/* Certifications row — hidden until full audits are complete */}
+            {/*
             <div className="pt-6 border-t border-card-dark-border mb-8">
               <div className="flex flex-wrap items-center gap-2 mb-3">
                 <span className="text-[10px] text-white/40 uppercase tracking-widest font-semibold mr-2">Aligned With</span>
@@ -113,6 +104,7 @@ export default function About() {
                 Our processes are aligned to these standards and partner programs. Full certification audits are in progress &mdash; references and audit documentation available on request.
               </p>
             </div>
+            */}
 
             {/* CTAs */}
             <div className="flex flex-wrap items-center gap-3">
@@ -143,8 +135,8 @@ export default function About() {
 
               {/* Center emblem */}
               <div className="absolute inset-0 flex items-center justify-center">
-                <div className="w-40 h-40 rounded-2xl gradient-bg rotate-45 opacity-20 blur-xl" />
-                <div className="absolute w-28 h-28 lg:w-32 lg:h-32 rounded-xl gradient-bg rotate-45 flex items-center justify-center shadow-[0_0_60px_rgba(52,211,153,0.35)]">
+                <div className="w-40 h-40 gradient-bg rotate-45 opacity-20 blur-xl" />
+                <div className="absolute w-28 h-28 lg:w-32 lg:h-32 gradient-bg rotate-45 flex items-center justify-center shadow-[0_0_60px_rgba(103,232,249,0.35)]">
                   <div className="-rotate-45 text-center">
                     <div className="font-heading text-3xl font-black text-white leading-none tracking-tighter">PRO</div>
                     <div className="text-[9px] text-white/80 uppercase tracking-[0.3em] mt-1 font-semibold">Sys</div>
@@ -153,7 +145,7 @@ export default function About() {
               </div>
 
               {/* Orbital dots */}
-              <motion.div className="absolute top-[22%] right-[18%] w-2.5 h-2.5 rounded-full bg-accent shadow-[0_0_12px_rgba(52,211,153,0.8)]" animate={{ y: [0, -8, 0] }} transition={{ duration: 3, repeat: Infinity }} />
+              <motion.div className="absolute top-[22%] right-[18%] w-2.5 h-2.5 rounded-full bg-accent shadow-[0_0_12px_rgba(103,232,249,0.8)]" animate={{ y: [0, -8, 0] }} transition={{ duration: 3, repeat: Infinity }} />
               <motion.div className="absolute bottom-[26%] left-[18%] w-2 h-2 rounded-full bg-cyan-400 shadow-[0_0_10px_rgba(34,211,238,0.7)]" animate={{ y: [0, 8, 0] }} transition={{ duration: 2.5, repeat: Infinity, delay: 0.5 }} />
 
               {/* Orbit tags */}

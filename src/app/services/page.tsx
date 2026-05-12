@@ -18,12 +18,13 @@ import Footer from "@/components/Footer";
 import ScrollReveal from "@/components/ui/ScrollReveal";
 import PageHero from "@/components/ui/PageHero";
 import Capabilities from "@/components/Capabilities";
+import { ServiceItemListSchema } from "@/components/StructuredData";
 import { servicesData } from "@/lib/services-data";
 
 export const metadata: Metadata = {
   title: "All Services — Product Engineering, AI, Cloud & Growth",
   description:
-    "Explore PROSYS LTD's four service pillars: Product Engineering, AI & Automation, Cloud & Platform, and Growth & Marketing. 29 deep capabilities, one delivery standard.",
+    "Explore PROSYS LTD's four service pillars: Product Engineering, AI & Automation, Cloud & Infrastructure, and Growth & Marketing. 14 services, one delivery standard.",
   alternates: { canonical: "/services" },
   openGraph: {
     title: "Services — PROSYS LTD",
@@ -57,29 +58,26 @@ const pillars: {
   {
     number: "01",
     title: "Product Engineering",
-    tagline: "Ship production-ready software",
+    tagline: "Engineered for production",
     description:
-      "Web, SaaS, and custom platforms engineered to scale — built by senior teams with delivery-first discipline.",
+      "Web, SaaS, and custom platforms engineered for scale, operability, and end-to-end accountability.",
     icon: Code2,
     image: "/images/service-digital.jpg",
     accent: "emerald",
     slugs: [
       "web-development",
-      "software-development",
-      "saas-development",
       "mvp-development",
-      "business-applications",
-      "digital-commerce",
-      "digital-consulting",
+      "saas-development",
+      "software-development",
     ],
     proof: [
-      { value: "40+", label: "Products Shipped" },
-      { value: "<1s", label: "Median Load" },
-      { value: "4–8w", label: "MVP Window" },
+      { value: "40+", label: "Production releases" },
+      { value: "<1s", label: "Median load" },
+      { value: "6–12w", label: "Time to production" },
     ],
     outcomes: [
-      "Investor-ready MVPs in 4–8 weeks",
-      "SOC 2-aligned SaaS platforms",
+      "First production release in 6–12 weeks",
+      "Built to SOC 2 Type II control objectives",
       "Legacy modernization without downtime",
     ],
   },
@@ -94,13 +92,8 @@ const pillars: {
     accent: "cyan",
     slugs: [
       "ai-development",
-      "generative-ai",
       "ai-automations",
-      "advanced-analytics",
-      "data-modernization",
-      "connected-intelligence",
-      "data-management",
-      "emerging-technologies",
+      "generative-ai",
     ],
     proof: [
       { value: "80%", label: "Avg. Time Saved" },
@@ -115,19 +108,17 @@ const pillars: {
   },
   {
     number: "03",
-    title: "Cloud & Platform",
+    title: "Cloud & Infrastructure",
     tagline: "Infrastructure that scales",
     description:
-      "Cloud-native architecture, migrations, and managed operations on AWS, GCP, and Azure with SRE discipline.",
+      "AWS and GCP infrastructure that holds up to a 10x traffic spike at 2 a.m. — because the on-call engineer will be us, not you.",
     icon: Cloud,
     image: "/images/service-cloud.jpg",
     accent: "violet",
     slugs: [
       "cloud-operations",
-      "cloud-app-development",
       "managed-services",
       "security",
-      "digital-infrastructure",
     ],
     proof: [
       { value: "99.95%", label: "Uptime Achieved" },
@@ -136,7 +127,7 @@ const pillars: {
     ],
     outcomes: [
       "Zero-downtime cloud migrations",
-      "SOC 2-aligned infrastructure",
+      "Defense-in-depth infrastructure architecture",
       "24/7 observability & incident response",
     ],
   },
@@ -154,11 +145,6 @@ const pillars: {
       "aieo",
       "digital-marketing",
       "graphics-branding",
-      "contact-center",
-      "finance-accounting",
-      "staff-augmentation",
-      "legal-process-outsourcing",
-      "recruitment-outsourcing",
     ],
     proof: [
       { value: "3–5×", label: "Organic Lift" },
@@ -182,8 +168,8 @@ const accentDark: Record<
     glow: "from-emerald-500/25 via-emerald-500/5 to-transparent",
     bg: "bg-emerald-500/10",
     border: "border-emerald-500/30",
-    ring: "shadow-[0_0_40px_rgba(52,211,153,0.25)]",
-    hex: "rgba(52,211,153",
+    ring: "shadow-[0_0_40px_rgba(103,232,249,0.25)]",
+    hex: "rgba(103,232,249",
   },
   cyan: {
     text: "text-cyan-300",
@@ -250,17 +236,17 @@ const accentLight: Record<
 };
 
 const proofPoints = [
-  { value: "29", label: "Capabilities" },
+  { value: "14", label: "Services" },
   { value: "4", label: "Pillars" },
-  { value: "50+", label: "Projects" },
-  { value: "12+", label: "Countries" },
+  { value: "50+", label: "Engagements delivered" },
+  { value: "5", label: "Industry verticals" },
 ];
 
 const engagementSteps = [
   {
     num: "01",
     title: "Discovery call",
-    desc: "30-minute consult with a senior engineer. We diagnose the problem, not sell a service.",
+    desc: "30-minute working session with the engagement lead. Diagnostic-first — no service pitch.",
   },
   {
     num: "02",
@@ -315,6 +301,7 @@ const problemMatches = [
 export default function ServicesPage() {
   return (
     <>
+      <ServiceItemListSchema />
       <Navbar />
       <main id="main-content">
         {/* ═══════════ DARK · Hero ═══════════ */}
@@ -322,22 +309,22 @@ export default function ServicesPage() {
           badge="Capabilities"
           title="Four pillars."
           highlight="One delivery standard."
-          description="From strategy and product engineering to AI, cloud, and growth — PROSYS delivers 29 deep capabilities under a single delivery discipline."
+          description="From product engineering to AI, cloud, and growth — 14 services, four pillars, one delivery standard."
           bgImage="/images/services-hero.jpg"
           bgImageOpacity={0.3}
           trustSignals={[
-            "Senior engineers only",
+            "Engagement lead, named",
             "Fixed-scope, fixed-price",
-            "SOC 2-aligned",
+            "Built to SOC 2 control objectives",
             "24-hour response SLA",
           ]}
-          primaryCta={{ label: "Book a consultation", href: "/contact" }}
-          secondaryCta={{ label: "Explore all 29", href: "#pillars" }}
+          primaryCta={{ label: "Request a Discovery Call", href: "/contact" }}
+          secondaryCta={{ label: "Explore all 14 services", href: "#pillars" }}
           stats={proofPoints.map((p) => ({ value: p.value, label: p.label }))}
         />
 
         {/* ═══════════ LIGHT · Pillar Overview ═══════════ */}
-        <section className="relative py-20 lg:py-24 bg-light-primary border-b border-card-light-border">
+        <section className="relative py-14 lg:py-20 bg-light-primary border-b border-card-light-border">
           <div className="max-w-[1400px] mx-auto px-6 lg:px-12">
             {/* Editorial rail */}
             <div className="flex items-center gap-3 mb-6">
@@ -388,10 +375,10 @@ export default function ServicesPage() {
                   <ScrollReveal key={p.number} delay={i * 0.08}>
                     <a
                       href={`#pillar-${p.number}`}
-                      className="group relative block h-full rounded-xl border border-card-light-border bg-white overflow-hidden hover:border-text-dark/15 hover:shadow-xl hover:-translate-y-0.5 transition-all duration-500"
+                      className="group relative block h-full border border-card-light-border bg-white overflow-hidden hover:border-text-dark/15 hover:shadow-xl hover:-translate-y-0.5 transition-all duration-500"
                     >
                       <div
-                        className={`absolute -inset-1 rounded-2xl bg-gradient-to-br ${a.glow} opacity-0 group-hover:opacity-100 blur-2xl transition-opacity duration-700 pointer-events-none`}
+                        className={`absolute -inset-1 bg-gradient-to-br ${a.glow} opacity-0 group-hover:opacity-100 blur-2xl transition-opacity duration-700 pointer-events-none`}
                         aria-hidden="true"
                       />
 
@@ -407,7 +394,7 @@ export default function ServicesPage() {
                         </div>
 
                         <div className="flex items-start gap-4 mb-4">
-                          <div className={`relative w-12 h-12 rounded-lg ${a.bg} border ${a.border} flex items-center justify-center flex-shrink-0 group-hover:scale-110 transition-transform duration-500`}>
+                          <div className={`relative w-12 h-12 ${a.bg} border ${a.border} flex items-center justify-center flex-shrink-0 group-hover:scale-110 transition-transform duration-500`}>
                             <Icon size={20} className={a.text} strokeWidth={1.8} />
                           </div>
                           <div>
@@ -485,11 +472,7 @@ export default function ServicesPage() {
               <section
                 key={pillar.number}
                 id={`pillar-${pillar.number}`}
-                className={`relative scroll-mt-24 py-20 lg:py-24 overflow-hidden border-b ${
-                  isDark
-                    ? "bg-dark-primary grain-overlay border-card-dark-border"
-                    : "bg-light-primary border-card-light-border"
-                }`}
+                className={`relative scroll-mt-24 py-20 lg:py-24 overflow-hidden border-b ${ isDark ? "bg-dark-primary grain-overlay border-card-dark-border" : "bg-light-primary border-card-light-border" }`}
               >
                 {/* Ambient glow — green on dark, pillar-accent on light */}
                 {isDark && (
@@ -497,7 +480,7 @@ export default function ServicesPage() {
                     <div
                       className="absolute inset-0 pointer-events-none opacity-60"
                       style={{
-                        background: `radial-gradient(ellipse 900px 500px at 75% 10%, rgba(12,108,54,0.18) 0%, transparent 60%)`,
+                        background: `radial-gradient(ellipse 900px 500px at 75% 10%, rgba(6,182,212,0.18) 0%, transparent 60%)`,
                       }}
                       aria-hidden="true"
                     />
@@ -536,7 +519,7 @@ export default function ServicesPage() {
                       <div className="lg:col-span-8">
                         <div className="flex items-start gap-5 md:gap-7 mb-6">
                           <div
-                            className={`relative w-16 h-16 lg:w-[72px] lg:h-[72px] rounded-xl ${a.bg} border ${a.border} ${a.ring} flex items-center justify-center flex-shrink-0`}
+                            className={`relative w-16 h-16 lg:w-[72px] lg:h-[72px] ${a.bg} border ${a.border} ${a.ring} flex items-center justify-center flex-shrink-0`}
                           >
                             <Icon size={28} className={a.text} strokeWidth={1.6} />
                           </div>
@@ -545,9 +528,7 @@ export default function ServicesPage() {
                               {pillar.tagline}
                             </p>
                             <h2
-                              className={`font-heading text-4xl md:text-5xl lg:text-6xl xl:text-[4.25rem] font-black leading-[1.02] tracking-tight ${
-                                isDark ? "text-white" : "text-text-dark"
-                              }`}
+                              className={`font-heading text-4xl md:text-5xl lg:text-6xl xl:text-[4.25rem] font-black leading-[1.02] tracking-tight ${ isDark ? "text-white" : "text-text-dark" }`}
                             >
                               {pillar.title}
                             </h2>
@@ -555,9 +536,7 @@ export default function ServicesPage() {
                         </div>
 
                         <p
-                          className={`text-base md:text-lg leading-relaxed max-w-2xl ${
-                            isDark ? "text-text-light-muted" : "text-text-dark-muted"
-                          }`}
+                          className={`text-base md:text-lg leading-relaxed max-w-2xl ${ isDark ? "text-text-light-muted" : "text-text-dark-muted" }`}
                         >
                           {pillar.description}
                         </p>
@@ -566,9 +545,7 @@ export default function ServicesPage() {
                       <div className="lg:col-span-4 flex flex-col gap-4">
                         {/* Cinematic image */}
                         <div
-                          className={`relative h-44 lg:h-48 overflow-hidden rounded-xl border ${
-                            isDark ? "border-card-dark-border" : "border-card-light-border"
-                          }`}
+                          className={`relative h-44 lg:h-48 overflow-hidden border ${ isDark ? "border-card-dark-border" : "border-card-light-border" }`}
                         >
                           <Image
                             src={pillar.image}
@@ -578,25 +555,17 @@ export default function ServicesPage() {
                             sizes="(min-width: 1024px) 33vw, 100vw"
                           />
                           <div
-                            className={`absolute inset-0 ${
-                              isDark
-                                ? "bg-gradient-to-t from-dark-primary via-dark-primary/50 to-dark-primary/10"
-                                : "bg-gradient-to-t from-white/95 via-white/40 to-transparent"
-                            }`}
+                            className={`absolute inset-0 ${ isDark ? "bg-gradient-to-t from-dark-primary via-dark-primary/50 to-dark-primary/10" : "bg-gradient-to-t from-white/95 via-white/40 to-transparent" }`}
                           />
                           <div className="absolute bottom-4 left-5 right-5">
                             <p
-                              className={`font-heading text-3xl font-black leading-tight tracking-tight ${
-                                isDark ? "text-white" : "text-text-dark"
-                              }`}
+                              className={`font-heading text-3xl font-black leading-tight tracking-tight ${ isDark ? "text-white" : "text-text-dark" }`}
                             >
                               {services.length}
                               <span className="text-lg ml-1 font-bold">capabilities</span>
                             </p>
                             <p
-                              className={`text-[11px] uppercase tracking-widest font-semibold mt-0.5 ${
-                                isDark ? "text-white/50" : "text-text-dark-muted"
-                              }`}
+                              className={`text-[11px] uppercase tracking-widest font-semibold mt-0.5 ${ isDark ? "text-white/50" : "text-text-dark-muted" }`}
                             >
                               Under this pillar
                             </p>
@@ -605,11 +574,7 @@ export default function ServicesPage() {
 
                         {/* Proof stats */}
                         <div
-                          className={`grid grid-cols-3 gap-px rounded-lg overflow-hidden border ${
-                            isDark
-                              ? "bg-card-dark-border border-card-dark-border"
-                              : "bg-card-light-border border-card-light-border"
-                          }`}
+                          className={`grid grid-cols-3 gap-px overflow-hidden border ${ isDark ? "bg-card-dark-border border-card-dark-border" : "bg-card-light-border border-card-light-border" }`}
                         >
                           {pillar.proof.map((pp) => (
                             <div
@@ -617,16 +582,12 @@ export default function ServicesPage() {
                               className={`p-3.5 ${isDark ? "bg-card-dark/60" : "bg-white"}`}
                             >
                               <div
-                                className={`font-heading text-xl font-black leading-none mb-1 tracking-tight ${
-                                  isDark ? "text-white" : "text-text-dark"
-                                }`}
+                                className={`font-heading text-xl font-black leading-none mb-1 tracking-tight ${ isDark ? "text-white" : "text-text-dark" }`}
                               >
                                 {pp.value}
                               </div>
                               <div
-                                className={`text-[9px] uppercase tracking-[0.15em] font-semibold leading-tight ${
-                                  isDark ? "text-white/45" : "text-text-dark-muted/70"
-                                }`}
+                                className={`text-[9px] uppercase tracking-[0.15em] font-semibold leading-tight ${ isDark ? "text-white/45" : "text-text-dark-muted/70" }`}
                               >
                                 {pp.label}
                               </div>
@@ -643,11 +604,7 @@ export default function ServicesPage() {
                       <ScrollReveal key={s.slug} delay={i * 0.04}>
                         <Link
                           href={`/services/${s.slug}`}
-                          className={`group relative flex flex-col h-full p-6 lg:p-7 rounded-xl border overflow-hidden transition-all duration-300 ${
-                            isDark
-                              ? "bg-card-dark border-card-dark-border hover:bg-dark-secondary hover:border-white/20"
-                              : "bg-white border-card-light-border hover:border-text-dark/15 hover:shadow-lg hover:-translate-y-0.5"
-                          }`}
+                          className={`group relative flex flex-col h-full p-6 lg:p-7 border overflow-hidden transition-all duration-300 ${ isDark ? "bg-card-dark border-card-dark-border hover:bg-dark-secondary hover:border-white/20" : "bg-white border-card-light-border hover:border-text-dark/15 hover:shadow-lg hover:-translate-y-0.5" }`}
                         >
                           <span
                             className={`absolute top-0 left-0 h-[2px] w-0 bg-gradient-to-r from-current to-transparent ${a.text} group-hover:w-full transition-all duration-700`}
@@ -659,23 +616,17 @@ export default function ServicesPage() {
                             </span>
                             <ArrowUpRight
                               size={16}
-                              className={`${
-                                isDark ? "text-white/25 group-hover:text-white" : "text-text-dark-muted/40 group-hover:text-text-dark"
-                              } group-hover:-translate-y-0.5 group-hover:translate-x-0.5 transition-all duration-300`}
+                              className={`${ isDark ? "text-white/25 group-hover:text-white" : "text-text-dark-muted/40 group-hover:text-text-dark" } group-hover:-translate-y-0.5 group-hover:translate-x-0.5 transition-all duration-300`}
                             />
                           </div>
 
                           <h3
-                            className={`font-heading text-lg lg:text-xl font-bold mb-2 leading-tight tracking-tight ${
-                              isDark ? "text-white" : "text-text-dark"
-                            }`}
+                            className={`font-heading text-lg lg:text-xl font-bold mb-2 leading-tight tracking-tight ${ isDark ? "text-white" : "text-text-dark" }`}
                           >
                             {s.title}
                           </h3>
                           <p
-                            className={`text-sm leading-relaxed mb-5 ${
-                              isDark ? "text-text-light-muted" : "text-text-dark-muted"
-                            }`}
+                            className={`text-sm leading-relaxed mb-5 ${ isDark ? "text-text-light-muted" : "text-text-dark-muted" }`}
                           >
                             {s.tagline}
                           </p>
@@ -684,11 +635,7 @@ export default function ServicesPage() {
                             {s.techStack.slice(0, 3).map((t) => (
                               <span
                                 key={t}
-                                className={`px-2 py-0.5 text-[10px] font-medium rounded-md border ${
-                                  isDark
-                                    ? "border-card-dark-border bg-dark-primary/60 text-white/60"
-                                    : "border-card-light-border bg-light-primary text-text-dark-muted"
-                                }`}
+                                className={`px-2 py-0.5 text-[10px] font-medium rounded-md border ${ isDark ? "border-card-dark-border bg-dark-primary/60 text-white/60" : "border-card-light-border bg-light-primary text-text-dark-muted" }`}
                               >
                                 {t}
                               </span>
@@ -696,9 +643,7 @@ export default function ServicesPage() {
                           </div>
 
                           <div
-                            className={`mt-auto pt-4 flex items-center justify-between border-t ${
-                              isDark ? "border-white/10" : "border-card-light-border"
-                            }`}
+                            className={`mt-auto pt-4 flex items-center justify-between border-t ${ isDark ? "border-white/10" : "border-card-light-border" }`}
                           >
                             <span className={`text-[11px] ${a.text} font-semibold uppercase tracking-widest`}>
                               View details
@@ -716,14 +661,14 @@ export default function ServicesPage() {
                     <ScrollReveal delay={services.length * 0.04}>
                       <Link
                         href="/contact"
-                        className={`group relative flex flex-col h-full p-6 lg:p-7 rounded-xl border overflow-hidden transition-all duration-300 ${
+                        className={`group relative flex flex-col h-full p-6 lg:p-7 border overflow-hidden transition-all duration-300 ${
                           isDark
                             ? `${a.bg} ${a.border} hover:bg-card-dark hover:border-white/20`
                             : `${a.bg} ${a.border} hover:bg-white hover:shadow-lg hover:-translate-y-0.5`
                         }`}
                       >
                         <div
-                          className={`absolute -inset-1 rounded-2xl bg-gradient-to-br ${a.glow} opacity-70 group-hover:opacity-100 blur-2xl transition-opacity duration-700 pointer-events-none`}
+                          className={`absolute -inset-1 bg-gradient-to-br ${a.glow} opacity-70 group-hover:opacity-100 blur-2xl transition-opacity duration-700 pointer-events-none`}
                           aria-hidden="true"
                         />
 
@@ -733,9 +678,7 @@ export default function ServicesPage() {
                               TALK TO US
                             </span>
                             <div
-                              className={`w-8 h-8 rounded-md flex items-center justify-center ${
-                                isDark ? "bg-white/5 border border-white/10" : "bg-white border border-card-light-border"
-                              } group-hover:bg-accent group-hover:border-accent transition-all duration-300`}
+                              className={`w-8 h-8 rounded-md flex items-center justify-center ${ isDark ? "bg-white/5 border border-white/10" : "bg-white border border-card-light-border" } group-hover:bg-accent group-hover:border-accent transition-all duration-300`}
                             >
                               <ArrowUpRight
                                 size={14}
@@ -744,31 +687,24 @@ export default function ServicesPage() {
                             </div>
                           </div>
 
-                          <div className="relative w-12 h-12 rounded-lg bg-white/10 border border-white/10 flex items-center justify-center mb-5 backdrop-blur-sm">
+                          <div className="relative w-12 h-12 bg-white/10 border border-white/10 flex items-center justify-center mb-5 backdrop-blur-sm">
                             <Sparkles size={18} className={a.text} />
                           </div>
 
                           <h3
-                            className={`font-heading text-lg lg:text-xl font-bold mb-2 leading-tight tracking-tight ${
-                              isDark ? "text-white" : "text-text-dark"
-                            }`}
+                            className={`font-heading text-lg lg:text-xl font-bold mb-2 leading-tight tracking-tight ${ isDark ? "text-white" : "text-text-dark" }`}
                           >
                             Not sure where to start?
                           </h3>
                           <p
-                            className={`text-sm leading-relaxed mb-5 ${
-                              isDark ? "text-text-light-muted" : "text-text-dark-muted"
-                            }`}
+                            className={`text-sm leading-relaxed mb-5 ${ isDark ? "text-text-light-muted" : "text-text-dark-muted" }`}
                           >
-                            Free 30-minute consult with a senior engineer on the{" "}
-                            <span className={`font-semibold ${a.text}`}>{pillar.title}</span> team.
-                            We&apos;ll scope the problem, not sell a service.
+                            30-minute working session with the{" "}
+                            <span className={`font-semibold ${a.text}`}>{pillar.title}</span> engagement lead. Diagnostic-first — no service pitch, no obligation.
                           </p>
 
                           <div
-                            className={`mt-auto pt-4 flex items-center justify-between border-t ${
-                              isDark ? "border-white/10" : "border-card-light-border/80"
-                            }`}
+                            className={`mt-auto pt-4 flex items-center justify-between border-t ${ isDark ? "border-white/10" : "border-card-light-border/80" }`}
                           >
                             <span className={`text-[11px] ${a.text} font-semibold uppercase tracking-widest`}>
                               Book a call
@@ -789,12 +725,12 @@ export default function ServicesPage() {
         </div>
 
         {/* ═══════════ LIGHT · Engagement Model ═══════════ */}
-        <section className="relative py-24 lg:py-28 bg-light-primary overflow-hidden">
+        <section className="relative py-14 lg:py-20 bg-light-primary overflow-hidden">
           <div
             className="absolute inset-0 pointer-events-none opacity-40"
             style={{
               background:
-                "radial-gradient(ellipse 1200px 600px at 50% 0%, rgba(12,108,54,0.08) 0%, transparent 60%)",
+                "radial-gradient(ellipse 1200px 600px at 50% 0%, rgba(6,182,212,0.08) 0%, transparent 60%)",
             }}
             aria-hidden="true"
           />
@@ -809,20 +745,12 @@ export default function ServicesPage() {
 
             <ScrollReveal>
               <div className="max-w-4xl mb-14 lg:mb-16">
-                <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full border border-accent/25 bg-accent/5 mb-5">
-                  <Sparkles size={12} className="text-accent" />
-                  <span className="text-[11px] text-accent tracking-widest uppercase font-semibold">
-                    How it works
-                  </span>
-                </div>
                 <h2 className="font-heading text-4xl md:text-5xl lg:text-[3.5rem] xl:text-6xl font-black text-text-dark leading-[1.02] tracking-tight mb-5">
                   Transparent process.{" "}
                   <span className="gradient-text">No black boxes.</span>
                 </h2>
                 <p className="text-base md:text-lg text-text-dark-muted leading-relaxed max-w-2xl">
-                  Six clear stages, reviewable work at every sprint, and a senior
-                  engineer as your single point of contact — from first call to
-                  post-launch growth.
+                  Six defined stages, reviewable deliverables at every iteration, and a named engagement lead as your single point of accountability — from first call through post-launch operations.
                 </p>
               </div>
             </ScrollReveal>
@@ -837,7 +765,7 @@ export default function ServicesPage() {
               <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-3 lg:gap-4">
                 {engagementSteps.map((s, i) => (
                   <ScrollReveal key={s.num} delay={i * 0.06}>
-                    <div className="group relative h-full bg-white border border-card-light-border rounded-xl p-5 hover:border-accent/30 hover:shadow-md transition-all duration-300">
+                    <div className="group relative h-full bg-white border border-card-light-border p-5 hover:border-accent/30 hover:shadow-md transition-all duration-300">
                       <div className="flex items-center justify-between mb-4">
                         <div className="relative w-10 h-10 rounded-full bg-white border border-accent/30 flex items-center justify-center font-mono text-[11px] font-bold text-accent shadow-sm">
                           {s.num}
@@ -860,11 +788,11 @@ export default function ServicesPage() {
 
             {/* Problem match block */}
             <ScrollReveal>
-              <div className="relative rounded-xl border border-card-light-border bg-white overflow-hidden shadow-sm">
+              <div className="relative border border-card-light-border bg-white overflow-hidden shadow-sm">
                 <div
                   className="absolute top-0 right-0 w-[500px] h-[500px] rounded-full blur-3xl opacity-20 pointer-events-none"
                   style={{
-                    background: "radial-gradient(circle, rgba(12,108,54,0.25) 0%, transparent 70%)",
+                    background: "radial-gradient(circle, rgba(6,182,212,0.25) 0%, transparent 70%)",
                   }}
                   aria-hidden="true"
                 />
@@ -879,8 +807,7 @@ export default function ServicesPage() {
                       <span className="gradient-text">We&apos;ll pick the stack.</span>
                     </h3>
                     <p className="text-text-dark-muted text-sm md:text-base leading-relaxed mb-7">
-                      Senior engineers review every inbound. We diagnose before we
-                      prescribe — and we&apos;ll tell you if you don&apos;t need us.
+                      Engagement leads review every inbound. The diagnosis comes before the prescription — and includes an honest assessment of whether your problem requires us at all.
                     </p>
                     <div className="flex flex-col sm:flex-row gap-3">
                       <Link
@@ -909,7 +836,7 @@ export default function ServicesPage() {
                         return (
                           <div
                             key={item.label}
-                            className="group flex items-start gap-4 bg-white border border-card-light-border rounded-xl p-5 hover:border-accent/30 hover:shadow-md transition-all duration-300"
+                            className="group flex items-start gap-4 bg-white border border-card-light-border p-5 hover:border-accent/30 hover:shadow-md transition-all duration-300"
                           >
                             <div className="w-10 h-10 rounded-md bg-accent/10 border border-accent/20 text-accent flex items-center justify-center flex-shrink-0 group-hover:bg-accent group-hover:text-white group-hover:border-accent transition-all duration-300">
                               <ItemIcon size={16} />
