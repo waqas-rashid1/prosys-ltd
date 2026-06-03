@@ -71,7 +71,7 @@ const industries: Industry[] = [
     description: "Secure knowledge and document-review systems with permission-aware retrieval and citations — so teams find and use trusted information without exposing privileged data.",
     metric: { value: "Permission-aware", label: "Cited, secure knowledge & review" },
     tags: ["Knowledge", "Doc review", "Citations", "Secure"],
-    image: "/images/service-data.jpg",
+    image: "/images/case-web.jpg",
   },
 ];
 

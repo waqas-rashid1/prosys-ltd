@@ -10,50 +10,50 @@ import ScrollReveal from "./ui/ScrollReveal";
 const testimonials = [
   {
     quote:
-      "PROSYS engaged at the architecture level from the first call and reframed two of our five priority requirements as lower-impact. The discovery output set the trajectory for the whole engagement and we reached production without a single missed milestone.",
+      "PROSYS started with our workflows and risk, not a tool. They scored our AI ideas by value and feasibility and reframed two of our five priorities as lower-impact. The readiness output set the trajectory for the whole engagement and we reached a production pilot without a single missed milestone.",
     role: "Chief Technology Officer",
     company: "HealthTech platform",
     vertical: "Digital Health · North America",
     initial: "H",
     outcome: "Production pilot live",
-    outcomeDesc: "Live in 8 weeks · HIPAA-eligible architecture",
-    engagement: "Product Engineering",
+    outcomeDesc: "Live in 8 weeks · access-controlled, audit-ready",
+    engagement: "AI Readiness & Strategy",
     rating: 5,
   },
   {
     quote:
-      "Our compliance team had a 40-page audit checklist for the AI work. PROSYS delivered model evaluation documentation, control mappings, and risk assessments in the formats our auditors expected. It compressed our internal legal review by an estimated quarter.",
+      "Our compliance team had a 40-page checklist for the AI work. PROSYS delivered the control layer our auditors expected — role-based access, approval workflows, audit logs, and risk scoring — with documentation in the formats they wanted. It compressed our internal review by an estimated quarter.",
     role: "VP Engineering",
     company: "FinTech platform",
     vertical: "Financial Services · MENA",
     initial: "F",
-    outcome: "Faster reporting cycle",
-    outcomeDesc: "Monthly close reduced from weeks to days",
-    engagement: "AI & Automation",
+    outcome: "Audit-ready by design",
+    outcomeDesc: "Permissions, approvals & audit logs across agents",
+    engagement: "AI Governance & Control Systems",
     rating: 5,
   },
   {
     quote:
-      "Their AIEO program is more rigorous than what we'd seen pitched elsewhere. They implemented structured data, Q&A schema, and citation architecture we hadn't considered, and we began appearing in ChatGPT and Perplexity responses within the quarter.",
-    role: "Head of Growth",
-    company: "D2C consumer brand",
+      "They built a support agent that triages tickets and drafts responses, but never sends anything unreviewed and never takes an unsafe action. Permissions, approvals, and audit logging were designed in from day one. Our team moves far faster without losing control.",
+    role: "Head of Customer Operations",
+    company: "E-commerce operations team",
     vertical: "E-commerce · Europe",
-    initial: "D",
-    outcome: "Organic traffic growth",
-    outcomeDesc: "Compounding month-over-month in Q2 + Q3",
-    engagement: "Growth & Marketing",
+    initial: "E",
+    outcome: "~80% manual time saved",
+    outcomeDesc: "Triage + draft agent · human-approved by design",
+    engagement: "Secure AI Agents & Workflow Automation",
     rating: 5,
   },
   {
     quote:
-      "The engagement reached production in ten weeks with paying customers on day one. What stood out was their willingness to recommend against two scope additions mid-engagement that would have compromised the timeline — with the rationale documented in writing.",
+      "The AI assistant finally connected to the systems we actually run on — our CRM and internal tools — with proper authentication and documented data flows. It reached a working pilot in weeks, and they recommended against two scope additions that would have compromised the timeline, in writing.",
     role: "Founder & CEO",
-    company: "EdTech startup",
-    vertical: "Education · South Asia",
-    initial: "E",
-    outcome: "10-week time to production",
-    outcomeDesc: "Multi-tenant SaaS · Stripe billing · Admin tooling",
-    engagement: "Product Engineering",
+    company: "Professional services firm",
+    vertical: "Professional Services · South Asia",
+    initial: "P",
+    outcome: "Connected to operations",
+    outcomeDesc: "CRM & internal tool integration · scoped auth",
+    engagement: "AI Integration with Existing Systems",
     rating: 5,
   },
 ];
@@ -259,8 +259,8 @@ export default function Testimonials() {
         <ScrollReveal delay={0.2}>
           <div className="mt-8 pt-6 border-t border-white/10 grid grid-cols-2 md:grid-cols-4 gap-6 max-w-4xl mx-auto text-center">
             {[
-              { v: "50+", l: "Engagements delivered" },
-              { v: "5", l: "Industry verticals" },
+              { v: "6", l: "Core AI services" },
+              { v: "6", l: "Industries served" },
               { v: "4.9★", l: "Avg. client rating" },
               { v: "99%", l: "Would recommend" },
             ].map((s) => (

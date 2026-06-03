@@ -7,7 +7,20 @@ import ScrollReveal from "./ui/ScrollReveal";
 import SpotlightCard from "./ui/SpotlightCard";
 
 export default function Insights() {
-  const featured = blogPosts.slice(0, 3);
+  // Surface the most on-brand AI deployment articles first, then backfill
+  // with the next available posts so the section always renders three cards.
+  const preferredSlugs = [
+    "why-every-startup-needs-ai-strategy-2026",
+    "building-ai-agents-production",
+    "mvp-to-scale-architecture-decisions",
+  ];
+  const preferred = preferredSlugs
+    .map((slug) => blogPosts.find((p) => p.slug === slug))
+    .filter((p): p is (typeof blogPosts)[number] => Boolean(p));
+  const featured = [
+    ...preferred,
+    ...blogPosts.filter((p) => !preferredSlugs.includes(p.slug)),
+  ].slice(0, 3);
 
   return (
     <section id="insights" className="py-14 lg:py-20 bg-light-primary">
@@ -23,7 +36,7 @@ export default function Insights() {
                 <span className="gradient-text">delivered engagements.</span>
               </h2>
               <p className="text-base md:text-lg text-text-dark-muted leading-relaxed">
-                Architecture decisions, AI patterns, and growth playbooks — written by the engineers actually doing the work.
+                Safe AI deployment lessons, agent and governance patterns, and what works in production — written by the engineers actually doing the work.
               </p>
             </div>
             <Link

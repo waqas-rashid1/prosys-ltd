@@ -84,7 +84,7 @@ export const heroProofPoints = [
 export const caseStudies = [
   {
     slug: "ai-analytics-saas-fintech",
-    category: "SaaS Platform",
+    category: "AI Analytics",
     title: "AI-Powered Analytics Dashboard",
     client: "Series A FinTech",
     clientRegion: "United States",
@@ -105,7 +105,7 @@ export const caseStudies = [
   },
   {
     slug: "healthtech-patient-portal-mvp",
-    category: "MVP Development",
+    category: "Production Pilot",
     title: "HealthTech Patient Portal",
     client: "Pre-seed HealthTech Startup",
     clientRegion: "Canada",
@@ -146,25 +146,25 @@ export const caseStudies = [
     teamSize: "1 engineer + 1 ops specialist",
   },
   {
-    slug: "enterprise-corporate-website",
-    category: "Web Development",
-    title: "Enterprise Corporate Website",
-    client: "Mid-market B2B Enterprise",
+    slug: "enterprise-knowledge-document-review",
+    category: "Knowledge System",
+    title: "Secure Knowledge & Document Review System",
+    client: "Professional Services Firm",
     clientRegion: "United Arab Emirates",
     year: "2024",
     image: "/images/case-web.jpg",
     description:
-      "A high-performance, SEO-optimized corporate website with CMS integration, multilingual support, and sub-second load times.",
-    tags: ["Next.js", "Sanity", "Vercel", "Tailwind"],
-    metric: "300% traffic increase",
+      "A permission-aware AI knowledge and document-review system with source citations and access controls — so expert teams find and use trusted information without exposing privileged data.",
+    tags: ["Secure RAG", "Permission-aware", "Citations", "Next.js"],
+    metric: "15+ hours/week saved",
     challenge:
-      "Legacy WordPress site was slow (8s LCP), unrankable for core keywords, and required engineering involvement for routine copy changes. Google rankings were deteriorating quarter over quarter.",
+      "Knowledge was scattered across documents, drives, and matter folders. A naive chatbot risked surfacing privileged content to users who were not authorized to see it, so the team kept searching manually.",
     approach:
-      "Migrated to Next.js App Router with Sanity CMS, English and Arabic locales, structured data, and a programmatic SEO layer covering 40+ service pages.",
+      "Built a secure RAG knowledge assistant with clean document ingestion, permission-aware retrieval, source citations on every answer, retrieval-quality evaluation, and a monitoring dashboard.",
     outcome:
-      "Organic traffic increased 300% in six months. LCP reduced to under 1 second. The marketing team now publishes copy changes independently of engineering.",
+      "Experts now retrieve cited answers in seconds while access boundaries stay intact, saving an estimated 15+ hours per week across the team — with every answer traceable to a trusted source.",
     timeline: "8 weeks",
-    teamSize: "2 engineers + 1 SEO strategist",
+    teamSize: "2 engineers + 1 knowledge specialist",
   },
 ];
 
@@ -241,7 +241,7 @@ export const industries = [
     slug: "bpo",
     icon: "Headset",
     title: "BPO & Customer Operations",
-    image: "/images/case-automation.jpg",
+    image: "/images/service-bps.jpg",
     description:
       "Safe AI systems for agents, supervisors, and operations leaders — improving response quality, reducing manual review, accelerating onboarding, and monitoring service performance.",
     compliance: ["Agent-assist guardrails", "QA & compliance monitoring", "Output review loops", "Human escalation paths"],
