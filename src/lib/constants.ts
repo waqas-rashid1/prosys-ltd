@@ -1,8 +1,8 @@
 export const siteConfig = {
   name: "PROSYS LTD",
-  tagline: "Engineering for production.",
+  tagline: "Deploy AI safely into real business operations.",
   description:
-    "PROSYS LTD is an engineering practice delivering SaaS platforms, AI systems, cloud infrastructure, and growth programs for funded startups and mid-market enterprises. Production-focused, end-to-end accountable.",
+    "PROSYS LTD helps companies deploy AI safely into real business operations with secure agents, governed workflows, enterprise knowledge systems, integrations, and production monitoring.",
   url: "https://prosysltd.com",
   email: "hello@prosysltd.com",
   // E.164 format for tel: links and WhatsApp deep links.
@@ -16,132 +16,69 @@ export const siteConfig = {
 export const navLinks = [
   { label: "Home", href: "/" },
   { label: "Services", href: "/services" },
-  { label: "About", href: "/about" },
-  { label: "Work", href: "/work" },
   { label: "Industries", href: "/industries" },
-  { label: "Careers", href: "/careers" },
+  { label: "Work", href: "/work" },
+  { label: "About", href: "/about" },
   { label: "FAQ", href: "/faq" },
+  { label: "Careers", href: "/careers" },
 ];
 
 export const services = [
-  // Pillar 1 — Product Engineering
   {
-    icon: "Code2",
-    slug: "web-development",
-    title: "Web Development",
+    icon: "Lightbulb",
+    slug: "ai-readiness-strategy",
+    title: "AI Readiness & Strategy",
     description:
-      "Marketing sites and web applications engineered on Next.js, React, and TypeScript. Sub-second load times, WCAG-compliant by default, with editorial workflows your team can operate independently.",
-  },
-  {
-    icon: "Rocket",
-    slug: "mvp-development",
-    title: "MVP Development",
-    description:
-      "First production release in 6–12 weeks. Defensible architecture, reviewable code, and a system in operation from day one — engineered to absorb growth without rework.",
-  },
-  {
-    icon: "Cloud",
-    slug: "saas-development",
-    title: "SaaS Development",
-    description:
-      "Multi-tenant platforms with Stripe billing, role-based access, and the operational infrastructure enterprise customers expect. Engineered to scale through your first thousand tenants without re-architecture.",
-  },
-  {
-    icon: "Cpu",
-    slug: "software-development",
-    title: "Custom Software",
-    description:
-      "Internal tools, B2B portals, and back-office systems designed around operational workflow — not procurement requirements. Measured by adoption, not feature count.",
-  },
-
-  // Pillar 2 — AI & Automation
-  {
-    icon: "BrainCircuit",
-    slug: "ai-development",
-    title: "AI Development",
-    description:
-      "LLM integrations, custom models, conversational interfaces, and RAG systems. Evaluation harnesses, cost ceilings, and fallback logic engineered before the system reaches production.",
+      "Identify the safest, highest-ROI AI opportunities before you build. We map workflows, data, risk, feasibility, and success metrics so your AI roadmap is grounded in business value rather than tool hype.",
   },
   {
     icon: "Bot",
-    slug: "ai-automations",
-    title: "AI Automations",
+    slug: "secure-ai-agents-workflow-automation",
+    title: "Secure AI Agents & Workflow Automation",
     description:
-      "AI agents and workflow automation built on n8n, Make, and custom orchestration. We replace manual spreadsheet workflows with auditable, observable production systems.",
-  },
-  {
-    icon: "Sparkles",
-    slug: "generative-ai",
-    title: "Generative AI",
-    description:
-      "Image, text, and code generation embedded into product workflows. Model selection, prompt architecture, and safety guardrails engineered against the use case — not the latest benchmark.",
-  },
-
-  // Pillar 3 — Cloud & Infrastructure
-  {
-    icon: "CloudCog",
-    slug: "cloud-operations",
-    title: "Cloud Migration & Ops",
-    description:
-      "Migrate from legacy infrastructure to AWS or GCP with zero downtime. We've executed the complex modernization patterns — strangler fig, blue-green, dual-write — so the migration is engineering, not exploration.",
-  },
-  {
-    icon: "Settings",
-    slug: "managed-services",
-    title: "Managed Services",
-    description:
-      "Monthly retainers covering monitoring, patching, on-call response, and the steady-state engineering work most internal teams under-resource. Tiered SLAs, transparent reporting, predictable spend.",
+      "Build AI agents that operate inside real business processes with oversight. Agents that summarize, classify, route, draft, recommend, and trigger actions with permissions, approvals, and human-in-the-loop controls.",
   },
   {
     icon: "ShieldCheck",
-    slug: "security",
-    title: "Security",
+    slug: "ai-governance-control-systems",
+    title: "AI Governance & Control Systems",
     description:
-      "Security audits, penetration testing, and SOC 2 evidence pipelines. We identify exploitable risk, prioritize by business impact, and engineer the remediation against documented control objectives.",
-  },
-
-  // Pillar 4 — Growth & Marketing
-  {
-    icon: "Search",
-    slug: "seo",
-    title: "SEO",
-    description:
-      "Technical SEO, content cluster architecture, and Core Web Vitals optimization. Programs measured by ranking, traffic, and pipeline contribution — not by audit page count.",
+      "Define what AI can see, decide, change, and escalate. Governance layers for AI adoption: access control, audit logs, approval workflows, risk scoring, policy enforcement, kill switches, and operational ownership.",
   },
   {
-    icon: "Sparkles",
-    slug: "aieo",
-    title: "AIEO",
+    icon: "Database",
+    slug: "secure-enterprise-knowledge-systems",
+    title: "Secure Enterprise Knowledge Systems",
     description:
-      "AI Engine Optimization — engineering brand visibility across ChatGPT, Gemini, Claude, and Perplexity. Structured data, citation architecture, and content formats that AI retrieval systems prioritize.",
+      "Give teams AI access to internal knowledge without exposing sensitive data. Permission-aware search, RAG systems, knowledge assistants, document pipelines, citation logic, and retrieval evaluation for private data.",
   },
   {
-    icon: "Megaphone",
-    slug: "digital-marketing",
-    title: "Digital Marketing",
+    icon: "Network",
+    slug: "ai-integration-existing-systems",
+    title: "AI Integration with Existing Systems",
     description:
-      "Paid acquisition, lifecycle marketing, content, and analytics — instrumented end-to-end against product data so channel ROI is measured, not estimated.",
+      "Connect AI to the tools your business already runs on. We integrate AI into CRMs, ERPs, helpdesks, databases, communication tools, document stores, internal portals, and legacy systems.",
   },
   {
-    icon: "Palette",
-    slug: "graphics-branding",
-    title: "Graphics & Branding",
+    icon: "Server",
+    slug: "ai-security-monitoring-optimization",
+    title: "AI Security, Monitoring & Optimization",
     description:
-      "Brand identity, design systems, investor materials, and content assets. Visual work delivered on engineering timelines — production-ready files, system documentation, and Figma libraries your team can extend.",
+      "Test, monitor, and improve AI after launch. We harden AI against unsafe behavior, monitor quality and cost, track failures, review outputs, improve prompts and retrieval, and keep systems reliable in production.",
   },
 ];
 
 export const stats = [
   { value: 50, suffix: "+", label: "Engagements delivered" },
-  { value: 12, suffix: "+", label: "Industries served" },
-  { value: 15, suffix: "+", label: "Engineers" },
-  { value: 99, suffix: "%", label: "Engagement retention" },
+  { value: 15, suffix: "+", label: "Engineers & specialists" },
+  { value: 6, suffix: "", label: "Core AI services" },
+  { value: 24, suffix: "h", label: "Response time" },
 ];
 
 export const heroProofPoints = [
   { value: "50+", label: "Engagements delivered" },
-  { value: "5", label: "Industry verticals" },
-  { value: "Production", label: "in 6\u201312 weeks" },
+  { value: "15+", label: "Engineers & specialists" },
+  { value: "6\u201312 wks", label: "To production pilots" },
 ];
 
 export const caseStudies = [
@@ -233,24 +170,24 @@ export const caseStudies = [
 
 export const insights = [
   {
-    category: "AI & Innovation",
-    title: "Operational AI: From Proof of Concept to Production Reliability",
+    category: "Production AI",
+    title: "Why AI Pilots Fail Before They Reach Operations",
     excerpt:
-      "Most enterprise AI initiatives stall after the proof of concept. The discipline required to operate AI in production — evaluation harnesses, fallback strategies, cost governance — explained from delivered engagements.",
+      "Most AI pilots work in a demo and break in production — disconnected from real workflows, ungoverned, and unmeasured. The discipline required to close that gap, drawn from delivered engagements.",
     date: "Mar 28, 2026",
   },
   {
-    category: "Development",
-    title: "Architecture Decisions That Determine Whether Your Platform Scales",
+    category: "AI Governance",
+    title: "Secure AI Agents: Permissions, Approvals, Audit Logs, and Kill Switches",
     excerpt:
-      "Technology choices made during initial build define the cost and feasibility of scaling. A framework for evaluating architecture decisions against three-year operability — drawn from production engagements.",
+      "Agents become valuable when they can use tools and act inside workflows — and risky for the same reason. The control layer required before an agent touches business-critical work.",
     date: "Mar 15, 2026",
   },
   {
-    category: "SEO & AIEO",
-    title: "AIEO: Engineering Brand Visibility Across AI Retrieval Systems",
+    category: "Knowledge Systems",
+    title: "How to Build an Enterprise AI Knowledge System Without Leaking Data",
     excerpt:
-      "Search behaviour now spans Google, ChatGPT, Gemini, and Perplexity. Structured data, citation architecture, and content formats that AI retrieval systems prioritize — with measurement methodology.",
+      "Enterprise knowledge systems are not document chatbots. Permission-aware retrieval, citations, access controls, and retrieval evaluation — what it takes to let AI answer from trusted sources safely.",
     date: "Feb 22, 2026",
   },
 ];
@@ -259,84 +196,107 @@ export const industries = [
   {
     slug: "fintech",
     icon: "Landmark",
-    title: "FinTech",
+    title: "FinTech & Financial Services",
     image: "/images/industry-fintech.jpg",
     description:
-      "Payments, lending, and trading platforms engineered for bank-grade scrutiny. KYC workflows, immutable audit trails, and the regulatory infrastructure that survives a Big Four review.",
-    compliance: ["PCI-DSS scope minimization", "SOC 2 Type II controls", "KYC/AML workflows", "Data residency controls"],
-    capabilities: ["Payment rails & wallets", "Lending & credit decisioning", "Trading & brokerage UX", "Analytics & reporting"],
-    tech: ["Stripe", "Plaid", "PostgreSQL", "Kafka", "AWS"],
+      "AI workflows that respect access boundaries, preserve auditability, and avoid uncontrolled decision-making — for onboarding, document review, fraud operations, support, internal knowledge, and reporting support.",
+    compliance: ["Permission-aware data access", "Audit-ready logging", "KYC/AML workflow support", "Designed for regulated environments"],
+    capabilities: ["KYC document workflow support", "Customer support triage", "Fraud operations assistant", "Audit & policy search"],
+    tech: ["Secure RAG", "Audit logs", "Approval workflows", "PostgreSQL", "AWS"],
   },
   {
     slug: "healthtech",
     icon: "HeartPulse",
-    title: "HealthTech",
+    title: "HealthTech & Healthcare Operations",
     image: "/images/industry-health.jpg",
     description:
-      "Telehealth video, patient portals, and clinical tooling. We engineer HIPAA-eligible architecture — BAA-ready cloud, encrypted PHI in transit and at rest, and full audit trails — built for the workloads regulators actually scrutinize.",
-    compliance: ["HIPAA-eligible architecture", "GDPR data subject workflows", "HL7 FHIR interoperability", "Encrypted PHI in transit & at rest"],
-    capabilities: ["Telehealth & video", "Patient portals", "Clinical workflow automation", "Claims & billing"],
-    tech: ["Twilio", "FHIR", "PostgreSQL", "AWS HIPAA stack"],
+      "AI systems for sensitive healthcare workflows with careful data handling, clear human oversight, and traceable outputs — patient intake, scheduling support, documentation assistance, and PHI-aware knowledge access.",
+    compliance: ["PHI-aware architecture", "Human-in-the-loop oversight", "Traceable, cited outputs", "Designed for regulated environments"],
+    capabilities: ["Patient intake assistant", "Scheduling workflow automation", "Clinical operations search", "Documentation support"],
+    tech: ["Permission-aware retrieval", "Secure RAG", "Audit logs", "FHIR-aware pipelines"],
   },
   {
-    slug: "ecommerce",
-    icon: "ShoppingCart",
-    title: "E-Commerce & D2C",
-    image: "/images/industry-ecom.jpg",
-    description:
-      "Headless storefronts, inventory synchronization, and recommendation engines. We migrate brands off slow Shopify themes onto performance-optimized platforms — measured in conversion lift and Core Web Vitals.",
-    compliance: ["PCI-DSS scope minimization", "GDPR/CCPA consent management", "Cookie compliance"],
-    capabilities: ["Headless storefronts", "Inventory & OMS", "Personalization & CRO", "Loyalty & subscriptions"],
-    tech: ["Shopify", "Next.js", "Algolia", "Klaviyo", "Stripe"],
-  },
-  {
-    slug: "edtech",
-    icon: "GraduationCap",
-    title: "EdTech",
-    image: "/images/case-automation.jpg",
-    description:
-      "LMS platforms, AI tutors, and assessment engines. Engineered for the operational edge cases real institutions face: high-concurrency assessment windows, accessibility requirements, and SIS integrations.",
-    compliance: ["FERPA-aligned data handling", "COPPA compliance for K-12", "WCAG 2.1 AA accessibility"],
-    capabilities: ["LMS platforms", "AI tutors & grading", "Assessment engines", "Gamified learning"],
-    tech: ["Next.js", "LangChain", "OpenAI", "PostgreSQL"],
-  },
-  {
-    slug: "saas-startups",
+    slug: "saas-ai",
     icon: "Briefcase",
-    title: "Startups & SaaS",
+    title: "SaaS & AI Product Companies",
     image: "/images/case-saas.jpg",
     description:
-      "Multi-tenant SaaS platforms engineered for scale. Row-level isolation, SSO, billing infrastructure, and the audit trails enterprise procurement teams actually ask about.",
-    compliance: ["SOC 2 Type II evidence pipeline", "GDPR-compliant multi-tenancy", "Row-level security"],
-    capabilities: ["MVP engineering", "Multi-tenant architecture", "Billing & subscriptions", "Admin & ops tooling"],
-    tech: ["Next.js", "Stripe", "PostgreSQL", "Vercel"],
+      "Production AI infrastructure for teams adding AI to products — reliable, observable features with secure knowledge layers, governance controls, and real-world quality monitoring after launch.",
+    compliance: ["Evaluation & monitoring", "Model routing & fallback", "Cost governance", "Customer-grade reliability"],
+    capabilities: ["AI product feature architecture", "Customer-facing assistants", "Model routing & fallback", "Evaluation dashboards"],
+    tech: ["LLM orchestration", "Vector search", "Observability", "Next.js"],
+  },
+  {
+    slug: "logistics",
+    icon: "Truck",
+    title: "Logistics, Supply Chain & Manufacturing",
+    image: "/images/industry-ecom.jpg",
+    description:
+      "AI for operational workflows, exception handling, and legacy systems — connecting AI to the processes that manage inventory, dispatch, vendors, documents, approvals, and operational reporting.",
+    compliance: ["Legacy system integration", "Event-driven workflows", "Operational audit trails", "Human approval gates"],
+    capabilities: ["Dispatch & exception management", "Vendor communication workflows", "Inventory reporting assistant", "Document processing"],
+    tech: ["Integration architecture", "APIs & webhooks", "ERP connectors", "Secure RAG"],
+  },
+  {
+    slug: "bpo",
+    icon: "Headset",
+    title: "BPO & Customer Operations",
+    image: "/images/case-automation.jpg",
+    description:
+      "Safe AI systems for agents, supervisors, and operations leaders — improving response quality, reducing manual review, accelerating onboarding, and monitoring service performance.",
+    compliance: ["Agent-assist guardrails", "QA & compliance monitoring", "Output review loops", "Human escalation paths"],
+    capabilities: ["Agent-assist workflows", "Ticket triage", "QA automation", "Knowledge assistants"],
+    tech: ["Secure AI agents", "Knowledge systems", "Monitoring", "Helpdesk integrations"],
+  },
+  {
+    slug: "professional-services",
+    icon: "Scale",
+    title: "Professional Services & Legal",
+    image: "/images/case-web.jpg",
+    description:
+      "Secure AI knowledge and document workflows for expert teams — research, document review, internal knowledge, and client delivery with permissions, citations, and human review at the center.",
+    compliance: ["Confidentiality controls", "Source citations", "Permission-aware retrieval", "Human-reviewed drafting"],
+    capabilities: ["Matter & project knowledge search", "Contract & document review", "Internal research assistant", "Policy & precedent search"],
+    tech: ["Secure RAG", "Permission-aware search", "Citation logic", "Audit logs"],
   },
 ];
 
 export const approach = [
   {
     step: "01",
-    title: "Discovery & Strategy",
+    title: "Assess",
     description:
-      "We map business goals, user needs, and the technical constraints in scope. The output is a written recommendation: scope, exclusions, architecture rationale, and the cost-benefit case behind each decision.",
+      "We identify high-value AI opportunities, map business workflows, review data readiness, estimate ROI, and define risk boundaries — producing a prioritized implementation roadmap.",
   },
   {
     step: "02",
-    title: "Architecture & Design",
+    title: "Build",
     description:
-      "Architecture and UI in parallel. We commit to a stack we can defend in writing, design components against it, and deliver a clickable prototype before development begins.",
+      "We design and implement the AI workflow, agent, knowledge system, or automation needed to solve the defined problem — system prompts, tool logic, retrieval, and a working pilot or release.",
   },
   {
     step: "03",
-    title: "Iterative Delivery",
+    title: "Govern",
     description:
-      "Reviewable releases on a fixed cadence. A live staging environment available throughout the engagement. Scope risks are surfaced the moment they emerge — not at the month-end invoice.",
+      "We add the control layer required for safe operation: role-based access, human approval gates, audit logs, escalation paths, risk scoring, and a kill switch or rollback process.",
   },
   {
     step: "04",
-    title: "Launch & Operations",
+    title: "Integrate",
     description:
-      "We stay on past go-live. Most engagements continue for at least six months post-launch — that's when production behavior surfaces, observability matures, and SEO/AIEO programs start compounding.",
+      "We connect AI to the systems where work already happens — CRM, ERP, helpdesk, database, and document integrations, with authentication, permissions, and data flow documentation.",
+  },
+  {
+    step: "05",
+    title: "Secure",
+    description:
+      "We test for risky behavior before users see the system: prompt injection testing, data leakage checks, agent action abuse testing, hallucination review, and guardrail implementation.",
+  },
+  {
+    step: "06",
+    title: "Improve",
+    description:
+      "We monitor real-world behavior and improve over time — quality dashboards, cost and latency monitoring, failure tracking, usage analytics, feedback loops, and a monthly improvement roadmap.",
   },
 ];
 
@@ -361,84 +321,79 @@ export const techStack = [
 
 export const faq = [
   {
-    question: "What services does PROSYS LTD offer?",
+    question: "What does PROSYS LTD do?",
     answer:
-      "PROSYS LTD delivers a full spectrum of engineering and growth services across four pillars: Product Engineering (web, SaaS, custom platforms), AI & Automation (LLM systems, applied AI, intelligent workflow automation), Cloud & Infrastructure (cloud operations, managed services, security), and Growth & Marketing (technical SEO, AIEO, performance marketing, design). We operate as an embedded engineering practice — engineering-led, production-focused, end-to-end.",
+      "PROSYS LTD helps companies deploy AI safely into real business operations. We work across AI readiness strategy, secure AI agents, workflow automation, AI governance, enterprise knowledge systems, system integrations, security testing, monitoring, and optimization.",
   },
   {
-    question: "What is AIEO and why does it matter?",
+    question: "How are you different from a typical AI agency?",
     answer:
-      "AI Engine Optimization (AIEO) is the discipline of engineering brand visibility within AI-powered retrieval systems — ChatGPT, Google Gemini, Claude, and Perplexity. As query volume migrates from traditional search to AI assistants, AIEO determines which brands surface in generated responses. PROSYS LTD operates a dedicated AIEO practice with established methodology, structured data implementation, and citation tracking.",
+      "Many AI agencies focus on demos, chatbots, or isolated automations. We focus on production deployment: connecting AI to real workflows, adding controls, integrating with existing systems, testing for risk, and monitoring performance after launch.",
   },
   {
-    question: "What is the typical time to a first production release?",
+    question: "Do you only build AI agents?",
     answer:
-      "First production releases typically go live in 6–12 weeks, depending on regulatory scope, integration surface, and required uptime guarantees. Our engagement model invests in upfront discovery and architecture so the build phase is predictable — not a discovery exercise disguised as an estimate.",
+      "No. Agents are one part of the work. We also help with AI strategy, governance, secure knowledge systems, integrations, monitoring, red-team testing, cost optimization, and production support.",
   },
   {
-    question: "Do you work with startups or only enterprise clients?",
+    question: "What does \u201cdeploy AI safely\u201d mean?",
     answer:
-      "We engage with both. Our active portfolio includes funded startups (seed through Series C) and mid-market enterprise teams modernizing or building new platforms. Either way, the engineering bar, the documentation standard, and the operational maturity stay the same.",
+      "It means AI is designed with the controls required for real operations: role-based access, approval workflows, audit logs, data boundaries, escalation paths, failure handling, monitoring, and human oversight where risk requires it.",
   },
   {
-    question: "What technologies do you specialize in?",
+    question: "Can you help us decide where to use AI?",
     answer:
-      "Our core stack covers React, Next.js, TypeScript, Node.js, Python, PostgreSQL, MongoDB, and AWS. AI engagements use OpenAI, Anthropic, LangChain, and custom model deployments, with automation platforms including n8n and Make. Technology selection is driven by engagement requirements — operability, integration surface, and long-term maintainability.",
+      "Yes. AI Readiness and Strategy engagements are designed for that. We map workflows, assess data readiness, identify high-value use cases, evaluate risk, and create a prioritized roadmap.",
   },
   {
-    question: "How does your SEO service work?",
+    question: "Can you work with our existing tools?",
     answer:
-      "Our SEO practice covers technical SEO (site speed, Core Web Vitals, crawlability, indexation), on-page architecture (content structure, schema markup, internal linking, keyword strategy), and off-page authority development. Programs are measured against organic traffic, ranking position, and pipeline contribution — with transparent monthly reporting.",
+      "Yes. We integrate AI with CRMs, ERPs, helpdesks, databases, data warehouses, document systems, Slack, Teams, internal portals, and legacy applications where APIs or practical integration paths are available.",
   },
   {
-    question: "Where is PROSYS LTD based?",
+    question: "Do you work with sensitive or regulated data?",
     answer:
-      "PROSYS LTD is headquartered in Lahore, Pakistan, with a distributed team serving clients globally across North America, Europe, the Middle East, and Asia-Pacific.",
+      "We design systems for environments where data access, privacy, permissions, and auditability matter. Any regulated-data engagement starts with a data handling and risk review. Formal compliance claims are validated based on the specific client environment and required controls.",
   },
   {
-    question: "How do you handle project communication?",
+    question: "Do you provide AI security testing?",
     answer:
-      "Every engagement runs against a transparent operating model: a dedicated delivery lead, shared access to the project board (Linear or Jira), regular synchronous reviews, and asynchronous updates in your communication channel. Progress, blockers, and timeline status are visible at all times.",
+      "Yes. We test AI systems for prompt injection, data leakage, unsafe actions, hallucination risk, tool misuse, and guardrail weaknesses. We can also provide remediation recommendations and implementation support.",
   },
   {
-    question: "What is your pricing model?",
+    question: "Can you monitor AI systems after launch?",
     answer:
-      "We operate three engagement models: (1) Fixed-price for well-scoped engagements, (2) Monthly retainer for ongoing dedicated-team partnerships, and (3) Time & materials for exploratory or evolving work. Pilot engagements typically begin at $25K; enterprise engagements range from $75K to $500K+. Every proposal includes a fixed ceiling, milestone-based payment terms, and a documented change-management process.",
+      "Yes. We provide ongoing monitoring and optimization for quality, cost, latency, failures, user feedback, escalation rates, and retrieval performance.",
   },
   {
     question: "Who owns the code and IP?",
     answer:
-      "The client. Upon final payment, full intellectual property — source code, design assets, documentation, and deployment infrastructure — is transferred to your organization. PROSYS retains no usage rights, and references to the engagement appear publicly only with your written consent.",
+      "Unless agreed otherwise in the contract, the client owns the custom code and deliverables created specifically for their engagement after payment. PROSYS LTD may retain ownership of general frameworks, methods, templates, and reusable internal tooling not unique to the client.",
   },
   {
-    question: "Will you sign an NDA before we share details?",
+    question: "How long does an engagement take?",
     answer:
-      "Yes — on request, before any substantive scoping conversation. A mutual NDA template is available, or we engage under your standard form. Turnaround within 24 hours.",
+      "AI readiness work can often be completed in one to three weeks depending on scope. Production builds commonly take six to twelve weeks for a focused pilot or first release. Larger integration and governance programs may be phased over multiple months.",
   },
   {
-    question: "How many revision rounds are included?",
+    question: "What is your pricing model?",
     answer:
-      "Design work includes 2–3 structured revision rounds at each stage (exploration, direction, refinement). Engineering follows continuous delivery — changes are handled within the active iteration via our documented change-management workflow. Material scope changes go through a written impact assessment; minor adjustments typically ship the same week.",
+      "Most engagements are scoped as fixed-scope projects or monthly retainers. Strategy and readiness work is usually packaged as a short sprint. Build and integration work is estimated after discovery. Monitoring and optimization can be handled as an ongoing monthly engagement.",
   },
   {
-    question: "Do you provide ongoing support and maintenance after launch?",
+    question: "Will you sign an NDA?",
     answer:
-      "Yes. Post-launch operations are covered by monthly retainers across monitoring, dependency and security patching, on-call response, incremental feature work, and performance tuning. SLAs are tiered — standard, priority, enterprise — with defined response and resolution times. Most engagements continue under a managed services agreement for 2+ years.",
+      "Yes. NDA review can be handled before detailed technical or business information is shared.",
   },
   {
-    question: "What does your typical engagement look like?",
+    question: "Can you work with our internal engineering team?",
     answer:
-      "Week 1 is Discovery & Scoping — goals, constraints, users, success metrics, and risk profile mapped. Week 2 is Architecture & Design — system architecture, interface design, and integration map approved. From Week 3 onward we deliver on a fixed iteration cadence — reviewable releases to staging at each checkpoint, stakeholder demos with formal approval gates, and a live project board you can audit at any time. Go-live is followed by a 30-day stabilization window and an ongoing operations plan as needed.",
+      "Yes. We can operate as an implementation partner, architecture partner, governance partner, or extension of your engineering team. We document decisions and hand off systems so internal teams can maintain and extend them.",
   },
   {
-    question: "Can you work in our timezone?",
+    question: "What should we prepare before the first call?",
     answer:
-      "Yes. The delivery model is built around 4+ hours of synchronous overlap with your timezone. North American engagements typically run an early-morning collaboration window with the rest of the day covered by structured asynchronous updates. EMEA and APAC engagements run during business-hour overlap.",
-  },
-  {
-    question: "Do you work with existing teams or only build from scratch?",
-    answer:
-      "Both. We frequently embed engineers and designers into existing product organizations via a Staff Augmentation model — code reviews, iteration participation, and on-call rotations included. We also deliver greenfield platforms end-to-end. The engagement model is shaped to your operating environment.",
+      "Bring the workflow you want to improve, the tools involved, the data sources, who uses the process, what decisions or actions AI may influence, and what would make the project successful.",
   },
 ];
 
@@ -455,32 +410,29 @@ export const techPartners = [
 
 export const footerLinks = {
   productEngineering: [
-    { label: "Web Development", href: "/services/web-development" },
-    { label: "MVP Development", href: "/services/mvp-development" },
-    { label: "SaaS Development", href: "/services/saas-development" },
-    { label: "Custom Software", href: "/services/software-development" },
+    { label: "AI Readiness & Strategy", href: "/services/ai-readiness-strategy" },
+    { label: "AI Governance & Control Systems", href: "/services/ai-governance-control-systems" },
   ],
   aiAndAutomation: [
-    { label: "AI Development", href: "/services/ai-development" },
-    { label: "AI Automations", href: "/services/ai-automations" },
-    { label: "Generative AI", href: "/services/generative-ai" },
+    { label: "Secure AI Agents & Workflow Automation", href: "/services/secure-ai-agents-workflow-automation" },
+    { label: "Secure Enterprise Knowledge Systems", href: "/services/secure-enterprise-knowledge-systems" },
   ],
   cloudAndPlatform: [
-    { label: "Cloud Migration & Ops", href: "/services/cloud-operations" },
-    { label: "Managed Services", href: "/services/managed-services" },
-    { label: "Security", href: "/services/security" },
+    { label: "AI Integration with Existing Systems", href: "/services/ai-integration-existing-systems" },
+    { label: "AI Security, Monitoring & Optimization", href: "/services/ai-security-monitoring-optimization" },
   ],
   growthAndMarketing: [
-    { label: "SEO", href: "/services/seo" },
-    { label: "AIEO", href: "/services/aieo" },
-    { label: "Digital Marketing", href: "/services/digital-marketing" },
-    { label: "Graphics & Branding", href: "/services/graphics-branding" },
+    { label: "FinTech & Financial Services", href: "/industries/fintech" },
+    { label: "HealthTech & Healthcare Operations", href: "/industries/healthtech" },
+    { label: "SaaS & AI Product Companies", href: "/industries/saas-ai" },
+    { label: "Logistics, Supply Chain & Manufacturing", href: "/industries/logistics" },
+    { label: "BPO & Customer Operations", href: "/industries/bpo" },
+    { label: "Professional Services & Legal", href: "/industries/professional-services" },
   ],
   company: [
     { label: "About Us", href: "/about" },
-    { label: "Leadership", href: "/about#leadership" },
     { label: "Our Work", href: "/work" },
-    { label: "Case Studies", href: "/work" },
+    { label: "FAQ", href: "/faq" },
     { label: "Careers", href: "/careers" },
     { label: "Contact", href: "/contact" },
   ],
@@ -488,8 +440,8 @@ export const footerLinks = {
     { label: "Insights & Blog", href: "/blog" },
     { label: "Webinars", href: "/webinars" },
     { label: "Industries", href: "/industries" },
-    { label: "FAQ", href: "/faq" },
     { label: "All Services", href: "/services" },
+    { label: "FAQ", href: "/faq" },
     { label: "Sitemap", href: "/sitemap.xml" },
   ],
   legal: [

@@ -28,26 +28,26 @@ const pillars: {
 }[] = [
   {
     number: "01",
-    heading: "Product Engineering",
-    tagline: "Ship production software",
+    heading: "Strategy & Governance",
+    tagline: "Decide and control AI",
     key: "productEngineering",
   },
   {
     number: "02",
-    heading: "AI & Automation",
-    tagline: "Outcomes, not demos",
+    heading: "Build & Knowledge",
+    tagline: "Agents and secure knowledge",
     key: "aiAndAutomation",
   },
   {
     number: "03",
-    heading: "Cloud & Platform",
-    tagline: "Scale with discipline",
+    heading: "Integrate & Operate",
+    tagline: "Connect, test, and monitor",
     key: "cloudAndPlatform",
   },
   {
     number: "04",
-    heading: "Growth & Marketing",
-    tagline: "Pipeline that compounds",
+    heading: "Industries",
+    tagline: "Deployed by sector",
     key: "growthAndMarketing",
   },
 ];
@@ -122,7 +122,7 @@ export default function Footer() {
               </h2>
 
               <p className="text-base sm:text-lg md:text-xl text-text-light-muted leading-relaxed max-w-2xl mb-10">
-                We&apos;ve put production releases live in eight weeks and full SaaS platforms in twelve. Describe the outcome you need — we&apos;ll tell you, on the call, whether we&apos;re the right team.
+                We help companies move AI from pilot to production — with the controls, integrations, and oversight real operations require. Describe the workflow you want to improve, and we&apos;ll tell you, on the call, whether we&apos;re the right team.
               </p>
 
               <div className="flex flex-col sm:flex-row gap-3 mb-10">
@@ -197,7 +197,7 @@ export default function Footer() {
                     What we shipped. What broke. What&apos;s next.
                   </h3>
                   <p className="text-text-light-muted text-sm leading-relaxed mb-7">
-                    One email a month. Architecture decisions we made (and regretted), AI features that worked in production, and SEO tactics that still rank. Written by the engineers actually doing the work.
+                    One email a month. AI deployment lessons, what worked in production, governance and security gotchas, and patterns for safe AI agents. Written by the engineers actually doing the work.
                   </p>
 
                   <NewsletterForm />
@@ -243,7 +243,7 @@ export default function Footer() {
                 </div>
               </Link>
               <p className="text-[15px] text-text-light-muted leading-relaxed mb-8 max-w-sm">
-                Enterprise-grade product engineering, applied AI, and growth systems — delivered across five industry verticals and four continents.
+                We help companies deploy AI safely into real business operations — secure agents, governed workflows, enterprise knowledge systems, integrations, and monitoring.
               </p>
 
               <ul className="space-y-3.5 text-sm mb-8">

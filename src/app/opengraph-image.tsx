@@ -1,7 +1,7 @@
 import { ImageResponse } from "next/og";
 
 export const runtime = "edge";
-export const alt = "PROSYS LTD — Enterprise-grade product engineering, AI, and growth systems.";
+export const alt = "PROSYS LTD — Deploy AI safely into real business operations.";
 export const size = { width: 1200, height: 630 };
 export const contentType = "image/png";
 
@@ -76,7 +76,7 @@ export default async function OGImage() {
               fontWeight: 600,
             }}
           >
-            Enterprise Engineering
+            Safe AI Deployment
           </div>
           <div
             style={{
@@ -87,7 +87,7 @@ export default async function OGImage() {
               color: "#ffffff",
             }}
           >
-            Architecting scalable
+            Deploy AI safely into
           </div>
           <div
             style={{
@@ -98,7 +98,7 @@ export default async function OGImage() {
               color: "#67E8F9",
             }}
           >
-            systems, end-to-end.
+            real operations.
           </div>
         </div>
 
@@ -115,7 +115,7 @@ export default async function OGImage() {
           <div style={{ display: "flex", gap: "48px" }}>
             <div style={{ display: "flex", flexDirection: "column" }}>
               <div style={{ fontSize: 28, fontWeight: 800, color: "white" }}>
-                50+
+                6
               </div>
               <div
                 style={{
@@ -125,12 +125,12 @@ export default async function OGImage() {
                   letterSpacing: "0.15em",
                 }}
               >
-                Engagements delivered
+                Core AI services
               </div>
             </div>
             <div style={{ display: "flex", flexDirection: "column" }}>
               <div style={{ fontSize: 28, fontWeight: 800, color: "white" }}>
-                5
+                6
               </div>
               <div
                 style={{
@@ -140,7 +140,7 @@ export default async function OGImage() {
                   letterSpacing: "0.15em",
                 }}
               >
-                Industry verticals
+                Industries served
               </div>
             </div>
             <div style={{ display: "flex", flexDirection: "column" }}>

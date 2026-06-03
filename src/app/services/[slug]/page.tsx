@@ -27,22 +27,12 @@ const iconMap: Record<string, React.ElementType> = {
 };
 
 const serviceImages: Record<string, string> = {
-  "web-development": "/images/service-digital.jpg",
-  "software-development": "/images/service-data.jpg",
-  "ai-development": "/images/case-automation.jpg",
-  "mvp-development": "/images/case-health.jpg",
-  "saas-development": "/images/service-cloud.jpg",
-  "ai-automations": "/images/case-automation.jpg",
-  "seo": "/images/case-web.jpg",
-  "aieo": "/images/service-digital.jpg",
-  "digital-marketing": "/images/service-bps.jpg",
-  "graphics-branding": "/images/service-digital.jpg",
-  "digital-consulting": "/images/services-hero.jpg",
-  "generative-ai": "/images/case-saas.jpg",
-  "cloud-operations": "/images/service-cloud.jpg",
-  "data-modernization": "/images/service-data.jpg",
-  "staff-augmentation": "/images/service-bps.jpg",
-  "security": "/images/service-cloud.jpg",
+  "ai-readiness-strategy": "/images/service-digital.jpg",
+  "secure-ai-agents-workflow-automation": "/images/case-automation.jpg",
+  "ai-governance-control-systems": "/images/service-cloud.jpg",
+  "secure-enterprise-knowledge-systems": "/images/service-data.jpg",
+  "ai-integration-existing-systems": "/images/case-saas.jpg",
+  "ai-security-monitoring-optimization": "/images/service-cloud.jpg",
 };
 
 export function generateStaticParams() {

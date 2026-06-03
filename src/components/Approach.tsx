@@ -2,9 +2,11 @@
 
 import {
   Compass,
-  Layers,
-  Code2,
-  Rocket,
+  Hammer,
+  ShieldCheck,
+  Network,
+  ScanSearch,
+  TrendingUp,
   CheckCircle2,
   Clock,
   Sparkles,
@@ -18,46 +20,68 @@ import ScrollReveal from "./ui/ScrollReveal";
 const stepMeta = [
   {
     icon: Compass,
-    tagline: "Define the problem before the solution",
-    duration: "1–2 weeks",
+    tagline: "Find the safest, highest-ROI use case",
+    duration: "1–3 weeks",
     accent: "from-emerald-500/20 to-emerald-500/0",
     deliverables: [
-      "Product thesis & success metrics",
-      "User research & personas",
-      "Feasibility & risk assessment",
+      "Workflow & data readiness map",
+      "Use cases scored by value & risk",
+      "Prioritized implementation roadmap",
     ],
   },
   {
-    icon: Layers,
-    tagline: "Architecture that survives scale",
-    duration: "1–2 weeks",
+    icon: Hammer,
+    tagline: "Build the agent, system, or automation",
+    duration: "4–10 weeks",
     accent: "from-cyan-500/20 to-cyan-500/0",
     deliverables: [
-      "System architecture",
-      "Technology selection & rationale",
-      "Design system & component library",
+      "System prompts & tool logic",
+      "Retrieval & workflow design",
+      "Working pilot or first release",
     ],
   },
   {
-    icon: Code2,
-    tagline: "Reviewable releases at every checkpoint",
-    duration: "4–12 weeks",
+    icon: ShieldCheck,
+    tagline: "Add the control layer for safe operation",
+    duration: "1–2 weeks",
     accent: "from-violet-500/20 to-violet-500/0",
     deliverables: [
-      "Fixed iteration cadence",
-      "Stakeholder demos & approval gates",
-      "Automated CI/CD pipelines",
+      "Role-based access & approval gates",
+      "Audit logs & risk scoring",
+      "Escalation paths & kill switch",
     ],
   },
   {
-    icon: Rocket,
-    tagline: "Operational ownership beyond go-live",
-    duration: "Ongoing",
+    icon: Network,
+    tagline: "Connect AI to your existing systems",
+    duration: "2–6 weeks",
+    accent: "from-sky-500/20 to-sky-500/0",
+    deliverables: [
+      "CRM, ERP & helpdesk integrations",
+      "Authentication & permissions",
+      "Documented data flows",
+    ],
+  },
+  {
+    icon: ScanSearch,
+    tagline: "Test for risky behavior before launch",
+    duration: "1–2 weeks",
     accent: "from-amber-500/20 to-amber-500/0",
     deliverables: [
-      "Zero-downtime deployments",
-      "Observability & on-call rotation",
-      "SEO · AIEO · analytics programs",
+      "Prompt injection & leakage testing",
+      "Agent action abuse review",
+      "Guardrail implementation",
+    ],
+  },
+  {
+    icon: TrendingUp,
+    tagline: "Monitor and improve after launch",
+    duration: "Ongoing",
+    accent: "from-rose-500/20 to-rose-500/0",
+    deliverables: [
+      "Quality, cost & latency monitoring",
+      "Failure tracking & feedback loops",
+      "Monthly improvement roadmap",
     ],
   },
 ];
@@ -119,9 +143,9 @@ export default function Approach() {
             </h2>
 
             <p className="text-base md:text-lg text-text-light-muted leading-relaxed max-w-2xl">
-              Four phases, applied consistently across engagements. Scope, deliverables,
-              and commercials are defined before the build begins — no mystery
-              deliverables, no surprise invoices.
+              A six-step lifecycle for deploying AI safely — assess, build, govern,
+              integrate, secure, and improve. Controls and oversight are designed in
+              from the start, not bolted on after launch.
             </p>
           </ScrollReveal>
 
@@ -140,7 +164,7 @@ export default function Approach() {
                 <div className="grid grid-cols-3 gap-4">
                   <div>
                     <p className="font-heading text-2xl lg:text-3xl font-black text-white leading-none tracking-tight mb-1.5">
-                      6–16
+                      6–12
                     </p>
                     <p className="text-[10px] text-white/50 uppercase tracking-widest font-semibold">
                       Weeks
@@ -148,18 +172,18 @@ export default function Approach() {
                   </div>
                   <div className="pl-4 border-l border-white/10">
                     <p className="font-heading text-2xl lg:text-3xl font-black text-white leading-none tracking-tight mb-1.5">
-                      4
+                      6
                     </p>
                     <p className="text-[10px] text-white/50 uppercase tracking-widest font-semibold">
-                      Phases
+                      Steps
                     </p>
                   </div>
                   <div className="pl-4 border-l border-white/10">
                     <p className="font-heading text-2xl lg:text-3xl font-black text-white leading-none tracking-tight mb-1.5">
-                      50+
+                      HITL
                     </p>
                     <p className="text-[10px] text-white/50 uppercase tracking-widest font-semibold">
-                      Engagements
+                      Oversight
                     </p>
                   </div>
                 </div>
@@ -188,7 +212,7 @@ export default function Approach() {
             </div>
           </div>
 
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5 lg:gap-6 relative z-10">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5 lg:gap-6 relative z-10">
             {approach.map((item, i) => {
               const meta = stepMeta[i];
               const Icon = meta.icon;
@@ -238,7 +262,7 @@ export default function Approach() {
                         Phase · {item.step}
                       </span>
                       <span className="font-heading text-[10px] text-accent-light/50 tracking-widest uppercase font-bold">
-                        Step {i + 1} of 4
+                        Step {i + 1} of 6
                       </span>
                     </div>
 

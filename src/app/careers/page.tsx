@@ -13,18 +13,18 @@ import DarkSectionFx from "@/components/ui/DarkSectionFx";
 
 export const metadata: Metadata = {
   title: "Careers",
-  description: "Join PROSYS LTD — we're hiring engineers, designers, and growth specialists. Remote-friendly, high-impact work, competitive compensation.",
+  description: "Join PROSYS LTD — we're hiring AI, software, and product specialists to deploy AI safely into real operations. Remote-friendly, high-impact work, competitive compensation.",
   alternates: { canonical: "/careers" },
   openGraph: {
     title: "Careers — PROSYS LTD",
-    description: "Join PROSYS LTD — we're hiring engineers, designers, and growth specialists. Remote-friendly, high-impact work, competitive compensation.",
+    description: "Join PROSYS LTD — we're hiring AI, software, and product specialists to deploy AI safely into real operations. Remote-friendly, high-impact work, competitive compensation.",
     url: "/careers",
     type: "website",
   },
   twitter: {
     card: "summary_large_image",
     title: "Careers — PROSYS LTD",
-    description: "Join PROSYS LTD — we're hiring engineers, designers, and growth specialists. Remote-friendly, high-impact work, competitive compensation.",
+    description: "Join PROSYS LTD — we're hiring AI, software, and product specialists to deploy AI safely into real operations. Remote-friendly, high-impact work, competitive compensation.",
   },
 };
 
@@ -105,7 +105,7 @@ export default function CareersPage() {
           badge="We're Hiring"
           title="Invest in your career,"
           highlight="grow with us."
-          description="Join a team delivering production-grade platforms for funded startups and mid-market enterprises. Substantive engineering work, experienced peers, and a culture organized around craft."
+          description="Join a team deploying AI safely into real business operations — secure agents, governance, knowledge systems, and integrations. Substantive engineering work, experienced peers, and a culture organized around craft."
           bgImage="/images/careers-hero.jpg"
           bgImageOpacity={0.25}
           trustSignals={["Distributed work model", "Experienced peers", "Equity for senior roles", "25 days PTO"]}

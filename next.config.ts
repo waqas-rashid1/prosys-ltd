@@ -23,6 +23,30 @@ const ContentSecurityPolicy = `
 
 const nextConfig: NextConfig = {
   allowedDevOrigins: ["10.10.38.147", "localhost", "127.0.0.1"],
+  async redirects() {
+    // Old generic-agency service/industry routes mapped to the closest
+    // new AI-deployment positioning so existing SEO equity is preserved.
+    return [
+      { source: "/services/ai-development", destination: "/services/secure-ai-agents-workflow-automation", permanent: true },
+      { source: "/services/ai-automations", destination: "/services/secure-ai-agents-workflow-automation", permanent: true },
+      { source: "/services/generative-ai", destination: "/services/secure-enterprise-knowledge-systems", permanent: true },
+      { source: "/services/security", destination: "/services/ai-security-monitoring-optimization", permanent: true },
+      { source: "/services/managed-services", destination: "/services/ai-security-monitoring-optimization", permanent: true },
+      { source: "/services/cloud-operations", destination: "/services/ai-integration-existing-systems", permanent: true },
+      { source: "/services/software-development", destination: "/services/ai-integration-existing-systems", permanent: true },
+      { source: "/services/saas-development", destination: "/services/ai-integration-existing-systems", permanent: true },
+      { source: "/services/web-development", destination: "/services/ai-integration-existing-systems", permanent: true },
+      { source: "/services/mvp-development", destination: "/services/ai-readiness-strategy", permanent: true },
+      { source: "/services/seo", destination: "/services", permanent: true },
+      { source: "/services/aieo", destination: "/services", permanent: true },
+      { source: "/services/digital-marketing", destination: "/services", permanent: true },
+      { source: "/services/graphics-branding", destination: "/services", permanent: true },
+      // Industry slug changes
+      { source: "/industries/ecommerce", destination: "/industries/logistics", permanent: true },
+      { source: "/industries/edtech", destination: "/industries/saas-ai", permanent: true },
+      { source: "/industries/saas-startups", destination: "/industries/saas-ai", permanent: true },
+    ];
+  },
   async headers() {
     return [
       {

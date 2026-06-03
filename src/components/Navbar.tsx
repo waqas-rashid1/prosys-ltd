@@ -10,37 +10,24 @@ import { navLinks } from "@/lib/constants";
 
 const servicesMega = [
   {
-    heading: "Product Engineering",
+    heading: "Strategy & Governance",
     items: [
-      { label: "Web Development", href: "/services/web-development" },
-      { label: "MVP Development", href: "/services/mvp-development" },
-      { label: "SaaS Development", href: "/services/saas-development" },
-      { label: "Custom Software", href: "/services/software-development" },
+      { label: "AI Readiness & Strategy", href: "/services/ai-readiness-strategy" },
+      { label: "AI Governance & Control Systems", href: "/services/ai-governance-control-systems" },
     ],
   },
   {
-    heading: "AI & Automation",
+    heading: "Build & Knowledge",
     items: [
-      { label: "AI Development", href: "/services/ai-development" },
-      { label: "AI Automations", href: "/services/ai-automations" },
-      { label: "Generative AI", href: "/services/generative-ai" },
+      { label: "Secure AI Agents & Workflow Automation", href: "/services/secure-ai-agents-workflow-automation" },
+      { label: "Secure Enterprise Knowledge Systems", href: "/services/secure-enterprise-knowledge-systems" },
     ],
   },
   {
-    heading: "Cloud & Infrastructure",
+    heading: "Integrate & Operate",
     items: [
-      { label: "Cloud Migration & Ops", href: "/services/cloud-operations" },
-      { label: "Managed Services", href: "/services/managed-services" },
-      { label: "Security", href: "/services/security" },
-    ],
-  },
-  {
-    heading: "Growth & Marketing",
-    items: [
-      { label: "SEO", href: "/services/seo" },
-      { label: "AIEO", href: "/services/aieo" },
-      { label: "Digital Marketing", href: "/services/digital-marketing" },
-      { label: "Graphics & Branding", href: "/services/graphics-branding" },
+      { label: "AI Integration with Existing Systems", href: "/services/ai-integration-existing-systems" },
+      { label: "AI Security, Monitoring & Optimization", href: "/services/ai-security-monitoring-optimization" },
     ],
   },
 ];
@@ -326,13 +313,13 @@ export default function Navbar() {
                         Featured
                       </span>
                       <h3 className="font-heading text-lg font-bold text-text-light mb-2">
-                        Generative AI Solutions
+                        Secure AI Agents
                       </h3>
                       <p className="text-text-light-muted text-sm leading-relaxed mb-4">
-                        Transform your business with custom AI models, LLM integrations, and intelligent automation.
+                        AI agents that work inside real workflows — with permissions, approvals, and audit logs on every action.
                       </p>
                       <Link
-                        href="/services/generative-ai"
+                        href="/services/secure-ai-agents-workflow-automation"
                         className="inline-flex items-center gap-2 text-sm font-medium text-accent-light hover:gap-3 transition-all duration-300"
                       >
                         Learn More <ArrowRight size={14} />

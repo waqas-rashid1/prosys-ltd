@@ -2,7 +2,7 @@
 
 import Link from "next/link";
 import {
-  Landmark, HeartPulse, ShoppingCart, GraduationCap, Briefcase, ArrowRight, ArrowUpRight,
+  Landmark, HeartPulse, Cpu, Truck, Headphones, Scale, ArrowRight, ArrowUpRight,
 } from "lucide-react";
 import { motion } from "framer-motion";
 import ScrollReveal from "./ui/ScrollReveal";
@@ -22,47 +22,56 @@ const industries: Industry[] = [
   {
     slug: "fintech",
     icon: Landmark,
-    title: "FinTech",
-    description: "Payments, lending, and trading platforms engineered for bank-grade scrutiny. KYC workflows, immutable audit trails, and the regulatory infrastructure that survives a Big Four review.",
-    metric: { value: "PCI-DSS Scope", label: "Tokenization, segmentation, audit-ready logging" },
-    tags: ["Payments", "KYC/AML", "Trading", "Lending"],
+    title: "FinTech & Financial Services",
+    description: "AI for fraud and risk signals, document and KYC processing, and customer support — deployed with the permissions, audit logs, and data boundaries financial operations require.",
+    metric: { value: "Audit-ready", label: "Permissions, logs & data boundaries" },
+    tags: ["Risk & fraud", "KYC docs", "Support", "Governance"],
     image: "/images/industry-fintech.jpg",
   },
   {
     slug: "healthtech",
     icon: HeartPulse,
-    title: "HealthTech",
-    description: "Telehealth video, patient portals, and clinical tooling. HIPAA-eligible architecture with BAA-ready cloud, encrypted PHI in transit and at rest, and full audit trails — engineered to pass enterprise security review.",
-    metric: { value: "HIPAA Architecture", label: "BAA-ready infrastructure with PHI controls" },
-    tags: ["Telehealth", "EHR", "HIPAA", "Clinical"],
+    title: "HealthTech & Healthcare Operations",
+    description: "AI for patient operations, documentation, and back-office workflows — designed with access controls, audit trails, and a data handling review before any sensitive data is touched.",
+    metric: { value: "Access-controlled", label: "Reviewed data handling & audit trails" },
+    tags: ["Patient ops", "Documentation", "Back-office", "Secure"],
     image: "/images/industry-health.jpg",
   },
   {
-    slug: "ecommerce",
-    icon: ShoppingCart,
-    title: "E-Commerce & D2C",
-    description: "Headless storefronts, inventory synchronization, and recommendation engines. We migrate brands off slow Shopify themes onto performance-optimized platforms — measured in conversion lift and Core Web Vitals.",
-    metric: { value: "Conversion-first", label: "Every build is tuned for LTV & CVR" },
-    tags: ["Headless", "Shopify", "CRO", "Omnichannel"],
+    slug: "saas-ai",
+    icon: Cpu,
+    title: "SaaS & AI Product Companies",
+    description: "Production-grade AI features inside your product — agents, RAG, and automations with evaluation, guardrails, and monitoring so AI capabilities ship reliably and stay affordable.",
+    metric: { value: "Production AI", label: "Evaluated, guardrailed & monitored" },
+    tags: ["Agents", "RAG", "Guardrails", "Monitoring"],
+    image: "/images/case-saas.jpg",
+  },
+  {
+    slug: "logistics",
+    icon: Truck,
+    title: "Logistics, Supply Chain & Manufacturing",
+    description: "AI for operations automation, document processing, and exception handling — integrated with the ERPs, databases, and legacy systems that run the supply chain.",
+    metric: { value: "Integrated", label: "Connected to ERP & legacy systems" },
+    tags: ["Automation", "Docs", "Exceptions", "Integration"],
     image: "/images/industry-ecom.jpg",
   },
   {
-    slug: "edtech",
-    icon: GraduationCap,
-    title: "EdTech",
-    description: "LMS platforms, AI tutors, and assessment engines. Engineered for the operational edge cases real institutions face: high-concurrency assessment windows, accessibility requirements, and SIS integrations.",
-    metric: { value: "Scalable LMS", label: "Multi-tenant, role-based, gamified" },
-    tags: ["LMS", "AI Tutors", "Assessments", "Gamification"],
-    image: "/images/case-automation.jpg",
+    slug: "bpo",
+    icon: Headphones,
+    title: "BPO & Customer Operations",
+    description: "AI for ticket triage, response drafting, and quality monitoring — with human-in-the-loop approvals and escalation so customer operations move faster without losing control.",
+    metric: { value: "Human-in-loop", label: "Triage, drafting & escalation" },
+    tags: ["Triage", "Drafting", "QA", "Escalation"],
+    image: "/images/service-bps.jpg",
   },
   {
-    slug: "saas-startups",
-    icon: Briefcase,
-    title: "Startups & SaaS",
-    description: "Multi-tenant SaaS platforms engineered for scale. Row-level isolation, SSO, billing infrastructure, and the audit trails enterprise procurement teams actually ask about.",
-    metric: { value: "Multi-Tenant", label: "Row-level isolation, SSO, audit trails" },
-    tags: ["Multi-tenant", "Billing", "SSO", "Growth"],
-    image: "/images/case-saas.jpg",
+    slug: "professional-services",
+    icon: Scale,
+    title: "Professional Services & Legal",
+    description: "Secure knowledge and document-review systems with permission-aware retrieval and citations — so teams find and use trusted information without exposing privileged data.",
+    metric: { value: "Permission-aware", label: "Cited, secure knowledge & review" },
+    tags: ["Knowledge", "Doc review", "Citations", "Secure"],
+    image: "/images/service-data.jpg",
   },
 ];
 
@@ -79,10 +88,10 @@ export default function Industries() {
                 Industries
               </p>
               <h2 className="font-heading text-4xl md:text-5xl lg:text-6xl font-black text-text-dark leading-[1.05] tracking-tight mb-5">
-                Regulated workloads. <br className="hidden md:inline" /><span className="gradient-text">Production-grade outcomes.</span>
+                Built for your sector. <br className="hidden md:inline" /><span className="gradient-text">Deployed with controls.</span>
               </h2>
               <p className="text-base md:text-lg text-text-dark-muted leading-relaxed">
-                FinTech, HealthTech, EdTech, E-Commerce, SaaS. The compliance posture, integration surface, and risk profile are different in each. We translate regulatory requirements into architecture — controls in code, not in slide decks.
+                FinTech, HealthTech, SaaS, logistics, BPO, and professional services. The workflows, data sensitivity, and risk profile differ in each — so we deploy AI with the permissions, integrations, and oversight that fit how your operations actually run.
               </p>
             </div>
             <Link
@@ -232,7 +241,7 @@ export default function Industries() {
                     Sector not listed?
                   </h3>
                   <p className="text-text-dark-muted text-sm leading-relaxed mb-6">
-                    The portfolio covers regulated workloads beyond what is shown here. Share the engagement profile and the team will route the conversation to the right practice lead.
+                    We deploy AI safely across operations beyond what is shown here. Share your workflow and the team will route the conversation to the right specialist.
                   </p>
 
                   {/* Sectors-not-listed strip — passive label, not clickable
@@ -240,7 +249,7 @@ export default function Industries() {
                       pages behind these names. */}
                   <div className="mt-auto mb-5">
                     <p className="text-[10px] uppercase tracking-[0.18em] text-text-dark-muted/70 font-semibold">
-                      Also: FinOps · InsurTech · Logistics · Public sector
+                      Also: InsurTech · Real estate · EdTech · Public sector
                     </p>
                   </div>
 

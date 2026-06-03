@@ -10,18 +10,18 @@ import SpotlightCard from "./ui/SpotlightCard";
 // JSX below until formal audits complete. Re-enable both when ready.
 
 const pillars = [
-  { icon: Target, label: "Outcomes over output", desc: "Engagements are scoped to a business result, with success metrics agreed upfront. Tradeoffs are surfaced at week one, not at handover." },
-  { icon: Users, label: "End-to-end ownership", desc: "The engineer scoping the engagement is the engineer delivering it. One accountable team across discovery, build, and operations." },
-  { icon: Rocket, label: "Predictable cadence", desc: "Reviewable releases on a fixed schedule, in a live staging environment available throughout the engagement. Incremental delivery, transparent progress." },
+  { icon: Target, label: "Production, not demos", desc: "We focus on AI that reaches real operations — connected to workflows, integrated with systems, and measured after launch, not just impressive in a pilot." },
+  { icon: Users, label: "Safe by design", desc: "Permissions, approvals, audit logs, and human oversight are designed in from the start, so AI stays controlled and auditable in day-to-day use." },
+  { icon: Rocket, label: "End-to-end ownership", desc: "From readiness and strategy through build, governance, integration, security, and monitoring — one accountable team across the full AI lifecycle." },
 ];
 
 const orbitTags = [
-  { label: "AI", pos: "top-[10%] left-[8%]", delay: 0 },
-  { label: "SaaS", pos: "top-[12%] right-[10%]", delay: 0.8 },
-  { label: "MVP", pos: "bottom-[18%] right-[6%]", delay: 1.6 },
-  { label: "SEO", pos: "bottom-[10%] left-[14%]", delay: 2.4 },
-  { label: "Cloud", pos: "top-[44%] -left-2", delay: 1.2 },
-  { label: "Growth", pos: "top-[50%] -right-2", delay: 2.0 },
+  { label: "Agents", pos: "top-[10%] left-[8%]", delay: 0 },
+  { label: "Governance", pos: "top-[12%] right-[10%]", delay: 0.8 },
+  { label: "RAG", pos: "bottom-[18%] right-[6%]", delay: 1.6 },
+  { label: "Security", pos: "bottom-[10%] left-[14%]", delay: 2.4 },
+  { label: "Integration", pos: "top-[44%] -left-2", delay: 1.2 },
+  { label: "Monitoring", pos: "top-[50%] -right-2", delay: 2.0 },
 ];
 
 export default function About() {
@@ -48,21 +48,22 @@ export default function About() {
           {/* Left column — copy */}
           <ScrollReveal className="lg:col-span-7">
             <h2 className="font-heading text-4xl md:text-5xl lg:text-6xl xl:text-[4.5rem] font-black text-white mb-6 leading-[1.02] tracking-tight">
-              Engineering practice.{" "}
+              Safe AI deployment.{" "}
               <br />
-              <span className="gradient-text">Production focus.</span>
+              <span className="gradient-text">Real operations.</span>
             </h2>
 
             <p className="text-base md:text-lg text-text-light-muted leading-relaxed mb-5 max-w-2xl">
-              PROSYS LTD is an engineering practice. The team scoping your engagement is
-              the team delivering it — one accountable group from discovery through
-              operations, without the relay layers and diluted ownership of larger firms.
+              PROSYS LTD helps companies deploy AI safely into real business operations —
+              from pilots to production. We build secure agents, governed workflows,
+              enterprise knowledge systems, integrations, and the controls that make AI
+              dependable in day-to-day use.
             </p>
             <p className="text-sm md:text-base text-text-light-muted/80 leading-relaxed mb-8 max-w-2xl">
-              The practice operates across strategy, design, engineering, and post-launch
-              operations — including the operational responsibilities most providers segment
-              or decline to own. AI systems, SaaS platforms, regulated workloads, all under
-              one delivery standard.
+              Most AI initiatives stall after the demo. We focus on the operational layer —
+              permissions, approvals, audit logs, integrations, testing, and monitoring —
+              so AI moves past the proof of concept and keeps working once real users and
+              real data depend on it.
             </p>
 
             {/* Three pillars */}

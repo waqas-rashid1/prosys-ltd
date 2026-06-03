@@ -10,48 +10,32 @@ import SpotlightCard from "./ui/SpotlightCard";
 const serviceCategories = [
   {
     number: "01",
-    title: "Product Engineering",
-    subtitle: "Engineered for production",
-    description: "Web platforms, SaaS applications, and custom systems — from sub-second marketing sites to multi-tenant products with billing, admin, and audit infrastructure built in.",
+    title: "Strategy & Governance",
+    subtitle: "Decide and control before you scale",
+    description: "Find the safest, highest-ROI AI use cases, then define what AI can see, decide, change, and escalate — with permissions, approvals, audit logs, and a clear operating model.",
     items: [
-      { label: "Web Development", slug: "web-development" },
-      { label: "MVP Development", slug: "mvp-development" },
-      { label: "SaaS Development", slug: "saas-development" },
-      { label: "Custom Software", slug: "software-development" },
+      { label: "AI Readiness & Strategy", slug: "ai-readiness-strategy" },
+      { label: "AI Governance & Control Systems", slug: "ai-governance-control-systems" },
     ],
   },
   {
     number: "02",
-    title: "AI & Automation",
-    subtitle: "AI that operates reliably",
-    description: "Production AI systems with evaluation harnesses, fallback models, cost ceilings, and routing logic — so behaviour stays predictable and economics stay defensible at scale.",
+    title: "Build & Knowledge",
+    subtitle: "Agents and knowledge that operate safely",
+    description: "AI agents that work inside real workflows with human oversight, and secure knowledge systems that answer from trusted sources with citations — without leaking sensitive data.",
     items: [
-      { label: "AI Development", slug: "ai-development" },
-      { label: "AI Automations", slug: "ai-automations" },
-      { label: "Generative AI", slug: "generative-ai" },
+      { label: "Secure AI Agents & Workflow Automation", slug: "secure-ai-agents-workflow-automation" },
+      { label: "Secure Enterprise Knowledge Systems", slug: "secure-enterprise-knowledge-systems" },
     ],
   },
   {
     number: "03",
-    title: "Cloud & Infrastructure",
-    subtitle: "Infrastructure engineered for scale",
-    description: "AWS and GCP architectures designed to absorb 10x traffic spikes, with our on-call engineering team owning incident response. Infrastructure-as-code, observability, and security built in.",
+    title: "Integrate & Operate",
+    subtitle: "Connect, test, and keep AI reliable",
+    description: "Connect AI to the CRMs, ERPs, and legacy tools your business runs on, then test for prompt injection and data leakage and monitor cost, quality, and failures after launch.",
     items: [
-      { label: "Cloud Migration & Ops", slug: "cloud-operations" },
-      { label: "Managed Services", slug: "managed-services" },
-      { label: "Security", slug: "security" },
-    ],
-  },
-  {
-    number: "04",
-    title: "Growth & Marketing",
-    subtitle: "Discoverable on Google. Cited by ChatGPT.",
-    description: "Technical SEO, content architecture, and AI Engine Optimization programs that move rankings on Google, Perplexity, and ChatGPT — measured by traffic, citations, and pipeline.",
-    items: [
-      { label: "SEO", slug: "seo" },
-      { label: "AIEO (AI Engine Optimization)", slug: "aieo" },
-      { label: "Digital Marketing", slug: "digital-marketing" },
-      { label: "Graphics & Branding", slug: "graphics-branding" },
+      { label: "AI Integration with Existing Systems", slug: "ai-integration-existing-systems" },
+      { label: "AI Security, Monitoring & Optimization", slug: "ai-security-monitoring-optimization" },
     ],
   },
 ];
@@ -185,24 +169,24 @@ export default function Services() {
                 Capabilities
               </p>
               <h2 className="font-heading text-4xl md:text-5xl lg:text-6xl font-black text-text-dark leading-[1.05] tracking-tight mb-5">
-                Four pillars. <br />One delivery standard.
+                Six services. <br />One safe path to production.
               </h2>
               <p className="text-base md:text-lg text-text-dark-muted leading-relaxed">
-                Engineering, AI, infrastructure, and growth. One team, one set of delivery standards, one accountable point of contact. Choose the pillar — or describe the outcome and we&apos;ll scope the engagement.
+                Everything you need to deploy AI safely into operations — strategy, secure agents, governance, knowledge systems, integrations, and monitoring. One team, one set of controls, one accountable point of contact.
               </p>
             </div>
             <Link
               href="/services"
               className="inline-flex items-center gap-2 px-6 py-3 rounded-md border border-text-dark/10 text-text-dark text-sm font-medium hover:border-accent hover:text-accent transition-all duration-300 self-start md:self-auto shrink-0"
             >
-              View all 14 services
+              View all 6 services
               <ArrowRight size={14} />
             </Link>
           </div>
         </ScrollReveal>
 
-        {/* Desktop: 4-column cards */}
-        <div className="hidden lg:grid lg:grid-cols-4 gap-5 items-start">
+        {/* Desktop: 3-column cards */}
+        <div className="hidden lg:grid lg:grid-cols-3 gap-5 items-start">
           {serviceCategories.map((cat, i) => (
             <ScrollReveal key={cat.title} delay={i * 0.1} className="self-start">
               <ServiceCard cat={cat} index={i} />

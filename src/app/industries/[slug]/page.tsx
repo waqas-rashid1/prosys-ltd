@@ -4,7 +4,7 @@ import Image from "next/image";
 import { notFound } from "next/navigation";
 import {
   ArrowLeft, ArrowRight, Landmark, HeartPulse, ShoppingCart, GraduationCap,
-  Building2, Briefcase, Truck, PlaySquare, ShieldCheck, Cpu, Target,
+  Building2, Briefcase, Truck, PlaySquare, ShieldCheck, Cpu, Target, Headset, Scale,
 } from "lucide-react";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
@@ -14,7 +14,7 @@ import { industries, caseStudies } from "@/lib/constants";
 import { BreadcrumbSchema } from "@/components/schema/PageSchema";
 
 const iconMap: Record<string, React.ElementType> = {
-  Landmark, HeartPulse, ShoppingCart, GraduationCap, Building2, Briefcase, Truck, PlaySquare,
+  Landmark, HeartPulse, ShoppingCart, GraduationCap, Building2, Briefcase, Truck, PlaySquare, Headset, Scale, Cpu,
 };
 
 export function generateStaticParams() {
@@ -30,11 +30,11 @@ export async function generateMetadata({
   const industry = industries.find((i) => i.slug === slug);
   if (!industry) return { title: "Industry Not Found" };
   return {
-    title: `${industry.title} Software Development`,
+    title: `${industry.title} — Safe AI Deployment`,
     description: industry.description,
     alternates: { canonical: `/industries/${industry.slug}` },
     openGraph: {
-      title: `${industry.title} Software Solutions | PROSYS LTD`,
+      title: `${industry.title} — Safe AI Deployment | PROSYS LTD`,
       description: industry.description,
       url: `/industries/${industry.slug}`,
       type: "website",
@@ -42,7 +42,7 @@ export async function generateMetadata({
     },
     twitter: {
       card: "summary_large_image",
-      title: `${industry.title} Software Solutions | PROSYS LTD`,
+      title: `${industry.title} — Safe AI Deployment | PROSYS LTD`,
       description: industry.description,
       images: [industry.image],
     },
@@ -94,7 +94,7 @@ export default async function IndustryDetailPage({
               <h1 className="font-heading text-5xl md:text-6xl lg:text-7xl xl:text-[5.5rem] font-black text-white leading-[1.04] tracking-tight mb-8">
                 {industry.title}
                 <br />
-                <span className="gradient-text">Software Solutions.</span>
+                <span className="gradient-text">AI, deployed safely.</span>
               </h1>
               <p className="text-lg md:text-xl text-text-light-muted leading-relaxed max-w-3xl mb-10">
                 {industry.description}
@@ -135,7 +135,7 @@ export default async function IndustryDetailPage({
                 <div className="bg-white border border-card-light-border rounded-md p-8">
                   <div className="flex items-center gap-2 mb-5">
                     <ShieldCheck size={18} className="text-accent" />
-                    <h2 className="font-heading text-xl font-bold text-text-dark">Compliance & Regulations</h2>
+                    <h2 className="font-heading text-xl font-bold text-text-dark">Controls & Safeguards</h2>
                   </div>
                   <ul className="space-y-3">
                     {industry.compliance.map((c) => (
@@ -201,12 +201,12 @@ export default async function IndustryDetailPage({
           <DarkSectionFx variant="default" />
           <div className="relative z-10 max-w-[1400px] mx-auto px-6 lg:px-12">
             <div className="max-w-3xl">
-              <p className="text-xs text-accent-light uppercase tracking-[0.2em] font-medium mb-4">Ready to build in {industry.title}?</p>
+              <p className="text-xs text-accent-light uppercase tracking-[0.2em] font-medium mb-4">Ready to deploy AI in {industry.title}?</p>
               <h2 className="font-heading text-3xl md:text-4xl lg:text-5xl font-bold text-text-light mb-6 leading-tight">
-                Let&apos;s scope your {industry.title} <span className="gradient-text">platform.</span>
+                Let&apos;s scope your {industry.title} <span className="gradient-text">AI deployment.</span>
               </h2>
               <p className="text-text-light-muted text-lg mb-8 leading-relaxed">
-                Regulated-industry experience and an engineering process tuned for high-stakes delivery.
+                Sector-aware AI deployment with the permissions, integrations, and oversight your operations require.
               </p>
               <Link href="/contact" className="inline-flex items-center gap-2 gradient-bg text-white hover:shadow-lg hover:shadow-accent/20 px-8 py-3.5 text-sm uppercase tracking-widest rounded-md font-medium transition-all">
                 Book a Call <ArrowRight size={14} />

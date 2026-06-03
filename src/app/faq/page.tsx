@@ -10,12 +10,12 @@ import { GlobalFAQSchema } from "@/components/StructuredData";
 export const metadata: Metadata = {
   title: "FAQ",
   description:
-    "Frequently asked questions about PROSYS LTD's services, process, technologies, pricing, and how we work with startups and enterprises worldwide.",
+    "Frequently asked questions about how PROSYS LTD deploys AI safely — services, security, governance, integrations, pricing, IP, and how we work with your team.",
   alternates: { canonical: "/faq" },
   openGraph: {
     title: "FAQ — PROSYS LTD",
     description:
-      "Frequently asked questions about PROSYS LTD's services, process, technologies, pricing, and how we work with startups and enterprises worldwide.",
+      "Frequently asked questions about how PROSYS LTD deploys AI safely — services, security, governance, integrations, pricing, IP, and how we work with your team.",
     url: "/faq",
     type: "website",
   },
@@ -23,7 +23,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "FAQ — PROSYS LTD",
     description:
-      "Frequently asked questions about PROSYS LTD's services, process, technologies, pricing, and how we work with startups and enterprises worldwide.",
+      "Frequently asked questions about how PROSYS LTD deploys AI safely — services, security, governance, integrations, pricing, IP, and how we work with your team.",
   },
 };
 
@@ -44,7 +44,7 @@ export default function FAQPage() {
           badge="FAQ"
           title="Frequently"
           highlight="asked questions."
-          description="Engagement scope, pricing models, intellectual property ownership, delivery process, and operational standards — answered directly."
+          description="How we deploy AI safely — services, security testing, governance, integrations, pricing, IP ownership, and how we work with your team — answered directly."
         />
 
         <div className="bg-dark-secondary">

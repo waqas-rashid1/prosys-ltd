@@ -22,22 +22,22 @@ import { ServiceItemListSchema } from "@/components/StructuredData";
 import { servicesData } from "@/lib/services-data";
 
 export const metadata: Metadata = {
-  title: "All Services — Product Engineering, AI, Cloud & Growth",
+  title: "AI Deployment Services — Strategy, Agents, Governance, Integration & Monitoring",
   description:
-    "Explore PROSYS LTD's four service pillars: Product Engineering, AI & Automation, Cloud & Infrastructure, and Growth & Marketing. 14 services, one delivery standard.",
+    "Explore PROSYS LTD services for safe AI deployment: AI readiness, secure agents, governance, enterprise knowledge systems, integrations, security testing, monitoring, and optimization.",
   alternates: { canonical: "/services" },
   openGraph: {
-    title: "Services — PROSYS LTD",
+    title: "AI Deployment Services — PROSYS LTD",
     description:
-      "Explore PROSYS LTD's four service pillars: Product Engineering, AI & Automation, Cloud & Platform, and Growth & Marketing.",
+      "Everything companies need to deploy AI safely into operations: strategy, secure agents, governance, knowledge systems, integrations, security testing, and monitoring.",
     url: "/services",
     type: "website",
   },
   twitter: {
     card: "summary_large_image",
-    title: "Services — PROSYS LTD",
+    title: "AI Deployment Services — PROSYS LTD",
     description:
-      "Explore PROSYS LTD's four service pillars: Product Engineering, AI & Automation, Cloud & Platform, and Growth & Marketing.",
+      "Everything companies need to deploy AI safely into operations: strategy, secure agents, governance, knowledge systems, integrations, security testing, and monitoring.",
   },
 };
 
@@ -57,104 +57,74 @@ const pillars: {
 }[] = [
   {
     number: "01",
-    title: "Product Engineering",
-    tagline: "Engineered for production",
+    title: "Strategy & Governance",
+    tagline: "Decide and control before you scale",
     description:
-      "Web, SaaS, and custom platforms engineered for scale, operability, and end-to-end accountability.",
-    icon: Code2,
+      "Identify the safest, highest-ROI AI use cases, then define what AI can see, decide, change, and escalate before it touches business-critical work.",
+    icon: BrainCircuit,
     image: "/images/service-digital.jpg",
     accent: "emerald",
     slugs: [
-      "web-development",
-      "mvp-development",
-      "saas-development",
-      "software-development",
+      "ai-readiness-strategy",
+      "ai-governance-control-systems",
     ],
     proof: [
-      { value: "40+", label: "Production releases" },
-      { value: "<1s", label: "Median load" },
-      { value: "6–12w", label: "Time to production" },
+      { value: "1–3w", label: "Readiness sprint" },
+      { value: "Risk", label: "Scored per use case" },
+      { value: "Audit", label: "Logs & approvals" },
     ],
     outcomes: [
-      "First production release in 6–12 weeks",
-      "Built to SOC 2 Type II control objectives",
-      "Legacy modernization without downtime",
+      "A prioritized, costed AI roadmap",
+      "Permission, approval, and audit controls",
+      "A documented operating model for AI risk",
     ],
   },
   {
     number: "02",
-    title: "AI & Automation",
-    tagline: "Outcomes, not demos",
+    title: "Build & Knowledge",
+    tagline: "Agents and knowledge that operate safely",
     description:
-      "Applied AI, LLM systems, and intelligent automation engineered for reliability and measurable ROI.",
+      "Build AI agents that work inside real workflows with oversight, and secure knowledge systems that answer from trusted sources without exposing sensitive data.",
     icon: BrainCircuit,
     image: "/images/service-data.jpg",
     accent: "cyan",
     slugs: [
-      "ai-development",
-      "ai-automations",
-      "generative-ai",
+      "secure-ai-agents-workflow-automation",
+      "secure-enterprise-knowledge-systems",
     ],
     proof: [
-      { value: "80%", label: "Avg. Time Saved" },
-      { value: "15+", label: "AI Systems Live" },
-      { value: "100%", label: "Evaluated Models" },
+      { value: "HITL", label: "Approval gates" },
+      { value: "RBAC", label: "Role-based access" },
+      { value: "Cited", label: "Source-traceable" },
     ],
     outcomes: [
-      "Production LLM agents with audit trails",
-      "RAG systems on proprietary knowledge",
-      "Workflow automation with human-in-the-loop",
+      "Agents with permissions and human approval",
+      "Permission-aware enterprise knowledge",
+      "Reliable behavior with audit trails",
     ],
   },
   {
     number: "03",
-    title: "Cloud & Infrastructure",
-    tagline: "Infrastructure that scales",
+    title: "Integrate & Operate",
+    tagline: "Connect, test, and keep AI reliable",
     description:
-      "AWS and GCP infrastructure that holds up to a 10x traffic spike at 2 a.m. — because the on-call engineer will be us, not you.",
+      "Connect AI to the systems your business already runs on, then test, monitor, and improve it after launch so quality, cost, and safety stay visible.",
     icon: Cloud,
     image: "/images/service-cloud.jpg",
     accent: "violet",
     slugs: [
-      "cloud-operations",
-      "managed-services",
-      "security",
+      "ai-integration-existing-systems",
+      "ai-security-monitoring-optimization",
     ],
     proof: [
-      { value: "99.95%", label: "Uptime Achieved" },
-      { value: "-45%", label: "Avg. Cost Saved" },
-      { value: "IaC", label: "Everything" },
+      { value: "APIs", label: "& webhooks" },
+      { value: "Red-team", label: "Before launch" },
+      { value: "Monthly", label: "Optimization" },
     ],
     outcomes: [
-      "Zero-downtime cloud migrations",
-      "Defense-in-depth infrastructure architecture",
-      "24/7 observability & incident response",
-    ],
-  },
-  {
-    number: "04",
-    title: "Growth & Marketing",
-    tagline: "Compounding pipeline",
-    description:
-      "Technical SEO, AIEO, and full-funnel growth systems that drive qualified traffic and conversions.",
-    icon: Megaphone,
-    image: "/images/service-bps.jpg",
-    accent: "amber",
-    slugs: [
-      "seo",
-      "aieo",
-      "digital-marketing",
-      "graphics-branding",
-    ],
-    proof: [
-      { value: "3–5×", label: "Organic Lift" },
-      { value: "6m", label: "To Rank" },
-      { value: "LLM", label: "Citations" },
-    ],
-    outcomes: [
-      "First-page Google + LLM visibility",
-      "AIEO-optimized content systems",
-      "Full-funnel attribution & CRO",
+      "AI connected to CRMs, ERPs, and legacy tools",
+      "Prompt-injection and data-leakage testing",
+      "Cost, latency, and quality monitoring",
     ],
   },
 ];
@@ -236,64 +206,64 @@ const accentLight: Record<
 };
 
 const proofPoints = [
-  { value: "14", label: "Services" },
-  { value: "4", label: "Pillars" },
-  { value: "50+", label: "Engagements delivered" },
-  { value: "5", label: "Industry verticals" },
+  { value: "6", label: "Core AI services" },
+  { value: "3", label: "Delivery pillars" },
+  { value: "6–12w", label: "To production pilots" },
+  { value: "6", label: "Industries served" },
 ];
 
 const engagementSteps = [
   {
     num: "01",
-    title: "Discovery call",
-    desc: "30-minute working session with the engagement lead. Diagnostic-first — no service pitch.",
+    title: "Assess",
+    desc: "Map workflows, data, and risk. Score use cases by value and feasibility to find the safest place to start.",
   },
   {
     num: "02",
-    title: "Scoped proposal",
-    desc: "Fixed scope, fixed price, clear timeline. No hidden costs, no change-order games.",
+    title: "Build",
+    desc: "Develop agents, automations, and knowledge systems with oversight, controls, and fallback handling.",
   },
   {
     num: "03",
-    title: "Kickoff & plan",
-    desc: "Architecture review, sprint plan, and success metrics agreed before a line of code ships.",
+    title: "Govern",
+    desc: "Add permissions, approval workflows, audit logs, risk scoring, and escalation before going live.",
   },
   {
     num: "04",
-    title: "Sprint delivery",
-    desc: "Two-week cadence with weekly demos, transparent velocity tracking, and reviewable PRs.",
+    title: "Integrate",
+    desc: "Connect AI to CRMs, ERPs, helpdesks, databases, and legacy tools with proper data flows.",
   },
   {
     num: "05",
-    title: "Launch & harden",
-    desc: "QA, perf tuning, security review, and go-live with rollback plans and on-call cover.",
+    title: "Secure",
+    desc: "Red-team for prompt injection, data leakage, and unsafe actions, then implement guardrails.",
   },
   {
     num: "06",
-    title: "Evolve & grow",
-    desc: "Ongoing support, observability, and feature evolution — scoped monthly, not indefinitely.",
+    title: "Improve",
+    desc: "Monitor quality, cost, latency, and failures in production, with a monthly optimization plan.",
   },
 ];
 
 const problemMatches = [
   {
-    label: "I need to ship a product fast",
-    route: "MVP Development → Product Engineering",
-    icon: Zap,
-  },
-  {
-    label: "I want to add AI to our product",
-    route: "AI Development → Generative AI / RAG",
+    label: "I don't know where to start with AI",
+    route: "AI Readiness & Strategy",
     icon: Sparkles,
   },
   {
-    label: "My infrastructure doesn't scale",
-    route: "Cloud Operations → Managed Services",
+    label: "I want AI working inside our workflows",
+    route: "Secure AI Agents & Workflow Automation",
+    icon: Zap,
+  },
+  {
+    label: "AI needs access to our internal knowledge",
+    route: "Secure Enterprise Knowledge Systems",
     icon: Cpu,
   },
   {
-    label: "I need qualified pipeline",
-    route: "SEO + AIEO → Digital Marketing",
+    label: "Our AI must be controlled and audited",
+    route: "AI Governance & Control Systems",
     icon: Megaphone,
   },
 ];
@@ -306,20 +276,20 @@ export default function ServicesPage() {
       <main id="main-content">
         {/* ═══════════ DARK · Hero ═══════════ */}
         <PageHero
-          badge="Capabilities"
-          title="Four pillars."
-          highlight="One delivery standard."
-          description="From product engineering to AI, cloud, and growth — 14 services, four pillars, one delivery standard."
+          badge="AI Deployment Services"
+          title="Deploy AI safely."
+          highlight="From pilots to production."
+          description="Six core services that take AI from idea to operations — strategy, secure agents, governance, knowledge systems, integrations, and monitoring."
           bgImage="/images/services-hero.jpg"
           bgImageOpacity={0.3}
           trustSignals={[
-            "Engagement lead, named",
-            "Fixed-scope, fixed-price",
-            "Built to SOC 2 control objectives",
-            "24-hour response SLA",
+            "Permissions, approvals & audit logs",
+            "Human-in-the-loop oversight",
+            "Integrated with your existing systems",
+            "Monitored after launch",
           ]}
-          primaryCta={{ label: "Request a Discovery Call", href: "/contact" }}
-          secondaryCta={{ label: "Explore all 14 services", href: "#pillars" }}
+          primaryCta={{ label: "Book an AI Readiness Call", href: "/contact" }}
+          secondaryCta={{ label: "Explore all 6 services", href: "#pillars" }}
           stats={proofPoints.map((p) => ({ value: p.value, label: p.label }))}
         />
 
@@ -329,7 +299,7 @@ export default function ServicesPage() {
             {/* Editorial rail */}
             <div className="flex items-center gap-3 mb-6">
               <span className="text-[10px] text-accent/70 uppercase tracking-[0.35em] font-semibold">
-                / The Four Pillars
+                / The Three Pillars
               </span>
               <span className="h-px flex-1 max-w-[180px] bg-gradient-to-r from-accent/40 to-transparent" />
             </div>
@@ -342,7 +312,7 @@ export default function ServicesPage() {
                     <span className="gradient-text">Or tell us the problem.</span>
                   </h2>
                   <p className="text-base md:text-lg text-text-dark-muted leading-relaxed max-w-2xl">
-                    Every engagement fits into one of four disciplined pillars —
+                    Every engagement fits into one of three disciplined pillars —
                     but we start with your problem, not our service menu.
                   </p>
                 </div>

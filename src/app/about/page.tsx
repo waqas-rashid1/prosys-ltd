@@ -17,12 +17,12 @@ import { stats } from "@/lib/constants";
 export const metadata: Metadata = {
   title: "About Us",
   description:
-    "Learn about PROSYS LTD — an engineering practice delivering enterprise-grade AI, SaaS, and web platforms for funded startups and mid-market teams.",
+    "Learn about PROSYS LTD — an AI deployment practice helping companies move AI safely from pilots to production with secure agents, governance, integrations, and monitoring.",
   alternates: { canonical: "/about" },
   openGraph: {
     title: "About PROSYS LTD",
     description:
-      "Learn about PROSYS LTD — an engineering practice delivering enterprise-grade AI, SaaS, and web platforms for funded startups and mid-market teams.",
+      "Learn about PROSYS LTD — an AI deployment practice helping companies move AI safely from pilots to production with secure agents, governance, integrations, and monitoring.",
     url: "/about",
     type: "website",
   },
@@ -30,7 +30,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "About PROSYS LTD",
     description:
-      "Learn about PROSYS LTD — an engineering practice delivering enterprise-grade AI, SaaS, and web platforms for funded startups and mid-market teams.",
+      "Learn about PROSYS LTD — an AI deployment practice helping companies move AI safely from pilots to production with secure agents, governance, integrations, and monitoring.",
   },
 };
 
@@ -46,8 +46,8 @@ const values = [
 const milestones = [
   { year: "Jan 2024", title: "Founded", desc: "Established around a single operating principle: deliver systems engineered to be inherited and operated by the partner organization. One delivery standard, end-to-end ownership." },
   { year: "Sep 2024", title: "First 10 engagements", desc: "Production releases delivered for funded startups and mid-market teams across four countries. Retention rate above 80%." },
-  { year: "2025", title: "Team grew to 15+", desc: "Established design and growth practices alongside engineering. Began extending into SEO and AIEO engagements with existing product clients." },
-  { year: "2026", title: "Today", desc: "50+ engagements delivered. Active partnerships across North America, Europe, the Middle East, and APAC." },
+  { year: "2025", title: "Team grew to 15+", desc: "Specialized around production AI — secure agents, governance, and enterprise knowledge systems — alongside engineering and design, working with product clients deploying AI into operations." },
+  { year: "2026", title: "Today", desc: "Engagements delivered across North America, Europe, the Middle East, and APAC — focused on deploying AI safely into real business operations." },
 ];
 
 const leadership = [
@@ -101,12 +101,12 @@ export default function AboutPage() {
         {/* Hero */}
         <PageHero
           badge="About PROSYS LTD"
-          title="An engineering practice"
-          highlight="built for production."
-          description="PROSYS LTD is an engineering practice delivering SaaS platforms, AI systems, and growth infrastructure for funded startups and mid-market enterprises. End-to-end accountability — from architecture through post-launch operations."
+          title="An AI deployment practice"
+          highlight="built for real operations."
+          description="PROSYS LTD helps companies deploy AI safely into real business operations — from pilots to production. Secure agents, governed workflows, enterprise knowledge systems, integrations, and monitoring, with end-to-end accountability."
           bgImage="/images/team-collab.jpg"
           bgImageOpacity={0.22}
-          trustSignals={["Founded 2024", "15+ engineers", "Distributed delivery model", "Documented engineering process"]}
+          trustSignals={["Founded 2024", "15+ engineers & specialists", "Human-in-the-loop by design", "Production AI focus"]}
           primaryCta={{ label: "Meet the team", href: "#leadership" }}
           secondaryCta={{ label: "Speak with our team", href: "/contact" }}
           stats={stats.map((s) => ({ value: `${s.value}${s.suffix}`, label: s.label }))}
@@ -119,14 +119,14 @@ export default function AboutPage() {
               <ScrollReveal>
                 <p className="text-xs text-accent uppercase tracking-[0.2em] font-medium mb-4">Why we started</p>
                 <h2 className="font-heading text-3xl md:text-4xl font-bold text-text-dark mb-8 leading-tight">
-                  An engineering partner, <span className="gradient-text">accountable end-to-end.</span>
+                  An AI partner, <span className="gradient-text">accountable end-to-end.</span>
                 </h2>
                 <div className="space-y-6 text-text-dark-muted text-lg leading-relaxed">
                   <p>
-                    Most engagements fail in the operational handover. PROSYS was established to deliver against the full lifecycle — strategy, architecture, build, deployment, and the post-launch operations work that determines whether a platform actually performs.
+                    Most AI initiatives fail after the demo — disconnected from real workflows, ungoverned, and unmeasured. PROSYS was established to deliver against the full AI lifecycle: assess, build, govern, integrate, secure, and improve.
                   </p>
                   <p>
-                    The practice spans product engineering, AI delivery, cloud operations, and growth — covering SEO and AIEO, the disciplines that determine whether your product surfaces in Google and across AI retrieval systems.
+                    The practice spans AI strategy, secure agents and automation, governance and control systems, enterprise knowledge systems, integrations, and the security testing and monitoring that keep AI dependable once real users and real data depend on it.
                   </p>
                 </div>
               </ScrollReveal>

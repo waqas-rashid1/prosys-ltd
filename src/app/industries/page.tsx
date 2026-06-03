@@ -3,7 +3,7 @@ import Link from "next/link";
 import Image from "next/image";
 import {
   ArrowRight, Landmark, HeartPulse, ShoppingCart, GraduationCap,
-  Building2, Briefcase, Truck, PlaySquare, ShieldCheck,
+  Building2, Briefcase, Truck, PlaySquare, ShieldCheck, Headset, Scale, Cpu,
 } from "lucide-react";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
@@ -12,24 +12,24 @@ import PageHero from "@/components/ui/PageHero";
 import { industries } from "@/lib/constants";
 
 export const metadata: Metadata = {
-  title: "Industries",
-  description: "PROSYS LTD serves FinTech, HealthTech, E-Commerce, EdTech, Real Estate, Logistics, Media, and SaaS startups with tailored software solutions.",
+  title: "Industries — Safe AI Deployment by Sector",
+  description: "PROSYS LTD deploys AI safely across FinTech, HealthTech, SaaS & AI, logistics, BPO, and professional services — with the controls, integrations, and oversight each sector requires.",
   alternates: { canonical: "/industries" },
   openGraph: {
     title: "Industries — PROSYS LTD",
-    description: "PROSYS LTD serves FinTech, HealthTech, E-Commerce, EdTech, Real Estate, Logistics, Media, and SaaS startups with tailored software solutions.",
+    description: "Safe AI deployment for FinTech, HealthTech, SaaS & AI, logistics, BPO, and professional services — with sector-appropriate controls and integrations.",
     url: "/industries",
     type: "website",
   },
   twitter: {
     card: "summary_large_image",
     title: "Industries — PROSYS LTD",
-    description: "PROSYS LTD serves FinTech, HealthTech, E-Commerce, EdTech, Real Estate, Logistics, Media, and SaaS startups with tailored software solutions.",
+    description: "Safe AI deployment for FinTech, HealthTech, SaaS & AI, logistics, BPO, and professional services — with sector-appropriate controls and integrations.",
   },
 };
 
 const iconMap: Record<string, React.ElementType> = {
-  Landmark, HeartPulse, ShoppingCart, GraduationCap, Building2, Briefcase, Truck, PlaySquare,
+  Landmark, HeartPulse, ShoppingCart, GraduationCap, Building2, Briefcase, Truck, PlaySquare, Headset, Scale, Cpu,
 };
 
 export default function IndustriesPage() {
@@ -39,19 +39,19 @@ export default function IndustriesPage() {
       <main id="main-content">
         <PageHero
           badge="Industries"
-          title="Domain expertise that"
-          highlight="delivers."
-          description="We understand the unique challenges, regulations, and opportunities within each sector we serve — from FinTech and HealthTech to Logistics and SaaS."
+          title="Safe AI deployment,"
+          highlight="by sector."
+          description="The workflows, data sensitivity, and risk profile differ in every sector — so we deploy AI with the permissions, integrations, and oversight that fit how your operations actually run."
           bgImage="/images/industry-fintech.jpg"
           bgImageOpacity={0.22}
-          trustSignals={["Domain-specialized practices", "Engineered to SOC 2 controls", "Multi-region delivery"]}
+          trustSignals={["Permission-aware data access", "Human-in-the-loop oversight", "Integrated with existing systems"]}
           primaryCta={{ label: "Explore industries", href: "#industries-grid" }}
           secondaryCta={{ label: "Discuss your sector", href: "/contact" }}
           stats={[
             { value: `${industries.length}`, label: "Core sectors" },
-            { value: "5", label: "Industry verticals" },
-            { value: "30+", label: "Active enterprise clients" },
-            { value: "50+", label: "Engagements delivered" },
+            { value: "6", label: "Core AI services" },
+            { value: "HITL", label: "Oversight by design" },
+            { value: "6–12w", label: "To production pilots" },
           ]}
         />
 
@@ -118,7 +118,7 @@ export default function IndustriesPage() {
                       We work across adjacent verticals too.
                     </h3>
                     <p className="text-text-dark-muted text-sm leading-relaxed mb-4 flex-1">
-                      Real estate, logistics, media, climate, manufacturing — if the operational shape rhymes with what we ship today, the playbook ports over. Tell us about your domain.
+                      InsurTech, real estate, EdTech, media, the public sector — if your workflows, data, and risk profile rhyme with what we deploy today, the playbook ports over. Tell us about your operations.
                     </p>
                     <div className="flex items-center justify-between pt-4 border-t border-card-light-border">
                       <span className="text-[11px] text-text-dark-muted">

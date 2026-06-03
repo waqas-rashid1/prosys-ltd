@@ -230,13 +230,13 @@ export default function ContactForm() {
             id="service" name="service" defaultValue=""
             className="w-full px-4 py-3 rounded-md border border-card-light-border bg-light-primary text-text-dark focus:outline-none focus:border-accent focus:ring-1 focus:ring-accent/20 transition-all"
           >
-            <option value="" disabled>Select a capability</option>
-            <option>Product Engineering (Web / SaaS / Software)</option>
-            <option>AI & Automation</option>
-            <option>Cloud & Platform Engineering</option>
-            <option>Growth & Marketing (SEO / AIEO / Ads)</option>
-            <option>MVP / Rapid Prototyping</option>
-            <option>Staff Augmentation</option>
+            <option value="" disabled>Select a service</option>
+            <option>AI Readiness &amp; Strategy</option>
+            <option>Secure AI Agents &amp; Workflow Automation</option>
+            <option>AI Governance &amp; Control Systems</option>
+            <option>Secure Enterprise Knowledge Systems</option>
+            <option>AI Integration with Existing Systems</option>
+            <option>AI Security, Monitoring &amp; Optimization</option>
             <option>Not sure — need guidance</option>
           </select>
         </div>

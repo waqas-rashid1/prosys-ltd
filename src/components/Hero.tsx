@@ -9,25 +9,25 @@ import MagneticButton from "./ui/MagneticButton";
 
 const slides = [
   {
-    eyebrow: "Product Engineering",
-    title: "Software engineered",
-    highlight: "for production.",
+    eyebrow: "Safe AI Deployment",
+    title: "Deploy AI safely",
+    highlight: "into real operations.",
     description:
-      "Platforms built for the load they actually carry, not the slide deck. SaaS, web applications, and custom systems that perform under production conditions and stay maintainable through scale.",
+      "Most AI pilots stall before they reach production. We help companies move AI from proof of concept into day-to-day operations — with the controls, oversight, and integrations real businesses require.",
   },
   {
-    eyebrow: "AI & Automation",
-    title: "AI engineered",
-    highlight: "for production.",
+    eyebrow: "Secure AI Agents",
+    title: "AI agents that work",
+    highlight: "inside your workflows.",
     description:
-      "Most AI initiatives stall after the proof of concept. We engineer the operational layer — evaluation harnesses, fallback models, cost ceilings, and observability — that turns a prototype into a system the business can rely on.",
+      "Agents that summarize, classify, route, draft, recommend, and trigger actions — with role-based permissions, human-in-the-loop approvals, and audit logs on every action. Useful, and controlled.",
   },
   {
-    eyebrow: "SEO & AIEO",
-    title: "Discoverable on Google.",
-    highlight: "Cited by ChatGPT.",
+    eyebrow: "Governance & Security",
+    title: "Control what AI",
+    highlight: "can see and do.",
     description:
-      "Search behaviour now spans Google, ChatGPT, Gemini, and Perplexity. Technical SEO and AI Engine Optimization programs that move rankings in both — backed by structured data, content architecture, and Core Web Vitals work.",
+      "Governance systems, secure knowledge access, integrations with your existing tools, and red-team testing for prompt injection and data leakage — so AI stays auditable, reliable, and safe after launch.",
   },
 ];
 
@@ -142,7 +142,7 @@ export default function Hero() {
                   href="/contact"
                   className="hero-cta-glow relative inline-flex items-center justify-center font-semibold rounded-md bg-white text-dark-primary hover:bg-accent hover:text-white px-7 py-3.5 text-xs uppercase tracking-widest transition-colors duration-200"
                 >
-                  Request a Discovery Call
+                  Book an AI Readiness Call
                 </Link>
               </MagneticButton>
               <Link

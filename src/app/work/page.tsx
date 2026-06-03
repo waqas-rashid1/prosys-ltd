@@ -11,18 +11,18 @@ import { caseStudies } from "@/lib/constants";
 
 export const metadata: Metadata = {
   title: "Our Work",
-  description: "PROSYS LTD engagements — SaaS platforms, applied AI systems, production pilots, and enterprise platform modernization.",
+  description: "PROSYS LTD engagements — AI systems deployed into operations: secure agents, workflow automation, enterprise knowledge systems, and production pilots.",
   alternates: { canonical: "/work" },
   openGraph: {
     title: "Our Work — PROSYS LTD",
-    description: "PROSYS LTD engagements — SaaS platforms, applied AI systems, production pilots, and enterprise platform modernization.",
+    description: "PROSYS LTD engagements — AI systems deployed into operations: secure agents, workflow automation, enterprise knowledge systems, and production pilots.",
     url: "/work",
     type: "website",
   },
   twitter: {
     card: "summary_large_image",
     title: "Our Work — PROSYS LTD",
-    description: "PROSYS LTD engagements — SaaS platforms, applied AI systems, production pilots, and enterprise platform modernization.",
+    description: "PROSYS LTD engagements — AI systems deployed into operations: secure agents, workflow automation, enterprise knowledge systems, and production pilots.",
   },
 };
 
@@ -79,16 +79,16 @@ export default function WorkPage() {
           badge="Portfolio"
           title="Engagements,"
           highlight="documented."
-          description="A selection of production engagements delivered for funded startups, scale-ups, and mid-market enterprises across five industry verticals — measured by outcome, not output."
+          description="A selection of AI deployments delivered for funded startups, scale-ups, and mid-market teams — agents, automations, and knowledge systems measured by outcome, not output."
           bgImage="/images/case-saas.jpg"
           bgImageOpacity={0.22}
-          trustSignals={["Enterprise & startup clients", "Measurable outcomes", "NDA on request"]}
+          trustSignals={["Production AI deployments", "Measurable outcomes", "NDA on request"]}
           primaryCta={{ label: "Browse case studies", href: "#case-studies" }}
           secondaryCta={{ label: "Start an engagement", href: "/contact" }}
           stats={[
-            { value: "50+", label: "Engagements" },
-            { value: "30+", label: "Enterprise clients" },
-            { value: "5", label: "Verticals" },
+            { value: "6", label: "Core AI services" },
+            { value: "6", label: "Industries served" },
+            { value: "HITL", label: "Oversight by design" },
             { value: "6–12 wk", label: "Avg. to production" },
           ]}
         />

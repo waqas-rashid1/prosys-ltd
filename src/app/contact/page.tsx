@@ -9,18 +9,18 @@ import { siteConfig } from "@/lib/constants";
 
 export const metadata: Metadata = {
   title: "Contact Us",
-  description: "Get in touch with PROSYS LTD. Whether you need a quote, have a project idea, or want to discuss a partnership.",
+  description: "Get in touch with PROSYS LTD to deploy AI safely into your operations. Book an AI readiness call or describe the workflow you want to improve.",
   alternates: { canonical: "/contact" },
   openGraph: {
     title: "Contact PROSYS LTD",
-    description: "Get in touch with PROSYS LTD. Whether you need a quote, have a project idea, or want to discuss a partnership.",
+    description: "Get in touch with PROSYS LTD to deploy AI safely into your operations. Book an AI readiness call or describe the workflow you want to improve.",
     url: "/contact",
     type: "website",
   },
   twitter: {
     card: "summary_large_image",
     title: "Contact PROSYS LTD",
-    description: "Get in touch with PROSYS LTD. Whether you need a quote, have a project idea, or want to discuss a partnership.",
+    description: "Get in touch with PROSYS LTD to deploy AI safely into your operations. Book an AI readiness call or describe the workflow you want to improve.",
   },
 };
 
@@ -41,17 +41,17 @@ export default function ContactPage() {
           badge="Get in Touch"
           title="Let's build"
           highlight="together."
-          description="Scoping a new build, evaluating a partner, or reviewing an existing platform — engagements lead reviews every inbound and responds within 24 business hours."
+          description="Exploring where to start with AI, scoping a production pilot, or hardening an AI system already in use — our team reviews every inbound and responds within 24 business hours."
           bgImage="/images/contact-hero.jpg"
           bgImageOpacity={0.18}
-          trustSignals={["24-hour response SLA", "NDA on request", "Distributed delivery model", "Direct engagement lead"]}
+          trustSignals={["24-hour response SLA", "NDA on request", "Human-in-the-loop by design", "Direct specialist contact"]}
           primaryCta={{ label: "Send a brief", href: "#contact-form" }}
           secondaryCta={{ label: "Book a call", href: "https://cal.com/prosysltd/30min" }}
           stats={[
             { value: "<24h", label: "Response time" },
-            { value: "5", label: "Industry verticals" },
-            { value: "50+", label: "Engagements delivered" },
-            { value: "99%", label: "Engagement retention" },
+            { value: "6", label: "Core AI services" },
+            { value: "6", label: "Industries served" },
+            { value: "6–12w", label: "To production pilots" },
           ]}
         />
 

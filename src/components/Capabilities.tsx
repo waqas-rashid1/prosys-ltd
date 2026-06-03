@@ -9,52 +9,52 @@ const capabilities = [
   {
     num: "01",
     icon: ShieldCheck,
-    label: "Security-first by design",
-    desc: "Engineering practices modeled on ISO 27001 and SOC 2 control objectives — least-privilege access, encrypted data flows, and an audit-ready evidence pipeline. Formal certification is on our roadmap; control documentation available on request.",
-    tag: "Compliance",
+    label: "Safe by design",
+    desc: "Permissions, approval workflows, audit logs, escalation paths, and kill switches are designed in from the start — so AI stays controlled and auditable in real operations, not just impressive in a demo.",
+    tag: "Governance",
   },
   {
     num: "02",
     icon: Users,
-    label: "Experienced staffing",
-    desc: "Engagements are staffed for the technical risk profile, with deep production experience across regulated and high-traffic systems. One accountable team, end-to-end.",
-    tag: "Talent",
+    label: "Human-in-the-loop",
+    desc: "Sensitive actions pass through human review and approval gates. AI accelerates the work without taking unreviewed actions on business-critical processes.",
+    tag: "Oversight",
   },
   {
     num: "03",
-    icon: Clock,
-    label: "Predictable cadence",
-    desc: "Reviewable releases on a fixed schedule, in a live staging environment available throughout the engagement. Working software at every checkpoint.",
-    tag: "Cadence",
+    icon: Lock,
+    label: "Permission-aware data",
+    desc: "Knowledge systems and integrations respect access boundaries. Each user only retrieves and sees the data they are authorized to access, with source citations.",
+    tag: "Security",
   },
   {
     num: "04",
     icon: Code2,
-    label: "Production-proven stack",
-    desc: "TypeScript, Next.js, Python, Go, PostgreSQL, AWS, GCP. Technology selection prioritizes long-term operability over novelty.",
-    tag: "Stack",
+    label: "Built to integrate",
+    desc: "AI connected to the CRMs, ERPs, helpdesks, databases, and legacy tools your business already runs on — with proper authentication and documented data flows.",
+    tag: "Integration",
   },
   {
     num: "05",
     icon: GitBranch,
-    label: "Operational from day one",
-    desc: "Infrastructure as code, CI/CD pipelines, error tracking, and on-call alerting — provisioned before the first production user.",
-    tag: "Ops",
+    label: "Tested before launch",
+    desc: "Red-team testing for prompt injection, data leakage, unsafe actions, and tool misuse, with guardrails and fallback behavior implemented against the failures found.",
+    tag: "Testing",
   },
   {
     num: "06",
-    icon: Lock,
-    label: "Commercial readiness",
-    desc: "Mutual NDAs returned within 24 hours. Standard MSA template available, or engagement under your contract terms. No charge for legal preliminaries.",
-    tag: "Trust",
+    icon: Clock,
+    label: "Monitored after launch",
+    desc: "Quality, cost, latency, failures, and escalation rates tracked in production — with a monthly improvement roadmap so AI keeps working as data and users change.",
+    tag: "Monitoring",
   },
 ];
 
 const proof = [
-  { value: "99%", label: "On-time delivery" },
-  { value: "<24h", label: "Response SLA" },
-  { value: "5", label: "Industry verticals" },
-  { value: "50+", label: "Engagements delivered" },
+  { value: "6", label: "Core AI services" },
+  { value: "6–12w", label: "To production pilots" },
+  { value: "HITL", label: "Oversight by design" },
+  { value: "6", label: "Industries served" },
 ];
 
 export default function Capabilities() {
@@ -78,17 +78,17 @@ export default function Capabilities() {
           {/* Left — intro column */}
           <ScrollReveal className="lg:col-span-5 lg:sticky lg:top-28">
             <h2 className="font-heading text-4xl md:text-5xl lg:text-[4rem] xl:text-[4.5rem] font-black text-white leading-[0.98] tracking-tight mb-6">
-              Enterprise{" "}
+              Powerful AI.{" "}
               <br />
-              discipline.{" "}
+              Deployed{" "}
               <br />
-              <span className="gradient-text">Startup velocity.</span>
+              <span className="gradient-text">safely.</span>
             </h2>
 
             <p className="text-base md:text-lg text-text-light-muted leading-relaxed mb-8 max-w-xl">
-              Every engagement follows the same operating model: a written scope, a
-              fixed delivery cadence, and reviewable working software at every checkpoint.
-              Commercials, deliverables, and change processes are documented upfront.
+              Every engagement follows the same operating model: the controls that make
+              AI safe — permissions, approvals, audit logs, integrations, testing, and
+              monitoring — are designed in from the start, not bolted on after launch.
             </p>
 
             {/* Proof strip */}
@@ -171,8 +171,8 @@ export default function Capabilities() {
               transition={{ delay: 0.4 }}
               className="mt-6 flex flex-wrap items-center justify-center gap-x-6 gap-y-2 px-4 py-3 bg-card-dark/40 border border-card-dark-border"
             >
-              <span className="text-[10px] text-white/40 uppercase tracking-[0.2em] font-semibold">Modeled on:</span>
-              {["ISO 27001", "SOC 2 Type II", "GDPR", "OWASP ASVS", "WCAG 2.2 AA"].map((s) => (
+              <span className="text-[10px] text-white/40 uppercase tracking-[0.2em] font-semibold">Aligned with:</span>
+              {["OWASP LLM Top 10", "NIST AI RMF", "ISO 27001", "SOC 2", "GDPR"].map((s) => (
                 <span key={s} className="text-[10px] text-white/60 font-medium tracking-wide">{s}</span>
               ))}
             </motion.div>
