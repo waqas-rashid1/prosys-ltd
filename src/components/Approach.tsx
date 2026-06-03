@@ -115,14 +115,6 @@ export default function Approach() {
               "radial-gradient(circle, rgba(6,182,212,0.3) 0%, transparent 65%)",
           }}
         />
-        <div
-          className="absolute inset-0 opacity-[0.03]"
-          style={{
-            backgroundImage:
-              "linear-gradient(var(--accent-light) 1px, transparent 1px), linear-gradient(90deg, var(--accent-light) 1px, transparent 1px)",
-            backgroundSize: "90px 90px",
-          }}
-        />
       </div>
 
       <div className="relative z-10 max-w-[1400px] mx-auto px-6 lg:px-12 xl:px-16 w-full">

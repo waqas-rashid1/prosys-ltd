@@ -6,6 +6,7 @@ import { motion, AnimatePresence } from "framer-motion";
 import {
   Search, ArrowRight, Home, Briefcase, Users, FileText, Mail,
   Building2, Phone, Book, Cpu, BrainCircuit, Cloud, Megaphone, LayoutGrid,
+  Telescope, Bot, ShieldCheck, Library, Blocks, Gauge,
 } from "lucide-react";
 import { servicesData } from "@/lib/services-data";
 
@@ -37,6 +38,12 @@ function iconForService(iconName: string): React.ElementType {
     BrainCircuit,
     Cloud,
     Megaphone,
+    Telescope,
+    Bot,
+    ShieldCheck,
+    Library,
+    Blocks,
+    Gauge,
   };
   return map[iconName] || Cpu;
 }

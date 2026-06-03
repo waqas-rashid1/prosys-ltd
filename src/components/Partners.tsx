@@ -67,15 +67,21 @@ const ROW_TWO: Tech[] = [
 
 function TechChip({ tech }: { tech: Tech }) {
   return (
-    <div className="group flex items-center gap-3 px-5 py-3 mx-3 border border-card-dark-border bg-card-dark/60 backdrop-blur-sm hover:border-accent/40 hover:bg-card-dark transition-colors duration-300 whitespace-nowrap">
+    <div className="group/chip relative flex items-center gap-3 px-5 py-3.5 mx-2.5 rounded-xl border border-card-dark-border bg-gradient-to-b from-card-dark/80 to-card-dark/30 backdrop-blur-sm whitespace-nowrap cursor-default transition-all duration-300 ease-out hover:z-10 hover:scale-[1.14] hover:-translate-y-1 hover:border-accent/60 hover:from-card-dark hover:to-card-dark hover:shadow-[0_12px_30px_-8px_rgba(6,182,212,0.45)]">
+      {/* Soft glow that fades in on hover */}
+      <span
+        className="pointer-events-none absolute inset-0 rounded-xl opacity-0 group-hover/chip:opacity-100 transition-opacity duration-300"
+        style={{ background: "radial-gradient(120px 60px at 50% 0%, rgba(6,182,212,0.14), transparent 70%)" }}
+        aria-hidden="true"
+      />
       <Image
         src={tech.logo}
         alt=""
-        width={22}
-        height={22}
-        className="w-[22px] h-[22px] object-contain opacity-60 group-hover:opacity-100 transition-opacity duration-300"
+        width={24}
+        height={24}
+        className="relative w-6 h-6 object-contain opacity-65 grayscale group-hover/chip:opacity-100 group-hover/chip:grayscale-0 transition-all duration-300"
       />
-      <span className="text-[13px] font-medium text-text-light-muted/70 group-hover:text-accent-light transition-colors duration-300 tracking-wide">
+      <span className="relative text-[13px] font-medium text-text-light-muted/70 group-hover/chip:text-white transition-colors duration-300 tracking-wide">
         {tech.name}
       </span>
     </div>
@@ -95,7 +101,7 @@ function MarqueeRow({
     direction === "left" ? "animate-marquee" : "animate-marquee-reverse";
 
   return (
-    <div className="relative overflow-hidden">
+    <div className="relative overflow-hidden py-2.5">
       <div
         className={`flex w-max ${animationClass} group-hover:[animation-play-state:paused]`}
       >
@@ -136,9 +142,16 @@ export default function Partners() {
                   on a Saturday.
                 </p>
               </div>
-              <p className="text-sm text-text-light-muted hidden lg:block">
-                {ROW_ONE.length + ROW_TWO.length}+ technologies in active use
-              </p>
+              <div className="hidden lg:inline-flex items-center gap-2.5 self-end rounded-full border border-card-dark-border bg-card-dark/60 px-4 py-2 backdrop-blur-sm">
+                <span className="relative flex h-2 w-2">
+                  <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-accent-light/70" />
+                  <span className="relative inline-flex h-2 w-2 rounded-full bg-accent-light" />
+                </span>
+                <span className="text-sm font-medium text-white">
+                  {ROW_ONE.length + ROW_TWO.length}+
+                </span>
+                <span className="text-sm text-text-light-muted">technologies in active use</span>
+              </div>
             </div>
           </ScrollReveal>
         </div>
@@ -154,10 +167,15 @@ export default function Partners() {
               "linear-gradient(to right, transparent 0%, black 6%, black 94%, transparent 100%)",
           }}
         >
-          <div className="space-y-3">
+          <div className="space-y-2">
             <MarqueeRow techs={ROW_ONE} direction="left" />
             <MarqueeRow techs={ROW_TWO} direction="right" />
           </div>
+
+          {/* Subtle interaction hint */}
+          <p className="mt-6 text-center text-xs text-text-light-muted/50">
+            Hover to pause · hover a tool to focus
+          </p>
         </div>
       </div>
     </section>

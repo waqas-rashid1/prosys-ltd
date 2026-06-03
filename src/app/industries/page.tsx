@@ -97,15 +97,6 @@ export default function IndustriesPage() {
                   className="group flex flex-col h-full bg-gradient-to-br from-accent/5 via-white to-white relative overflow-hidden hover:from-accent/10 transition-colors"
                 >
                   <div className="relative h-44 overflow-hidden bg-light-secondary flex items-center justify-center">
-                    <div
-                      aria-hidden="true"
-                      className="absolute inset-0 opacity-[0.06]"
-                      style={{
-                        backgroundImage:
-                          "linear-gradient(rgba(6,182,212,0.6) 1px, transparent 1px), linear-gradient(90deg, rgba(6,182,212,0.6) 1px, transparent 1px)",
-                        backgroundSize: "24px 24px",
-                      }}
-                    />
                     <div className="relative w-14 h-14 rounded-md border-2 border-dashed border-accent/40 bg-white flex items-center justify-center text-accent group-hover:border-accent group-hover:bg-accent/5 transition-all">
                       <Briefcase size={20} />
                     </div>

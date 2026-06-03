@@ -446,24 +446,13 @@ export default function ServicesPage() {
               >
                 {/* Ambient glow — green on dark, pillar-accent on light */}
                 {isDark && (
-                  <>
-                    <div
-                      className="absolute inset-0 pointer-events-none opacity-60"
-                      style={{
-                        background: `radial-gradient(ellipse 900px 500px at 75% 10%, rgba(6,182,212,0.18) 0%, transparent 60%)`,
-                      }}
-                      aria-hidden="true"
-                    />
-                    <div
-                      className="absolute inset-0 pointer-events-none opacity-[0.03]"
-                      style={{
-                        backgroundImage:
-                          "linear-gradient(rgba(255,255,255,0.9) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.9) 1px, transparent 1px)",
-                        backgroundSize: "80px 80px",
-                      }}
-                      aria-hidden="true"
-                    />
-                  </>
+                  <div
+                    className="absolute inset-0 pointer-events-none opacity-60"
+                    style={{
+                      background: `radial-gradient(ellipse 900px 500px at 75% 10%, rgba(6,182,212,0.18) 0%, transparent 60%)`,
+                    }}
+                    aria-hidden="true"
+                  />
                 )}
                 {!isDark && (
                   <div

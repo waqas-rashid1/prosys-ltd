@@ -1,6 +1,6 @@
 "use client";
 
-import { ShieldCheck, Users, Clock, Code2, GitBranch, Lock, ArrowRight } from "lucide-react";
+import { ShieldCheck, UserCheck, Activity, Blocks, FlaskConical, Lock, ArrowRight } from "lucide-react";
 import Link from "next/link";
 import { motion } from "framer-motion";
 import ScrollReveal from "./ui/ScrollReveal";
@@ -15,7 +15,7 @@ const capabilities = [
   },
   {
     num: "02",
-    icon: Users,
+    icon: UserCheck,
     label: "Human-in-the-loop",
     desc: "Sensitive actions pass through human review and approval gates. AI accelerates the work without taking unreviewed actions on business-critical processes.",
     tag: "Oversight",
@@ -29,21 +29,21 @@ const capabilities = [
   },
   {
     num: "04",
-    icon: Code2,
+    icon: Blocks,
     label: "Built to integrate",
     desc: "AI connected to the CRMs, ERPs, helpdesks, databases, and legacy tools your business already runs on — with proper authentication and documented data flows.",
     tag: "Integration",
   },
   {
     num: "05",
-    icon: GitBranch,
+    icon: FlaskConical,
     label: "Tested before launch",
     desc: "Red-team testing for prompt injection, data leakage, unsafe actions, and tool misuse, with guardrails and fallback behavior implemented against the failures found.",
     tag: "Testing",
   },
   {
     num: "06",
-    icon: Clock,
+    icon: Activity,
     label: "Monitored after launch",
     desc: "Quality, cost, latency, failures, and escalation rates tracked in production — with a monthly improvement roadmap so AI keeps working as data and users change.",
     tag: "Monitoring",
@@ -64,7 +64,6 @@ export default function Capabilities() {
       <div className="absolute inset-0 pointer-events-none" aria-hidden="true">
         <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[900px] h-[500px] rounded-full blur-3xl opacity-40" style={{ background: "radial-gradient(ellipse, rgba(6,182,212,0.18) 0%, transparent 60%)" }} />
         <div className="absolute bottom-0 left-1/4 w-[500px] h-[400px] rounded-full blur-3xl opacity-30" style={{ background: "radial-gradient(circle, rgba(103,232,249,0.12) 0%, transparent 70%)" }} />
-        <div className="absolute inset-0 opacity-[0.025]" style={{ backgroundImage: "linear-gradient(rgba(255,255,255,0.8) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.8) 1px, transparent 1px)", backgroundSize: "80px 80px" }} />
       </div>
 
       <div className="relative z-10 max-w-[1400px] mx-auto px-6 lg:px-12 w-full py-14 lg:py-20">

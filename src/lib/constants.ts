@@ -25,7 +25,7 @@ export const navLinks = [
 
 export const services = [
   {
-    icon: "Lightbulb",
+    icon: "Telescope",
     slug: "ai-readiness-strategy",
     title: "AI Readiness & Strategy",
     description:
@@ -46,21 +46,21 @@ export const services = [
       "Define what AI can see, decide, change, and escalate. Governance layers for AI adoption: access control, audit logs, approval workflows, risk scoring, policy enforcement, kill switches, and operational ownership.",
   },
   {
-    icon: "Database",
+    icon: "Library",
     slug: "secure-enterprise-knowledge-systems",
     title: "Secure Enterprise Knowledge Systems",
     description:
       "Give teams AI access to internal knowledge without exposing sensitive data. Permission-aware search, RAG systems, knowledge assistants, document pipelines, citation logic, and retrieval evaluation for private data.",
   },
   {
-    icon: "Network",
+    icon: "Blocks",
     slug: "ai-integration-existing-systems",
     title: "AI Integration with Existing Systems",
     description:
       "Connect AI to the tools your business already runs on. We integrate AI into CRMs, ERPs, helpdesks, databases, communication tools, document stores, internal portals, and legacy systems.",
   },
   {
-    icon: "Server",
+    icon: "Gauge",
     slug: "ai-security-monitoring-optimization",
     title: "AI Security, Monitoring & Optimization",
     description:

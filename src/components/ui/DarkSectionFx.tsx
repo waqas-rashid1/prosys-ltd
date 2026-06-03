@@ -32,7 +32,6 @@ type Props = {
 export default function DarkSectionFx({
   variant = "default",
   className = "",
-  hideGrid = false,
 }: Props) {
   return (
     <div
@@ -87,17 +86,6 @@ export default function DarkSectionFx({
             }}
           />
         </>
-      )}
-
-      {!hideGrid && (
-        <div
-          className="absolute inset-0 opacity-[0.022]"
-          style={{
-            backgroundImage:
-              "linear-gradient(rgba(255,255,255,0.85) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.85) 1px, transparent 1px)",
-            backgroundSize: "84px 84px",
-          }}
-        />
       )}
     </div>
   );

@@ -25,13 +25,13 @@ export default function Button({
   ariaLabel,
 }: ButtonProps) {
   const baseStyles =
-    "inline-flex items-center justify-center font-semibold rounded-md transition-all duration-300 cursor-pointer disabled:opacity-60 disabled:cursor-not-allowed";
+    "group inline-flex items-center justify-center gap-2 font-semibold rounded-lg transition-all duration-300 cursor-pointer active:scale-[0.98] active:translate-y-0 disabled:opacity-60 disabled:cursor-not-allowed disabled:hover:translate-y-0 disabled:hover:shadow-none";
 
   const variants = {
     primary:
-      "bg-accent text-white hover:bg-accent-hover hover:shadow-lg hover:shadow-accent/25",
+      "bg-accent text-white hover:bg-accent-hover hover:shadow-lg hover:shadow-accent/30 hover:-translate-y-0.5",
     outline:
-      "border border-accent-light/40 text-accent-light hover:bg-accent/10 hover:border-accent-light",
+      "border border-accent-light/40 text-accent-light hover:bg-accent/10 hover:border-accent-light hover:-translate-y-0.5",
     ghost: "text-text-light-muted hover:text-accent-light hover:bg-white/5",
   };
 

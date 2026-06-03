@@ -227,10 +227,10 @@ export default function Navbar() {
               </button>
               <Link
                 href="/contact"
-                className="ml-2 group inline-flex items-center gap-2 font-semibold rounded-md transition-all duration-300 cursor-pointer bg-white text-dark-primary hover:bg-accent hover:text-white px-6 py-2.5 text-sm"
+                className="ml-2 group inline-flex items-center gap-2 font-semibold rounded-lg transition-all duration-300 cursor-pointer bg-white text-dark-primary hover:bg-accent hover:text-white px-6 py-2.5 text-sm shadow-sm shadow-black/10 hover:shadow-md hover:shadow-accent/30 active:scale-[0.97]"
               >
                 Book a Call
-                <ArrowRight size={14} className="transition-transform duration-300 group-hover:translate-x-0.5" />
+                <ArrowRight size={14} className="transition-transform duration-300 group-hover:translate-x-1" />
               </Link>
             </div>
 
@@ -506,9 +506,10 @@ export default function Navbar() {
               <Link
                 href="/contact"
                 onClick={() => setMobileOpen(false)}
-                className="mt-8 inline-flex items-center justify-center font-semibold rounded-md transition-all duration-300 cursor-pointer bg-white text-dark-primary active:bg-accent active:text-white px-9 py-4 text-base tracking-wide"
+                className="mt-8 inline-flex items-center justify-center gap-2 font-semibold rounded-lg transition-all duration-300 cursor-pointer bg-white text-dark-primary active:bg-accent active:text-white active:scale-[0.98] shadow-lg shadow-black/20 px-9 py-4 text-base tracking-wide"
               >
                 Book a Call
+                <ArrowRight size={16} className="transition-transform duration-300 group-hover:translate-x-1" />
               </Link>
             </div>
           </motion.div>

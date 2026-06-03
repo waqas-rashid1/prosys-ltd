@@ -2,7 +2,7 @@
 
 import Link from "next/link";
 import { motion } from "framer-motion";
-import { ArrowRight, Target, Users, Rocket } from "lucide-react";
+import { ArrowRight, Rocket, ShieldCheck, Workflow } from "lucide-react";
 import ScrollReveal from "./ui/ScrollReveal";
 import SpotlightCard from "./ui/SpotlightCard";
 
@@ -10,9 +10,9 @@ import SpotlightCard from "./ui/SpotlightCard";
 // JSX below until formal audits complete. Re-enable both when ready.
 
 const pillars = [
-  { icon: Target, label: "Production, not demos", desc: "We focus on AI that reaches real operations — connected to workflows, integrated with systems, and measured after launch, not just impressive in a pilot." },
-  { icon: Users, label: "Safe by design", desc: "Permissions, approvals, audit logs, and human oversight are designed in from the start, so AI stays controlled and auditable in day-to-day use." },
-  { icon: Rocket, label: "End-to-end ownership", desc: "From readiness and strategy through build, governance, integration, security, and monitoring — one accountable team across the full AI lifecycle." },
+  { icon: Rocket, label: "Production, not demos", desc: "We focus on AI that reaches real operations — connected to workflows, integrated with systems, and measured after launch, not just impressive in a pilot." },
+  { icon: ShieldCheck, label: "Safe by design", desc: "Permissions, approvals, audit logs, and human oversight are designed in from the start, so AI stays controlled and auditable in day-to-day use." },
+  { icon: Workflow, label: "End-to-end ownership", desc: "From readiness and strategy through build, governance, integration, security, and monitoring — one accountable team across the full AI lifecycle." },
 ];
 
 const orbitTags = [
@@ -34,7 +34,6 @@ export default function About() {
       <div className="absolute inset-0 pointer-events-none" aria-hidden="true">
         <div className="absolute top-0 left-1/4 w-[600px] h-[600px] rounded-full blur-3xl opacity-[0.08]" style={{ background: "radial-gradient(circle, rgba(103,232,249,0.5) 0%, transparent 70%)" }} />
         <div className="absolute bottom-0 right-1/4 w-[500px] h-[500px] rounded-full blur-3xl opacity-[0.06]" style={{ background: "radial-gradient(circle, rgba(6,182,212,0.6) 0%, transparent 70%)" }} />
-        <div className="absolute inset-0 opacity-[0.025]" style={{ backgroundImage: "linear-gradient(rgba(255,255,255,0.8) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.8) 1px, transparent 1px)", backgroundSize: "60px 60px" }} />
       </div>
 
       <div className="relative z-10 max-w-[1400px] mx-auto px-6 lg:px-12 w-full">

@@ -48,18 +48,18 @@ export default function FinalCTA({
               <MagneticButton strength={6}>
                 <Link
                   href={primary.href}
-                  className="group inline-flex items-center justify-center gap-2 bg-white text-dark-primary hover:bg-accent hover:text-white font-semibold px-7 py-4 rounded-md text-sm uppercase tracking-widest transition-colors duration-200"
+                  className="group inline-flex items-center justify-center gap-2 bg-white text-dark-primary hover:bg-accent hover:text-white font-semibold px-7 py-4 rounded-lg text-sm uppercase tracking-widest shadow-lg shadow-black/20 transition-all duration-300 hover:shadow-xl hover:shadow-accent/40 active:scale-[0.98]"
                 >
                   {primary.label}
                   <ArrowRight
                     size={14}
-                    className="transition-transform duration-300 group-hover:translate-x-0.5"
+                    className="transition-transform duration-300 group-hover:translate-x-1"
                   />
                 </Link>
               </MagneticButton>
               <Link
                 href={secondary.href}
-                className="inline-flex items-center justify-center gap-2 border border-white/20 text-white hover:border-white/60 font-medium px-7 py-4 rounded-md text-sm uppercase tracking-widest transition-all duration-300"
+                className="inline-flex items-center justify-center gap-2 border border-white/20 text-white font-medium px-7 py-4 rounded-lg text-sm uppercase tracking-widest backdrop-blur-sm transition-all duration-300 hover:border-white/60 hover:bg-white/10 hover:-translate-y-0.5 active:translate-y-0 active:scale-[0.98]"
               >
                 {secondary.label}
               </Link>

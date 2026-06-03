@@ -83,16 +83,6 @@ export default function PageHero({
           style={{ background: "radial-gradient(ellipse, rgba(6,182,212,0.25) 0%, transparent 70%)" }}
         />
 
-        {/* Subtle grid */}
-        <div
-          className="absolute inset-0 opacity-[0.025]"
-          style={{
-            backgroundImage:
-              "linear-gradient(var(--accent-light) 1px, transparent 1px), linear-gradient(90deg, var(--accent-light) 1px, transparent 1px)",
-            backgroundSize: "90px 90px",
-          }}
-        />
-
         {/* Side frame accents */}
         <div className="absolute top-1/2 left-8 -translate-y-1/2 w-px h-48 bg-gradient-to-b from-transparent via-accent/40 to-transparent hidden lg:block" />
         <div className="absolute top-1/2 right-8 -translate-y-1/2 w-px h-48 bg-gradient-to-b from-transparent via-accent/40 to-transparent hidden lg:block" />
@@ -167,7 +157,7 @@ export default function PageHero({
                 {primaryCta && (
                   <Link
                     href={primaryCta.href}
-                    className="group inline-flex items-center justify-center gap-2 font-semibold rounded-md bg-white text-dark-primary hover:bg-accent hover:text-white px-7 py-3.5 text-xs uppercase tracking-widest transition-all duration-300"
+                    className="group inline-flex items-center justify-center gap-2 font-semibold rounded-lg bg-white text-dark-primary px-7 py-3.5 text-xs uppercase tracking-widest shadow-lg shadow-black/25 transition-all duration-300 hover:bg-accent hover:text-white hover:shadow-xl hover:shadow-accent/40 hover:-translate-y-0.5 active:translate-y-0 active:scale-[0.98]"
                   >
                     {primaryCta.label}
                     <ArrowRight size={14} className="transition-transform duration-300 group-hover:translate-x-1" />
@@ -176,7 +166,7 @@ export default function PageHero({
                 {secondaryCta && (
                   <Link
                     href={secondaryCta.href}
-                    className="inline-flex items-center justify-center gap-2 font-medium rounded-md border border-white/25 text-white hover:border-white/60 hover:bg-white/5 px-7 py-3.5 text-xs uppercase tracking-widest transition-all duration-300"
+                    className="inline-flex items-center justify-center gap-2 font-medium rounded-lg border border-white/25 text-white px-7 py-3.5 text-xs uppercase tracking-widest backdrop-blur-sm transition-all duration-300 hover:border-white/60 hover:bg-white/10 hover:-translate-y-0.5 active:translate-y-0 active:scale-[0.98]"
                   >
                     {secondaryCta.label}
                   </Link>

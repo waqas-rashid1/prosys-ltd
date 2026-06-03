@@ -7,6 +7,7 @@ import {
   Code2, Cpu, BrainCircuit, Rocket, Cloud, Bot, Search, Sparkles, Megaphone, Palette,
   Lightbulb, ShoppingBag, LayoutDashboard, Database, BarChart3, Network, HardDrive,
   CloudCog, Settings, Headphones, Calculator, Users, Scale, UserPlus, Server, ShieldCheck,
+  Telescope, Library, Blocks, Gauge,
 } from "lucide-react";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
@@ -24,6 +25,7 @@ const iconMap: Record<string, React.ElementType> = {
   Code2, Cpu, BrainCircuit, Rocket, Cloud, Bot, Search, Sparkles, Megaphone, Palette,
   Lightbulb, ShoppingBag, LayoutDashboard, Database, BarChart3, Network, HardDrive,
   CloudCog, Settings, Headphones, Calculator, Users, Scale, UserPlus, Server, ShieldCheck,
+  Telescope, Library, Blocks, Gauge,
 };
 
 const serviceImages: Record<string, string> = {

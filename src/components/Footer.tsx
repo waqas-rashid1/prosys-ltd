@@ -89,14 +89,6 @@ export default function Footer() {
               "radial-gradient(circle, rgba(103,232,249,0.14) 0%, transparent 70%)",
           }}
         />
-        <div
-          className="absolute inset-0 opacity-[0.025]"
-          style={{
-            backgroundImage:
-              "linear-gradient(var(--accent-light) 1px, transparent 1px), linear-gradient(90deg, var(--accent-light) 1px, transparent 1px)",
-            backgroundSize: "90px 90px",
-          }}
-        />
       </div>
 
       {/* ═══════════════ CTA section ═══════════════ */}

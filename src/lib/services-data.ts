@@ -26,7 +26,7 @@ export const servicesData: ServiceDetail[] = [
     tagline: "Know where AI creates value before you build",
     description:
       "Identify high-ROI AI use cases, assess data readiness, map workflow risk, and create a practical roadmap for safe AI deployment into real operations.",
-    icon: "Lightbulb",
+    icon: "Telescope",
     what:
       "Many companies know they should adopt AI, but not where to start. We help leadership and operations teams separate high-value use cases from distractions, assess data readiness, define risk boundaries, and create a practical roadmap for implementation — so budget goes to AI that can actually reach production.",
     whyUs: [
@@ -175,7 +175,7 @@ export const servicesData: ServiceDetail[] = [
     tagline: "AI access to company knowledge, with permissions",
     description:
       "Build permission-aware AI knowledge systems, secure RAG, enterprise search, document pipelines, citations, and retrieval-quality monitoring for private company data.",
-    icon: "Database",
+    icon: "Library",
     what:
       "Enterprise knowledge systems are not simple document chatbots. They need permission-aware retrieval, clean document pipelines, source citations, access controls, quality evaluation, and monitoring. We build private knowledge systems that help teams find and use information safely — answering from trusted sources while respecting access boundaries.",
     whyUs: [
@@ -225,7 +225,7 @@ export const servicesData: ServiceDetail[] = [
     tagline: "Connect AI to the systems where work happens",
     description:
       "Integrate AI into CRMs, ERPs, helpdesks, databases, document systems, internal tools, communication platforms, and legacy software — safely and with proper data flows.",
-    icon: "Network",
+    icon: "Blocks",
     what:
       "AI creates value when it reaches the systems where work happens. We connect AI workflows to CRMs, ERPs, helpdesks, databases, data warehouses, communication platforms, document stores, payment systems, and legacy applications — with the APIs, webhooks, authentication, and data flows designed properly.",
     whyUs: [
@@ -275,7 +275,7 @@ export const servicesData: ServiceDetail[] = [
     tagline: "Keep AI systems reliable after they go live",
     description:
       "Test and monitor production AI systems for prompt injection, data leakage, hallucinations, unsafe actions, cost, latency, and quality — then improve them over time.",
-    icon: "Server",
+    icon: "Gauge",
     what:
       "AI systems need ongoing visibility. We test AI before launch and monitor production behavior after launch — tracking quality and cost, identifying failure modes, and improving the system over time. Model behavior changes with real users, new data, new prompts, and edge cases, so we help teams detect issues early and maintain trust.",
     whyUs: [

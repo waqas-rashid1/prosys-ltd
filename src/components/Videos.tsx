@@ -69,16 +69,6 @@ export default function Videos({
                   }}
                   aria-hidden="true"
                 />
-                <div
-                  className="absolute inset-0 opacity-[0.04]"
-                  style={{
-                    backgroundImage:
-                      "linear-gradient(rgba(255,255,255,0.9) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.9) 1px, transparent 1px)",
-                    backgroundSize: "40px 40px",
-                  }}
-                  aria-hidden="true"
-                />
-
                 {playing === v.id ? (
                   <iframe
                     src={`https://www.youtube-nocookie.com/embed/${v.id}?autoplay=1&rel=0&modestbranding=1&playsinline=1`}
@@ -198,15 +188,6 @@ export default function Videos({
             background: isLight
               ? "radial-gradient(ellipse, rgba(6,182,212,0.14) 0%, transparent 60%)"
               : "radial-gradient(ellipse, rgba(6,182,212,0.2) 0%, transparent 60%)",
-          }}
-        />
-        <div
-          className={`absolute inset-0 ${isLight ? "opacity-[0.04]" : "opacity-[0.025]"}`}
-          style={{
-            backgroundImage: isLight
-              ? "linear-gradient(rgba(15,23,42,0.6) 1px, transparent 1px), linear-gradient(90deg, rgba(15,23,42,0.6) 1px, transparent 1px)"
-              : "linear-gradient(rgba(255,255,255,0.8) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.8) 1px, transparent 1px)",
-            backgroundSize: "80px 80px",
           }}
         />
       </div>

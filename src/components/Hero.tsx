@@ -3,7 +3,7 @@
 import { useState, useEffect, useCallback, useRef } from "react";
 import Link from "next/link";
 import { motion, AnimatePresence, useReducedMotion } from "framer-motion";
-import { ChevronDown, ChevronLeft, ChevronRight } from "lucide-react";
+import { ChevronDown, ChevronLeft, ChevronRight, ArrowRight } from "lucide-react";
 import { heroProofPoints } from "@/lib/constants";
 import MagneticButton from "./ui/MagneticButton";
 
@@ -140,16 +140,18 @@ export default function Hero() {
               <MagneticButton strength={4}>
                 <Link
                   href="/contact"
-                  className="hero-cta-glow relative inline-flex items-center justify-center font-semibold rounded-md bg-white text-dark-primary hover:bg-accent hover:text-white px-7 py-3.5 text-xs uppercase tracking-widest transition-colors duration-200"
+                  className="hero-cta-glow group relative inline-flex items-center justify-center gap-2 font-semibold rounded-lg bg-white text-dark-primary px-7 py-3.5 text-xs uppercase tracking-widest shadow-lg shadow-black/20 transition-all duration-300 hover:bg-accent hover:text-white hover:shadow-xl hover:shadow-accent/40 active:scale-[0.98]"
                 >
                   Book an AI Readiness Call
+                  <ArrowRight size={14} className="transition-transform duration-300 group-hover:translate-x-1" />
                 </Link>
               </MagneticButton>
               <Link
                 href="/work"
-                className="inline-flex items-center justify-center font-medium rounded-md border border-white/25 text-white hover:border-white/60 px-7 py-3.5 text-xs uppercase tracking-widest transition-colors duration-200"
+                className="group inline-flex items-center justify-center gap-2 font-medium rounded-lg border border-white/25 text-white px-7 py-3.5 text-xs uppercase tracking-widest backdrop-blur-sm transition-all duration-300 hover:border-white/60 hover:bg-white/10 hover:-translate-y-0.5 active:translate-y-0 active:scale-[0.98]"
               >
                 View case studies
+                <ArrowRight size={14} className="transition-transform duration-300 group-hover:translate-x-1" />
               </Link>
             </div>
           </motion.div>
