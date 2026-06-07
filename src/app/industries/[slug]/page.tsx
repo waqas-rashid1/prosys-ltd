@@ -208,7 +208,7 @@ export default async function IndustryDetailPage({
               <p className="text-text-light-muted text-lg mb-8 leading-relaxed">
                 Sector-aware AI deployment with the permissions, integrations, and oversight your operations require.
               </p>
-              <Link href="/contact" className="inline-flex items-center gap-2 gradient-bg text-white hover:shadow-lg hover:shadow-accent/20 px-8 py-3.5 text-sm uppercase tracking-widest rounded-md font-medium transition-all">
+              <Link href="/contact" className="inline-flex items-center gap-2 gradient-bg text-white hover:shadow-lg hover:shadow-accent/20 px-8 py-3.5 text-sm uppercase tracking-widest rounded-none font-medium transition-all">
                 Book a Call <ArrowRight size={14} />
               </Link>
             </div>

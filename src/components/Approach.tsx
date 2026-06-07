@@ -343,7 +343,7 @@ export default function Approach() {
             <div className="flex items-center gap-3 flex-wrap">
               <Link
                 href="/contact"
-                className="group inline-flex items-center gap-2 px-5 py-3 rounded-md bg-white text-dark-primary hover:bg-accent hover:text-white transition-colors font-semibold text-xs uppercase tracking-widest whitespace-nowrap"
+                className="group inline-flex items-center gap-2 px-5 py-3 rounded-none bg-white text-dark-primary hover:bg-accent hover:text-white transition-colors font-semibold text-xs uppercase tracking-widest whitespace-nowrap"
               >
                 Start an engagement
                 <ArrowRight
@@ -353,7 +353,7 @@ export default function Approach() {
               </Link>
               <Link
                 href="/work"
-                className="inline-flex items-center gap-2 px-5 py-3 rounded-md border border-white/20 text-white hover:border-white/50 hover:bg-white/5 transition-colors font-medium text-xs uppercase tracking-widest whitespace-nowrap"
+                className="inline-flex items-center gap-2 px-5 py-3 rounded-none border border-white/20 text-white hover:border-white/50 hover:bg-white/5 transition-colors font-medium text-xs uppercase tracking-widest whitespace-nowrap"
               >
                 See case studies
               </Link>

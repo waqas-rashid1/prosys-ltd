@@ -217,7 +217,7 @@ export default function Navbar() {
               <button
                 type="button"
                 onClick={() => window.dispatchEvent(new CustomEvent("prosys:open-cmdk"))}
-                className="ml-2 hidden xl:inline-flex items-center gap-2 px-3 py-2 rounded-md border border-card-dark-border bg-card-dark/50 hover:border-white/20 hover:bg-white/5 text-text-light-muted hover:text-white transition-all duration-300 cursor-pointer text-xs"
+                className="ml-2 hidden xl:inline-flex items-center gap-2 px-3 py-2 rounded-none border border-card-dark-border bg-card-dark/50 hover:border-white/20 hover:bg-white/5 text-text-light-muted hover:text-white transition-all duration-300 cursor-pointer text-xs"
                 aria-label="Open quick search (Ctrl+K or Command+K)"
                 title="Quick search (Ctrl+K / ⌘K)"
               >
@@ -227,7 +227,7 @@ export default function Navbar() {
               </button>
               <Link
                 href="/contact"
-                className="ml-2 group inline-flex items-center gap-2 font-semibold rounded-lg transition-all duration-300 cursor-pointer bg-white text-dark-primary hover:bg-accent hover:text-white px-6 py-2.5 text-sm shadow-sm shadow-black/10 hover:shadow-md hover:shadow-accent/30 active:scale-[0.97]"
+                className="ml-2 group inline-flex items-center gap-2 font-semibold rounded-none transition-all duration-300 cursor-pointer bg-white text-dark-primary hover:bg-accent hover:text-white px-6 py-2.5 text-sm shadow-sm shadow-black/10 hover:shadow-md hover:shadow-accent/30 active:scale-[0.97]"
               >
                 Book a Call
                 <ArrowRight size={14} className="transition-transform duration-300 group-hover:translate-x-1" />
@@ -327,7 +327,7 @@ export default function Navbar() {
                     </div>
                     <Link
                       href="/services"
-                      className="flex items-center justify-center gap-2 py-3 rounded-md border border-card-dark-border text-text-light-muted text-sm hover:text-accent-light hover:border-accent/40 transition-all duration-300"
+                      className="flex items-center justify-center gap-2 py-3 rounded-none border border-card-dark-border text-text-light-muted text-sm hover:text-accent-light hover:border-accent/40 transition-all duration-300"
                     >
                       View All Services <ArrowRight size={12} />
                     </Link>
@@ -506,7 +506,7 @@ export default function Navbar() {
               <Link
                 href="/contact"
                 onClick={() => setMobileOpen(false)}
-                className="mt-8 inline-flex items-center justify-center gap-2 font-semibold rounded-lg transition-all duration-300 cursor-pointer bg-white text-dark-primary active:bg-accent active:text-white active:scale-[0.98] shadow-lg shadow-black/20 px-9 py-4 text-base tracking-wide"
+                className="mt-8 inline-flex items-center justify-center gap-2 font-semibold rounded-none transition-all duration-300 cursor-pointer bg-white text-dark-primary active:bg-accent active:text-white active:scale-[0.98] shadow-lg shadow-black/20 px-9 py-4 text-base tracking-wide"
               >
                 Book a Call
                 <ArrowRight size={16} className="transition-transform duration-300 group-hover:translate-x-1" />

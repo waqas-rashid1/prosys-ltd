@@ -24,13 +24,13 @@ export default function HelpCTA() {
             <div className="flex flex-col sm:flex-row gap-3">
               <Link
                 href="/contact"
-                className="group inline-flex items-center justify-center gap-2 font-semibold rounded-md transition-all duration-300 cursor-pointer bg-white text-dark-primary hover:bg-accent hover:text-white px-8 py-4 text-sm uppercase tracking-widest"
+                className="group inline-flex items-center justify-center gap-2 font-semibold rounded-none transition-all duration-300 cursor-pointer bg-white text-dark-primary hover:bg-accent hover:text-white px-8 py-4 text-sm uppercase tracking-widest"
               >
                 Book a Consultation
               </Link>
               <Link
                 href="/work"
-                className="inline-flex items-center justify-center font-medium rounded-md transition-all duration-300 cursor-pointer border border-white/20 text-white/70 hover:text-white hover:border-white/50 px-8 py-4 text-sm uppercase tracking-widest"
+                className="inline-flex items-center justify-center font-medium rounded-none transition-all duration-300 cursor-pointer border border-white/20 text-white/70 hover:text-white hover:border-white/50 px-8 py-4 text-sm uppercase tracking-widest"
               >
                 See Case Studies
               </Link>

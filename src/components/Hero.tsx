@@ -140,7 +140,7 @@ export default function Hero() {
               <MagneticButton strength={4}>
                 <Link
                   href="/contact"
-                  className="hero-cta-glow group relative inline-flex items-center justify-center gap-2 font-semibold rounded-lg bg-white text-dark-primary px-7 py-3.5 text-xs uppercase tracking-widest shadow-lg shadow-black/20 transition-all duration-300 hover:bg-accent hover:text-white hover:shadow-xl hover:shadow-accent/40 active:scale-[0.98]"
+                  className="hero-cta-glow group relative inline-flex items-center justify-center gap-2 font-semibold rounded-none bg-white text-dark-primary px-7 py-3.5 text-xs uppercase tracking-widest shadow-lg shadow-black/20 transition-all duration-300 hover:bg-accent hover:text-white hover:shadow-xl hover:shadow-accent/40 active:scale-[0.98]"
                 >
                   Book an AI Readiness Call
                   <ArrowRight size={14} className="transition-transform duration-300 group-hover:translate-x-1" />
@@ -148,7 +148,7 @@ export default function Hero() {
               </MagneticButton>
               <Link
                 href="/work"
-                className="group inline-flex items-center justify-center gap-2 font-medium rounded-lg border border-white/25 text-white px-7 py-3.5 text-xs uppercase tracking-widest backdrop-blur-sm transition-all duration-300 hover:border-white/60 hover:bg-white/10 hover:-translate-y-0.5 active:translate-y-0 active:scale-[0.98]"
+                className="group inline-flex items-center justify-center gap-2 font-medium rounded-none border border-white/25 text-white px-7 py-3.5 text-xs uppercase tracking-widest backdrop-blur-sm transition-all duration-300 hover:border-white/60 hover:bg-white/10 hover:-translate-y-0.5 active:translate-y-0 active:scale-[0.98]"
               >
                 View case studies
                 <ArrowRight size={14} className="transition-transform duration-300 group-hover:translate-x-1" />

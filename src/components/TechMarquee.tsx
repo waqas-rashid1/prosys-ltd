@@ -109,7 +109,7 @@ export default function TechMarquee() {
               <button
                 key={cat.label}
                 onClick={() => setActiveTab(i)}
-                className={`px-5 py-2 rounded-md text-sm font-medium transition-all duration-300 cursor-pointer ${ activeTab === i ? "gradient-bg text-white" : "text-text-light-muted hover:text-accent-light border border-card-dark-border hover:border-accent/40" }`}
+                className={`px-5 py-2 rounded-none text-sm font-medium transition-all duration-300 cursor-pointer ${ activeTab === i ? "gradient-bg text-white" : "text-text-light-muted hover:text-accent-light border border-card-dark-border hover:border-accent/40" }`}
               >
                 {cat.label}
               </button>

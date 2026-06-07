@@ -237,14 +237,14 @@ export default function Testimonials() {
                 <div className="flex items-center gap-2 pt-2">
                   <button
                     onClick={prev}
-                    className="w-11 h-11 rounded-md border border-white/15 flex items-center justify-center text-white/60 hover:text-white hover:border-white/40 hover:bg-white/5 transition-all cursor-pointer"
+                    className="w-11 h-11 rounded-none border border-white/15 flex items-center justify-center text-white/60 hover:text-white hover:border-white/40 hover:bg-white/5 transition-all cursor-pointer"
                     aria-label="Previous testimonial"
                   >
                     <ChevronLeft size={18} />
                   </button>
                   <button
                     onClick={() => { next(); setIsAutoPlaying(false); }}
-                    className="w-11 h-11 rounded-md border border-accent bg-accent text-white hover:bg-accent-hover hover:border-accent-hover transition-all cursor-pointer flex items-center justify-center"
+                    className="w-11 h-11 rounded-none border border-accent bg-accent text-white hover:bg-accent-hover hover:border-accent-hover transition-all cursor-pointer flex items-center justify-center"
                     aria-label="Next testimonial"
                   >
                     <ChevronRight size={18} />

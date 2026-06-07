@@ -121,7 +121,7 @@ export default function ContactForm() {
                 key={opt.id}
                 type="button"
                 onClick={() => setIntent(opt.id)}
-                className={`text-left p-3.5 rounded-md border transition-all duration-200 cursor-pointer ${ active ? "border-accent bg-accent/5" : "border-card-light-border bg-white hover:border-accent/40" }`}
+                className={`text-left p-3.5 rounded-none border transition-all duration-200 cursor-pointer ${ active ? "border-accent bg-accent/5" : "border-card-light-border bg-white hover:border-accent/40" }`}
               >
                 <Icon size={16} className={`mb-2 ${active ? "text-accent" : "text-text-dark-muted"}`} />
                 <p className={`text-sm font-semibold ${active ? "text-accent" : "text-text-dark"}`}>
@@ -265,7 +265,7 @@ export default function ContactForm() {
           {["$10K – $25K", "$25K – $75K", "$75K – $250K", "$250K+"].map((b) => (
             <label key={b} className="cursor-pointer">
               <input type="radio" name="budget" value={b} className="peer sr-only" />
-              <span className="block text-center py-2.5 px-2 text-xs font-semibold text-text-dark border border-card-light-border bg-white rounded-md hover:border-accent/40 peer-checked:border-accent peer-checked:bg-accent/5 peer-checked:text-accent transition-all">
+              <span className="block text-center py-2.5 px-2 text-xs font-semibold text-text-dark border border-card-light-border bg-white rounded-none hover:border-accent/40 peer-checked:border-accent peer-checked:bg-accent/5 peer-checked:text-accent transition-all">
                 {b}
               </span>
             </label>

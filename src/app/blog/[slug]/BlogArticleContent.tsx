@@ -198,7 +198,7 @@ export default function BlogArticleContent({ slug }: { slug: string }) {
                 Ready to build something<span className="gradient-text"> exceptional?</span>
               </h2>
               <p className="text-text-light-muted mb-8">Schedule a free technical consultation with our team.</p>
-              <Link href="/contact" className="inline-flex items-center justify-center font-medium rounded-md gradient-bg text-white hover:shadow-lg hover:shadow-accent/20 px-8 py-3.5 text-sm uppercase tracking-widest transition-all duration-300">
+              <Link href="/contact" className="inline-flex items-center justify-center font-medium rounded-none gradient-bg text-white hover:shadow-lg hover:shadow-accent/20 px-8 py-3.5 text-sm uppercase tracking-widest transition-all duration-300">
                 Get in Touch
               </Link>
             </div>

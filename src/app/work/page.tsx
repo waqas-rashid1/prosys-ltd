@@ -191,10 +191,10 @@ export default function WorkPage() {
                 Open a conversation with the <span className="gradient-text">engagement lead.</span>
               </h2>
               <div className="flex flex-wrap gap-4">
-                <Link href="/contact" className="inline-flex items-center justify-center gap-2 font-medium rounded-md gradient-bg text-white hover:shadow-lg hover:shadow-accent/20 px-8 py-3.5 text-sm uppercase tracking-widest transition-all duration-300">
+                <Link href="/contact" className="inline-flex items-center justify-center gap-2 font-medium rounded-none gradient-bg text-white hover:shadow-lg hover:shadow-accent/20 px-8 py-3.5 text-sm uppercase tracking-widest transition-all duration-300">
                   Discuss a Project <ArrowRight size={14} />
                 </Link>
-                <Link href="/services" className="inline-flex items-center justify-center gap-2 font-medium rounded-md border border-white/20 text-white/70 hover:text-white hover:border-white/40 px-8 py-3.5 text-sm uppercase tracking-widest transition-all duration-300">
+                <Link href="/services" className="inline-flex items-center justify-center gap-2 font-medium rounded-none border border-white/20 text-white/70 hover:text-white hover:border-white/40 px-8 py-3.5 text-sm uppercase tracking-widest transition-all duration-300">
                   Browse Services
                 </Link>
               </div>

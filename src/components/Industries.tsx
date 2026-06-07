@@ -95,7 +95,7 @@ export default function Industries() {
             </div>
             <Link
               href="/industries"
-              className="group inline-flex items-center gap-2 px-6 py-3 rounded-lg border border-text-dark/10 text-text-dark text-sm font-medium transition-all duration-300 self-start md:self-auto shrink-0 hover:border-accent hover:text-accent hover:bg-accent/5 hover:-translate-y-0.5 active:translate-y-0 active:scale-[0.98]"
+              className="group inline-flex items-center gap-2 px-6 py-3 rounded-none border border-text-dark/10 text-text-dark text-sm font-medium transition-all duration-300 self-start md:self-auto shrink-0 hover:border-accent hover:text-accent hover:bg-accent/5 hover:-translate-y-0.5 active:translate-y-0 active:scale-[0.98]"
             >
               Explore industries
               <ArrowRight size={14} className="transition-transform duration-300 group-hover:translate-x-1" />
@@ -111,25 +111,25 @@ export default function Industries() {
               <ScrollReveal key={industry.title} delay={i * 0.06}>
                 <SpotlightCard
                   variant="light"
-                  className="group h-full rounded-2xl border border-card-light-border bg-white overflow-hidden shadow-[0_1px_3px_rgba(15,23,42,0.05)] transition-all duration-500 ease-out hover:-translate-y-2 hover:border-accent/40 hover:shadow-[0_28px_55px_-22px_rgba(6,182,212,0.45)]"
+                  className="group h-full rounded-none border border-card-light-border bg-white overflow-hidden shadow-[0_1px_3px_rgba(15,23,42,0.05)] transition-all duration-500 ease-out hover:-translate-y-2 hover:border-accent/40 hover:shadow-[0_28px_55px_-22px_rgba(6,182,212,0.45)]"
                 >
                   <Link href={`/industries/${industry.slug}`} className="flex flex-col h-full">
                     {/* Image header */}
-                    <div className="relative h-44 overflow-hidden rounded-t-2xl bg-dark-primary [transform:translateZ(0)]">
+                    <div className="relative h-44 overflow-hidden bg-dark-primary [transform:translateZ(0)]">
                       <div
-                        className="absolute inset-0 rounded-t-2xl bg-cover bg-center transition-transform duration-[900ms] ease-out group-hover:scale-[1.12]"
+                        className="absolute inset-0 bg-cover bg-center transition-transform duration-[900ms] ease-out group-hover:scale-[1.12]"
                         style={{ backgroundImage: `url(${industry.image})` }}
                       />
-                      <div className="absolute inset-0 rounded-t-2xl bg-gradient-to-t from-dark-primary via-dark-primary/70 to-dark-primary/25" />
-                      <div className="absolute inset-0 rounded-t-2xl bg-gradient-to-br from-accent/30 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-700" />
+                      <div className="absolute inset-0 bg-gradient-to-t from-dark-primary via-dark-primary/70 to-dark-primary/25" />
+                      <div className="absolute inset-0 bg-gradient-to-br from-accent/30 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-700" />
 
                       {/* Floating icon */}
-                      <div className="absolute top-5 left-5 w-12 h-12 rounded-xl bg-white/10 backdrop-blur-md border border-white/20 flex items-center justify-center text-white group-hover:bg-accent group-hover:border-accent group-hover:scale-110 transition-all duration-500">
+                      <div className="absolute top-5 left-5 w-12 h-12 rounded-none bg-white/10 backdrop-blur-md border border-white/20 flex items-center justify-center text-white group-hover:bg-accent group-hover:border-accent group-hover:scale-110 transition-all duration-500">
                         <Icon size={20} />
                       </div>
 
                       {/* External-link indicator */}
-                      <div className="absolute top-5 right-5 w-9 h-9 rounded-xl bg-white/5 border border-white/10 flex items-center justify-center text-white/60 opacity-0 -translate-y-1 group-hover:opacity-100 group-hover:translate-y-0 transition-all duration-500">
+                      <div className="absolute top-5 right-5 w-9 h-9 rounded-none bg-white/5 border border-white/10 flex items-center justify-center text-white/60 opacity-0 -translate-y-1 group-hover:opacity-100 group-hover:translate-y-0 transition-all duration-500">
                         <ArrowUpRight size={14} />
                       </div>
 
@@ -158,7 +158,7 @@ export default function Industries() {
                         {industry.tags.map((tag) => (
                           <span
                             key={tag}
-                            className="px-2.5 py-1 text-[10px] font-medium text-text-dark-muted bg-light-primary border border-card-light-border rounded-full group-hover:border-accent/20 group-hover:text-accent transition-colors duration-300"
+                            className="px-2.5 py-1 text-[10px] font-medium text-text-dark-muted bg-light-primary border border-card-light-border rounded-none group-hover:border-accent/20 group-hover:text-accent transition-colors duration-300"
                           >
                             {tag}
                           </span>
@@ -187,7 +187,7 @@ export default function Industries() {
 
         {/* Full-width CTA banner — replaces the awkward in-grid tile */}
         <ScrollReveal delay={0.15}>
-          <div className="group relative mt-6 overflow-hidden rounded-2xl border border-card-dark-border bg-gradient-to-br from-dark-primary to-dark-secondary">
+          <div className="group relative mt-6 overflow-hidden rounded-none border border-card-dark-border bg-gradient-to-br from-dark-primary to-dark-secondary">
             <div
               className="absolute inset-0 opacity-70 pointer-events-none"
               style={{ background: "radial-gradient(ellipse 700px 320px at 85% 0%, rgba(6,182,212,0.18) 0%, transparent 65%)" }}
@@ -196,7 +196,7 @@ export default function Industries() {
             <div className="relative flex flex-col lg:flex-row lg:items-center lg:justify-between gap-8 p-8 lg:p-10">
               <div className="max-w-2xl">
                 <div className="flex items-center gap-2.5 mb-4">
-                  <span className="inline-flex w-9 h-9 rounded-xl bg-accent/15 border border-accent/30 items-center justify-center text-accent-light">
+                  <span className="inline-flex w-9 h-9 rounded-none bg-accent/15 border border-accent/30 items-center justify-center text-accent-light">
                     <Sparkles size={16} />
                   </span>
                   <span className="text-[11px] text-accent-light/80 uppercase tracking-[0.25em] font-semibold">
@@ -213,7 +213,7 @@ export default function Industries() {
                   {["InsurTech", "Real estate", "EdTech", "Public sector"].map((s) => (
                     <span
                       key={s}
-                      className="px-3 py-1.5 text-[11px] font-medium text-white/70 bg-white/5 border border-white/10 rounded-full"
+                      className="px-3 py-1.5 text-[11px] font-medium text-white/70 bg-white/5 border border-white/10 rounded-none"
                     >
                       {s}
                     </span>
@@ -222,7 +222,7 @@ export default function Industries() {
               </div>
               <Link
                 href="/contact"
-                className="inline-flex items-center justify-center gap-2 px-7 py-4 rounded-lg bg-accent text-white text-sm font-semibold whitespace-nowrap shadow-lg shadow-accent/20 hover:bg-accent-hover hover:scale-[1.03] transition-all duration-300 shrink-0 self-start lg:self-auto"
+                className="inline-flex items-center justify-center gap-2 px-7 py-4 rounded-none bg-accent text-white text-sm font-semibold whitespace-nowrap shadow-lg shadow-accent/20 hover:bg-accent-hover hover:scale-[1.03] transition-all duration-300 shrink-0 self-start lg:self-auto"
               >
                 Open a conversation
                 <ArrowRight size={16} className="transition-transform duration-300 group-hover:translate-x-1" />

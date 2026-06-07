@@ -388,10 +388,10 @@ export default function AboutPage() {
                   Whether you need a technical partner, a dedicated team, or a specific project delivered — let&apos;s start with a conversation.
                 </p>
                 <div className="flex gap-4">
-                  <Link href="/contact" className="inline-flex items-center justify-center font-medium rounded-md gradient-bg text-white hover:shadow-lg hover:shadow-accent/20 px-8 py-3.5 text-sm uppercase tracking-widest transition-all duration-300">
+                  <Link href="/contact" className="inline-flex items-center justify-center font-medium rounded-none gradient-bg text-white hover:shadow-lg hover:shadow-accent/20 px-8 py-3.5 text-sm uppercase tracking-widest transition-all duration-300">
                     Get in Touch
                   </Link>
-                  <Link href="/careers" className="inline-flex items-center justify-center font-medium rounded-md border border-white/20 text-white/70 hover:text-white hover:border-white/40 px-8 py-3.5 text-sm uppercase tracking-widest transition-all duration-300">
+                  <Link href="/careers" className="inline-flex items-center justify-center font-medium rounded-none border border-white/20 text-white/70 hover:text-white hover:border-white/40 px-8 py-3.5 text-sm uppercase tracking-widest transition-all duration-300">
                     Join Our Team
                   </Link>
                 </div>

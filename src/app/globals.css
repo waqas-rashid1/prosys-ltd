@@ -322,6 +322,14 @@ select:focus-visible {
   outline-offset: 3px;
 }
 
+/* Site-wide: sharp corners on all native buttons */
+button,
+input[type="submit"],
+input[type="button"],
+input[type="reset"] {
+  border-radius: 0 !important;
+}
+
 /* Subtle grain overlay for premium depth on dark sections */
 .grain-overlay {
   position: relative;

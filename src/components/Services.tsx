@@ -177,7 +177,7 @@ export default function Services() {
             </div>
             <Link
               href="/services"
-              className="group inline-flex items-center gap-2 px-6 py-3 rounded-lg border border-text-dark/10 text-text-dark text-sm font-medium transition-all duration-300 self-start md:self-auto shrink-0 hover:border-accent hover:text-accent hover:bg-accent/5 hover:-translate-y-0.5 active:translate-y-0 active:scale-[0.98]"
+              className="group inline-flex items-center gap-2 px-6 py-3 rounded-none border border-text-dark/10 text-text-dark text-sm font-medium transition-all duration-300 self-start md:self-auto shrink-0 hover:border-accent hover:text-accent hover:bg-accent/5 hover:-translate-y-0.5 active:translate-y-0 active:scale-[0.98]"
             >
               View all 6 services
               <ArrowRight size={14} className="transition-transform duration-300 group-hover:translate-x-1" />
