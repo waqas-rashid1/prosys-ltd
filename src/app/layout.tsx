@@ -98,6 +98,14 @@ export const metadata: Metadata = {
     ],
   },
   category: "Technology",
+  icons: {
+    icon: [
+      { url: "/favicon.png", type: "image/png", sizes: "512x512" },
+      { url: "/favicon.svg", type: "image/svg+xml" },
+    ],
+    apple: [{ url: "/apple-icon.png", type: "image/png", sizes: "512x512" }],
+    shortcut: "/favicon.png",
+  },
 };
 
 export const viewport: Viewport = {
@@ -123,8 +131,9 @@ export default function RootLayout({
     >
       <head>
         <StructuredData />
+        <link rel="icon" href="/favicon.png" type="image/png" sizes="512x512" />
         <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
-        <link rel="apple-touch-icon" href="/favicon.svg" />
+        <link rel="apple-touch-icon" href="/apple-icon.png" sizes="512x512" />
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="" />
       </head>
