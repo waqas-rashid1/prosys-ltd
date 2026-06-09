@@ -10,6 +10,7 @@ import DarkSectionFx from "@/components/ui/DarkSectionFx";
 import { LinkedInIcon } from "@/components/ui/SocialIcons";
 import { blogPosts } from "@/lib/blog-data";
 import { siteConfig } from "@/lib/constants";
+import { SHOW_FOUNDER_CONTENT } from "@/lib/site-visibility";
 
 export default function BlogArticleContent({ slug }: { slug: string }) {
   const post = blogPosts.find((p) => p.slug === slug)!;
@@ -22,7 +23,7 @@ export default function BlogArticleContent({ slug }: { slug: string }) {
   const relatedPosts = [...byCategory, ...byOther].slice(0, 3);
 
   const url = `${siteConfig.url}/blog/${post.slug}`;
-  const author = post.author;
+  const author = SHOW_FOUNDER_CONTENT ? post.author : null;
 
   return (
     <main id="main-content">

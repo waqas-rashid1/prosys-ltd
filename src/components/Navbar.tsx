@@ -7,6 +7,7 @@ import Image from "next/image";
 import { motion, AnimatePresence } from "framer-motion";
 import { Menu, X, ChevronDown, ArrowRight, Search } from "lucide-react";
 import { navLinks } from "@/lib/constants";
+import { SHOW_FOUNDER_CONTENT } from "@/lib/site-visibility";
 
 const servicesMega = [
   {
@@ -43,7 +44,9 @@ const industriesMega = [
 const aboutMega = {
   left: [
     { label: "Who We Are", href: "/about" },
-    { label: "Our Leadership", href: "/about#leadership" },
+    ...(SHOW_FOUNDER_CONTENT
+      ? [{ label: "Our Leadership", href: "/about#leadership" }]
+      : []),
     { label: "Our Journey", href: "/about#timeline" },
     { label: "Global Presence", href: "/about#global" },
     { label: "Webinars", href: "/webinars" },

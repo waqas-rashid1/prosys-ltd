@@ -13,6 +13,7 @@ import DarkSectionFx from "@/components/ui/DarkSectionFx";
 import Testimonials from "@/components/Testimonials";
 import { LinkedInIcon } from "@/components/ui/SocialIcons";
 import { stats } from "@/lib/constants";
+import { SHOW_FOUNDER_CONTENT } from "@/lib/site-visibility";
 
 export const metadata: Metadata = {
   title: "About Us",
@@ -50,48 +51,51 @@ const milestones = [
   { year: "2026", title: "Today", desc: "Engagements delivered across North America, Europe, the Middle East, and APAC — focused on deploying AI safely into real business operations." },
 ];
 
-const leadership = [
-  {
-    name: "M. Farhaan Riaz",
-    role: "Founder",
-    focus: "Strategy · AI/ML · Venture Studios",
-    bio: "Builder and ecosystem architect with 11+ years across 20+ ventures in AI, e-commerce, EdTech, and software. Founder Program Manager at TICK Incubation Center, UET Lahore.",
-    linkedin: "https://www.linkedin.com/in/farhaanriaz/",
-    initial: "F",
-  },
-  {
-    name: "Waqas Rashid",
-    role: "Co-Founder",
-    focus: "Engineering · Operations",
-    bio: "Engineering and operations lead. Owns delivery cadence, infrastructure standards, and the production-readiness bar across every engagement.",
-    linkedin: "https://www.linkedin.com/in/waqas-rashid1",
-    initial: "W",
-  },
-  {
-    name: "Usama Abdul Qadeer",
-    role: "Co-Founder",
-    focus: "Partnerships · Go-to-Market",
-    bio: "Partnerships and go-to-market lead. Builds the channel architecture and enterprise relationships that route engagements into the practice.",
-    linkedin: "https://www.linkedin.com/in/usama-abdul-qadeer/",
-    initial: "U",
-  },
-  {
-    name: "Muhammad Owais",
-    role: "Co-Founder",
-    focus: "Design · Brand",
-    bio: "Design and brand lead. Owns the visual system, product design, and brand expression across PROSYS LTD engagements and assets.",
-    linkedin: "https://www.linkedin.com/in/muhammad-owais10/",
-    initial: "O",
-  },
-  {
-    name: "M Shahzaib",
-    role: "Co-Founder",
-    focus: "AI Engineering",
-    bio: "AI engineering lead. Owns model selection, evaluation harnesses, and production deployment for LLM, RAG, and agent systems.",
-    linkedin: "https://www.linkedin.com/in/stellalphatic/",
-    initial: "S",
-  },
-];
+/* Hidden while SHOW_FOUNDER_CONTENT is false — see src/lib/site-visibility.ts */
+const leadership = SHOW_FOUNDER_CONTENT
+  ? [
+      {
+        name: "M. Farhaan Riaz",
+        role: "Founder",
+        focus: "Strategy · AI/ML · Venture Studios",
+        bio: "Builder and ecosystem architect with 11+ years across 20+ ventures in AI, e-commerce, EdTech, and software. Founder Program Manager at TICK Incubation Center, UET Lahore.",
+        linkedin: "https://www.linkedin.com/in/farhaanriaz/",
+        initial: "F",
+      },
+      {
+        name: "Waqas Rashid",
+        role: "Co-Founder",
+        focus: "Engineering · Operations",
+        bio: "Engineering and operations lead. Owns delivery cadence, infrastructure standards, and the production-readiness bar across every engagement.",
+        linkedin: "https://www.linkedin.com/in/waqas-rashid1",
+        initial: "W",
+      },
+      {
+        name: "Usama Abdul Qadeer",
+        role: "Co-Founder",
+        focus: "Partnerships · Go-to-Market",
+        bio: "Partnerships and go-to-market lead. Builds the channel architecture and enterprise relationships that route engagements into the practice.",
+        linkedin: "https://www.linkedin.com/in/usama-abdul-qadeer/",
+        initial: "U",
+      },
+      {
+        name: "Muhammad Owais",
+        role: "Co-Founder",
+        focus: "Design · Brand",
+        bio: "Design and brand lead. Owns the visual system, product design, and brand expression across PROSYS LTD engagements and assets.",
+        linkedin: "https://www.linkedin.com/in/muhammad-owais10/",
+        initial: "O",
+      },
+      {
+        name: "M Shahzaib",
+        role: "Co-Founder",
+        focus: "AI Engineering",
+        bio: "AI engineering lead. Owns model selection, evaluation harnesses, and production deployment for LLM, RAG, and agent systems.",
+        linkedin: "https://www.linkedin.com/in/stellalphatic/",
+        initial: "S",
+      },
+    ]
+  : [];
 
 export default function AboutPage() {
   return (
@@ -107,7 +111,11 @@ export default function AboutPage() {
           bgImage="/images/team-collab.jpg"
           bgImageOpacity={0.22}
           trustSignals={["Founded 2024", "15+ engineers & specialists", "Human-in-the-loop by design", "Production AI focus"]}
-          primaryCta={{ label: "Meet the team", href: "#leadership" }}
+          primaryCta={
+            SHOW_FOUNDER_CONTENT
+              ? { label: "Meet the team", href: "#leadership" }
+              : { label: "Our principles", href: "#timeline" }
+          }
           secondaryCta={{ label: "Speak with our team", href: "/contact" }}
           stats={stats.map((s) => ({ value: `${s.value}${s.suffix}`, label: s.label }))}
         />
@@ -234,7 +242,8 @@ export default function AboutPage() {
           </div>
         </section>
 
-        {/* Leadership */}
+        {/* Leadership — hidden when SHOW_FOUNDER_CONTENT is false */}
+        {SHOW_FOUNDER_CONTENT && (
         <section id="leadership" className="relative py-14 lg:py-20 bg-dark-secondary overflow-hidden">
           <DarkSectionFx variant="split" />
           <div className="relative z-10 max-w-[1400px] mx-auto px-6 lg:px-8">
@@ -276,6 +285,7 @@ export default function AboutPage() {
             </div>
           </div>
         </section>
+        )}
 
         {/* Client Stories (moved from home) */}
         <Testimonials />

@@ -3,6 +3,7 @@ import { notFound } from "next/navigation";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import { blogPosts } from "@/lib/blog-data";
+import { SHOW_FOUNDER_CONTENT } from "@/lib/site-visibility";
 import BlogArticleContent from "./BlogArticleContent";
 import { ArticleSchema, BreadcrumbSchema } from "@/components/schema/PageSchema";
 
@@ -28,7 +29,7 @@ export async function generateMetadata({
       url: `/blog/${post.slug}`,
       type: "article",
       publishedTime: post.date,
-      authors: post.author ? [post.author.name] : undefined,
+      authors: SHOW_FOUNDER_CONTENT && post.author ? [post.author.name] : undefined,
       images: [post.image],
     },
     twitter: {
@@ -56,7 +57,7 @@ export default async function BlogArticlePage({
         description={post.excerpt}
         slug={post.slug}
         date={post.date}
-        author={post.author?.name}
+        author={SHOW_FOUNDER_CONTENT ? post.author?.name : undefined}
         category={post.category}
       />
       <BreadcrumbSchema

@@ -6,6 +6,7 @@ import Image from "next/image";
 import { Calendar, Clock, ArrowRight } from "lucide-react";
 import ScrollReveal from "@/components/ui/ScrollReveal";
 import { blogPosts } from "@/lib/blog-data";
+import { SHOW_FOUNDER_CONTENT } from "@/lib/site-visibility";
 
 export default function BlogListing() {
   const categories = useMemo(() => {
@@ -67,7 +68,7 @@ export default function BlogListing() {
                         {featured.excerpt}
                       </p>
                       <div className="flex items-center gap-4">
-                        {featured.author && (
+                        {SHOW_FOUNDER_CONTENT && featured.author && (
                           <div className="flex items-center gap-2">
                             <div
                               aria-hidden="true"
@@ -128,7 +129,7 @@ export default function BlogListing() {
                         </h3>
                         <p className="text-text-dark-muted text-sm leading-relaxed flex-grow line-clamp-3">{post.excerpt}</p>
                         <div className="mt-5 pt-5 border-t border-card-light-border flex items-center justify-between">
-                          {post.author && (
+                          {SHOW_FOUNDER_CONTENT && post.author && (
                             <div className="flex items-center gap-2">
                               <div
                                 aria-hidden="true"
