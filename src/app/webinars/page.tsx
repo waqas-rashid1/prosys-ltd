@@ -1,5 +1,7 @@
 import type { Metadata } from "next";
+import { notFound } from "next/navigation";
 import Navbar from "@/components/Navbar";
+import { SHOW_WEBINARS } from "@/lib/site-visibility";
 import Footer from "@/components/Footer";
 import Videos from "@/components/Videos";
 import PageHero from "@/components/ui/PageHero";
@@ -22,6 +24,8 @@ export const metadata: Metadata = {
 };
 
 export default function WebinarsPage() {
+  if (!SHOW_WEBINARS) notFound();
+
   return (
     <>
       <Navbar />

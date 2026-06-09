@@ -19,6 +19,7 @@ import { LinkedInIcon, XIcon, GitHubIcon, YouTubeIcon } from "./ui/SocialIcons";
 import NewsletterForm from "./NewsletterForm";
 import MagneticButton from "./ui/MagneticButton";
 import { siteConfig, footerLinks } from "@/lib/constants";
+import { isLinkVisible } from "@/lib/site-visibility";
 
 const pillars: {
   number: string;
@@ -397,7 +398,7 @@ export default function Footer() {
                 <span className="h-px flex-1 bg-gradient-to-r from-white/10 to-transparent" />
               </div>
               <ul className="flex flex-wrap gap-x-6 gap-y-3">
-                {footerLinks.resources.map((link) => (
+                {footerLinks.resources.filter((link) => isLinkVisible(link.href)).map((link) => (
                   <li key={link.label}>
                     <Link
                       href={link.href}

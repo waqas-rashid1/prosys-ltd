@@ -7,7 +7,7 @@ import Image from "next/image";
 import { motion, AnimatePresence } from "framer-motion";
 import { Menu, X, ChevronDown, ArrowRight, Search } from "lucide-react";
 import { navLinks } from "@/lib/constants";
-import { SHOW_FOUNDER_CONTENT } from "@/lib/site-visibility";
+import { SHOW_FOUNDER_CONTENT, SHOW_WEBINARS } from "@/lib/site-visibility";
 
 const servicesMega = [
   {
@@ -49,7 +49,7 @@ const aboutMega = {
       : []),
     { label: "Our Journey", href: "/about#timeline" },
     { label: "Global Presence", href: "/about#global" },
-    { label: "Webinars", href: "/webinars" },
+    ...(SHOW_WEBINARS ? [{ label: "Webinars", href: "/webinars" }] : []),
     { label: "Careers", href: "/careers" },
   ],
 };
@@ -489,7 +489,11 @@ export default function Navbar() {
             className="fixed inset-0 top-20 z-40 bg-dark-primary/98 glass-effect lg:hidden overflow-y-auto"
           >
             <div className="flex flex-col px-6 pt-10 pb-16 gap-1 max-w-md mx-auto">
-              {[...navLinks, { label: "Webinars", href: "/webinars" }, { label: "Contact", href: "/contact" }].map((link, i) => (
+              {[
+                ...navLinks,
+                ...(SHOW_WEBINARS ? [{ label: "Webinars", href: "/webinars" }] : []),
+                { label: "Contact", href: "/contact" },
+              ].map((link, i) => (
                 <motion.div
                   key={link.href}
                   initial={{ opacity: 0, y: 12 }}
