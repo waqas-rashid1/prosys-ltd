@@ -51,7 +51,7 @@ export default function IndustriesPage() {
             { value: `${industries.length}`, label: "Core sectors" },
             { value: "6", label: "Core AI services" },
             { value: "HITL", label: "Oversight by design" },
-            { value: "6–12w", label: "To production pilots" },
+            { value: "6–12w", label: "Controlled production release" },
           ]}
         />
 

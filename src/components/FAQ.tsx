@@ -1,7 +1,7 @@
 "use client";
 
 import { useState } from "react";
-import { motion, AnimatePresence } from "framer-motion";
+import { motion } from "framer-motion";
 import { ChevronDown } from "lucide-react";
 import { faq } from "@/lib/constants";
 import SectionHeading from "./ui/SectionHeading";
@@ -45,25 +45,19 @@ function FAQItem({
         </motion.div>
       </button>
 
-      <AnimatePresence initial={false}>
-        {isOpen && (
-          <motion.div
-            id={panelId}
-            role="region"
-            aria-labelledby={triggerId}
-            initial={{ height: 0, opacity: 0 }}
-            animate={{ height: "auto", opacity: 1 }}
-            exit={{ height: 0, opacity: 0 }}
-            transition={{ duration: 0.3, ease: [0.25, 0.1, 0.25, 1] }}
-          >
-            <div className="px-5 pb-5 md:px-6 md:pb-6">
-              <p className="text-text-light-muted leading-relaxed">
-                {answer}
-              </p>
-            </div>
-          </motion.div>
-        )}
-      </AnimatePresence>
+      {/* Always in DOM for SEO — visually collapsed when closed */}
+      <div
+        id={panelId}
+        role="region"
+        aria-labelledby={triggerId}
+        className={`overflow-hidden transition-all duration-300 ease-out ${
+          isOpen ? "max-h-[480px] opacity-100" : "max-h-0 opacity-0"
+        }`}
+      >
+        <div className="px-5 pb-5 md:px-6 md:pb-6">
+          <p className="text-text-light-muted leading-relaxed">{answer}</p>
+        </div>
+      </div>
     </div>
   );
 }

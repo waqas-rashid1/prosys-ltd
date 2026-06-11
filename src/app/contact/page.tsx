@@ -39,9 +39,9 @@ export default function ContactPage() {
         {/* Hero */}
         <PageHero
           badge="Get in Touch"
-          title="Let's build"
-          highlight="together."
-          description="Exploring where to start with AI, scoping a production pilot, or hardening an AI system already in use — our team reviews every inbound and responds within 24 business hours."
+          title="Let's scope your"
+          highlight="safe AI deployment."
+          description="Whether you are choosing your first AI use case, hardening an existing pilot, or connecting AI to business-critical workflows — our team reviews every inbound and responds within 24 business hours."
           bgImage="/images/contact-hero.jpg"
           bgImageOpacity={0.18}
           trustSignals={["24-hour response SLA", "NDA on request", "Human-in-the-loop by design", "Direct specialist contact"]}
@@ -50,8 +50,8 @@ export default function ContactPage() {
           stats={[
             { value: "<24h", label: "Response time" },
             { value: "6", label: "Core AI services" },
-            { value: "6", label: "Industries served" },
-            { value: "6–12w", label: "To production pilots" },
+            { value: "6", label: "Core sectors served" },
+            { value: "6–12w", label: "Controlled production release" },
           ]}
         />
 
@@ -96,7 +96,7 @@ export default function ContactPage() {
                     <div className="absolute inset-0 pointer-events-none opacity-40" style={{ background: "radial-gradient(circle at 100% 0%, rgba(6,182,212,0.4) 0%, transparent 60%)" }} />
                     <div className="relative">
                       <p className="text-[11px] uppercase tracking-widest text-accent-light font-semibold mb-3">Prefer to talk?</p>
-                      <h3 className="font-heading text-2xl font-bold mb-3 leading-tight">Book a 30-min consultation.</h3>
+                      <h3 className="font-heading text-2xl font-bold mb-3 leading-tight">Book an AI readiness call.</h3>
                       <p className="text-white/70 text-sm leading-relaxed mb-5">
                         Bypass the form. Schedule a working session with the engagement lead — scope the opportunity, review architectural options, walk away with a written recommendation. No commitment.
                       </p>
@@ -134,7 +134,7 @@ export default function ContactPage() {
                     <h3 className="font-heading text-lg font-bold text-text-dark mb-5">How we route your request</h3>
                     <div className="space-y-4">
                       {[
-                        { t: "High-intent (Book a Call)", d: "Direct calendar invite within 24 hrs." },
+                        { t: "Ready to scope (AI Readiness Call)", d: "Direct calendar invite within 24 hrs." },
                         { t: "Proposal Request", d: "Discovery call, then a scoped proposal with timeline + fixed pricing." },
                         { t: "Exploring Fit", d: "Relevant case studies and a brief intro call — your pace." },
                       ].map((step, i) => (
@@ -153,8 +153,8 @@ export default function ContactPage() {
                     <h3 className="font-heading text-sm font-bold text-text-dark mb-4 uppercase tracking-wider">Trusted signals</h3>
                     <ul className="space-y-2.5 text-sm text-text-dark-muted">
                       <li className="flex items-center gap-2"><span className="h-1 w-1 rounded-full bg-accent" /> NDA signed on request</li>
-                      <li className="flex items-center gap-2"><span className="h-1 w-1 rounded-full bg-accent" /> Engineered to ISO 27001 & SOC 2 control objectives</li>
-                      <li className="flex items-center gap-2"><span className="h-1 w-1 rounded-full bg-accent" /> 5 industry verticals served</li>
+                      <li className="flex items-center gap-2"><span className="h-1 w-1 rounded-full bg-accent" /> Modeled on ISO 27001 and SOC 2 control objectives</li>
+                      <li className="flex items-center gap-2"><span className="h-1 w-1 rounded-full bg-accent" /> 6 core sectors served</li>
                       <li className="flex items-center gap-2"><span className="h-1 w-1 rounded-full bg-accent" /> Engagement lead, named and accountable</li>
                     </ul>
                   </div>

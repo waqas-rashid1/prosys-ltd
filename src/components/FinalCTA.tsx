@@ -17,10 +17,10 @@ type Props = {
  * don't already have a dedicated conversion section.
  */
 export default function FinalCTA({
-  eyebrow = "Let's build something that lasts",
-  title = "Ready to ship enterprise-grade software?",
-  primary = { label: "Book a Call", href: "/contact" },
-  secondary = { label: "See Our Work", href: "/work" },
+  eyebrow = "Move AI from pilot to production safely",
+  title = "Move AI from pilot to production safely.",
+  primary = { label: "Book an AI Readiness Call", href: "/contact" },
+  secondary = { label: "See Case Studies", href: "/work" },
 }: Props) {
   return (
     <section className="relative bg-dark-primary border-t border-card-dark-border overflow-hidden grain-overlay">
@@ -48,7 +48,7 @@ export default function FinalCTA({
               <MagneticButton strength={6}>
                 <Link
                   href={primary.href}
-                  className="group inline-flex items-center justify-center gap-2 bg-white text-dark-primary hover:bg-accent hover:text-white font-semibold px-7 py-4 rounded-none text-sm uppercase tracking-widest shadow-lg shadow-black/20 transition-all duration-300 hover:shadow-xl hover:shadow-accent/40 active:scale-[0.98]"
+                  className="group inline-flex items-center justify-center gap-2 bg-white text-dark-primary hover:bg-accent hover:text-white font-semibold px-7 py-4 rounded-md text-sm uppercase tracking-widest shadow-lg shadow-black/20 transition-all duration-300 hover:shadow-xl hover:shadow-accent/40 active:scale-[0.98]"
                 >
                   {primary.label}
                   <ArrowRight
@@ -59,7 +59,7 @@ export default function FinalCTA({
               </MagneticButton>
               <Link
                 href={secondary.href}
-                className="inline-flex items-center justify-center gap-2 border border-white/20 text-white font-medium px-7 py-4 rounded-none text-sm uppercase tracking-widest backdrop-blur-sm transition-all duration-300 hover:border-white/60 hover:bg-white/10 hover:-translate-y-0.5 active:translate-y-0 active:scale-[0.98]"
+                className="inline-flex items-center justify-center gap-2 border border-white/20 text-white font-medium px-7 py-4 rounded-md text-sm uppercase tracking-widest backdrop-blur-sm transition-all duration-300 hover:border-white/60 hover:bg-white/10 hover:-translate-y-0.5 active:translate-y-0 active:scale-[0.98]"
               >
                 {secondary.label}
               </Link>

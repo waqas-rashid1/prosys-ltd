@@ -14,11 +14,11 @@ export const metadata: Metadata = {
   metadataBase: new URL(SITE_URL),
   title: {
     default:
-      "PROSYS LTD | Deploy AI Safely Into Real Business Operations",
+      "PROSYS LTD | Safe AI Deployment for Real Business Operations",
     template: "%s | PROSYS LTD",
   },
   description:
-    "PROSYS LTD helps companies deploy AI safely into real business operations — secure agents, governed workflows, enterprise knowledge systems, integrations, and production monitoring.",
+    "PROSYS LTD helps companies deploy AI safely into real business operations — secure agents, governed workflows, enterprise knowledge systems, integrations, security testing, and monitoring.",
   keywords: [
     "PROSYS LTD",
     "safe AI deployment",
@@ -100,11 +100,11 @@ export const metadata: Metadata = {
   category: "Technology",
   icons: {
     icon: [
-      { url: "/favicon.png", type: "image/png", sizes: "512x512" },
+      { url: "/logo.png", type: "image/png", sizes: "512x512" },
       { url: "/favicon.svg", type: "image/svg+xml" },
     ],
-    apple: [{ url: "/apple-icon.png", type: "image/png", sizes: "512x512" }],
-    shortcut: "/favicon.png",
+    apple: [{ url: "/logo.png", type: "image/png", sizes: "512x512" }],
+    shortcut: "/logo.png",
   },
 };
 
@@ -131,16 +131,16 @@ export default function RootLayout({
     >
       <head>
         <StructuredData />
-        <link rel="icon" href="/favicon.png" type="image/png" sizes="512x512" />
+        <link rel="icon" href="/logo.png" type="image/png" sizes="512x512" />
         <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
-        <link rel="apple-touch-icon" href="/apple-icon.png" sizes="512x512" />
+        <link rel="apple-touch-icon" href="/logo.png" sizes="512x512" />
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="" />
       </head>
       <body className="min-h-full antialiased" suppressHydrationWarning>
         <a
           href="#main-content"
-          className="sr-only focus:not-sr-only focus:fixed focus:top-4 focus:left-4 focus:z-[100] focus:px-4 focus:py-2 focus:rounded-none focus:bg-accent focus:text-white focus:text-sm focus:font-semibold"
+          className="sr-only focus:not-sr-only focus:fixed focus:top-4 focus:left-4 focus:z-[100] focus:px-4 focus:py-2 focus:rounded-md focus:bg-accent focus:text-white focus:text-sm focus:font-semibold"
         >
           Skip to main content
         </a>

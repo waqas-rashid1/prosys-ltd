@@ -38,7 +38,7 @@ export default function BlogListing() {
                     <button
                       key={cat}
                       onClick={() => setActiveCategory(cat)}
-                      className={`px-3.5 py-1.5 text-xs font-semibold uppercase tracking-wider rounded-none border transition-all cursor-pointer ${ activeCategory === cat ? "bg-accent border-accent text-white" : "bg-white border-card-light-border text-text-dark-muted hover:border-accent/50 hover:text-accent" }`}
+                      className={`px-3.5 py-1.5 text-xs font-semibold uppercase tracking-wider rounded-md border transition-all cursor-pointer ${ activeCategory === cat ? "bg-accent border-accent text-white" : "bg-white border-card-light-border text-text-dark-muted hover:border-accent/50 hover:text-accent" }`}
                       aria-pressed={activeCategory === cat}
                     >
                       {cat}

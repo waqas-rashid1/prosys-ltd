@@ -5,9 +5,9 @@ import { Send, Briefcase, Clock, Target, CheckCircle2, AlertCircle, Loader2 } fr
 import Button from "./ui/Button";
 
 const intentOptions = [
-  { id: "book-call", label: "Book a Call", desc: "High-intent — ready to scope a project", icon: Target },
-  { id: "proposal", label: "Request a Proposal", desc: "Serious lead — need detailed estimate", icon: Briefcase },
-  { id: "explore", label: "Explore Fit", desc: "Researching options and capabilities", icon: Clock },
+  { id: "book-call", label: "Book an AI Readiness Call", desc: "I'm ready to scope an AI deployment", icon: Target },
+  { id: "proposal", label: "Request a Proposal", desc: "I need a proposal or estimate", icon: Briefcase },
+  { id: "explore", label: "Explore Fit", desc: "I'm exploring whether AI fits our workflow", icon: Clock },
 ];
 
 type Status = "idle" | "submitting" | "success" | "error";
@@ -121,7 +121,7 @@ export default function ContactForm() {
                 key={opt.id}
                 type="button"
                 onClick={() => setIntent(opt.id)}
-                className={`text-left p-3.5 rounded-none border transition-all duration-200 cursor-pointer ${ active ? "border-accent bg-accent/5" : "border-card-light-border bg-white hover:border-accent/40" }`}
+                className={`text-left p-3.5 rounded-md border transition-all duration-200 cursor-pointer ${ active ? "border-accent bg-accent/5" : "border-card-light-border bg-white hover:border-accent/40" }`}
               >
                 <Icon size={16} className={`mb-2 ${active ? "text-accent" : "text-text-dark-muted"}`} />
                 <p className={`text-sm font-semibold ${active ? "text-accent" : "text-text-dark"}`}>
@@ -265,7 +265,7 @@ export default function ContactForm() {
           {["$10K – $25K", "$25K – $75K", "$75K – $250K", "$250K+"].map((b) => (
             <label key={b} className="cursor-pointer">
               <input type="radio" name="budget" value={b} className="peer sr-only" />
-              <span className="block text-center py-2.5 px-2 text-xs font-semibold text-text-dark border border-card-light-border bg-white rounded-none hover:border-accent/40 peer-checked:border-accent peer-checked:bg-accent/5 peer-checked:text-accent transition-all">
+              <span className="block text-center py-2.5 px-2 text-xs font-semibold text-text-dark border border-card-light-border bg-white rounded-md hover:border-accent/40 peer-checked:border-accent peer-checked:bg-accent/5 peer-checked:text-accent transition-all">
                 {b}
               </span>
             </label>

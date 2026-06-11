@@ -2,7 +2,7 @@ export const siteConfig = {
   name: "PROSYS LTD",
   tagline: "Deploy AI safely into real business operations.",
   description:
-    "PROSYS LTD helps companies deploy AI safely into real business operations with secure agents, governed workflows, enterprise knowledge systems, integrations, and production monitoring.",
+    "We help companies deploy AI safely into real business operations — secure agents, governed workflows, enterprise knowledge systems, integrations, security testing, and monitoring.",
   url: "https://prosysltd.com",
   email: "hello@prosysltd.com",
   // E.164 format for tel: links and WhatsApp deep links.
@@ -76,9 +76,9 @@ export const stats = [
 ];
 
 export const heroProofPoints = [
-  { value: "50+", label: "Engagements delivered" },
-  { value: "15+", label: "Engineers & specialists" },
-  { value: "6\u201312 wks", label: "To production pilots" },
+  { value: "6", label: "AI services" },
+  { value: "6", label: "Core sectors" },
+  { value: "6–12 wk", label: "Controlled production release" },
 ];
 
 export const caseStudies = [
@@ -93,13 +93,13 @@ export const caseStudies = [
     description:
       "Multi-tenant SaaS analytics platform with real-time data visualization, custom reporting engine, and LLM-powered insight generation — delivered for a Series A FinTech.",
     tags: ["Next.js", "Python", "OpenAI", "AWS"],
-    metric: "10x faster reporting",
+    metric: "From 2–3 days to under 2 seconds",
     challenge:
       "Legacy SQL reporting stack required 2–3 day compute cycles for weekly reports. Investor-facing dashboards were being hand-assembled in Excel, with no real-time view into platform metrics.",
     approach:
       "Designed a real-time multi-tenant OLAP layer with materialized views in Postgres, an embedded analytics surface in Next.js, and an LLM-powered natural language query layer for self-serve insights.",
     outcome:
-      "Reports that previously required 2–3 days now complete in under 2 seconds. The client closed a $12M Series B with investor dashboards running directly on the platform.",
+      "Reports that previously required 2–3 days now complete in under 2 seconds. Investor-facing dashboards supported the client's Series B reporting process.",
     timeline: "12 weeks",
     teamSize: "4 engineers + 1 designer",
   },
@@ -120,7 +120,7 @@ export const caseStudies = [
     approach:
       "Embedded a full-stack engineering pair with the sponsor. Delivered on a fixed iteration cadence: scheduling, telehealth video (Twilio), clinician portal, HIPAA-eligible audit trails.",
     outcome:
-      "Production pilot live in 6 weeks. The clinic engagement converted to paid in month 2, which unlocked a $1.8M seed round led by a digital health fund.",
+      "Production pilot live in 6 weeks. The clinic engagement converted to paid in month 2, which supported the client's seed fundraising process.",
     timeline: "6 weeks",
     teamSize: "2 engineers + 1 product",
   },
@@ -323,77 +323,77 @@ export const faq = [
   {
     question: "What does PROSYS LTD do?",
     answer:
-      "PROSYS LTD helps companies deploy AI safely into real business operations. We work across AI readiness strategy, secure AI agents, workflow automation, AI governance, enterprise knowledge systems, system integrations, security testing, monitoring, and optimization.",
+      "PROSYS LTD helps companies deploy AI safely into real business operations. We work across AI readiness, secure AI agents, workflow automation, AI governance, enterprise knowledge systems, system integrations, security testing, monitoring, and optimization.",
   },
   {
     question: "How are you different from a typical AI agency?",
     answer:
-      "Many AI agencies focus on demos, chatbots, or isolated automations. We focus on production deployment: connecting AI to real workflows, adding controls, integrating with existing systems, testing for risk, and monitoring performance after launch.",
+      "Most AI agencies focus on demos, chatbots, or isolated automations. We focus on production deployment: permissions, approvals, audit logs, integrations, security testing, monitoring, and measurable business workflows after launch.",
   },
   {
     question: "Do you only build AI agents?",
     answer:
-      "No. Agents are one part of the work. We also help with AI strategy, governance, secure knowledge systems, integrations, monitoring, red-team testing, cost optimization, and production support.",
+      "No. AI agents are one part of the work. We also help with AI readiness, governance, secure knowledge systems, integrations, security testing, monitoring, and optimization.",
   },
   {
     question: "What does \u201cdeploy AI safely\u201d mean?",
     answer:
-      "It means AI is designed with the controls required for real operations: role-based access, approval workflows, audit logs, data boundaries, escalation paths, failure handling, monitoring, and human oversight where risk requires it.",
+      "It means AI is not allowed to operate without boundaries. We define what it can access, what it can recommend, what it can change, which actions need human approval, how activity is logged, and how failures are escalated or rolled back.",
   },
   {
     question: "Can you help us decide where to use AI?",
     answer:
-      "Yes. AI Readiness and Strategy engagements are designed for that. We map workflows, assess data readiness, identify high-value use cases, evaluate risk, and create a prioritized roadmap.",
+      "Yes. Our AI Readiness & Strategy work maps workflows, reviews data readiness, scores use cases by value and risk, and produces a practical roadmap before anything is built.",
   },
   {
     question: "Can you work with our existing tools?",
     answer:
-      "Yes. We integrate AI with CRMs, ERPs, helpdesks, databases, data warehouses, document systems, Slack, Teams, internal portals, and legacy applications where APIs or practical integration paths are available.",
+      "Yes. We integrate AI with CRMs, ERPs, helpdesks, databases, document systems, communication tools, and legacy applications where a safe integration path exists.",
   },
   {
     question: "Do you work with sensitive or regulated data?",
     answer:
-      "We design systems for environments where data access, privacy, permissions, and auditability matter. Any regulated-data engagement starts with a data handling and risk review. Formal compliance claims are validated based on the specific client environment and required controls.",
+      "Yes, but only with clear controls. We design permission-aware access, audit logs, human review, data-flow documentation, and security practices appropriate to the engagement. Formal compliance requirements are scoped case by case.",
   },
   {
     question: "Do you provide AI security testing?",
     answer:
-      "Yes. We test AI systems for prompt injection, data leakage, unsafe actions, hallucination risk, tool misuse, and guardrail weaknesses. We can also provide remediation recommendations and implementation support.",
+      "Yes. We test for prompt injection, data leakage, unsafe actions, tool misuse, hallucination risk, and guardrail weaknesses before launch.",
   },
   {
     question: "Can you monitor AI systems after launch?",
     answer:
-      "Yes. We provide ongoing monitoring and optimization for quality, cost, latency, failures, user feedback, escalation rates, and retrieval performance.",
+      "Yes. We monitor quality, cost, latency, failures, user feedback, escalation rates, and retrieval performance, then provide a monthly improvement roadmap.",
   },
   {
     question: "Who owns the code and IP?",
     answer:
-      "Unless agreed otherwise in the contract, the client owns the custom code and deliverables created specifically for their engagement after payment. PROSYS LTD may retain ownership of general frameworks, methods, templates, and reusable internal tooling not unique to the client.",
+      "Unless agreed otherwise, the client owns the code, configuration, workflows, and documentation created specifically for their engagement. PROSYS may retain reusable internal frameworks, templates, and non-client-specific know-how.",
   },
   {
     question: "How long does an engagement take?",
     answer:
-      "AI readiness work can often be completed in one to three weeks depending on scope. Production builds commonly take six to twelve weeks for a focused pilot or first release. Larger integration and governance programs may be phased over multiple months.",
+      "Readiness work usually takes 1–3 weeks. Production AI builds commonly take 6–12 weeks depending on workflow complexity, integrations, data readiness, and governance requirements. Monitoring and optimization can continue monthly after launch.",
   },
   {
     question: "What is your pricing model?",
     answer:
-      "Most engagements are scoped as fixed-scope projects or monthly retainers. Strategy and readiness work is usually packaged as a short sprint. Build and integration work is estimated after discovery. Monitoring and optimization can be handled as an ongoing monthly engagement.",
+      "We usually work with fixed-scope project pricing for readiness, build, governance, and integration work. Monitoring and optimization can be structured as a monthly retainer. Final pricing depends on scope, systems, risk, and timeline.",
   },
   {
     question: "Will you sign an NDA?",
     answer:
-      "Yes. NDA review can be handled before detailed technical or business information is shared.",
+      "Yes. We can sign an NDA before reviewing sensitive workflows, data, or systems.",
   },
   {
     question: "Can you work with our internal engineering team?",
     answer:
-      "Yes. We can operate as an implementation partner, architecture partner, governance partner, or extension of your engineering team. We document decisions and hand off systems so internal teams can maintain and extend them.",
+      "Yes. We often work alongside internal engineering, product, security, compliance, and operations teams. We document architecture, data flows, decisions, and handoff requirements so your team can inherit and operate the system.",
   },
   {
     question: "What should we prepare before the first call?",
     answer:
-      "Bring the workflow you want to improve, the tools involved, the data sources, who uses the process, what decisions or actions AI may influence, and what would make the project successful.",
+      "Bring the workflow you want to improve, the tools involved, the users affected, the data sources required, known risks, and any timeline or budget constraints. If you are not sure where to start, we can help identify the best use case.",
   },
 ];
 

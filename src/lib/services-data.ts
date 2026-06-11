@@ -19,6 +19,33 @@ export interface ServiceDetail {
   faq: { q: string; a: string }[];
 }
 
+export const servicePageCtas: Record<string, { heading: string; body: string }> = {
+  "ai-readiness-strategy": {
+    heading: "Ready to find the safest place to start with AI?",
+    body: "Tell us your workflows, data sources, and business goals. We'll help identify the highest-value, lowest-risk AI opportunities before you commit budget.",
+  },
+  "secure-ai-agents-workflow-automation": {
+    heading: "Ready to put AI agents inside real workflows?",
+    body: "We'll scope the workflow, permissions, approval gates, integrations, and monitoring required to make agents useful without losing control.",
+  },
+  "ai-governance-control-systems": {
+    heading: "Ready to control how AI is used across your teams?",
+    body: "We'll help you define what AI can access, decide, change, escalate, and log — then turn those rules into operational controls.",
+  },
+  "secure-enterprise-knowledge-systems": {
+    heading: "Ready to make company knowledge usable without exposing sensitive data?",
+    body: "We'll design permission-aware retrieval, citations, ingestion, access controls, and monitoring so teams can trust what AI returns.",
+  },
+  "ai-integration-existing-systems": {
+    heading: "Ready to connect AI to the systems where work happens?",
+    body: "We'll map the tools, APIs, data flows, permissions, and legacy constraints required to connect AI safely to your operations.",
+  },
+  "ai-security-monitoring-optimization": {
+    heading: "Ready to harden and monitor AI before it scales?",
+    body: "We'll test for risky behavior, implement guardrails, monitor cost and quality, and improve the system after launch.",
+  },
+};
+
 export const servicesData: ServiceDetail[] = [
   {
     slug: "ai-readiness-strategy",
@@ -88,7 +115,7 @@ export const servicesData: ServiceDetail[] = [
       { value: "HITL", label: "Approval gates" },
       { value: "RBAC", label: "Role-based access" },
       { value: "Audit", label: "Every action logged" },
-      { value: "6–12 wk", label: "To a production pilot" },
+      { value: "6–12 wk", label: "Controlled production release" },
     ],
     how: [
       { title: "Agent Workflow Design", desc: "Map the business process, then design where the agent assists, decides, and hands off to a human." },

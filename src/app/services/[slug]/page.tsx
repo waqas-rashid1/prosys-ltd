@@ -19,7 +19,7 @@ import {
   ServiceDetailSchema,
   ServiceFAQSchema,
 } from "@/components/schema/PageSchema";
-import { servicesData } from "@/lib/services-data";
+import { servicesData, servicePageCtas } from "@/lib/services-data";
 
 const iconMap: Record<string, React.ElementType> = {
   Code2, Cpu, BrainCircuit, Rocket, Cloud, Bot, Search, Sparkles, Megaphone, Palette,
@@ -70,6 +70,7 @@ export default async function ServicePage({ params }: { params: Promise<{ slug: 
 
   const heroImage = serviceImages[slug] || "/images/services-hero.jpg";
   const otherServices = servicesData.filter((s) => s.slug !== slug).slice(0, 6);
+  const pageCta = servicePageCtas[service.slug];
 
   return (
     <>
@@ -144,15 +145,15 @@ export default async function ServicePage({ params }: { params: Promise<{ slug: 
               <div className="flex flex-col sm:flex-row items-start gap-4 mb-16">
                 <Link
                   href="/contact"
-                  className="inline-flex items-center justify-center font-semibold rounded-none bg-white text-dark-primary hover:bg-accent hover:text-white px-8 py-4 text-sm uppercase tracking-widest transition-all duration-300"
+                  className="inline-flex items-center justify-center font-semibold rounded-md bg-white text-dark-primary hover:bg-accent hover:text-white px-8 py-4 text-sm uppercase tracking-widest transition-all duration-300"
                 >
-                  Book a Consultation
+                  Book an AI Readiness Call
                 </Link>
                 <Link
                   href="/work"
-                  className="inline-flex items-center justify-center font-medium rounded-none border border-white/25 text-white hover:border-white/60 px-8 py-4 text-sm uppercase tracking-widest transition-all duration-300"
+                  className="inline-flex items-center justify-center font-medium rounded-md border border-white/25 text-white hover:border-white/60 px-8 py-4 text-sm uppercase tracking-widest transition-all duration-300"
                 >
-                  See Our Work
+                  See Case Studies
                 </Link>
               </div>
 
@@ -371,15 +372,17 @@ export default async function ServicePage({ params }: { params: Promise<{ slug: 
               <div className="max-w-2xl">
                 <p className="text-xs text-accent uppercase tracking-[0.2em] font-medium mb-4">Next Steps</p>
                 <h2 className="font-heading text-3xl md:text-4xl lg:text-5xl font-bold text-text-dark mb-6 leading-tight">
-                  Ready to start your <span className="gradient-text">{service.title.toLowerCase()}</span> project?
+                  {pageCta?.heading ?? "Ready to move AI from pilot to production safely?"}
                 </h2>
-                <p className="text-text-dark-muted text-lg mb-8">Let&apos;s discuss your requirements and build a detailed proposal.</p>
+                <p className="text-text-dark-muted text-lg mb-8">
+                  {pageCta?.body ?? "Tell us the workflow you want to improve. We'll assess the use case, data, systems, risks, and controls required to deploy AI safely into real business operations."}
+                </p>
                 <div className="flex flex-col sm:flex-row gap-3">
-                  <Link href="/contact" className="inline-flex items-center justify-center font-semibold rounded-none bg-dark-primary text-white hover:bg-accent px-8 py-4 text-sm uppercase tracking-widest transition-all duration-300">
-                    Book a Consultation
+                  <Link href="/contact" className="inline-flex items-center justify-center font-semibold rounded-md bg-dark-primary text-white hover:bg-accent px-8 py-4 text-sm uppercase tracking-widest transition-all duration-300">
+                    Book an AI Readiness Call
                   </Link>
-                  <Link href="/services" className="inline-flex items-center justify-center font-medium rounded-none border border-text-dark/15 text-text-dark hover:border-accent hover:text-accent px-8 py-4 text-sm uppercase tracking-widest transition-all duration-300">
-                    All Services
+                  <Link href="/work" className="inline-flex items-center justify-center font-medium rounded-md border border-text-dark/15 text-text-dark hover:border-accent hover:text-accent px-8 py-4 text-sm uppercase tracking-widest transition-all duration-300">
+                    See Case Studies
                   </Link>
                 </div>
               </div>

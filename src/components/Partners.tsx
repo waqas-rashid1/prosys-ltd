@@ -7,8 +7,10 @@ import DarkSectionFx from "./ui/DarkSectionFx";
 /**
  * Partners — moving technology stack marquee.
  *
- * Two rows scroll in opposite directions. Each tile is logo-first: icon well
- * on top, name below — reads clearer at speed than inline pill chips.
+ * Two rows scroll in opposite directions across the section. Each row's
+ * markup is duplicated end-to-end so the CSS keyframes (translateX 0 →
+ * -50%) creates a perfectly seamless loop. The whole thing pauses on
+ * hover so visitors can read individual logos.
  */
 
 type Tech = { name: string; logo: string };
@@ -59,47 +61,30 @@ const ROW_TWO: Tech[] = [
   { name: "Datadog", logo: "/logos/datadog.svg" },
 ];
 
-function TechTile({ tech }: { tech: Tech }) {
+function TechChip({ tech }: { tech: Tech }) {
   return (
     <div
-      className="group/tile relative mx-2.5 w-[128px] shrink-0 cursor-default transition-all duration-300 ease-out hover:z-10 hover:-translate-y-1.5 hover:scale-[1.06]"
+      className="group/chip relative flex items-center gap-3 px-5 py-3.5 mx-2.5 rounded-xl border border-card-dark-border bg-gradient-to-b from-card-dark/80 to-card-dark/30 backdrop-blur-sm whitespace-nowrap cursor-default transition-all duration-300 ease-out hover:z-10 hover:scale-[1.14] hover:-translate-y-1 hover:border-accent/60 hover:from-card-dark hover:to-card-dark hover:shadow-[0_12px_30px_-8px_rgba(6,182,212,0.45)]"
       title={tech.name}
     >
-      {/* Accent top bar on hover */}
       <span
-        className="absolute top-0 left-0 right-0 h-[2px] bg-accent scale-x-0 group-hover/tile:scale-x-100 transition-transform duration-300 origin-left z-10"
+        className="pointer-events-none absolute inset-0 rounded-xl opacity-0 group-hover/chip:opacity-100 transition-opacity duration-300"
+        style={{
+          background:
+            "radial-gradient(120px 60px at 50% 0%, rgba(6,182,212,0.14), transparent 70%)",
+        }}
         aria-hidden="true"
       />
-
-      <div className="relative border border-card-dark-border bg-gradient-to-b from-card-dark/90 to-dark-primary/80 overflow-hidden transition-all duration-300 group-hover/tile:border-accent/50 group-hover/tile:shadow-[0_16px_40px_-12px_rgba(6,182,212,0.35)]">
-        {/* Logo well */}
-        <div className="relative flex h-[88px] items-center justify-center border-b border-card-dark-border bg-dark-primary/60 group-hover/tile:bg-dark-primary transition-colors duration-300">
-          <span
-            className="pointer-events-none absolute inset-0 opacity-0 group-hover/tile:opacity-100 transition-opacity duration-300"
-            style={{
-              background:
-                "radial-gradient(ellipse 80px 50px at 50% 60%, rgba(6,182,212,0.12), transparent 70%)",
-            }}
-            aria-hidden="true"
-          />
-          <div className="relative flex h-14 w-14 items-center justify-center border border-white/[0.08] bg-white/[0.03] group-hover/tile:border-accent/30 group-hover/tile:bg-white/[0.06] transition-all duration-300">
-            <Image
-              src={tech.logo}
-              alt=""
-              width={32}
-              height={32}
-              className="h-8 w-8 object-contain opacity-70 grayscale group-hover/tile:opacity-100 group-hover/tile:grayscale-0 group-hover/tile:scale-110 transition-all duration-300"
-            />
-          </div>
-        </div>
-
-        {/* Name */}
-        <div className="px-2 py-3 text-center">
-          <span className="block text-[11px] font-semibold leading-tight tracking-wide text-text-light-muted/80 group-hover/tile:text-white transition-colors duration-300">
-            {tech.name}
-          </span>
-        </div>
-      </div>
+      <Image
+        src={tech.logo}
+        alt=""
+        width={24}
+        height={24}
+        className="relative w-6 h-6 object-contain opacity-65 grayscale group-hover/chip:opacity-100 group-hover/chip:grayscale-0 transition-all duration-300"
+      />
+      <span className="relative text-[13px] font-medium text-text-light-muted/70 group-hover/chip:text-white transition-colors duration-300 tracking-wide">
+        {tech.name}
+      </span>
     </div>
   );
 }
@@ -107,28 +92,21 @@ function TechTile({ tech }: { tech: Tech }) {
 function MarqueeRow({
   techs,
   direction = "left",
-  label,
 }: {
   techs: Tech[];
   direction?: "left" | "right";
-  label: string;
 }) {
   const animationClass =
     direction === "left" ? "animate-marquee" : "animate-marquee-reverse";
 
   return (
-    <div className="relative">
-      <p className="mb-3 px-6 lg:px-8 text-[10px] font-semibold uppercase tracking-[0.28em] text-accent-light/50">
-        {label}
-      </p>
-      <div className="relative overflow-hidden border-y border-card-dark-border/60 bg-dark-primary/25 py-4">
-        <div
-          className={`flex w-max ${animationClass} group-hover:[animation-play-state:paused]`}
-        >
-          {[...techs, ...techs].map((tech, i) => (
-            <TechTile key={`${tech.name}-${i}`} tech={tech} />
-          ))}
-        </div>
+    <div className="relative overflow-hidden py-2.5">
+      <div
+        className={`flex w-max ${animationClass} group-hover:[animation-play-state:paused]`}
+      >
+        {[...techs, ...techs].map((tech, i) => (
+          <TechChip key={`${tech.name}-${i}`} tech={tech} />
+        ))}
       </div>
     </div>
   );
@@ -163,7 +141,7 @@ export default function Partners() {
                   on a Saturday.
                 </p>
               </div>
-              <div className="hidden lg:inline-flex items-center gap-2.5 self-end rounded-none border border-card-dark-border bg-card-dark/60 px-4 py-2 backdrop-blur-sm">
+              <div className="hidden lg:inline-flex items-center gap-2.5 self-end rounded-full border border-card-dark-border bg-card-dark/60 px-4 py-2 backdrop-blur-sm">
                 <span className="relative flex h-2 w-2">
                   <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-accent-light/70" />
                   <span className="relative inline-flex h-2 w-2 rounded-full bg-accent-light" />
@@ -180,19 +158,21 @@ export default function Partners() {
         </div>
 
         <div
-          className="relative group space-y-6"
+          className="relative group"
           style={{
             WebkitMaskImage:
-              "linear-gradient(to right, transparent 0%, black 5%, black 95%, transparent 100%)",
+              "linear-gradient(to right, transparent 0%, black 6%, black 94%, transparent 100%)",
             maskImage:
-              "linear-gradient(to right, transparent 0%, black 5%, black 95%, transparent 100%)",
+              "linear-gradient(to right, transparent 0%, black 6%, black 94%, transparent 100%)",
           }}
         >
-          <MarqueeRow techs={ROW_ONE} direction="left" label="Core platform & cloud" />
-          <MarqueeRow techs={ROW_TWO} direction="right" label="AI, data & integrations" />
+          <div className="space-y-2">
+            <MarqueeRow techs={ROW_ONE} direction="left" />
+            <MarqueeRow techs={ROW_TWO} direction="right" />
+          </div>
 
-          <p className="mt-2 text-center text-[11px] text-text-light-muted/45 tracking-wide">
-            Hover the row to pause · hover a tile to focus
+          <p className="mt-6 text-center text-xs text-text-light-muted/50">
+            Hover to pause · hover a tool to focus
           </p>
         </div>
       </div>

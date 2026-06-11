@@ -177,8 +177,8 @@ export default async function CaseStudyDetailPage({
                       <p className="text-[11px] text-accent-light uppercase tracking-widest mb-2">Have a similar challenge?</p>
                       <h3 className="font-heading text-xl font-bold">Let&apos;s scope your project.</h3>
                     </div>
-                    <Link href="/contact" className="inline-flex items-center gap-2 bg-white text-dark-primary hover:bg-accent hover:text-white font-semibold px-6 py-3 rounded-none text-xs uppercase tracking-widest transition-all duration-300">
-                      Book a Call <ArrowRight size={14} />
+                    <Link href="/contact" className="inline-flex items-center gap-2 bg-white text-dark-primary hover:bg-accent hover:text-white font-semibold px-6 py-3 rounded-md text-xs uppercase tracking-widest transition-all duration-300">
+                      Book an AI Readiness Call <ArrowRight size={14} />
                     </Link>
                   </div>
                 </ScrollReveal>

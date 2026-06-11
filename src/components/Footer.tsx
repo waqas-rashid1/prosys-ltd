@@ -56,7 +56,7 @@ const pillars: {
 const trustPoints = [
   { icon: Clock, label: "24-hour response" },
   { icon: ShieldCheck, label: "NDA on request" },
-  { icon: Globe, label: "5 industry verticals" },
+  { icon: Globe, label: "6 core sectors" },
   { icon: Sparkles, label: "Engineered for production" },
 ];
 
@@ -122,7 +122,7 @@ export default function Footer() {
                 <MagneticButton strength={6}>
                   <Link
                     href="/contact"
-                    className="group inline-flex items-center justify-center gap-2 font-semibold rounded-none bg-white text-dark-primary hover:bg-accent hover:text-white px-8 py-4 text-sm uppercase tracking-widest transition-colors duration-200 shadow-lg shadow-accent/10 hover:shadow-accent/30"
+                    className="group inline-flex items-center justify-center gap-2 font-semibold rounded-md bg-white text-dark-primary hover:bg-accent hover:text-white px-8 py-4 text-sm uppercase tracking-widest transition-colors duration-200 shadow-lg shadow-accent/10 hover:shadow-accent/30"
                   >
                     Start an engagement
                     <ArrowRight
@@ -135,7 +135,7 @@ export default function Footer() {
                   href="https://cal.com/prosysltd/30min"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="group inline-flex items-center justify-center gap-2 font-medium rounded-none border border-white/25 text-white hover:border-accent/60 hover:bg-accent/10 px-8 py-4 text-sm uppercase tracking-widest transition-all duration-300"
+                  className="group inline-flex items-center justify-center gap-2 font-medium rounded-md border border-white/25 text-white hover:border-accent/60 hover:bg-accent/10 px-8 py-4 text-sm uppercase tracking-widest transition-all duration-300"
                 >
                   Book a 30-min call
                   <ArrowUpRight
@@ -227,7 +227,7 @@ export default function Footer() {
               <Link href="/" className="inline-flex items-center mb-6 group" aria-label="PROSYS LTD - Home">
                 <div className="relative h-14 w-56 overflow-hidden flex items-center justify-center">
                   <Image
-                    src="/prosys-logo.png"
+                    src="/logo.png"
                     alt="PROSYS LTD"
                     width={500}
                     height={500}

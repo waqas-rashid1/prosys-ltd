@@ -249,7 +249,7 @@ export default function CareersPage() {
                         </p>
                         <Link
                           href={`/careers/apply?role=${encodeURIComponent(role.title)}`}
-                          className="inline-flex items-center gap-2 bg-white text-dark-primary hover:bg-accent hover:text-white font-semibold px-5 py-2.5 rounded-none text-xs uppercase tracking-widest transition-all"
+                          className="inline-flex items-center gap-2 bg-white text-dark-primary hover:bg-accent hover:text-white font-semibold px-5 py-2.5 rounded-md text-xs uppercase tracking-widest transition-all"
                         >
                           Apply for this role <ArrowRight size={12} />
                         </Link>
@@ -271,7 +271,7 @@ export default function CareersPage() {
                   Don&apos;t see the role <span className="gradient-text">you&apos;re looking for?</span>
                 </h2>
                 <p className="text-text-dark-muted text-lg mb-8">We&apos;re always open to talking to great people. Send us your CV and tell us how you&apos;d contribute.</p>
-                <Link href="/careers/apply" className="inline-flex items-center justify-center gap-2 font-medium rounded-none gradient-bg text-white hover:shadow-lg hover:shadow-accent/20 px-8 py-3.5 text-sm uppercase tracking-widest transition-all duration-300">
+                <Link href="/careers/apply" className="inline-flex items-center justify-center gap-2 font-medium rounded-md gradient-bg text-white hover:shadow-lg hover:shadow-accent/20 px-8 py-3.5 text-sm uppercase tracking-widest transition-all duration-300">
                   Apply Now <ArrowRight size={14} />
                 </Link>
               </div>

@@ -30,9 +30,9 @@ export default function StickyCTA() {
         >
           <Link
             href="/contact"
-            className="group flex items-center gap-2 bg-white text-dark-primary hover:bg-accent hover:text-white px-5 py-3 rounded-none font-semibold text-xs uppercase tracking-widest shadow-xl shadow-black/20 transition-all duration-300"
+            className="group flex items-center gap-2 bg-white text-dark-primary hover:bg-accent hover:text-white px-5 py-3 rounded-md font-semibold text-xs uppercase tracking-widest shadow-xl shadow-black/20 transition-all duration-300"
           >
-            Book a Call
+            Book an AI Readiness Call
             <ArrowRight size={13} className="transition-transform duration-300 group-hover:translate-x-0.5" />
           </Link>
         </motion.div>

@@ -208,7 +208,7 @@ const accentLight: Record<
 const proofPoints = [
   { value: "6", label: "Core AI services" },
   { value: "3", label: "Delivery pillars" },
-  { value: "6–12w", label: "To production pilots" },
+  { value: "6–12w", label: "Controlled production release" },
   { value: "6", label: "Industries served" },
 ];
 
@@ -323,7 +323,7 @@ export default function ServicesPage() {
                       <a
                         key={p.number}
                         href={`#pillar-${p.number}`}
-                        className={`group inline-flex items-center gap-2 px-3.5 py-2 rounded-none border ${a.border} ${a.bg} hover:bg-white transition-colors`}
+                        className={`group inline-flex items-center gap-2 px-3.5 py-2 rounded-md border ${a.border} ${a.bg} hover:bg-white transition-colors`}
                       >
                         <span className={`w-1.5 h-1.5 rounded-full bg-current ${a.text}`} />
                         <span className="text-[11px] text-text-dark font-semibold tracking-wide uppercase">
@@ -771,7 +771,7 @@ export default function ServicesPage() {
                     <div className="flex flex-col sm:flex-row gap-3">
                       <Link
                         href="/contact"
-                        className="group inline-flex items-center justify-center gap-2 font-semibold rounded-none bg-dark-primary text-white hover:bg-accent px-6 py-3.5 text-xs uppercase tracking-widest transition-all duration-300"
+                        className="group inline-flex items-center justify-center gap-2 font-semibold rounded-md bg-dark-primary text-white hover:bg-accent px-6 py-3.5 text-xs uppercase tracking-widest transition-all duration-300"
                       >
                         Get a proposal
                         <ArrowRight
@@ -781,7 +781,7 @@ export default function ServicesPage() {
                       </Link>
                       <Link
                         href="/work"
-                        className="inline-flex items-center justify-center gap-2 font-medium rounded-none border border-text-dark/15 text-text-dark hover:border-accent hover:text-accent px-6 py-3.5 text-xs uppercase tracking-widest transition-all duration-300"
+                        className="inline-flex items-center justify-center gap-2 font-medium rounded-md border border-text-dark/15 text-text-dark hover:border-accent hover:text-accent px-6 py-3.5 text-xs uppercase tracking-widest transition-all duration-300"
                       >
                         See case studies
                       </Link>

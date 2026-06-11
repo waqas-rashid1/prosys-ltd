@@ -25,7 +25,7 @@ export default function Button({
   ariaLabel,
 }: ButtonProps) {
   const baseStyles =
-    "group inline-flex items-center justify-center gap-2 font-semibold rounded-none transition-all duration-300 cursor-pointer active:scale-[0.98] active:translate-y-0 disabled:opacity-60 disabled:cursor-not-allowed disabled:hover:translate-y-0 disabled:hover:shadow-none";
+    "group inline-flex items-center justify-center gap-2 font-semibold rounded-md transition-all duration-300 cursor-pointer active:scale-[0.98] active:translate-y-0 disabled:opacity-60 disabled:cursor-not-allowed disabled:hover:translate-y-0 disabled:hover:shadow-none";
 
   const variants = {
     primary:

@@ -6,22 +6,22 @@ import BlogListing from "./BlogListing";
 import { BreadcrumbSchema } from "@/components/schema/PageSchema";
 
 export const metadata: Metadata = {
-  title: "Blog & Insights",
+  title: "Production AI Field Notes",
   description:
-    "Insights, guides, and thought leadership from PROSYS LTD on AI development, SaaS engineering, SEO, AIEO, and modern software architecture.",
+    "Practical lessons on safe AI deployment: secure agents, governance, enterprise knowledge systems, integrations, security testing, and monitoring.",
   alternates: { canonical: "/blog" },
   openGraph: {
-    title: "Blog & Insights — PROSYS LTD",
+    title: "Production AI Field Notes — PROSYS LTD",
     description:
-      "Insights, guides, and thought leadership from PROSYS LTD on AI development, SaaS engineering, SEO, AIEO, and modern software architecture.",
+      "Practical lessons on safe AI deployment: secure agents, governance, enterprise knowledge systems, integrations, security testing, and monitoring.",
     url: "/blog",
     type: "website",
   },
   twitter: {
     card: "summary_large_image",
-    title: "Blog & Insights — PROSYS LTD",
+    title: "Production AI Field Notes — PROSYS LTD",
     description:
-      "Insights, guides, and thought leadership from PROSYS LTD on AI development, SaaS engineering, SEO, AIEO, and modern software architecture.",
+      "Practical lessons on safe AI deployment: secure agents, governance, enterprise knowledge systems, integrations, security testing, and monitoring.",
   },
 };
 
@@ -38,10 +38,10 @@ export default function BlogPage() {
       <main id="main-content">
         <PageHero
           size="compact"
-          badge="Blog & Insights"
-          title="Perspectives on building"
-          highlight="what matters."
-          description="Deep dives on AI, SaaS architecture, SEO, AIEO, and the engineering decisions that separate products that scale from products that break."
+          badge="Production AI Field Notes"
+          title="Field notes on"
+          highlight="deploying AI safely."
+          description="Practical lessons on production AI — secure agents, governance, enterprise knowledge systems, integrations, security testing, monitoring, and what breaks after launch."
           trustSignals={["Written by practitioners", "Field-tested playbooks", "Production-grounded analysis"]}
           primaryCta={{ label: "Read the latest", href: "#articles" }}
           secondaryCta={{ label: "Subscribe", href: "#newsletter" }}

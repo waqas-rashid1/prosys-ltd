@@ -27,7 +27,7 @@ const staticItems: Item[] = [
   { label: "Careers", href: "/careers", group: "Navigate", icon: Users },
   { label: "Insights & Blog", href: "/blog", group: "Navigate", icon: Book },
   { label: "Contact", href: "/contact", group: "Actions", icon: Mail, description: "Start a conversation" },
-  { label: "Book a Consultation", href: "/contact?intent=book-call", group: "Actions", icon: Phone, description: "30-min working session with the engagement lead" },
+  { label: "Book an AI Readiness Call", href: "/contact?intent=book-call", group: "Actions", icon: Phone, description: "30-min working session with the engagement lead" },
   { label: "Request a Proposal", href: "/contact?intent=proposal", group: "Actions", icon: FileText, description: "Get a scoped project estimate" },
 ];
 

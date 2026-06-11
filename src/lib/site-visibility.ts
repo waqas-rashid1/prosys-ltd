@@ -7,8 +7,8 @@
  *
  * SHOW_WEBINARS: /webinars page, nav links, footer link, and sitemap entry.
  */
-export const SHOW_FOUNDER_CONTENT = false;
-export const SHOW_WEBINARS = false;
+export const SHOW_FOUNDER_CONTENT = true;
+export const SHOW_WEBINARS = true;
 
 /** Filter footer/nav links that depend on visibility flags. */
 export function isLinkVisible(href: string): boolean {

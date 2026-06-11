@@ -80,7 +80,7 @@ export default function NewsletterForm() {
         <button
           type="submit"
           disabled={status === "submitting"}
-          className="bg-white text-dark-primary hover:bg-accent hover:text-white active:bg-accent active:text-white px-5 py-3 rounded-none font-semibold text-sm transition-all duration-300 cursor-pointer flex items-center justify-center gap-2 flex-shrink-0 disabled:opacity-60 disabled:cursor-not-allowed"
+          className="bg-white text-dark-primary hover:bg-accent hover:text-white active:bg-accent active:text-white px-5 py-3 rounded-md font-semibold text-sm transition-all duration-300 cursor-pointer flex items-center justify-center gap-2 flex-shrink-0 disabled:opacity-60 disabled:cursor-not-allowed"
         >
           {status === "submitting" ? (
             <>

@@ -159,7 +159,7 @@ export default function AboutPage() {
                   <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent" />
                   <div className="absolute bottom-6 left-6">
                     <p className="text-white font-heading text-lg font-bold">Cross-functional delivery</p>
-                    <p className="text-white/70 text-sm">Shared ownership across engineering, design, and growth</p>
+                    <p className="text-white/70 text-sm">Shared ownership across AI engineering, workflow design, governance, integrations, and monitoring</p>
                   </div>
                 </div>
                 <div className="relative h-72 md:h-96 overflow-hidden group">
@@ -175,7 +175,7 @@ export default function AboutPage() {
                   <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent" />
                   <div className="absolute bottom-6 left-6">
                     <p className="text-white font-heading text-lg font-bold">Production accountability</p>
-                    <p className="text-white/70 text-sm">15+ engineers, designers, and growth specialists</p>
+                    <p className="text-white/70 text-sm">15+ engineers, AI specialists, integration engineers, and delivery leads</p>
                   </div>
                 </div>
               </div>
@@ -395,13 +395,13 @@ export default function AboutPage() {
                   <span className="gradient-text"> delivers?</span>
                 </h2>
                 <p className="text-text-light-muted text-lg mb-10 leading-relaxed">
-                  Whether you need a technical partner, a dedicated team, or a specific project delivered — let&apos;s start with a conversation.
+                  Whether you are choosing your first AI use case, hardening an existing pilot, or connecting AI to business-critical workflows, let&apos;s start with a practical readiness conversation.
                 </p>
                 <div className="flex gap-4">
-                  <Link href="/contact" className="inline-flex items-center justify-center font-medium rounded-none gradient-bg text-white hover:shadow-lg hover:shadow-accent/20 px-8 py-3.5 text-sm uppercase tracking-widest transition-all duration-300">
-                    Get in Touch
+                  <Link href="/contact" className="inline-flex items-center justify-center font-medium rounded-md gradient-bg text-white hover:shadow-lg hover:shadow-accent/20 px-8 py-3.5 text-sm uppercase tracking-widest transition-all duration-300">
+                    Book an AI Readiness Call
                   </Link>
-                  <Link href="/careers" className="inline-flex items-center justify-center font-medium rounded-none border border-white/20 text-white/70 hover:text-white hover:border-white/40 px-8 py-3.5 text-sm uppercase tracking-widest transition-all duration-300">
+                  <Link href="/careers" className="inline-flex items-center justify-center font-medium rounded-md border border-white/20 text-white/70 hover:text-white hover:border-white/40 px-8 py-3.5 text-sm uppercase tracking-widest transition-all duration-300">
                     Join Our Team
                   </Link>
                 </div>
