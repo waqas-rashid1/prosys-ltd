@@ -73,7 +73,7 @@ export default async function IndustryDetailPage({
       />
       <Navbar />
       <main id="main-content">
-        <section className="relative h-dvh min-h-[640px] flex items-center bg-dark-primary overflow-hidden">
+        <section className="relative min-h-[55vh] flex items-center bg-dark-primary overflow-hidden">
           <div className="absolute inset-0 z-0" aria-hidden="true">
             <Image src={industry.image} alt="" fill className="object-cover opacity-30" priority sizes="100vw" />
             <div className="absolute inset-0 bg-gradient-to-r from-dark-primary via-dark-primary/90 to-dark-primary/40" />
@@ -91,21 +91,19 @@ export default async function IndustryDetailPage({
                 </div>
                 <span className="px-3 py-1 text-[10px] font-semibold bg-accent text-white uppercase tracking-wider rounded-sm">Industry Expertise</span>
               </div>
-              <h1 className="font-heading text-5xl md:text-6xl lg:text-7xl xl:text-[5.5rem] font-black text-white leading-[1.04] tracking-tight mb-8">
-                {industry.title}
-                <br />
+              <h1 className="font-heading text-[2.25rem] leading-[1.05] sm:text-5xl md:text-[3.5rem] lg:text-6xl xl:text-[4.25rem] font-black text-white tracking-tight mb-5 max-w-3xl">
+                {industry.title}{" "}
                 <span className="gradient-text">AI, deployed safely.</span>
               </h1>
-              <p className="text-lg md:text-xl text-text-light-muted leading-relaxed max-w-3xl mb-10">
-                {industry.description}
+              <p className="max-w-xl text-sm sm:text-base text-white/65 mb-8 leading-relaxed">
+                {industry.description.split(".")[0]}.
               </p>
-              <div className="flex flex-wrap gap-x-5 gap-y-2.5 text-sm text-text-light-muted/80">
-                {industry.compliance.slice(0, 4).map((c) => (
-                  <span key={c} className="flex items-center gap-2">
-                    <ShieldCheck size={13} className="text-accent-light" /> {c}
-                  </span>
-                ))}
-              </div>
+              <Link
+                href="/contact"
+                className="inline-flex items-center gap-2 font-semibold rounded-md bg-white text-dark-primary hover:bg-accent hover:text-white px-7 py-3.5 text-xs uppercase tracking-widest transition-all duration-300"
+              >
+                Book an AI Readiness Call <ArrowRight size={14} />
+              </Link>
             </div>
           </div>
         </section>

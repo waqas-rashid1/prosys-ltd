@@ -105,18 +105,11 @@ export default function CareersPage() {
           badge="We're Hiring"
           title="Invest in your career,"
           highlight="grow with us."
-          description="Join a team deploying AI safely into real business operations — secure agents, governance, knowledge systems, and integrations. Substantive engineering work, experienced peers, and a culture organized around craft."
+          description="Join a team deploying AI safely into real business operations."
           bgImage="/images/careers-hero.jpg"
           bgImageOpacity={0.25}
-          trustSignals={["Distributed work model", "Experienced peers", "Equity for senior roles", "25 days PTO"]}
           primaryCta={{ label: "View open roles", href: "#roles" }}
           secondaryCta={{ label: "Submit a general CV", href: "/careers/apply" }}
-          stats={[
-            { value: `${openRoles.length}`, label: "Open Roles" },
-            { value: `${new Set(openRoles.map((r) => r.dept)).size}`, label: "Departments" },
-            { value: "Remote+", label: "Work Model" },
-            { value: "PKR 220K+", label: "Starting Salary" },
-          ]}
         />
 
         {/* Team photos */}

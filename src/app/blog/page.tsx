@@ -41,8 +41,7 @@ export default function BlogPage() {
           badge="Production AI Field Notes"
           title="Field notes on"
           highlight="deploying AI safely."
-          description="Practical lessons on production AI — secure agents, governance, enterprise knowledge systems, integrations, security testing, monitoring, and what breaks after launch."
-          trustSignals={["Written by practitioners", "Field-tested playbooks", "Production-grounded analysis"]}
+          description="Practical lessons on secure agents, governance, integrations, and production AI."
           primaryCta={{ label: "Read the latest", href: "#articles" }}
           secondaryCta={{ label: "Subscribe", href: "#newsletter" }}
         />

@@ -89,7 +89,7 @@ export default function TermsPage() {
           badge="Legal"
           title="Terms &"
           highlight="Conditions"
-          description="The terms governing your use of our website and services."
+          description="Terms governing your use of our website and services."
         />
 
         <section className="py-20 lg:py-28 bg-light-primary">

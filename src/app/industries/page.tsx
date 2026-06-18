@@ -41,18 +41,11 @@ export default function IndustriesPage() {
           badge="Industries"
           title="Safe AI deployment,"
           highlight="by sector."
-          description="The workflows, data sensitivity, and risk profile differ in every sector — so we deploy AI with the permissions, integrations, and oversight that fit how your operations actually run."
+          description="Sector-appropriate controls, integrations, and oversight for every industry."
           bgImage="/images/industry-fintech.jpg"
           bgImageOpacity={0.22}
-          trustSignals={["Permission-aware data access", "Human-in-the-loop oversight", "Integrated with existing systems"]}
           primaryCta={{ label: "Explore industries", href: "#industries-grid" }}
           secondaryCta={{ label: "Discuss your sector", href: "/contact" }}
-          stats={[
-            { value: `${industries.length}`, label: "Core sectors" },
-            { value: "6", label: "Core AI services" },
-            { value: "HITL", label: "Oversight by design" },
-            { value: "6–12w", label: "Controlled production release" },
-          ]}
         />
 
         {/* Grid overview */}

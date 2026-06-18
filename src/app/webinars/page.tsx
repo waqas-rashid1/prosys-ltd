@@ -33,14 +33,9 @@ export default function WebinarsPage() {
         <PageHero
           size="compact"
           badge="Webinars"
-          title="Inside the"
-          highlight="engine room."
-          description="Recorded sessions, technical deep-dives, and engineering conversations — how production teams architect, deliver, and operate software and applied AI at scale."
-          trustSignals={[
-            "Engineering deep-dives",
-            "Applied AI sessions",
-            "Production case reviews",
-          ]}
+          title="Inside"
+          highlight="production AI deployment."
+          description="Recorded sessions on secure agents, governance, integrations, and production lessons."
           primaryCta={{ label: "Watch now", href: "#sessions" }}
           secondaryCta={{ label: "Book a call", href: "/contact" }}
         />

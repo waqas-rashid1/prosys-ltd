@@ -41,18 +41,11 @@ export default function ContactPage() {
           badge="Get in Touch"
           title="Let's scope your"
           highlight="safe AI deployment."
-          description="Whether you are choosing your first AI use case, hardening an existing pilot, or connecting AI to business-critical workflows — our team reviews every inbound and responds within 24 business hours."
+          description="Tell us the workflow you want to improve — we respond within 24 business hours."
           bgImage="/images/contact-hero.jpg"
           bgImageOpacity={0.18}
-          trustSignals={["24-hour response SLA", "NDA on request", "Human-in-the-loop by design", "Direct specialist contact"]}
           primaryCta={{ label: "Send a brief", href: "#contact-form" }}
           secondaryCta={{ label: "Book a call", href: "https://cal.com/prosysltd/30min" }}
-          stats={[
-            { value: "<24h", label: "Response time" },
-            { value: "6", label: "Core AI services" },
-            { value: "6", label: "Core sectors served" },
-            { value: "6–12w", label: "Controlled production release" },
-          ]}
         />
 
         {/* Contact methods strip */}

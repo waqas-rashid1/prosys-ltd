@@ -205,13 +205,6 @@ const accentLight: Record<
   },
 };
 
-const proofPoints = [
-  { value: "6", label: "Core AI services" },
-  { value: "3", label: "Delivery pillars" },
-  { value: "6–12w", label: "Controlled production release" },
-  { value: "6", label: "Industries served" },
-];
-
 const engagementSteps = [
   {
     num: "01",
@@ -279,18 +272,11 @@ export default function ServicesPage() {
           badge="AI Deployment Services"
           title="Deploy AI safely."
           highlight="From pilots to production."
-          description="Six core services that take AI from idea to operations — strategy, secure agents, governance, knowledge systems, integrations, and monitoring."
+          description="Six services to move AI from idea to operations — strategy, agents, governance, and monitoring."
           bgImage="/images/services-hero.jpg"
           bgImageOpacity={0.3}
-          trustSignals={[
-            "Permissions, approvals & audit logs",
-            "Human-in-the-loop oversight",
-            "Integrated with your existing systems",
-            "Monitored after launch",
-          ]}
           primaryCta={{ label: "Book an AI Readiness Call", href: "/contact" }}
           secondaryCta={{ label: "Explore all 6 services", href: "#pillars" }}
-          stats={proofPoints.map((p) => ({ value: p.value, label: p.label }))}
         />
 
         {/* ═══════════ LIGHT · Pillar Overview ═══════════ */}

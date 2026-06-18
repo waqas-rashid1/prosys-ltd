@@ -12,7 +12,6 @@ import PageHero from "@/components/ui/PageHero";
 import DarkSectionFx from "@/components/ui/DarkSectionFx";
 import Testimonials from "@/components/Testimonials";
 import { LinkedInIcon } from "@/components/ui/SocialIcons";
-import { stats } from "@/lib/constants";
 import { SHOW_FOUNDER_CONTENT } from "@/lib/site-visibility";
 
 export const metadata: Metadata = {
@@ -107,17 +106,15 @@ export default function AboutPage() {
           badge="About PROSYS LTD"
           title="An AI deployment practice"
           highlight="built for real operations."
-          description="PROSYS LTD helps companies deploy AI safely into real business operations — from pilots to production. Secure agents, governed workflows, enterprise knowledge systems, integrations, and monitoring, with end-to-end accountability."
+          description="Deploy AI safely from pilots to production — agents, governance, knowledge systems, and monitoring."
           bgImage="/images/team-collab.jpg"
           bgImageOpacity={0.22}
-          trustSignals={["Founded 2024", "15+ engineers & specialists", "Human-in-the-loop by design", "Production AI focus"]}
           primaryCta={
             SHOW_FOUNDER_CONTENT
               ? { label: "Meet the team", href: "#leadership" }
               : { label: "Our principles", href: "#timeline" }
           }
           secondaryCta={{ label: "Speak with our team", href: "/contact" }}
-          stats={stats.map((s) => ({ value: `${s.value}${s.suffix}`, label: s.label }))}
         />
 
         {/* Mission */}

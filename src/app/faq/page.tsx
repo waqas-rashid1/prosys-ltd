@@ -44,7 +44,7 @@ export default function FAQPage() {
           badge="FAQ"
           title="Frequently"
           highlight="asked questions."
-          description="How we deploy AI safely — services, security testing, governance, integrations, pricing, IP ownership, and how we work with your team — answered directly."
+          description="Services, security, governance, integrations, and pricing — answered directly."
         />
 
         <div className="bg-dark-secondary">

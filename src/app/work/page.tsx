@@ -79,18 +79,11 @@ export default function WorkPage() {
           badge="Portfolio"
           title="Engagements,"
           highlight="documented."
-          description="A selection of AI deployments delivered for funded startups, scale-ups, and mid-market teams — agents, automations, and knowledge systems measured by outcome, not output."
+          description="AI deployments for startups and mid-market teams — measured by outcome, not output."
           bgImage="/images/case-saas.jpg"
           bgImageOpacity={0.22}
-          trustSignals={["Production AI deployments", "Measurable outcomes", "NDA on request"]}
           primaryCta={{ label: "Browse case studies", href: "#case-studies" }}
           secondaryCta={{ label: "Start an engagement", href: "/contact" }}
-          stats={[
-            { value: "6", label: "Core AI services" },
-            { value: "6", label: "Industries served" },
-            { value: "HITL", label: "Oversight by design" },
-            { value: "6–12 wk", label: "Avg. to production" },
-          ]}
         />
 
         {/* Featured detailed case studies */}

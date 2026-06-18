@@ -68,7 +68,7 @@ export default async function CaseStudyDetailPage({
       <Navbar />
       <main id="main-content">
         {/* Hero */}
-        <section className="relative h-dvh min-h-[640px] flex items-center bg-dark-primary overflow-hidden">
+        <section className="relative min-h-[55vh] flex items-center bg-dark-primary overflow-hidden">
           <div className="absolute inset-0 z-0" aria-hidden="true">
             <Image src={study.image} alt="" fill className="object-cover opacity-30" sizes="100vw" priority />
             <div className="absolute inset-0 bg-gradient-to-r from-dark-primary via-dark-primary/90 to-dark-primary/40" />
@@ -83,31 +83,25 @@ export default async function CaseStudyDetailPage({
               <span className="px-3 py-1 text-[10px] font-semibold bg-accent text-white uppercase tracking-wider mb-6 inline-block rounded-sm">
                 {study.category}
               </span>
-              <h1 className="font-heading text-5xl md:text-6xl lg:text-7xl xl:text-[5.5rem] font-black text-white leading-[1.04] tracking-tight mb-8">
-                {study.title}
+              <h1 className="font-heading text-[2.25rem] leading-[1.05] sm:text-5xl md:text-[3.5rem] lg:text-6xl xl:text-[4.25rem] font-black text-white tracking-tight mb-5 max-w-3xl">
+                {(() => {
+                  const words = study.title.split(" ");
+                  if (words.length <= 2) {
+                    return <span className="gradient-text">{study.title}</span>;
+                  }
+                  const head = words.slice(0, -2).join(" ");
+                  const tail = words.slice(-2).join(" ");
+                  return (
+                    <>
+                      {head}{" "}
+                      <span className="gradient-text">{tail}</span>
+                    </>
+                  );
+                })()}
               </h1>
-              <p className="text-lg md:text-xl text-text-light-muted leading-relaxed max-w-3xl mb-12">
-                {study.description}
+              <p className="max-w-xl text-sm sm:text-base text-white/65 mb-8 leading-relaxed">
+                {study.description.split(" — ")[0]}.
               </p>
-
-              <div className="grid grid-cols-2 md:grid-cols-4 gap-px bg-white/10 border border-white/10 rounded-md overflow-hidden max-w-4xl">
-                <div className="bg-dark-primary/80 p-5">
-                  <p className="text-[10px] text-accent-light uppercase tracking-widest mb-2">Client</p>
-                  <p className="text-sm font-bold text-white leading-tight">{study.client}</p>
-                </div>
-                <div className="bg-dark-primary/80 p-5">
-                  <p className="text-[10px] text-accent-light uppercase tracking-widest mb-2">Region</p>
-                  <p className="text-sm font-bold text-white leading-tight">{study.clientRegion}</p>
-                </div>
-                <div className="bg-dark-primary/80 p-5">
-                  <p className="text-[10px] text-accent-light uppercase tracking-widest mb-2">Year</p>
-                  <p className="text-sm font-bold text-white leading-tight">{study.year}</p>
-                </div>
-                <div className="bg-dark-primary/80 p-5">
-                  <p className="text-[10px] text-accent-light uppercase tracking-widest mb-2">Outcome</p>
-                  <p className="text-sm font-bold text-accent-light leading-tight">{study.metric}</p>
-                </div>
-              </div>
             </div>
           </div>
         </section>

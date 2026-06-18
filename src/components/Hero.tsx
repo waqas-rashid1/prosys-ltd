@@ -3,7 +3,6 @@
 import Link from "next/link";
 import { motion, useReducedMotion } from "framer-motion";
 import { ChevronDown, ArrowRight } from "lucide-react";
-import { heroProofPoints } from "@/lib/constants";
 import MagneticButton from "./ui/MagneticButton";
 
 export default function Hero() {
@@ -58,13 +57,12 @@ export default function Hero() {
             <span className="gradient-text">real business operations.</span>
           </h1>
 
-          <p className="max-w-2xl text-sm sm:text-base lg:text-lg text-white/65 mb-7 leading-relaxed">
-            We help companies move AI from pilots to production with governed agents,
-            secure knowledge systems, existing-system integrations, security testing,
-            human approvals, audit logs, and monitoring built in.
+          <p className="max-w-xl text-sm sm:text-base text-white/65 mb-7 leading-relaxed">
+            We help companies move AI from pilots to production — governed agents,
+            secure knowledge, integrations, and monitoring.
           </p>
 
-          <div className="flex flex-col sm:flex-row items-start gap-3 mb-8">
+          <div className="flex flex-col sm:flex-row items-start gap-3">
             <MagneticButton strength={4}>
               <Link
                 href="/contact"
@@ -88,24 +86,6 @@ export default function Hero() {
               />
             </Link>
           </div>
-        </motion.div>
-
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 0.35, duration: 0.6 }}
-          className="flex flex-wrap gap-x-6 sm:gap-x-10 md:gap-x-14 gap-y-4 pt-8 border-t border-white/10 max-w-4xl"
-        >
-          {heroProofPoints.map((p) => (
-            <div key={p.label}>
-              <div className="font-heading text-xl md:text-2xl font-bold text-white mb-0.5">
-                {p.value}
-              </div>
-              <div className="text-[10px] text-white/40 uppercase tracking-widest max-w-[140px] leading-snug">
-                {p.label}
-              </div>
-            </div>
-          ))}
         </motion.div>
       </div>
 
