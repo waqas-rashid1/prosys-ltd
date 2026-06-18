@@ -103,7 +103,7 @@ function MarqueeRow({
   return (
     <div className="relative overflow-hidden py-2.5">
       <div
-        className={`flex w-max ${animationClass} group-hover:[animation-play-state:paused]`}
+        className={`marquee-track flex w-max ${animationClass}`}
       >
         {[...techs, ...techs].map((tech, i) => (
           <TechChip key={`${tech.name}-${i}`} tech={tech} />
@@ -152,7 +152,7 @@ export default function Partners() {
         </div>
 
         <div
-          className="relative group"
+          className="marquee-group relative"
           style={{
             WebkitMaskImage:
               "linear-gradient(to right, transparent 0%, black 6%, black 94%, transparent 100%)",

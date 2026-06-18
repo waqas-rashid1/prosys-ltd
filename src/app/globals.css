@@ -147,6 +147,11 @@ body {
   animation: marquee-reverse 70s linear infinite;
 }
 
+/* Partners marquee — pause all rows when hovering the track area */
+.marquee-group:hover .marquee-track {
+  animation-play-state: paused;
+}
+
 /* ------------------------------------------------------------------
    Typography system — single typeface (Manrope), single refined weight.
    One visual rhythm across hero, section headings, card titles and body.
