@@ -5,6 +5,7 @@ import { motion } from "framer-motion";
 import { Code2 } from "lucide-react";
 import { getTechLogo } from "@/lib/tech-logos";
 import ScrollReveal from "./ui/ScrollReveal";
+import SectionRail from "./ui/SectionRail";
 
 type Props = {
   serviceName: string;
@@ -20,9 +21,7 @@ export default function ServiceTechStack({ serviceName, techStack }: Props) {
       <div className="relative z-10 max-w-[1400px] mx-auto px-6 lg:px-8">
         <ScrollReveal>
           <div className="text-center mb-12">
-            <p className="text-[11px] text-accent-light uppercase tracking-[0.25em] font-semibold mb-4">
-              Technology Stack
-            </p>
+            <SectionRail label="Technology Stack" theme="dark" />
             <h2 className="font-heading text-4xl md:text-5xl lg:text-6xl font-black text-text-light mb-4 tracking-tight leading-[1.05]">
               Our {serviceName} toolkit
             </h2>

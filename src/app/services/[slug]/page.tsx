@@ -12,6 +12,8 @@ import {
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import ScrollReveal from "@/components/ui/ScrollReveal";
+import SectionRail from "@/components/ui/SectionRail";
+import HeroEyebrow from "@/components/ui/HeroEyebrow";
 import DarkSectionFx from "@/components/ui/DarkSectionFx";
 import ServiceTechStack from "@/components/ServiceTechStack";
 import {
@@ -90,7 +92,7 @@ export default async function ServicePage({ params }: { params: Promise<{ slug: 
       <Navbar />
       <main id="main-content">
         {/* Cinematic Hero — static image + gradients for performance (home uses video) */}
-        <section className="relative min-h-[55vh] flex items-center overflow-hidden bg-dark-primary">
+        <section className="relative min-h-dvh flex items-center overflow-hidden bg-dark-primary">
           <div className="absolute inset-0 z-0" aria-hidden="true">
             <Image
               src={heroImage}
@@ -119,9 +121,7 @@ export default async function ServicePage({ params }: { params: Promise<{ slug: 
             </div>
 
             <div className="max-w-4xl">
-              <p className="text-xs text-accent-light uppercase tracking-[0.25em] font-semibold mb-6">
-                {service.title}
-              </p>
+              <HeroEyebrow label={service.title} animated={false} className="mb-6" />
 
               <h1 className="font-heading text-[2.25rem] leading-[1.05] sm:text-5xl md:text-[3.5rem] lg:text-6xl xl:text-[4.25rem] font-black mb-5 text-white tracking-tight max-w-3xl">
                 {(() => {
@@ -166,7 +166,7 @@ export default async function ServicePage({ params }: { params: Promise<{ slug: 
             <div className="grid grid-cols-1 lg:grid-cols-12 gap-16">
               <div className="lg:col-span-7">
                 <ScrollReveal>
-                  <p className="text-xs text-accent uppercase tracking-[0.2em] font-medium mb-4">Overview</p>
+                  <SectionRail label="Overview" theme="light" />
                   <h2 className="font-heading text-3xl md:text-4xl font-bold text-text-dark mb-8 leading-tight">
                     What we <span className="gradient-text">deliver.</span>
                   </h2>
@@ -177,7 +177,7 @@ export default async function ServicePage({ params }: { params: Promise<{ slug: 
               </div>
               <div className="lg:col-span-5">
                 <ScrollReveal delay={0.15}>
-                  <p className="text-xs text-accent uppercase tracking-[0.2em] font-medium mb-4">Why PROSYS</p>
+                  <SectionRail label="Why PROSYS" theme="light" />
                   <div className="space-y-0 border border-card-light-border">
                     {service.whyUs.map((point, i) => (
                       <div key={i} className="flex items-start gap-3 p-5 bg-white border-b border-card-light-border last:border-0">
@@ -220,7 +220,7 @@ export default async function ServicePage({ params }: { params: Promise<{ slug: 
         <section className="py-14 lg:py-20 bg-light-primary">
           <div className="max-w-[1400px] mx-auto px-6 lg:px-8">
             <ScrollReveal>
-              <p className="text-xs text-accent uppercase tracking-[0.2em] font-medium mb-4">Methodology</p>
+              <SectionRail label="Methodology" theme="light" />
               <h2 className="font-heading text-3xl md:text-4xl font-bold text-text-dark mb-14">How we <span className="gradient-text">deliver.</span></h2>
             </ScrollReveal>
 
@@ -248,7 +248,7 @@ export default async function ServicePage({ params }: { params: Promise<{ slug: 
           <div className="max-w-[1400px] mx-auto px-6 lg:px-8">
             <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-start">
               <ScrollReveal className="lg:col-span-5">
-                <p className="text-xs text-accent uppercase tracking-[0.2em] font-medium mb-4">Business Outcomes</p>
+                <SectionRail label="Business Outcomes" theme="light" />
                 <h3 className="font-heading text-3xl md:text-4xl font-bold text-text-dark mb-5 leading-tight">
                   What you get with <span className="gradient-text">every engagement.</span>
                 </h3>
@@ -276,7 +276,7 @@ export default async function ServicePage({ params }: { params: Promise<{ slug: 
           <DarkSectionFx variant="split" />
           <div className="relative z-10 max-w-[1400px] mx-auto px-6 lg:px-8">
             <ScrollReveal>
-              <p className="text-xs text-accent-light uppercase tracking-[0.2em] font-medium mb-4">Case Study</p>
+              <SectionRail label="Case Study" theme="dark" />
               <div className="grid grid-cols-1 lg:grid-cols-12 gap-0 border border-card-dark-border bg-card-dark overflow-hidden rounded-md">
                 <div className="lg:col-span-4 relative h-48 lg:h-auto overflow-hidden">
                   <Image src={heroImage} alt={service.caseStudy.title} fill className="object-cover" sizes="33vw" />
@@ -313,7 +313,7 @@ export default async function ServicePage({ params }: { params: Promise<{ slug: 
         <section className="py-14 lg:py-20 bg-white">
           <div className="max-w-[900px] mx-auto px-6 lg:px-8">
             <ScrollReveal>
-              <p className="text-xs text-accent uppercase tracking-[0.2em] font-medium mb-4">FAQ</p>
+              <SectionRail label="FAQ" theme="light" />
               <h2 className="font-heading text-3xl md:text-4xl font-bold text-text-dark mb-10">Common <span className="gradient-text">questions.</span></h2>
             </ScrollReveal>
             <div className="divide-y divide-card-light-border border-y border-card-light-border">
@@ -360,7 +360,7 @@ export default async function ServicePage({ params }: { params: Promise<{ slug: 
           <div className="max-w-[1400px] mx-auto px-6 lg:px-12">
             <ScrollReveal>
               <div className="max-w-2xl">
-                <p className="text-xs text-accent uppercase tracking-[0.2em] font-medium mb-4">Next Steps</p>
+                <SectionRail label="Next Steps" theme="light" />
                 <h2 className="font-heading text-3xl md:text-4xl lg:text-5xl font-bold text-text-dark mb-6 leading-tight">
                   {pageCta?.heading ?? "Ready to move AI from pilot to production safely?"}
                 </h2>

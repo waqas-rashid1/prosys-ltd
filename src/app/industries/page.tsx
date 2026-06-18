@@ -8,6 +8,7 @@ import {
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import ScrollReveal from "@/components/ui/ScrollReveal";
+import SectionRail from "@/components/ui/SectionRail";
 import PageHero from "@/components/ui/PageHero";
 import { industries } from "@/lib/constants";
 
@@ -95,9 +96,7 @@ export default function IndustriesPage() {
                     </div>
                   </div>
                   <div className="p-6 flex-1 flex flex-col">
-                    <p className="text-[11px] uppercase tracking-widest font-semibold text-accent mb-2">
-                      Don&apos;t see your sector?
-                    </p>
+                    <SectionRail label="Don't see your sector?" theme="light" className="mb-2" />
                     <h3 className="font-heading text-lg font-bold text-text-dark mb-2">
                       We work across adjacent verticals too.
                     </h3>

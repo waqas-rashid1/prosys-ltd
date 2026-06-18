@@ -16,6 +16,7 @@ import {
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import ScrollReveal from "@/components/ui/ScrollReveal";
+import SectionRail from "@/components/ui/SectionRail";
 import PageHero from "@/components/ui/PageHero";
 import Capabilities from "@/components/Capabilities";
 import { ServiceItemListSchema } from "@/components/StructuredData";
@@ -744,9 +745,7 @@ export default function ServicesPage() {
 
                 <div className="relative grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 p-8 lg:p-12">
                   <div className="lg:col-span-5">
-                    <p className="text-[11px] text-accent uppercase tracking-[0.25em] font-semibold mb-4">
-                      Not sure which service fits?
-                    </p>
+                    <SectionRail label="Not sure which service fits?" theme="light" />
                     <h3 className="font-heading text-3xl md:text-4xl lg:text-[2.75rem] font-black text-text-dark leading-[1.05] tracking-tight mb-5">
                       Describe the problem.{" "}
                       <span className="gradient-text">We&apos;ll pick the stack.</span>

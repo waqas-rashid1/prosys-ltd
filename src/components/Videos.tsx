@@ -4,6 +4,7 @@ import { useState } from "react";
 import { motion } from "framer-motion";
 import { Play } from "lucide-react";
 import ScrollReveal from "./ui/ScrollReveal";
+import SectionRail from "./ui/SectionRail";
 
 const videos = [
   {
@@ -195,16 +196,7 @@ export default function Videos({
       <div className="relative z-10 max-w-[1400px] mx-auto px-6 lg:px-12">
         {!hideHeader && (
           <>
-            <div className="flex items-center gap-3 mb-6">
-              <span
-                className={`text-[10px] uppercase tracking-[0.35em] font-semibold ${ isLight ? "text-accent/70" : "text-accent-light/60" }`}
-              >
-                / Watch
-              </span>
-              <span
-                className={`h-px flex-1 max-w-[160px] bg-gradient-to-r to-transparent ${ isLight ? "from-accent/30" : "from-accent-light/40" }`}
-              />
-            </div>
+            <SectionRail label="Watch" theme={isLight ? "light" : "dark"} />
 
             <ScrollReveal>
               <div className="flex flex-col lg:flex-row lg:items-end lg:justify-between gap-6 mb-12">

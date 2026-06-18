@@ -3,6 +3,7 @@
 import Image from "next/image";
 import ScrollReveal from "./ui/ScrollReveal";
 import DarkSectionFx from "./ui/DarkSectionFx";
+import SectionHeading from "./ui/SectionHeading";
 
 /**
  * Partners — moving technology stack marquee.
@@ -122,26 +123,18 @@ export default function Partners() {
 
       <div className="relative z-10">
         <div className="max-w-[1400px] mx-auto px-6 lg:px-8 mb-10">
-          <ScrollReveal>
-            <div className="flex items-center gap-3 mb-4">
-              <span className="text-[10px] text-accent-light/60 uppercase tracking-[0.35em] font-semibold">
-                / Technology
-              </span>
-              <span className="h-px flex-1 max-w-[160px] bg-gradient-to-r from-accent-light/40 to-transparent" />
-            </div>
-            <div className="flex flex-col lg:flex-row lg:items-end lg:justify-between gap-4">
-              <div>
-                <h2 className="font-heading text-3xl md:text-4xl lg:text-5xl font-bold text-white leading-tight">
-                  The stack we ship{" "}
-                  <span className="gradient-text">in production.</span>
-                </h2>
-                <p className="text-text-light-muted text-base md:text-lg leading-relaxed max-w-2xl mt-3">
-                  A pragmatic toolkit, chosen for long-term operability over
-                  novelty. We standardize on what teams can actually run at 3am
-                  on a Saturday.
-                </p>
-              </div>
-              <div className="hidden lg:inline-flex items-center gap-2.5 self-end rounded-full border border-card-dark-border bg-card-dark/60 px-4 py-2 backdrop-blur-sm">
+          <SectionHeading
+            theme="dark"
+            eyebrow="Technology"
+            title={
+              <>
+                The stack we ship{" "}
+                <span className="gradient-text">in production.</span>
+              </>
+            }
+            description="A pragmatic toolkit, chosen for long-term operability over novelty. We standardize on what teams can actually run at 3am on a Saturday."
+            aside={
+              <div className="hidden lg:inline-flex items-center gap-2.5 rounded-full border border-card-dark-border bg-card-dark/60 px-4 py-2 backdrop-blur-sm">
                 <span className="relative flex h-2 w-2">
                   <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-accent-light/70" />
                   <span className="relative inline-flex h-2 w-2 rounded-full bg-accent-light" />
@@ -153,8 +146,9 @@ export default function Partners() {
                   technologies in active use
                 </span>
               </div>
-            </div>
-          </ScrollReveal>
+            }
+            className="mb-10"
+          />
         </div>
 
         <div

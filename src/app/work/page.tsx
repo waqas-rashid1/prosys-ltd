@@ -5,6 +5,7 @@ import { ArrowUpRight, MapPin, Calendar, ArrowRight } from "lucide-react";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import ScrollReveal from "@/components/ui/ScrollReveal";
+import SectionRail from "@/components/ui/SectionRail";
 import PageHero from "@/components/ui/PageHero";
 import DarkSectionFx from "@/components/ui/DarkSectionFx";
 import { caseStudies } from "@/lib/constants";
@@ -92,7 +93,7 @@ export default function WorkPage() {
             <ScrollReveal>
               <div className="flex items-end justify-between mb-10">
                 <div>
-                  <p className="text-xs text-accent uppercase tracking-[0.2em] font-medium mb-3">In-depth Case Studies</p>
+                  <SectionRail label="In-depth Case Studies" theme="light" className="mb-3" />
                   <h2 className="font-heading text-3xl md:text-4xl font-bold text-text-dark">Engagement <span className="gradient-text">deep-dives.</span></h2>
                 </div>
                 <p className="text-sm text-text-dark-muted hidden md:block">{caseStudies.length} deep-dives</p>
@@ -144,7 +145,7 @@ export default function WorkPage() {
             <ScrollReveal>
               <div className="flex items-end justify-between mb-10">
                 <div>
-                  <p className="text-xs text-accent uppercase tracking-[0.2em] font-medium mb-3">More Engagements</p>
+                  <SectionRail label="More Engagements" theme="light" className="mb-3" />
                   <h2 className="font-heading text-3xl md:text-4xl font-bold text-text-dark">Selected highlights</h2>
                 </div>
                 <Link href="/contact" className="text-sm font-semibold text-accent hover:gap-2.5 inline-flex items-center gap-2 transition-all">
@@ -179,7 +180,7 @@ export default function WorkPage() {
           <DarkSectionFx variant="default" />
           <div className="relative z-10 max-w-[1400px] mx-auto px-6 lg:px-12">
             <div className="max-w-3xl">
-              <p className="text-xs text-accent-light uppercase tracking-[0.2em] font-medium mb-4">Considering an engagement?</p>
+              <SectionRail label="Considering an engagement?" theme="dark" />
               <h2 className="font-heading text-3xl md:text-4xl lg:text-5xl font-bold text-text-light mb-6 leading-tight">
                 Open a conversation with the <span className="gradient-text">engagement lead.</span>
               </h2>

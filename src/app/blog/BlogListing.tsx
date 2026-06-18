@@ -5,6 +5,7 @@ import Link from "next/link";
 import Image from "next/image";
 import { Calendar, Clock, ArrowRight } from "lucide-react";
 import ScrollReveal from "@/components/ui/ScrollReveal";
+import SectionRail from "@/components/ui/SectionRail";
 import { blogPosts } from "@/lib/blog-data";
 import { SHOW_FOUNDER_CONTENT } from "@/lib/site-visibility";
 
@@ -31,20 +32,18 @@ export default function BlogListing() {
         <section className="bg-light-primary">
           <div className="max-w-[1400px] mx-auto px-6 lg:px-8 py-14 lg:py-20">
             <ScrollReveal>
-              <div className="flex items-center justify-between gap-6 mb-8 flex-wrap">
-                <p className="text-xs text-accent uppercase tracking-[0.2em] font-medium">Featured</p>
-                <div className="flex items-center gap-2 flex-wrap">
-                  {categories.map((cat) => (
-                    <button
-                      key={cat}
-                      onClick={() => setActiveCategory(cat)}
-                      className={`px-3.5 py-1.5 text-xs font-semibold uppercase tracking-wider rounded-md border transition-all cursor-pointer ${ activeCategory === cat ? "bg-accent border-accent text-white" : "bg-white border-card-light-border text-text-dark-muted hover:border-accent/50 hover:text-accent" }`}
-                      aria-pressed={activeCategory === cat}
-                    >
-                      {cat}
-                    </button>
-                  ))}
-                </div>
+              <SectionRail label="Featured" theme="light" />
+              <div className="flex items-center gap-2 flex-wrap mb-8">
+                {categories.map((cat) => (
+                  <button
+                    key={cat}
+                    onClick={() => setActiveCategory(cat)}
+                    className={`px-3.5 py-1.5 text-xs font-semibold uppercase tracking-wider rounded-md border transition-all cursor-pointer ${ activeCategory === cat ? "bg-accent border-accent text-white" : "bg-white border-card-light-border text-text-dark-muted hover:border-accent/50 hover:text-accent" }`}
+                    aria-pressed={activeCategory === cat}
+                  >
+                    {cat}
+                  </button>
+                ))}
               </div>
               <Link href={`/blog/${featured.slug}`} className="group block">
                 <div className="relative overflow-hidden">
@@ -96,9 +95,7 @@ export default function BlogListing() {
       <section className="py-14 lg:py-20 bg-white">
         <div className="max-w-[1400px] mx-auto px-6 lg:px-8">
           <ScrollReveal>
-            <p className="text-xs text-accent uppercase tracking-[0.2em] font-medium mb-4">
-              {activeCategory === "All" ? "Latest" : activeCategory}
-            </p>
+            <SectionRail label={activeCategory === "All" ? "Latest" : activeCategory} theme="light" />
             <h2 className="font-heading text-3xl md:text-4xl font-bold text-text-dark mb-14">
               {activeCategory === "All" ? (<>All <span className="gradient-text">articles.</span></>) : (<>{activeCategory} <span className="gradient-text">articles.</span></>)}
             </h2>

@@ -4,6 +4,7 @@ import { ShieldCheck, UserCheck, Activity, Blocks, FlaskConical, Lock, ArrowRigh
 import Link from "next/link";
 import { motion } from "framer-motion";
 import ScrollReveal from "./ui/ScrollReveal";
+import SectionRail from "./ui/SectionRail";
 
 const capabilities = [
   {
@@ -68,10 +69,7 @@ export default function Capabilities() {
 
       <div className="relative z-10 max-w-[1400px] mx-auto px-6 lg:px-12 w-full py-14 lg:py-20">
         {/* Editorial rail */}
-        <div className="flex items-center gap-3 mb-6 lg:mb-8">
-          <span className="text-[10px] text-accent-light/60 uppercase tracking-[0.35em] font-semibold">/ How We Deliver</span>
-          <span className="h-px flex-1 max-w-[160px] bg-gradient-to-r from-accent-light/40 to-transparent" />
-        </div>
+        <SectionRail label="How We Deliver" theme="dark" className="mb-6 lg:mb-8" />
 
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-start">
           {/* Left — intro column */}

@@ -3,10 +3,14 @@
 import Image from "next/image";
 import Link from "next/link";
 import { motion } from "framer-motion";
-import { ChevronDown, ArrowRight, Sparkles } from "lucide-react";
+import { ChevronDown, ArrowRight } from "lucide-react";
+import HeroEyebrow from "./HeroEyebrow";
+
+import type { LucideIcon } from "lucide-react";
 
 export interface PageHeroProps {
   badge?: string;
+  badgeIcon?: LucideIcon;
   title: string;
   highlight?: string;
   description?: string;
@@ -21,6 +25,7 @@ export interface PageHeroProps {
 
 export default function PageHero({
   badge,
+  badgeIcon,
   title,
   highlight,
   description,
@@ -36,9 +41,7 @@ export default function PageHero({
 
   return (
     <section
-      className={`relative flex items-center overflow-hidden bg-dark-primary ${
-        isCompact ? "min-h-[48vh] py-20 lg:py-24" : "min-h-[58vh] py-24 lg:py-28"
-      }`}
+      className="relative flex items-center overflow-hidden bg-dark-primary min-h-dvh py-24 lg:py-28"
     >
       {bgImage && (
         <div className="absolute inset-0 z-0" aria-hidden="true">
@@ -70,16 +73,7 @@ export default function PageHero({
       <div className="relative z-10 w-full max-w-[1400px] mx-auto px-6 lg:px-12 xl:px-16 pt-20 pb-12 lg:pt-24 lg:pb-16">
         <div className={isCenter ? "text-center" : ""}>
           <div className={isCenter ? "max-w-4xl mx-auto" : "max-w-4xl"}>
-            {badge && (
-              <motion.p
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.6 }}
-                className="text-[11px] text-accent-light uppercase tracking-[0.25em] font-semibold mb-4"
-              >
-                {badge}
-              </motion.p>
-            )}
+            {badge && <HeroEyebrow label={badge} icon={badgeIcon} />}
 
             <motion.h1
               initial={{ opacity: 0, y: 30 }}

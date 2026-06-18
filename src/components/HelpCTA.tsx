@@ -3,6 +3,7 @@
 import Link from "next/link";
 import ScrollReveal from "./ui/ScrollReveal";
 import DarkSectionFx from "./ui/DarkSectionFx";
+import SectionHeading from "./ui/SectionHeading";
 
 export default function HelpCTA() {
   return (
@@ -10,17 +11,18 @@ export default function HelpCTA() {
       <DarkSectionFx variant="default" />
 
       <div className="relative z-10 max-w-[1400px] mx-auto px-6 lg:px-8">
+        <SectionHeading
+          theme="dark"
+          eyebrow="Start the conversation"
+          title={
+            <>
+              Engineering conversations, <span className="gradient-text">not sales calls.</span>
+            </>
+          }
+          description="A 30-minute working session with the engagement lead. Architectural review, scope assessment, written recommendation with timeline and pricing. Response within one business day — whether you are validating a build or scaling a platform."
+        />
         <ScrollReveal>
           <div className="max-w-3xl">
-            <p className="text-[11px] text-accent-light uppercase tracking-[0.25em] font-semibold mb-6">
-              Start the conversation
-            </p>
-            <h2 className="font-heading text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-black text-white mb-8 leading-[1.05] tracking-tight">
-              Engineering conversations, <span className="gradient-text">not sales calls.</span>
-            </h2>
-            <p className="text-text-light-muted text-base md:text-lg mb-12 leading-relaxed max-w-2xl">
-              A 30-minute working session with the engagement lead. Architectural review, scope assessment, written recommendation with timeline and pricing. Response within one business day — whether you are validating a build or scaling a platform.
-            </p>
             <div className="flex flex-col sm:flex-row gap-3">
               <Link
                 href="/contact"

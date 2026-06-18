@@ -4,6 +4,8 @@ import { useState, useEffect, useCallback, useRef } from "react";
 import { motion, AnimatePresence, useReducedMotion } from "framer-motion";
 import { ChevronLeft, ChevronRight, Star, Quote, ShieldCheck } from "lucide-react";
 import ScrollReveal from "./ui/ScrollReveal";
+import SectionRail from "./ui/SectionRail";
+import SectionHeading from "./ui/SectionHeading";
 
 // Verified engagement snapshots — anonymized under NDA where needed.
 // Content reflects representative outcomes from delivered engagements.
@@ -106,16 +108,16 @@ export default function Testimonials() {
 
       <div className="relative max-w-[1400px] mx-auto px-6 lg:px-8">
         {/* Header */}
-        <ScrollReveal>
-          <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-6 mb-8 lg:mb-10 max-w-6xl">
-            <div className="max-w-2xl">
-              <p className="text-[11px] text-accent-light uppercase tracking-[0.25em] font-semibold mb-4">
-                Client Stories
-              </p>
-              <h2 className="font-heading text-4xl md:text-5xl lg:text-6xl font-black text-white leading-[1.05] tracking-tight">
-                Outcomes, in our <br className="hidden md:inline" /><span className="gradient-text">clients&apos; words.</span>
-              </h2>
-            </div>
+        <SectionHeading
+          theme="dark"
+          eyebrow="Client Stories"
+          title={
+            <>
+              Outcomes, in our <br className="hidden md:inline" />
+              <span className="gradient-text">clients&apos; words.</span>
+            </>
+          }
+          aside={
             <div className="flex items-center gap-6 pb-2">
               <div className="flex items-center gap-1">
                 {[1, 2, 3, 4, 5].map((i) => (
@@ -127,8 +129,9 @@ export default function Testimonials() {
                 <p className="text-[11px] text-white/40 uppercase tracking-widest">Avg. client rating</p>
               </div>
             </div>
-          </div>
-        </ScrollReveal>
+          }
+          className="mb-8 lg:mb-10 max-w-6xl"
+        />
 
         {/* Main stage: large quote card */}
         <ScrollReveal delay={0.1}>
@@ -185,9 +188,7 @@ export default function Testimonials() {
             {/* Outcome + indicators column (right — 4/12) */}
             <div className="lg:col-span-4 bg-card-dark p-8 md:p-10 flex flex-col justify-between gap-8">
               <div>
-                <p className="text-[11px] text-accent-light uppercase tracking-[0.25em] font-semibold mb-6">
-                  Measurable Outcome
-                </p>
+                <SectionRail label="Measurable Outcome" theme="dark" className="mb-6" />
                 <AnimatePresence mode="wait">
                   <motion.div
                     key={current + "-outcome"}

@@ -3,6 +3,7 @@ import { Mail, Phone, MapPin, Globe } from "lucide-react";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import ScrollReveal from "@/components/ui/ScrollReveal";
+import SectionRail from "@/components/ui/SectionRail";
 import PageHero from "@/components/ui/PageHero";
 import ContactForm from "@/components/ContactForm";
 import { siteConfig } from "@/lib/constants";
@@ -76,7 +77,7 @@ export default function ContactPage() {
             <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16">
               <ScrollReveal className="lg:col-span-7">
                 <div className="bg-white border border-card-light-border p-8 md:p-10 rounded-md">
-                  <p className="text-[11px] uppercase tracking-widest font-semibold text-accent mb-2">Qualified Lead Form</p>
+                  <SectionRail label="Qualified Lead Form" theme="light" className="mb-2" />
                   <h2 className="font-heading text-2xl md:text-3xl font-bold text-text-dark mb-2">Tell us about <span className="gradient-text">your project.</span></h2>
                   <p className="text-text-dark-muted mb-8 text-sm">Engagement leads review every submission. You will receive a written, scoped response — not a form letter.</p>
                   <ContactForm />
@@ -88,7 +89,7 @@ export default function ContactPage() {
                   <div className="relative overflow-hidden rounded-md p-8 text-white bg-dark-primary border border-card-dark-border">
                     <div className="absolute inset-0 pointer-events-none opacity-40" style={{ background: "radial-gradient(circle at 100% 0%, rgba(6,182,212,0.4) 0%, transparent 60%)" }} />
                     <div className="relative">
-                      <p className="text-[11px] uppercase tracking-widest text-accent-light font-semibold mb-3">Prefer to talk?</p>
+                      <SectionRail label="Prefer to talk?" theme="dark" className="mb-3" />
                       <h3 className="font-heading text-2xl font-bold mb-3 leading-tight">Book an AI readiness call.</h3>
                       <p className="text-white/70 text-sm leading-relaxed mb-5">
                         Bypass the form. Schedule a working session with the engagement lead — scope the opportunity, review architectural options, walk away with a written recommendation. No commitment.

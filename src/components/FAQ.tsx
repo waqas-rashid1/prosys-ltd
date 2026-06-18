@@ -70,8 +70,11 @@ export default function FAQ() {
       <DarkSectionFx variant="soft" />
       <div className="relative z-10 max-w-[1400px] mx-auto px-6 lg:px-8">
         <SectionHeading
+          theme="dark"
+          eyebrow="FAQ"
           title="Frequently Asked Questions"
-          subtitle="Everything you need to know about working with PROSYS LTD."
+          description="Everything you need to know about working with PROSYS LTD."
+          align="center"
         />
 
         <div className="max-w-3xl mx-auto space-y-3">

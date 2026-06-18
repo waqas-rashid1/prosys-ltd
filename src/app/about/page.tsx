@@ -10,6 +10,7 @@ import Footer from "@/components/Footer";
 import ScrollReveal from "@/components/ui/ScrollReveal";
 import PageHero from "@/components/ui/PageHero";
 import DarkSectionFx from "@/components/ui/DarkSectionFx";
+import SectionRail from "@/components/ui/SectionRail";
 import Testimonials from "@/components/Testimonials";
 import { LinkedInIcon } from "@/components/ui/SocialIcons";
 import { SHOW_FOUNDER_CONTENT } from "@/lib/site-visibility";
@@ -122,7 +123,7 @@ export default function AboutPage() {
           <div className="max-w-[1400px] mx-auto px-6 lg:px-8">
             <div className="max-w-3xl">
               <ScrollReveal>
-                <p className="text-xs text-accent uppercase tracking-[0.2em] font-medium mb-4">Why we started</p>
+                <SectionRail label="Why we started" theme="light" />
                 <h2 className="font-heading text-3xl md:text-4xl font-bold text-text-dark mb-8 leading-tight">
                   An AI partner, <span className="gradient-text">accountable end-to-end.</span>
                 </h2>
@@ -143,7 +144,7 @@ export default function AboutPage() {
         <section className="py-14 lg:py-20 bg-white">
           <div className="max-w-[1400px] mx-auto px-6 lg:px-8">
             <ScrollReveal>
-              <p className="text-xs text-accent uppercase tracking-[0.2em] font-medium mb-4">Our People</p>
+              <SectionRail label="Our People" theme="light" />
               <h2 className="font-heading text-3xl md:text-4xl font-bold text-text-dark mb-12">
                 The team behind <span className="gradient-text">the engineering.</span>
               </h2>
@@ -185,8 +186,8 @@ export default function AboutPage() {
           <DarkSectionFx variant="default" />
           <div className="relative z-10 max-w-[1400px] mx-auto px-6 lg:px-8">
             <ScrollReveal>
-              <p className="text-xs text-accent-light uppercase tracking-[0.2em] font-medium mb-4">Principles</p>
-              <h2 className="font-heading text-3xl md:text-4xl font-bold text-text-light mb-12">
+              <SectionRail label="Principles" theme="dark" />
+              <h2 className="font-heading text-3xl md:text-4xl lg:text-5xl font-bold text-text-light mb-12 uppercase tracking-[0.08em] leading-[1.1]">
                 How we <span className="gradient-text">operate.</span>
               </h2>
             </ScrollReveal>
@@ -216,7 +217,7 @@ export default function AboutPage() {
         <section id="timeline" className="py-14 lg:py-20 bg-light-primary">
           <div className="max-w-[1400px] mx-auto px-6 lg:px-8">
             <ScrollReveal>
-              <p className="text-xs text-accent uppercase tracking-[0.2em] font-medium mb-4">Timeline</p>
+              <SectionRail label="Timeline" theme="light" />
               <h2 className="font-heading text-3xl md:text-4xl font-bold text-text-dark mb-14">
                 Our <span className="gradient-text">journey.</span>
               </h2>
@@ -245,8 +246,8 @@ export default function AboutPage() {
           <DarkSectionFx variant="split" />
           <div className="relative z-10 max-w-[1400px] mx-auto px-6 lg:px-8">
             <ScrollReveal>
-              <p className="text-xs text-accent-light uppercase tracking-[0.2em] font-medium mb-4">Leadership</p>
-              <h2 className="font-heading text-3xl md:text-4xl font-bold text-text-light mb-4">
+              <SectionRail label="Leadership" theme="dark" />
+              <h2 className="font-heading text-3xl md:text-4xl lg:text-5xl font-bold text-text-light mb-4 uppercase tracking-[0.08em] leading-[1.1]">
                 Built by <span className="gradient-text">five founders.</span>
               </h2>
               <p className="text-text-light-muted text-lg mb-14 max-w-2xl">
@@ -292,7 +293,7 @@ export default function AboutPage() {
           <div className="max-w-[1400px] mx-auto px-6 lg:px-8">
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
               <ScrollReveal>
-                <p className="text-xs text-accent uppercase tracking-[0.2em] font-medium mb-4">Reach</p>
+                <SectionRail label="Reach" theme="light" />
                 <h2 className="font-heading text-3xl md:text-4xl font-bold text-text-dark mb-6 leading-tight">
                   Distributed delivery, <br />
                   <span className="gradient-text">business-hour overlap.</span>
@@ -340,7 +341,7 @@ export default function AboutPage() {
         {/* Certifications — distinct visual badges so nothing looks duplicated */}
         <section className="py-16 bg-white border-y border-card-light-border">
           <div className="max-w-[1400px] mx-auto px-6 lg:px-8">
-            <p className="text-xs text-accent uppercase tracking-[0.2em] font-semibold text-center mb-3">Standards We Build To</p>
+            <SectionRail label="Standards We Build To" theme="light" />
             <p className="text-[12px] text-text-dark-muted text-center mb-8 max-w-xl mx-auto">Our engineering practice is modeled on these standards and partner programs. Formal certifications are on our roadmap.</p>
             <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-px bg-card-light-border border border-card-light-border rounded-md overflow-hidden">
               <div className="bg-white p-5 flex flex-col items-center text-center group hover:bg-light-primary transition-colors">
@@ -386,8 +387,8 @@ export default function AboutPage() {
           <div className="relative z-10 max-w-[1400px] mx-auto px-6 lg:px-12">
             <ScrollReveal>
               <div className="max-w-2xl">
-                <p className="text-xs text-accent-light uppercase tracking-[0.2em] font-medium mb-6">Next Steps</p>
-                <h2 className="font-heading text-3xl md:text-4xl lg:text-5xl font-bold text-text-light mb-6 leading-tight">
+                <SectionRail label="Next Steps" theme="dark" />
+                <h2 className="font-heading text-3xl md:text-4xl lg:text-5xl font-bold text-text-light mb-6 leading-tight uppercase tracking-[0.08em]">
                   Ready to work with a team that
                   <span className="gradient-text"> delivers?</span>
                 </h2>

@@ -6,6 +6,7 @@ import { motion, AnimatePresence } from "framer-motion";
 import { ArrowRight, Plus, Minus } from "lucide-react";
 import ScrollReveal from "./ui/ScrollReveal";
 import SpotlightCard from "./ui/SpotlightCard";
+import SectionHeading from "./ui/SectionHeading";
 
 const serviceCategories = [
   {
@@ -162,28 +163,24 @@ export default function Services() {
   return (
     <section id="services" className="py-14 lg:py-20 bg-light-primary">
       <div className="max-w-[1400px] mx-auto px-6 lg:px-8">
-        <ScrollReveal>
-          <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-6 mb-16">
-            <div className="max-w-2xl">
-              <p className="text-[11px] text-accent font-semibold uppercase tracking-[0.25em] mb-4">
-                Capabilities
-              </p>
-              <h2 className="font-heading text-4xl md:text-5xl lg:text-6xl font-black text-text-dark leading-[1.05] tracking-tight mb-5">
-                Six services. <br />One safe path to production.
-              </h2>
-              <p className="text-base md:text-lg text-text-dark-muted leading-relaxed">
-                Everything you need to deploy AI safely into operations — strategy, secure agents, governance, knowledge systems, integrations, and monitoring. One team, one set of controls, one accountable point of contact.
-              </p>
-            </div>
+        <SectionHeading
+          eyebrow="Capabilities"
+          title={
+            <>
+              Six services. <br />One safe path to production.
+            </>
+          }
+          description="Everything you need to deploy AI safely into operations — strategy, secure agents, governance, knowledge systems, integrations, and monitoring. One team, one set of controls, one accountable point of contact."
+          aside={
             <Link
               href="/services"
-              className="group inline-flex items-center gap-2 px-6 py-3 rounded-md border border-text-dark/10 text-text-dark text-sm font-medium transition-all duration-300 self-start md:self-auto shrink-0 hover:border-accent hover:text-accent hover:bg-accent/5 hover:-translate-y-0.5 active:translate-y-0 active:scale-[0.98]"
+              className="group inline-flex items-center gap-2 px-6 py-3 border border-text-dark/10 text-text-dark text-sm font-medium transition-all duration-300 hover:border-accent hover:text-accent hover:bg-accent/5 hover:-translate-y-0.5 active:translate-y-0 active:scale-[0.98]"
             >
               View all 6 services
               <ArrowRight size={14} className="transition-transform duration-300 group-hover:translate-x-1" />
             </Link>
-          </div>
-        </ScrollReveal>
+          }
+        />
 
         {/* Desktop: 3-column cards */}
         <div className="hidden lg:grid lg:grid-cols-3 gap-5 items-start">

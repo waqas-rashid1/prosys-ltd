@@ -5,6 +5,7 @@ import Image from "next/image";
 import { ArrowRight } from "lucide-react";
 import { caseStudies } from "@/lib/constants";
 import ScrollReveal from "./ui/ScrollReveal";
+import SectionHeading from "./ui/SectionHeading";
 
 export default function CaseStudies() {
   const featured = caseStudies[0];
@@ -13,19 +14,16 @@ export default function CaseStudies() {
   return (
     <section id="work" className="py-14 lg:py-20 bg-light-primary">
       <div className="max-w-[1400px] mx-auto px-6 lg:px-8">
-        <ScrollReveal>
-          <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-6 mb-14">
-            <div>
-              <p className="text-xs text-accent uppercase tracking-[0.2em] font-medium mb-4">Portfolio</p>
-              <h2 className="font-heading text-4xl md:text-5xl lg:text-6xl font-bold text-text-dark leading-tight">
-                Featured Work
-              </h2>
-            </div>
+        <SectionHeading
+          eyebrow="Portfolio"
+          title="Featured Work"
+          aside={
             <Link href="/work" className="inline-flex items-center gap-2 text-accent font-medium hover:gap-3 transition-all duration-300">
               View All Work <ArrowRight size={16} />
             </Link>
-          </div>
-        </ScrollReveal>
+          }
+          className="mb-14"
+        />
 
         {/* Featured - full width cinematic card */}
         <ScrollReveal>

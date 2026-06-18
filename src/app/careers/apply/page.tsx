@@ -4,6 +4,7 @@ import { ArrowLeft } from "lucide-react";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import ApplyForm from "./ApplyForm";
+import HeroEyebrow from "@/components/ui/HeroEyebrow";
 import { isValidRole } from "@/lib/careers-data";
 
 export const metadata: Metadata = {
@@ -26,7 +27,7 @@ export default async function ApplyPage({
     <>
       <Navbar />
       <main id="main-content">
-        <section className="relative min-h-[55vh] flex items-center bg-dark-primary overflow-hidden py-24 lg:py-28">
+        <section className="relative min-h-dvh flex items-center bg-dark-primary overflow-hidden py-24 lg:py-28">
           <div className="absolute inset-0 z-0 pointer-events-none" aria-hidden="true">
             <div className="absolute top-1/4 -left-20 w-[500px] h-[500px] rounded-full blur-[140px] animate-pulse-glow" style={{ background: "radial-gradient(circle, rgba(6,182,212,0.35) 0%, transparent 65%)" }} />
             <div className="absolute bottom-0 right-0 w-[600px] h-[600px] rounded-full blur-[180px]" style={{ background: "radial-gradient(circle, rgba(103,232,249,0.12) 0%, transparent 70%)" }} />
@@ -36,7 +37,7 @@ export default async function ApplyPage({
               <ArrowLeft size={14} /> Back to all roles
             </Link>
             <div className="max-w-3xl">
-              <p className="text-[11px] text-accent-light uppercase tracking-[0.2em] font-semibold mb-4">Application</p>
+              <HeroEyebrow label="Application" animated={false} className="mb-4" />
               <h1 className="font-heading text-4xl md:text-5xl lg:text-6xl font-black text-white leading-[1.04] tracking-tight mb-5">
                 {role ? (
                   <>

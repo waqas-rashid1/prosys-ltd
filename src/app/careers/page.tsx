@@ -8,6 +8,7 @@ import {
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import ScrollReveal from "@/components/ui/ScrollReveal";
+import SectionRail from "@/components/ui/SectionRail";
 import PageHero from "@/components/ui/PageHero";
 import DarkSectionFx from "@/components/ui/DarkSectionFx";
 
@@ -127,7 +128,7 @@ export default function CareersPage() {
         <section className="py-14 lg:py-20 bg-light-primary">
           <div className="max-w-[1400px] mx-auto px-6 lg:px-8">
             <ScrollReveal>
-              <p className="text-xs text-accent uppercase tracking-[0.2em] font-medium mb-4">Benefits</p>
+              <SectionRail label="Benefits" theme="light" />
               <h2 className="font-heading text-3xl md:text-4xl font-bold text-text-dark mb-12">Why <span className="gradient-text">PROSYS.</span></h2>
             </ScrollReveal>
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-px bg-card-light-border border border-card-light-border">
@@ -153,7 +154,7 @@ export default function CareersPage() {
         <section className="py-14 lg:py-20 bg-white">
           <div className="max-w-[1400px] mx-auto px-6 lg:px-8">
             <ScrollReveal>
-              <p className="text-xs text-accent uppercase tracking-[0.2em] font-medium mb-4">Voices From The Team</p>
+              <SectionRail label="Voices From The Team" theme="light" />
               <h2 className="font-heading text-3xl md:text-4xl font-bold text-text-dark mb-12">What it&apos;s like to <span className="gradient-text">work here.</span></h2>
             </ScrollReveal>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-5xl">
@@ -178,7 +179,7 @@ export default function CareersPage() {
           <DarkSectionFx variant="default" />
           <div className="relative z-10 max-w-[1400px] mx-auto px-6 lg:px-8">
             <ScrollReveal>
-              <p className="text-xs text-accent-light uppercase tracking-[0.2em] font-medium mb-4">Open Positions</p>
+              <SectionRail label="Open Positions" theme="dark" />
               <h2 className="font-heading text-3xl md:text-4xl font-bold text-text-light mb-4">Join the <span className="gradient-text">team.</span></h2>
               <p className="text-text-light-muted mb-10">
                 {openRoles.length} open roles across {new Set(openRoles.map(r => r.dept)).size} departments · Salary ranges transparent

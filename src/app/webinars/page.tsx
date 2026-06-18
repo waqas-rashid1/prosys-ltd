@@ -6,6 +6,7 @@ import Footer from "@/components/Footer";
 import Videos from "@/components/Videos";
 import PageHero from "@/components/ui/PageHero";
 import ScrollReveal from "@/components/ui/ScrollReveal";
+import SectionRail from "@/components/ui/SectionRail";
 import FinalCTA from "@/components/FinalCTA";
 
 export const metadata: Metadata = {
@@ -46,9 +47,7 @@ export default function WebinarsPage() {
             <ScrollReveal>
               <div className="flex items-end justify-between mb-10">
                 <div>
-                  <p className="text-xs text-accent uppercase tracking-[0.2em] font-medium mb-3">
-                    Latest Sessions
-                  </p>
+                  <SectionRail label="Latest Sessions" theme="light" className="mb-3" />
                   <h2 className="font-heading text-3xl md:text-4xl font-bold text-text-dark">
                     Watch the <span className="gradient-text">engine room.</span>
                   </h2>

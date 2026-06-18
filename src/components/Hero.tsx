@@ -2,8 +2,9 @@
 
 import Link from "next/link";
 import { motion, useReducedMotion } from "framer-motion";
-import { ChevronDown, ArrowRight } from "lucide-react";
+import { ChevronDown, ArrowRight, Sparkles } from "lucide-react";
 import MagneticButton from "./ui/MagneticButton";
+import HeroEyebrow from "./ui/HeroEyebrow";
 
 export default function Hero() {
   const prefersReducedMotion = useReducedMotion();
@@ -48,9 +49,7 @@ export default function Hero() {
           transition={{ duration: 0.6, ease: [0.25, 0.1, 0.25, 1] }}
           className="max-w-4xl"
         >
-          <p className="text-[11px] text-accent-light uppercase tracking-[0.25em] font-semibold mb-4">
-            Beyond AI pilots
-          </p>
+          <HeroEyebrow label="Beyond AI pilots" icon={Sparkles} />
 
           <h1 className="font-heading text-[2.25rem] leading-[1.05] sm:text-5xl md:text-[3.5rem] lg:text-6xl xl:text-[4.25rem] font-black mb-5 text-white tracking-tight max-w-3xl">
             Safely deploy AI into{" "}
